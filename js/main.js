@@ -67,16 +67,38 @@
         });
     }
 
-    /* ---------- Reveal on Scroll ---------- */
-    var reveals = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        reveals.forEach(function (el) { io.observe(el); });
-    } else {
-        reveals.forEach(function (el) { el.classList.add('in'); });
+    /* ---------- Reveal on Scroll ----------
+       Bewusst ohne IntersectionObserver: der feuert nicht, wenn das Dokument
+       beim Scrollen nicht sichtbar ist (Prerender, Hintergrund-Tab, Embeds) —
+       Inhalte blieben dann unsichtbar. Der rAF-gedrosselte Positions-Check
+       ist bei ~24 Elementen genauso günstig und funktioniert überall. */
+    var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var ticking = false;
+
+    function checkReveals() {
+        ticking = false;
+        if (!reveals.length) return;
+        var limit = window.innerHeight * 0.94;
+        reveals = reveals.filter(function (el) {
+            if (el.getBoundingClientRect().top < limit) {
+                el.classList.add('in');
+                return false;
+            }
+            return true;
+        });
     }
+
+    function requestCheck() {
+        if (!ticking) {
+            ticking = true;
+            /* setTimeout statt requestAnimationFrame: rAF pausiert in
+               versteckten Dokumenten — dann würde nie wieder geprüft. */
+            window.setTimeout(checkReveals, 80);
+        }
+    }
+
+    window.addEventListener('scroll', requestCheck, { passive: true });
+    window.addEventListener('resize', requestCheck, { passive: true });
+    document.addEventListener('visibilitychange', requestCheck);
+    checkReveals();
 })();
