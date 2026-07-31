@@ -261,18 +261,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .f-bar { fill: #fff; stroke: url(#fgrad); stroke-width: 1.5; }
 .f-node { filter: drop-shadow(0 8px 20px rgba(13, 18, 56, 0.08)); }
 .f-node-web { filter: drop-shadow(0 12px 32px rgba(46, 62, 232, 0.18)); }
+.f-ping-t { font-size: 11px; font-weight: 800; fill: #fff; }
 
-/* Einblenden beim Scrollen: Linien zeichnen sich, Knoten steigen auf, Punkte starten */
-.f-link { fill: none; stroke: rgba(46, 62, 232, 0.2); stroke-width: 2;
-    stroke-dasharray: 1; stroke-dashoffset: 1;
-    transition: stroke-dashoffset 1.2s var(--ease) 0.3s; }
+/* Statische Basis — die gesamte Choreografie übernimmt GSAP (js/flow.js).
+   Ohne JavaScript bleibt das Diagramm vollständig sichtbar. */
+.f-blob { fill: url(#fgrad); opacity: 0.09; }
+.f-link { fill: none; stroke: rgba(46, 62, 232, 0.16); stroke-width: 2;
+    stroke-dasharray: 1; stroke-dashoffset: 0; }
 .f-link-dash { stroke-dasharray: 0.04 0.03; }
-.flow-wrap.in .f-link { stroke-dashoffset: 0; }
-.f-node { opacity: 0; transform: translateY(14px);
-    transition: opacity 0.6s var(--ease) var(--d, 0s), transform 0.6s var(--ease) var(--d, 0s); }
-.flow-wrap.in .f-node { opacity: 1; transform: none; }
-.f-dot { opacity: 0; transition: opacity 0.5s ease 1.4s; }
-.flow-wrap.in .f-dot { opacity: 1; }
+.f-pulse { fill: none; stroke: url(#fgrad); stroke-width: 2.5;
+    stroke-linecap: round; stroke-dasharray: 0.12 0.88; opacity: 0; }
+.f-pulse-thin { stroke-width: 1.8; }
+.f-ping { opacity: 0; }
 
 /* ---------- Ablauf ---------- */
 .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
@@ -393,9 +393,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     .badge-dot, .marquee-track, .showcase-track, .form-wrap::before,
     .script-accent, .script-blue, .script-purple { animation: none; }
     .hero-showcase { overflow-x: auto; }
-    .f-link { stroke-dashoffset: 0; transition: none; }
-    .f-node { opacity: 1; transform: none; transition: none; }
-    .f-dot { opacity: 0; }
     html { scroll-behavior: auto; }
 }
 

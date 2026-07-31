@@ -67,13 +67,6 @@
         });
     }
 
-    /* SMIL-Punkte der System-Grafik bei reduzierter Bewegung anhalten */
-    var flowSvg = document.querySelector('.flow-svg');
-    if (flowSvg && flowSvg.pauseAnimations &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        flowSvg.pauseAnimations();
-    }
-
     /* ---------- Reveal on Scroll ----------
        Bewusst ohne IntersectionObserver: der feuert nicht, wenn das Dokument
        beim Scrollen nicht sichtbar ist (Prerender, Hintergrund-Tab, Embeds) —
