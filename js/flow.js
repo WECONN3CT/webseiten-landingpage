@@ -1,7 +1,7 @@
 /* WECONN3CT — System-Grafik: GSAP-Choreografie
-   Einmalige Intro-Sequenz beim Reinscrollen + dauerhaft ruhiges "Leben"
-   (Energie-Streifen, atmende Karten, +1-Pings). Kein Scroll-Scrubbing.
-   Ohne JS bleibt das Diagramm komplett statisch sichtbar. */
+   Erzählt die Geschichte in Reihenfolge (Phasen 1-5), danach dauerhaft
+   ruhiges "Leben" (Energie-Streifen, atmende Karten, +1-Pings).
+   Kein Scroll-Scrubbing. Ohne JS bleibt das Diagramm statisch sichtbar. */
 (function () {
     'use strict';
 
@@ -17,43 +17,65 @@
 
         /* Anfangszustände (erst hier verstecken → No-JS bleibt sichtbar) */
         gsap.set('.f-node', { transformOrigin: '50% 50%' });
-        gsap.set('.fa-marke, .fa-social, .fa-pill, .fa-result, .fa-auto, .fa-bar', { autoAlpha: 0, y: 20, scale: 0.92 });
+        gsap.set('.fa-p1a, .fa-p1b, .fa-p2, .fa-social, .fa-pill, .fa-result, .fa-auto1, .fa-auto2, .fa-auto3, .fa-bar', { autoAlpha: 0, y: 20, scale: 0.92 });
         gsap.set('.fa-web', { autoAlpha: 0, scale: 0.7 });
         gsap.set('.f-sk', { autoAlpha: 0, y: 8 });
-        gsap.set('.f-cap', { autoAlpha: 0, y: 8 });
+        gsap.set('.f-capg, .f-minicap', { autoAlpha: 0, y: 8 });
         gsap.set('.f-blob', { autoAlpha: 0, scale: 0.6, transformOrigin: '50% 50%' });
         gsap.set('.f-link', { strokeDashoffset: 1 });
+        /* Ketten-Links zusätzlich ausblenden — ihre Pfeilspitzen (Marker)
+           wären sonst trotz verstecktem Strich sichtbar */
+        gsap.set('.f-chain, .f-link-dash', { autoAlpha: 0 });
 
         var tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
 
-        /* Akt 1: Blob blüht auf, die Webseite poppt ins Zentrum und baut sich */
+        /* Phase 1 — Zuerst die Marke: Farben & Logo, daraus Visitenkarten & Flyer */
         tl.to('.f-blob', { autoAlpha: 0.09, scale: 1, duration: 1.1, ease: 'power2.out' }, 0)
-          .to('.fa-web', { autoAlpha: 1, scale: 1, duration: 0.75, ease: 'back.out(1.6)' }, 0.15)
-          .to('.f-sk', { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.09 }, 0.6)
-          .to('.f-cap', { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08 }, 0.5)
+          .to('.fa-cap1', { autoAlpha: 1, y: 0, duration: 0.45 }, 0.1)
+          .to('.fa-p1a', { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, 0.25)
+          .to('.fl-p1chain', { autoAlpha: 1, strokeDashoffset: 0, duration: 0.35, ease: 'power2.inOut' }, 0.7)
+          .to('.fa-p1b', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.6)' }, 0.85)
 
-        /* Akt 2: Marke & Content docken links an */
-          .to('.fl-marke, .fl-social', { strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut', stagger: 0.12 }, 0.85)
-          .to('.fa-marke', { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.5)', stagger: 0.13 }, 0.95)
-          .to('.fa-social', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.5)' }, 1.35)
+        /* … und aus der Marke entsteht die Webseite (Grundgerüst + Texte) */
+          .to('.fl-p1web', { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut' }, 0.95)
+          .to('.fa-web', { autoAlpha: 1, scale: 1, duration: 0.75, ease: 'back.out(1.5)' }, 1.25)
+          .to('.f-sk1', { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.1 }, 1.7)
 
-        /* Akt 3: Reichweite feuert von oben */
-          .to('.fl-reach', { strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut', stagger: 0.1 }, 1.35)
-          .to('.fa-pill', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(2)', stagger: 0.1 }, 1.45)
+        /* Phase 2 — Echte Bilder & Videos füllen die Webseite, auch für Social Media */
+          .to('.fa-cap2', { autoAlpha: 1, y: 0, duration: 0.45 }, 1.9)
+          .to('.fa-p2', { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, 2.05)
+          .to('.fl-p2web', { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, 2.3)
+          .to('.f-sk2', { autoAlpha: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)' }, 2.75)
+          .to('.fl-social', { autoAlpha: 1, strokeDashoffset: 0, duration: 0.5, ease: 'power2.inOut' }, 2.75)
+          .to('.fa-social', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.5)' }, 2.95)
 
-        /* Akt 4: Ergebnisse poppen rechts raus */
-          .to('.fl-result', { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut', stagger: 0.12 }, 1.85)
-          .to('.fa-result', { autoAlpha: 1, y: 0, scale: 1, duration: 0.65, ease: 'back.out(1.8)', stagger: 0.16 }, 2)
+        /* Phase 3 — Gefunden werden: von selbst & mit Werbung, der Button erscheint */
+          .to('.fa-cap3', { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.06 }, 3.2)
+          .to('.fa-pill', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(2)', stagger: 0.09 }, 3.35)
+          .to('.fl-reach', { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut', stagger: 0.08 }, 3.55)
+          .to('.f-sk3', { autoAlpha: 1, y: 0, duration: 0.45, ease: 'back.out(1.6)' }, 4.1)
 
-        /* Akt 5: Automatisierung dockt unten an, die Klammer schließt */
-          .to('.fl-auto', { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut', stagger: 0.1 }, 2.3)
-          .to('.fa-auto', { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.5)', stagger: 0.12 }, 2.45)
-          .to('.fa-bar', { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: 'back.out(1.4)' }, 2.8)
-          .add(startAmbient, 3.1);
+        /* Phase 4 — Das Ergebnis: Anfragen oder Bewerbungen, je nach Ziel */
+          .to('.fa-cap4', { autoAlpha: 1, y: 0, duration: 0.45 }, 4.25)
+          .to('.fl-result', { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut', stagger: 0.12 }, 4.35)
+          .to('.fa-result', { autoAlpha: 1, y: 0, scale: 1, duration: 0.65, ease: 'back.out(1.8)', stagger: 0.16 }, 4.55)
+
+        /* Phase 5 — Der Arbeitsalltag: Automatisierung → KI-Agenten → eigene Software */
+          .to('.fa-cap5', { autoAlpha: 1, y: 0, duration: 0.45 }, 4.95)
+          .to('.fl-webauto', { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, 5.05)
+          .to('.fa-auto1', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.5)' }, 5.3)
+          .to('.fl-chain1', { autoAlpha: 1, strokeDashoffset: 0, duration: 0.3, ease: 'power2.inOut' }, 5.6)
+          .to('.fa-auto2', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.5)' }, 5.75)
+          .to('.fl-chain2', { autoAlpha: 1, strokeDashoffset: 0, duration: 0.3, ease: 'power2.inOut' }, 6.05)
+          .to('.fa-auto3', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.5)' }, 6.2)
+
+        /* Finale — die Klammer: ein Ansprechpartner */
+          .to('.fa-bar', { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: 'back.out(1.4)' }, 6.6)
+          .add(startAmbient, 6.9);
 
         ScrollTrigger.create({
             trigger: '.flow-wrap',
-            start: 'top 75%',
+            start: 'top 72%',
             once: true,
             onEnter: function () { tl.play(); }
         });

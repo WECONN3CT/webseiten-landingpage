@@ -262,6 +262,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .f-node { filter: drop-shadow(0 8px 20px rgba(13, 18, 56, 0.08)); }
 .f-node-web { filter: drop-shadow(0 12px 32px rgba(46, 62, 232, 0.18)); }
 .f-ping-t { font-size: 11px; font-weight: 800; fill: #fff; }
+.f-num { font-size: 12px; font-weight: 800; fill: #fff; }
+.f-minicap { font-size: 9.5px; font-weight: 800; letter-spacing: 0.14em;
+    fill: rgba(13, 18, 56, 0.42); }
+.f-chain { stroke: rgba(46, 62, 232, 0.4) !important; }
 
 /* Statische Basis — die gesamte Choreografie übernimmt GSAP (js/flow.js).
    Ohne JavaScript bleibt das Diagramm vollständig sichtbar. */
