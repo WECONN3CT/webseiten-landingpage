@@ -156,22 +156,63 @@
   #s5-head { position: absolute; top: 100px; left: 0; right: 0; display: flex;
     flex-direction: column; align-items: center; gap: 20px; text-align: center; }
   #s5 h2 { font-size: 92px; }
-  #s5-browser { position: absolute; left: 660px; top: 380px; width: 600px; height: 430px;
-    background: #fff; border: 3px solid transparent; border-radius: 26px;
-    background-clip: padding-box; box-shadow: 0 34px 90px rgba(46,62,232,0.25); overflow: hidden; }
-  #s5-browser .br-bar { height: 54px; }
-  #s5-browser .body { padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
-  #s5-browser .l { height: 16px; border-radius: 8px; background: rgba(13,18,56,0.12); width: 70%; }
-  #s5-browser .l2 { width: 50%; }
-  #s5-btn { margin-top: 12px; padding: 20px 46px; border-radius: 999px; color: #fff;
-    font-size: 28px; font-weight: 800;
+  /* iPhone-Mockup mit Mini-Webseite */
+  #phone { position: absolute; left: 770px; top: 265px; width: 380px; height: 760px;
+    border-radius: 58px; background: #0D1238; padding: 14px; box-sizing: border-box;
+    box-shadow: 0 50px 110px rgba(13,18,56,0.4); }
+  #ph-screen { width: 100%; height: 100%; border-radius: 46px; background: #F8F8FC;
+    overflow: hidden; position: relative; }
+  #ph-island { position: absolute; top: 14px; left: 50%; margin-left: -55px; width: 110px;
+    height: 32px; border-radius: 18px; background: #0D1238; z-index: 6; }
+  #ph-page { position: absolute; inset: 0; padding: 66px 22px 22px; box-sizing: border-box;
+    display: flex; flex-direction: column; gap: 16px; }
+  #ph-nav { display: flex; align-items: center; gap: 10px; }
+  #ph-nav .dot { width: 26px; height: 26px; border-radius: 9px;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+  #ph-nav .bar { height: 10px; border-radius: 5px; background: rgba(13,18,56,0.14); }
+  #ph-hero { height: 118px; border-radius: 16px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082); }
+  #ph-hero .sun { position: absolute; top: 16px; right: 20px; width: 34px; height: 34px;
+    border-radius: 50%; background: rgba(255,255,255,0.85); }
+  #ph-hero .hill { position: absolute; bottom: -26px; left: -20px; width: 200px; height: 90px;
+    border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.25); }
+  #ph-hero .hill2 { left: 120px; width: 260px; height: 110px; background: rgba(255,255,255,0.16); }
+  #ph-h1 { height: 16px; width: 78%; border-radius: 8px; background: rgba(13,18,56,0.8); }
+  #ph-h2 { height: 16px; width: 55%; border-radius: 8px; background: rgba(13,18,56,0.35); margin-top: -6px; }
+  #ph-form { background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 18px;
+    padding: 18px; box-shadow: 0 14px 34px rgba(27,36,112,0.12);
+    display: flex; flex-direction: column; gap: 12px; }
+  #ph-form .lbl { font-size: 15px; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(13,18,56,0.5); }
+  .ph-field { height: 46px; border: 2px solid rgba(13,18,56,0.12); border-radius: 12px;
+    display: flex; align-items: center; padding: 0 14px; font-size: 20px; font-weight: 600;
+    color: #0D1238; background: #F8F8FC; }
+  .ph-caret { width: 2.5px; height: 24px; background: #2E3EE8; margin-left: 3px; }
+  #ph-btn { height: 54px; border-radius: 999px; display: flex; align-items: center;
+    justify-content: center; gap: 10px; color: #fff; font-size: 21px; font-weight: 800;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
-    box-shadow: 0 16px 40px rgba(157,78,221,0.35); }
+    box-shadow: 0 12px 28px rgba(157,78,221,0.35); position: relative; }
+  #ph-check { position: absolute; right: 14px; width: 32px; height: 32px; border-radius: 50%;
+    background: #fff; display: flex; align-items: center; justify-content: center; }
+  #ph-check svg { width: 18px; height: 18px; stroke: #17A34A; stroke-width: 3.4; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+  #ph-notif { position: absolute; top: 58px; left: 12px; right: 12px; background: #fff;
+    border-radius: 20px; box-shadow: 0 18px 44px rgba(13,18,56,0.28); z-index: 7;
+    display: flex; align-items: center; gap: 14px; padding: 16px; }
+  #ph-notif .nicon { width: 52px; height: 52px; border-radius: 15px; flex: none;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    display: flex; align-items: center; justify-content: center; }
+  #ph-notif .nicon svg { width: 28px; height: 28px; stroke: #fff; stroke-width: 2; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+  #ph-notif .nt { font-size: 20px; font-weight: 800; }
+  #ph-notif .ns { font-size: 17px; font-weight: 500; color: rgba(13,18,56,0.55); margin-top: 3px; }
+  #ph-notif .nw { font-size: 15px; font-weight: 600; color: rgba(13,18,56,0.4); margin-left: auto;
+    align-self: flex-start; }
   .result-card { position: absolute; width: 430px; background: #fff; border-radius: 22px;
     border: 1px solid rgba(13,18,56,0.09); box-shadow: 0 26px 64px rgba(27,36,112,0.16);
     padding: 34px 38px; box-sizing: border-box; display: flex; align-items: center; gap: 24px; }
-  #rc-leads { left: 130px; top: 470px; transform: rotate(-1.6deg); }
-  #rc-bew { left: 1370px; top: 470px; transform: rotate(1.4deg); }
+  #rc-leads { left: 150px; top: 480px; transform: rotate(-1.6deg); }
+  #rc-bew { left: 1350px; top: 480px; transform: rotate(1.4deg); }
   .result-card .t { font-size: 32px; font-weight: 800; }
   .result-card .s { font-size: 23px; font-weight: 500; color: rgba(13,18,56,0.55); margin-top: 6px; }
   .count { font-size: 54px; font-weight: 900; letter-spacing: -0.03em; margin-left: auto;
@@ -180,9 +221,10 @@
     font-variant-numeric: tabular-nums; }
   .ping { position: absolute; padding: 12px 24px; border-radius: 999px; color: #fff;
     font-size: 24px; font-weight: 800; box-shadow: 0 14px 34px rgba(27,36,112,0.25); }
-  #ping1 { background: #FF5082; left: 560px; top: 430px; }
-  #ping2 { background: #9D4EDD; left: 1230px; top: 500px; }
-  #ping3 { background: #2E3EE8; left: 590px; top: 640px; }
+  #ping1 { background: #FF5082; left: 620px; top: 420px; }
+  #ping2 { background: #9D4EDD; left: 1180px; top: 520px; }
+  #ping3 { background: #2E3EE8; left: 640px; top: 660px; }
+  #s3-flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; }
 
   /* ---- Szene 6: Phase 5 Alltag ---- */
   #s6 .blob-p { width: 800px; height: 700px; top: -240px; left: -200px; }
@@ -223,10 +265,12 @@
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     box-shadow: 0 24px 60px rgba(157,78,221,0.4); }
   #s7-sub { font-size: 30px; font-weight: 600; color: rgba(13,18,56,0.55); }
+  #s7-line { font-size: 36px; font-weight: 600; color: rgba(13,18,56,0.7); }
+  #s7-line b { font-weight: 800; color: #0D1238; }
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="44">
+<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="46">
 
   <!-- Szene 1: Hook -->
   <div id="s1" class="scene">
@@ -288,6 +332,7 @@
       <div class="chip" id="dest-web"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Ihre Webseite</div>
       <div class="chip" id="dest-social"><svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/></svg>Social Media</div>
     </div>
+    <div id="s3-flash" data-layout-ignore></div>
   </div>
 
   <!-- Szene 4: Phase 3 Gefunden werden -->
@@ -302,7 +347,7 @@
     </div>
     <div id="panel-l" class="panel">
       <span class="panel-tag">Von selbst</span>
-      <div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>ihr handwerker in bonn</div>
+      <div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span id="srch-txt"></span><span class="ph-caret" id="srch-caret" style="height:28px"></span></div>
       <div class="res" id="res1"><span class="pos">1</span>Ihr Unternehmen</div>
       <div class="res dim"><span class="bar"></span></div>
       <div class="res dim"><span class="bar"></span></div>
@@ -326,11 +371,27 @@
       <div class="kicker">Ihr Ergebnis</div>
       <h2>Aus Besuchern werden <span class="accent">Anfragen</span>.</h2>
     </div>
-    <div id="s5-browser">
-      <div class="br-bar"><i></i><i></i><i></i></div>
-      <div class="body">
-        <div class="l"></div><div class="l l2"></div>
-        <div id="s5-btn">Jetzt anfragen</div>
+    <div id="phone">
+      <div id="ph-screen">
+        <div id="ph-island"></div>
+        <div id="ph-page">
+          <div id="ph-nav"><div class="dot"></div><div class="bar" style="width:90px"></div><div class="bar" style="width:44px;margin-left:auto"></div></div>
+          <div id="ph-hero"><div class="sun"></div><div class="hill"></div><div class="hill hill2"></div></div>
+          <div id="ph-h1"></div><div id="ph-h2"></div>
+          <div id="ph-form">
+            <div class="lbl">Kostenlos anfragen</div>
+            <div class="ph-field"><span id="ph-t1"></span><span class="ph-caret" id="ph-c1"></span></div>
+            <div class="ph-field"><span id="ph-t2"></span><span class="ph-caret" id="ph-c2"></span></div>
+            <div id="ph-btn"><span>Anfrage senden</span>
+              <div id="ph-check"><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div id="ph-notif">
+          <div class="nicon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 6-10 7L2 6"/></svg></div>
+          <div><div class="nt">Neue Anfrage 🎉</div><div class="ns">Max Mustermann · Rückruf erbeten</div></div>
+          <div class="nw">jetzt</div>
+        </div>
       </div>
     </div>
     <div id="rc-leads" class="result-card">
@@ -384,6 +445,7 @@
     <div id="s7-content">
       <img id="s7-logo" src="logo.png" alt="WECONN3CT">
       <h2>Alles aus einer Hand.<br>Ein <span class="accent">Ansprechpartner</span>.</h2>
+      <div id="s7-line">Und das Beste: Auf Wunsch macht <b>WECONN3CT</b> all das für Sie.</div>
       <div id="s7-cta">webseite.weconn3ct.de</div>
       <div id="s7-sub">Kostenloses Festpreis-Angebot — Antwort in 24 Stunden.</div>
     </div>
@@ -393,6 +455,20 @@
 <script>
 window.__timelines = window.__timelines || {};
 var tl = gsap.timeline({ paused: true });
+gsap.set('#ph-check', { scale: 0, transformOrigin: '50% 50%' });
+gsap.set('#ph-notif', { y: -150, opacity: 0 });
+gsap.set('#ph-c2', { opacity: 0 });
+
+/* Deterministischer Tipp-Effekt: Zeichen für Zeichen, seekbar */
+function typeInto(sel, text, start, dur) {
+  var o = { n: 0 }, el = document.querySelector(sel);
+  tl.to(o, { n: text.length, duration: dur, ease: 'none', onUpdate: function () {
+    el.textContent = text.slice(0, Math.round(o.n)); } }, start);
+}
+/* Blinkende Schreibmarke (endliche Wiederholungen) */
+function caretBlink(sel, start, cycles) {
+  tl.to(sel, { opacity: 0, duration: 0.32, ease: 'steps(1)', yoyo: true, repeat: cycles * 2 - 1 }, start);
+}
 
 /* ============ Szene 1: Hook (0 – 4.2) ============ */
 tl.from('.s1-meta', { y: -20, opacity: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1 }, 0.15);
@@ -442,6 +518,13 @@ tl.from('#s3-copy .sub', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' 
 tl.from('#ph1', { y: -160, opacity: 0, rotation: -14, duration: 0.7, ease: 'back.out(1.4)' }, S3 + 0.7);
 tl.from('#ph2', { x: 180, opacity: 0, rotation: 12, duration: 0.7, ease: 'back.out(1.4)' }, S3 + 0.95);
 tl.from('#ph3', { y: 160, opacity: 0, rotation: -10, duration: 0.7, ease: 'back.out(1.4)' }, S3 + 1.2);
+/* Kamera-Blitze, wenn die Fotos "geschossen" werden */
+tl.fromTo('#s3-flash', { opacity: 0 }, { opacity: 0.65, duration: 0.08, ease: 'power1.in' }, S3 + 0.85);
+tl.to('#s3-flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, S3 + 0.93);
+tl.fromTo('#s3-flash', { opacity: 0 }, { opacity: 0.55, duration: 0.08, ease: 'power1.in' }, S3 + 1.1);
+tl.to('#s3-flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, S3 + 1.18);
+tl.fromTo('#s3-flash', { opacity: 0 }, { opacity: 0.55, duration: 0.08, ease: 'power1.in' }, S3 + 1.35);
+tl.to('#s3-flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, S3 + 1.43);
 tl.from('#dest-web', { y: 50, opacity: 0, duration: 0.5, ease: 'power2.out' }, S3 + 1.7);
 tl.from('#dest-social', { y: 50, opacity: 0, duration: 0.5, ease: 'power2.out' }, S3 + 1.85);
 tl.to('#ph1', { y: 8, duration: 1.5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S3 + 2.2);
@@ -461,13 +544,15 @@ tl.from('#s4-head .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.o
 tl.from('#s4-head h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.25);
 tl.from('#panel-l', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.6);
 tl.from('#panel-r', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.8);
-tl.from('#panel-l .srch', { scaleX: 0.6, opacity: 0, duration: 0.5, ease: 'power2.out', transformOrigin: 'left center' }, S4 + 1.2);
-tl.from('#res1', { x: -60, opacity: 0, duration: 0.55, ease: 'back.out(1.8)' }, S4 + 1.45);
-tl.from('#panel-l .res.dim', { x: -40, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.12 }, S4 + 1.7);
-tl.from('#ki-chip', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, S4 + 2.1);
-tl.from('#panel-r .adpill', { x: 80, opacity: 0, duration: 0.55, ease: 'power3.out', stagger: 0.18 }, S4 + 1.4);
-tl.from('#s4-goal', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 2.2);
-tl.to('#res1', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 3 }, S4 + 2.6);
+tl.from('#panel-l .srch', { scaleX: 0.6, opacity: 0, duration: 0.5, ease: 'power2.out', transformOrigin: 'left center' }, S4 + 1.1);
+typeInto('#srch-txt', 'ihr handwerker in bonn', S4 + 1.35, 1.0);
+caretBlink('#srch-caret', S4 + 1.1, 4);
+tl.from('#panel-l .res.dim', { x: -40, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.12 }, S4 + 2.2);
+tl.from('#res1', { x: -60, opacity: 0, duration: 0.55, ease: 'back.out(2.2)' }, S4 + 2.5);
+tl.from('#ki-chip', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, S4 + 2.9);
+tl.from('#panel-r .adpill', { x: 80, opacity: 0, duration: 0.55, ease: 'power3.out', stagger: 0.18 }, S4 + 1.5);
+tl.from('#s4-goal', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 2.4);
+tl.to('#res1', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 3 }, S4 + 3.1);
 
 /* Übergang 4→5: Elastic Push (Höhepunkt) */
 var T4 = 24.2;
@@ -483,24 +568,51 @@ tl.from('.s5-meta', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out', sta
 tl.from('#s5-ghost', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, S5);
 tl.from('#s5-head .kicker', { y: -24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S5 + 0.05);
 tl.from('#s5-head h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S5 + 0.2);
-tl.from('#s5-browser', { scale: 0.7, opacity: 0, duration: 0.7, ease: 'back.out(1.5)' }, S5 + 0.5);
-tl.from('#rc-leads', { x: -140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S5 + 0.9);
-tl.from('#rc-bew', { x: 140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S5 + 1.05);
+/* Ergebnis-Karten früh an die Seiten, Zähler noch bei 0 */
+tl.from('#rc-leads', { x: -140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S5 + 0.5);
+tl.from('#rc-bew', { x: 140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S5 + 0.65);
+
+/* Das Handy fährt rein, die Mini-Webseite baut sich auf */
+tl.from('#phone', { y: 260, rotation: 5, opacity: 0, duration: 0.9, ease: 'back.out(1.3)' }, S5 + 0.35);
+tl.from('#ph-nav', { y: 14, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5 + 0.95);
+tl.from('#ph-hero', { y: 22, opacity: 0, duration: 0.45, ease: 'power3.out' }, S5 + 1.05);
+tl.from('#ph-h1', { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5 + 1.15);
+tl.from('#ph-h2', { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5 + 1.25);
+tl.from('#ph-form', { scale: 0.92, y: 20, opacity: 0, duration: 0.5, ease: 'back.out(1.6)' }, S5 + 1.4);
+
+/* Das Formular tippt sich — Feld 1, dann Feld 2 */
+typeInto('#ph-t1', 'Max Mustermann', S5 + 1.85, 0.85);
+caretBlink('#ph-c1', S5 + 1.5, 2);
+tl.set('#ph-c1', { opacity: 0 }, S5 + 2.8);
+tl.set('#ph-c2', { opacity: 1 }, S5 + 2.85);
+typeInto('#ph-t2', '0170 123 45 67', S5 + 2.95, 0.8);
+tl.set('#ph-c2', { opacity: 0 }, S5 + 3.85);
+
+/* Button-Press mit Feedback, Häkchen poppt */
+tl.to('#ph-btn', { scale: 0.94, duration: 0.11, ease: 'power2.in' }, S5 + 4.0);
+tl.to('#ph-btn', { scale: 1, duration: 0.35, ease: 'back.out(3)' }, S5 + 4.11);
+tl.to('#ph-check', { scale: 1, duration: 0.45, ease: 'back.out(2.5)' }, S5 + 4.25);
+
+/* Der Moment: die Anfrage kommt als Push-Nachricht rein */
+tl.to('#ph-notif', { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)' }, S5 + 4.7);
+tl.to('#ph-notif', { scale: 1.03, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S5 + 5.4);
+
+/* Zähler ticken hoch, Pings ploppen */
 var leads = { n: 0 }, bew = { n: 0 };
-tl.to(leads, { n: 12, duration: 1.8, ease: 'power1.out', onUpdate: function () {
-  document.getElementById('cnt-leads').textContent = '+' + Math.round(leads.n); } }, S5 + 1.4);
-tl.to(bew, { n: 7, duration: 1.8, ease: 'power1.out', onUpdate: function () {
-  document.getElementById('cnt-bew').textContent = '+' + Math.round(bew.n); } }, S5 + 1.55);
-tl.fromTo('#ping1', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 1.5);
-tl.to('#ping1', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 2.4);
-tl.fromTo('#ping2', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 2.1);
-tl.to('#ping2', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 3.0);
-tl.fromTo('#ping3', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 2.7);
-tl.to('#ping3', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 3.6);
-tl.to('#s5-btn', { scale: 1.06, duration: 0.45, ease: 'sine.inOut', yoyo: true, repeat: 5 }, S5 + 1.2);
+tl.to(leads, { n: 12, duration: 1.5, ease: 'power1.out', onUpdate: function () {
+  document.getElementById('cnt-leads').textContent = '+' + Math.round(leads.n); } }, S5 + 5.0);
+tl.to(bew, { n: 7, duration: 1.5, ease: 'power1.out', onUpdate: function () {
+  document.getElementById('cnt-bew').textContent = '+' + Math.round(bew.n); } }, S5 + 5.2);
+tl.fromTo('#ping1', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 5.1);
+tl.to('#ping1', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 5.9);
+tl.fromTo('#ping2', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 5.7);
+tl.to('#ping2', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 6.5);
+tl.fromTo('#ping3', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 6.2);
+tl.to('#ping3', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 7.0);
+tl.to('#phone', { y: '-=8', rotation: 0.4, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S5 + 5.3);
 
 /* Übergang 5→6: Vertical Push (Themenwechsel) */
-var T5 = 30.2;
+var T5 = 32.4;
 tl.to('#s5', { y: -1080, duration: 0.55, ease: 'power3.inOut' }, T5);
 tl.fromTo('#s6', { y: 1080, opacity: 1 }, { y: 0, duration: 0.55, ease: 'power3.inOut' }, T5);
 tl.set('#s5', { opacity: 0 }, T5 + 0.6);
@@ -521,7 +633,7 @@ tl.to('#ac1', { y: -8, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: 1 
 tl.to('#ac3', { y: 8, duration: 1.8, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S6 + 3.3);
 
 /* Übergang 6→7: Blur-Crossfade (Ausklang) */
-var T6 = 37.2;
+var T6 = 39.4;
 tl.to('#s6', { opacity: 0, filter: 'blur(14px)', duration: 0.7, ease: 'sine.inOut' }, T6);
 tl.fromTo('#s7', { opacity: 0, filter: 'blur(14px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'sine.out' }, T6 + 0.2);
 
@@ -529,11 +641,12 @@ tl.fromTo('#s7', { opacity: 0, filter: 'blur(14px)' }, { opacity: 1, filter: 'bl
 var S7 = T6 + 0.8;
 tl.from('#s7-logo', { y: -40, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7);
 tl.from('#s7 h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7 + 0.25);
-tl.from('#s7-cta', { scale: 0.7, opacity: 0, duration: 0.6, ease: 'back.out(1.8)' }, S7 + 0.6);
-tl.from('#s7-sub', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S7 + 0.85);
-tl.to('#s7-cta', { scale: 1.05, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, S7 + 1.4);
+tl.from('#s7-line', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S7 + 0.55);
+tl.from('#s7-cta', { scale: 0.7, opacity: 0, duration: 0.6, ease: 'back.out(1.8)' }, S7 + 0.85);
+tl.from('#s7-sub', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S7 + 1.1);
+tl.to('#s7-cta', { scale: 1.05, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, S7 + 1.7);
 /* Finale: sanft ausblenden (nur letzte Szene darf) */
-tl.to('#s7-content', { opacity: 0, y: -20, duration: 0.8, ease: 'power1.in' }, 43.0);
+tl.to('#s7-content', { opacity: 0, y: -20, duration: 0.8, ease: 'power1.in' }, 45.1);
 
 window.__timelines['main'] = tl;
 </script>
