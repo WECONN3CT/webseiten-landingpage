@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vielen Dank für Ihre Anfrage | WECONN3CT</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+      window.WC_PIXEL_ID = 'DEINE_PIXEL_ID'; // TODO: echte Pixel-ID eintragen (gleiche wie index.html)
+    </script>
+</head>
+<body>
+
+<div class="bg-scene" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="grid-overlay"></div>
+</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <img src="/assets/logo.png" alt="WECONN3CT Logo" class="logo" width="150" height="40">
+        <a href="tel:+4922241874592" class="header-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>02224 187 45 92</span>
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container container-narrow" style="text-align:center;">
+            <div class="badge" style="margin-top:32px;">
+                <span class="badge-dot"></span>
+                Anfrage erhalten
+            </div>
+            <h1>Vielen Dank — Ihre Anfrage ist <span class="script-accent">angekommen!</span></h1>
+            <p class="hero-sub" style="margin-left:auto; margin-right:auto;">Wir melden uns <strong>innerhalb von 24 Stunden</strong> bei Ihnen — meist deutlich schneller.</p>
+
+            <div class="steps" style="text-align:left; margin-top:44px;">
+                <div class="step in">
+                    <div class="step-num">1</div>
+                    <h3>Wir prüfen Ihre Anfrage</h3>
+                    <p>Ihr Anliegen liegt jetzt direkt bei uns auf dem Tisch — kein Ticketsystem, kein Warteschleifen-Roboter.</p>
+                </div>
+                <div class="step in">
+                    <div class="step-num">2</div>
+                    <h3>Wir melden uns bei Ihnen</h3>
+                    <p>Per Telefon oder E-Mail — für ein kurzes, unverbindliches Gespräch über Ihr Projekt.</p>
+                </div>
+                <div class="step in">
+                    <div class="step-num">3</div>
+                    <h3>Sie erhalten Ihr Angebot</h3>
+                    <p>Ein klarer Festpreis, ein klarer Zeitplan. Sie entscheiden in Ruhe.</p>
+                </div>
+            </div>
+
+            <div class="cta-card" style="margin-top:44px; padding:40px 28px;">
+                <h2 style="font-size:1.4rem;">Sie möchten nicht warten?</h2>
+                <p style="margin-bottom:20px;">Rufen Sie uns einfach direkt an:</p>
+                <a href="tel:+4922241874592" class="btn-primary btn-lg">📞 02224 187 45 92</a>
+            </div>
+
+            <p style="margin:36px 0 60px; font-size:0.9rem;">
+                <a href="https://weconn3ct.de" style="color:var(--ink-60);">← Zur WECONN3CT Hauptseite</a>
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p><strong>WECONN3CT GmbH</strong> · Frankenweg 109 · 53604 Bad Honnef · <a href="mailto:info@weconn3ct.de">info@weconn3ct.de</a></p>
+        <p><a href="https://weconn3ct.de/impressum/" target="_blank" rel="noopener">Impressum</a> · <a href="https://weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a></p>
+    </div>
+</footer>
+
+<script>
+/* Lead-Event mit Deduplizierung: eventID kommt als ?eid=… vom Server (CAPI nutzt dieselbe ID) */
+(function () {
+    var params = new URLSearchParams(window.location.search);
+    var eid = params.get('eid');
+    var consent = localStorage.getItem('wc_consent') === 'yes';
+    if (!consent || !window.WC_PIXEL_ID || window.WC_PIXEL_ID === 'DEINE_PIXEL_ID') return;
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', window.WC_PIXEL_ID);
+    fbq('track', 'PageView');
+    if (eid) {
+        fbq('track', 'Lead', {}, { eventID: eid });
+    } else {
+        fbq('track', 'Lead');
+    }
+})();
+</script>
+</body>
+</html>
