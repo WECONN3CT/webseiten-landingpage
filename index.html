@@ -7,10 +7,12 @@
     <meta name="description" content="Webseite erstellen lassen vom Team aus Bad Honnef: individuell, schnell, zum Festpreis. Kostenloses Angebot innerhalb von 24 Stunden. Jetzt unverbindlich anfragen.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://webseite.weconn3ct.de/">
-    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="theme-color" content="#F8F8FC">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webseite.weconn3ct.de/">
     <meta property="og:title" content="Webseite erstellen lassen zum Festpreis | WECONN3CT">
     <meta property="og:description" content="Modern, schnell, persönlich betreut. Kostenloses Angebot in 24 h.">
     <meta property="og:image" content="https://webseite.weconn3ct.de/assets/logo.png">
@@ -21,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -63,7 +65,7 @@
 <!-- Header -->
 <header class="site-header">
     <div class="container header-inner">
-        <img src="/assets/logo.png" alt="WECONN3CT Logo" class="logo" width="150" height="40">
+        <img src="assets/logo.png" alt="WECONN3CT Logo" class="logo" width="150" height="40">
         <a href="tel:+4922241874592" class="header-phone">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>02224 187 45 92</span>
@@ -151,6 +153,23 @@
         </div>
     </section>
 
+    <!-- REFERENZ-KARUSSELL direkt unter der Hero (läuft langsam endlos durch) -->
+    <section class="hero-showcase" id="projekte" aria-label="Ausgewählte Projekte">
+        <div class="showcase-track">
+            <div class="browser-frame"><img src="assets/mertes-tall.webp" alt="Webseite für Schornsteinfeger Mertes" width="1280" height="1040"></div>
+            <div class="browser-frame"><img src="assets/kaya-tall.webp" alt="Webseite für Kaya Feinkost" width="1280" height="1040"></div>
+            <div class="browser-frame"><img src="assets/persopro-tall.webp" alt="Webseite für Perso Pro" width="1280" height="1040"></div>
+            <div class="browser-frame"><img src="assets/aeraumwerk-tall.webp" alt="Webseite für AE Raumwerk" width="1280" height="1040"></div>
+            <div class="browser-frame"><img src="assets/schadencheck-tall.webp" alt="Webseite für SchadenCheck" width="1280" height="1040"></div>
+            <!-- Kopie für die nahtlose Endlosschleife -->
+            <div class="browser-frame" aria-hidden="true"><img src="assets/mertes-tall.webp" alt="" width="1280" height="1040"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/kaya-tall.webp" alt="" width="1280" height="1040"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/persopro-tall.webp" alt="" width="1280" height="1040"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/aeraumwerk-tall.webp" alt="" width="1280" height="1040"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/schadencheck-tall.webp" alt="" width="1280" height="1040"></div>
+        </div>
+    </section>
+
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
         <div class="marquee-track">
@@ -159,57 +178,10 @@
         </div>
     </div>
 
-    <!-- REFERENZEN -->
-    <section class="section refs" id="projekte">
-        <div class="container">
-            <div class="section-head reveal" data-num="01">
-                <p class="kicker">Ausgewählte Projekte</p>
-                <h2><span class="script-blue"><span class="script-cap">A</span>rbeit</span>, die für sich <span class="script-purple">spricht</span>.</h2>
-            </div>
-
-            <div class="ref-stage">
-                <figure class="ref-feature reveal">
-                    <div class="organic-shape" aria-hidden="true"></div>
-                    <div class="browser-frame tilt-l">
-                        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">schornsteinfeger-mertes.de</span></div>
-                        <img src="/assets/mertes.webp" alt="Webseite für Schornsteinfeger Mertes" loading="lazy" width="900" height="560">
-                    </div>
-                    <figcaption>
-                        <strong>Schornsteinfeger Mertes</strong>
-                        <span>Handwerksbetrieb mit Webseite, Terminverwaltung und eigener Kunden-App</span>
-                    </figcaption>
-                </figure>
-
-                <div class="ref-duo">
-                    <figure class="ref-card reveal">
-                        <div class="browser-frame tilt-r">
-                            <div class="browser-bar"><i></i><i></i><i></i></div>
-                            <img src="/assets/kaya.webp" alt="Webseite für Kaya Feinkost" loading="lazy" width="900" height="560">
-                        </div>
-                        <figcaption>
-                            <strong>Kaya Feinkost</strong>
-                            <span>Gastronomie &amp; Feinkost</span>
-                        </figcaption>
-                    </figure>
-                    <figure class="ref-card ref-card-offset reveal">
-                        <div class="browser-frame tilt-l2">
-                            <div class="browser-bar"><i></i><i></i><i></i></div>
-                            <img src="/assets/persopro.webp" alt="Webseite für Perso Pro" loading="lazy" width="900" height="560">
-                        </div>
-                        <figcaption>
-                            <strong>Perso Pro</strong>
-                            <span>Moderne Firmenwebseite</span>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ABLAUF -->
     <section class="section process">
         <div class="container">
-            <div class="section-head reveal" data-num="02">
+            <div class="section-head reveal" data-num="01">
                 <p class="kicker">So arbeiten wir</p>
                 <h2>In drei Schritten vom ersten <span class="script-blue">Gespräch</span> bis <span class="script-purple">live</span>.</h2>
             </div>
@@ -237,7 +209,7 @@
     <section class="section included">
         <div class="container incl-split">
             <div class="incl-intro reveal">
-                <div class="section-head" data-num="03">
+                <div class="section-head" data-num="02">
                     <p class="kicker">Was Sie bekommen</p>
                     <h2>Ein <span class="script-blue">Preis</span>. Alles <span class="script-purple">drin</span>.</h2>
                 </div>
@@ -278,7 +250,7 @@
     <!-- FAQ -->
     <section class="section faq">
         <div class="container container-narrow">
-            <div class="section-head reveal" data-num="04">
+            <div class="section-head reveal" data-num="03">
                 <p class="kicker">Häufige Fragen</p>
                 <h2><span class="script-blue">Kurz</span> &amp; ehrlich <span class="script-purple">beantwortet</span>.</h2>
             </div>
@@ -337,6 +309,6 @@
     </div>
 </div>
 
-<script src="/js/main.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
