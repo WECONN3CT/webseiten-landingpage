@@ -43,13 +43,23 @@
     padding: 18px 32px; }
   .chip .cdot { width: 14px; height: 14px; border-radius: 50%; flex: none;
     background: linear-gradient(120deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
-  .icon { width: 44px; height: 44px; stroke: #2E3EE8; stroke-width: 2; fill: none;
-    stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .icon { width: 64px; height: 64px; padding: 13px; border-radius: 16px; flex: none;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); stroke: #fff;
+    stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; box-sizing: border-box; }
   .was-wrap { position: absolute; inset: 0; display: flex; flex-direction: column;
     justify-content: center; align-items: flex-start; padding: 0 140px; gap: 34px; box-sizing: border-box; }
   .was-wrap h2 { font-size: 104px; }
   .chip-row { display: flex; gap: 22px; flex-wrap: wrap; max-width: 1000px; }
   .ph-caret { width: 2.5px; height: 24px; background: #2E3EE8; margin-left: 3px; }
+  .explain { font-size: 33px; font-weight: 500; color: rgba(13,18,56,0.68); line-height: 1.5; }
+  .explain-c { position: absolute; left: 0; right: 0; text-align: center; padding: 0 260px; }
+  .explain b { font-weight: 700; color: #0D1238; }
+  .deco { position: absolute; }
+  .d-ring { width: 46px; height: 46px; border: 5px solid rgba(46,62,232,0.28); border-radius: 50%; }
+  .d-dot { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,80,130,0.45); }
+  .d-sq { width: 26px; height: 26px; border: 5px solid rgba(157,78,221,0.35); border-radius: 8px; transform: rotate(18deg); }
+  .grad-badge { background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082) !important;
+    stroke: #fff !important; box-sizing: border-box; }
 
   /* ---- S1 Hook ---- */
   #s1-a, #s1-b { position: absolute; inset: 0; display: flex; flex-direction: column;
@@ -130,7 +140,7 @@
 
   /* ---- S5 Warum SEO ---- */
   #s5-line { position: absolute; top: 130px; left: 0; right: 0; text-align: center; }
-  #serp { position: absolute; left: 560px; top: 380px; width: 800px; }
+  #serp { position: absolute; left: 560px; top: 430px; width: 800px; }
   #serp .srch { display: flex; align-items: center; gap: 16px; border: 2px solid rgba(13,18,56,0.12);
     border-radius: 999px; padding: 20px 30px; font-size: 28px; font-weight: 600;
     color: rgba(13,18,56,0.6); margin-bottom: 28px; background: #fff;
@@ -161,12 +171,12 @@
 
   /* ---- S6 Warum Verweildauer ---- */
   #s6-line { position: absolute; top: 130px; left: 0; right: 0; text-align: center; }
-  #dw-browser { position: absolute; left: 400px; top: 370px; width: 560px; height: 560px;
+  #dw-browser { position: absolute; left: 400px; top: 410px; width: 560px; height: 560px;
     background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 24px;
     box-shadow: 0 30px 70px rgba(27,36,112,0.16); overflow: hidden; transform: rotate(-1deg); }
   #dw-page { padding: 24px; }
   #dw-page .blk { border-radius: 14px; margin-bottom: 18px; }
-  #dw-stats { position: absolute; left: 1080px; top: 400px; width: 440px; display: flex;
+  #dw-stats { position: absolute; left: 1080px; top: 440px; width: 440px; display: flex;
     flex-direction: column; gap: 36px; }
   #dw-timer-card, #dw-int-card { background: #fff; border: 1px solid rgba(13,18,56,0.09);
     border-radius: 22px; box-shadow: 0 22px 54px rgba(27,36,112,0.13); padding: 30px 34px; }
@@ -181,7 +191,7 @@
   #int-track { margin-top: 16px; height: 22px; border-radius: 11px; background: rgba(13,18,56,0.07); overflow: hidden; }
   #int-fill { height: 100%; width: 100%; border-radius: 11px; transform-origin: left center;
     background: linear-gradient(90deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
-  #dw-badge { position: absolute; left: 1110px; top: 800px; display: inline-flex; align-items: center;
+  #dw-badge { position: absolute; left: 1110px; top: 830px; display: inline-flex; align-items: center;
     gap: 14px; padding: 20px 34px; border-radius: 999px; color: #fff; font-size: 30px; font-weight: 800;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     box-shadow: 0 20px 50px rgba(157,78,221,0.4); }
@@ -222,10 +232,10 @@
     letter-spacing: 0.12em; text-transform: uppercase; color: rgba(13,18,56,0.5); }
 
   /* ---- S8 Ergebnis (Handy + Formular) ---- */
-  #s8-head { position: absolute; top: 100px; left: 0; right: 0; display: flex;
+  #s8-head { position: absolute; top: 72px; left: 0; right: 0; display: flex;
     flex-direction: column; align-items: center; gap: 20px; text-align: center; }
-  #s8-head h2 { font-size: 92px; }
-  #phone { position: absolute; left: 770px; top: 265px; width: 380px; height: 760px;
+  #s8-head h2 { font-size: 84px; }
+  #phone { position: absolute; left: 770px; top: 335px; transform: scale(0.88); transform-origin: 50% 0; width: 380px; height: 760px;
     border-radius: 58px; background: #0D1238; padding: 14px; box-sizing: border-box;
     box-shadow: 0 50px 110px rgba(13,18,56,0.4); }
   #ph-screen { width: 100%; height: 100%; border-radius: 46px; background: #F8F8FC;
@@ -251,7 +261,7 @@
     padding: 18px; box-shadow: 0 14px 34px rgba(27,36,112,0.12);
     display: flex; flex-direction: column; gap: 12px; }
   #ph-form .lbl { font-size: 15px; font-weight: 800; letter-spacing: 0.08em;
-    text-transform: uppercase; color: rgba(13,18,56,0.5); }
+    text-transform: uppercase; color: rgba(13,18,56,0.66); }
   .ph-field { height: 46px; border: 2px solid rgba(13,18,56,0.12); border-radius: 12px;
     display: flex; align-items: center; padding: 0 14px; font-size: 20px; font-weight: 600;
     color: #0D1238; background: #F8F8FC; }
@@ -272,8 +282,8 @@
   #ph-notif .nicon svg { width: 28px; height: 28px; stroke: #fff; stroke-width: 2; fill: none;
     stroke-linecap: round; stroke-linejoin: round; }
   #ph-notif .nt { font-size: 20px; font-weight: 800; }
-  #ph-notif .ns { font-size: 17px; font-weight: 500; color: rgba(13,18,56,0.55); margin-top: 3px; }
-  #ph-notif .nw { font-size: 15px; font-weight: 600; color: rgba(13,18,56,0.4); margin-left: auto;
+  #ph-notif .ns { font-size: 17px; font-weight: 500; color: rgba(13,18,56,0.7); margin-top: 3px; }
+  #ph-notif .nw { font-size: 15px; font-weight: 600; color: rgba(13,18,56,0.62); margin-left: auto;
     align-self: flex-start; }
   .result-card { position: absolute; width: 430px; background: #fff; border-radius: 22px;
     border: 1px solid rgba(13,18,56,0.09); box-shadow: 0 26px 64px rgba(27,36,112,0.16);
@@ -281,7 +291,7 @@
   #rc-leads { left: 150px; top: 480px; transform: rotate(-1.6deg); }
   #rc-bew { left: 1350px; top: 480px; transform: rotate(1.4deg); }
   .result-card .t { font-size: 32px; font-weight: 800; }
-  .result-card .s { font-size: 23px; font-weight: 500; color: rgba(13,18,56,0.55); margin-top: 6px; }
+  .result-card .s { font-size: 23px; font-weight: 500; color: rgba(13,18,56,0.68); margin-top: 6px; }
   .count { font-size: 54px; font-weight: 900; letter-spacing: -0.03em; margin-left: auto;
     background: linear-gradient(100deg, #2E3EE8, #FF5082);
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -296,8 +306,9 @@
     background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 16px;
     padding: 16px 20px; box-shadow: 0 14px 34px rgba(27,36,112,0.12); font-size: 21px; font-weight: 700;
     box-sizing: border-box; }
-  .task svg { width: 30px; height: 30px; stroke: #9D4EDD; stroke-width: 2; fill: none;
-    stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .task svg { width: 44px; height: 44px; padding: 9px; border-radius: 12px; flex: none;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); stroke: #fff;
+    stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; box-sizing: border-box; }
   #t1 { top: 420px; } #t2 { top: 340px; transform: rotate(-1.5deg); }
   #t3 { top: 260px; transform: rotate(1.2deg); } #t4 { top: 180px; transform: rotate(-1deg); }
   #t5 { top: 100px; transform: rotate(1.5deg); }
@@ -324,8 +335,9 @@
   .ring-chip { position: absolute; top: 10px; width: 96px; height: 96px; border-radius: 26px; background: #fff;
     border: 1px solid rgba(13,18,56,0.09); box-shadow: 0 18px 44px rgba(27,36,112,0.16);
     display: flex; align-items: center; justify-content: center; }
-  .ring-chip svg { width: 48px; height: 48px; stroke: #2E3EE8; stroke-width: 2; fill: none;
-    stroke-linecap: round; stroke-linejoin: round; }
+  .ring-chip svg { width: 62px; height: 62px; padding: 12px; border-radius: 16px;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); stroke: #fff;
+    stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; box-sizing: border-box; }
   #q1 { left: 20px; } #q2 { left: 135px; } #q3 { left: 250px; } #q4 { left: 365px; }
   #s10-logo { height: 96px; }
   #s10 h2 { font-size: 78px; max-width: 1500px; }
@@ -335,11 +347,23 @@
     color: #fff; font-size: 34px; font-weight: 800;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     box-shadow: 0 24px 60px rgba(157,78,221,0.4); }
+  #dw-user { position: absolute; left: 344px; top: 490px; width: 42px; height: 42px; border-radius: 50%;
+    border: 4px solid #fff; background: linear-gradient(130deg, #2E3EE8, #FF5082);
+    box-shadow: 0 10px 24px rgba(27,36,112,0.3); z-index: 3; }
+  .heart { position: absolute; width: 44px; height: 44px; z-index: 9; }
+  .heart svg { width: 100%; height: 100%; fill: #FF5082; }
+  #gear-pulse { position: absolute; left: 540px; top: 290px; width: 50px; height: 50px;
+    border-radius: 50%; border: 6px solid rgba(157,78,221,0.55); }
   #s10-sub { font-size: 29px; font-weight: 600; color: rgba(13,18,56,0.55); }
+  #rl-fly { position: absolute; left: 620px; top: 406px; width: 74px; height: 74px;
+    border-radius: 18px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    color: #fff; font-size: 38px; font-weight: 900; z-index: 8;
+    box-shadow: 0 16px 40px rgba(46,62,232,0.4); }
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="74">
+<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="89">
 
   <svg width="0" height="0" style="position:absolute"><defs>
     <linearGradient id="hsgrad" x1="0" y1="1" x2="0" y2="0">
@@ -347,7 +371,7 @@
   </defs></svg>
 
   <!-- S1 Hook -->
-  <div id="s1" class="scene">
+  <div id="s1" class="scene"><div class="deco d-ring" data-layout-ignore style="left:300px;top:760px"></div><div class="deco d-dot" data-layout-ignore style="left:1650px;top:250px"></div><div class="deco d-sq" data-layout-ignore style="left:240px;top:180px"></div>
     <div class="blob blob-b" data-layout-ignore></div><div class="blob blob-p" data-layout-ignore></div>
     <div id="s1-ghost" class="ghost" data-layout-ignore>?</div>
     <div id="s1-a">
@@ -356,11 +380,12 @@
     <div id="s1-b">
       <div id="s1-badge"><i></i>WECONN3CT · Bad Honnef</div>
       <h1>Zeit für ein <span class="accent">System</span>,<br>das <span class="accent">Kunden</span> bringt.</h1>
+      <div class="explain" id="e1" style="max-width:1250px">Marke, Webseite, Werbung und Automatisierung — <b>alles aus einer Hand</b>.</div>
     </div>
   </div>
 
   <!-- S2 Design: Was -->
-  <div id="s2" class="scene">
+  <div id="s2" class="scene"><div class="deco d-dot" data-layout-ignore style="left:1760px;top:140px"></div><div class="deco d-ring" data-layout-ignore style="left:1000px;top:880px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>1</div>
     <div class="meta meta-tl sm2">Leistung 1 / 4</div>
@@ -373,6 +398,7 @@
         <div class="chip c2"><span class="cdot"></span>Visitenkarten</div>
         <div class="chip c2"><span class="cdot"></span>Flyer</div>
       </div>
+      <div class="explain" id="e2" style="max-width:900px">Wir gestalten Ihr komplettes Erscheinungsbild — <b>Farben, Logo, Visitenkarten und Flyer</b> aus einem Guss.</div>
     </div>
     <div id="s2-visual">
       <div id="sw-row">
@@ -389,25 +415,27 @@
   </div>
 
   <!-- S3 Design: Warum -->
-  <div id="s3" class="scene">
+  <div id="s3" class="scene"><div class="deco d-sq" data-layout-ignore style="left:180px;top:720px"></div><div class="deco d-dot" data-layout-ignore style="left:1720px;top:240px"></div>
     <div class="blob blob-p" data-layout-ignore></div>
     <div class="meta meta-tr sm3">Warum Design?</div>
     <div id="s3-line" class="benefit">Überall sofort <span class="accent">wiedererkannt</span>.</div>
+    <div class="explain explain-c" id="e3" style="top:262px">Ein einheitlicher Auftritt wirkt professionell — <b>Kunden merken sich Ihren Namen</b>.</div>
+    <div id="rl-fly" data-layout-allow-overlap>A</div>
     <div class="rec-row">
       <div id="r1" class="rec-item"><div class="rimg"></div><div class="rl" style="width:80%"></div><div class="rl" style="width:55%"></div>
-        <div class="rec-logo rlg">A</div><div class="rec-name">Webseite</div>
-        <div class="rec-check rck"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 12l5 5l10 -10" /></svg></div></div>
+        <div class="rec-logo" id="rlg1">A</div><div class="rec-name">Webseite</div>
+        <div class="rec-check" id="rck1"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 12l5 5l10 -10" /></svg></div></div>
       <div id="r2" class="rec-item"><div class="rl" style="width:60%;height:16px"></div><div class="rl" style="width:85%"></div><div class="rl" style="width:70%"></div>
-        <div class="rec-logo rlg">A</div><div class="rec-name">Visitenkarte</div>
-        <div class="rec-check rck"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 12l5 5l10 -10" /></svg></div></div>
+        <div class="rec-logo" id="rlg2">A</div><div class="rec-name">Visitenkarte</div>
+        <div class="rec-check" id="rck2"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 12l5 5l10 -10" /></svg></div></div>
       <div id="r3" class="rec-item"><div class="rbar"></div><div class="rl" style="width:75%"></div><div class="rl" style="width:50%"></div>
-        <div class="rec-logo rlg">A</div><div class="rec-name">Social Media</div>
-        <div class="rec-check rck"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 12l5 5l10 -10" /></svg></div></div>
+        <div class="rec-logo" id="rlg3">A</div><div class="rec-name">Social Media</div>
+        <div class="rec-check" id="rck3"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 12l5 5l10 -10" /></svg></div></div>
     </div>
   </div>
 
   <!-- S4 Webseite: Was -->
-  <div id="s4" class="scene">
+  <div id="s4" class="scene"><div class="deco d-dot" data-layout-ignore style="left:880px;top:150px"></div><div class="deco d-sq" data-layout-ignore style="left:1800px;top:860px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>2</div>
     <div class="meta meta-tl sm4">Leistung 2 / 4</div>
@@ -419,6 +447,7 @@
         <div class="chip c4"><span class="cdot"></span>SEO-optimiert</div>
         <div class="chip c4"><span class="cdot"></span>Lead- &amp; Bewerber-Magnet</div>
       </div>
+      <div class="explain" id="e4" style="max-width:900px">Wir bauen Ihre Webseite individuell — <b>modern, sauber programmiert</b> und darauf ausgelegt, Besucher in Anfragen zu verwandeln.</div>
     </div>
     <div id="s4-browser">
       <div class="br-bar"><i></i><i></i><i></i></div>
@@ -429,10 +458,11 @@
   </div>
 
   <!-- S5 Warum SEO -->
-  <div id="s5" class="scene">
+  <div id="s5" class="scene"><div class="deco d-ring" data-layout-ignore style="left:240px;top:560px"></div><div class="deco d-dot" data-layout-ignore style="left:1660px;top:700px"></div>
     <div class="blob blob-p" data-layout-ignore></div>
     <div class="meta meta-tr sm5">Warum SEO?</div>
     <div id="s5-line" class="benefit">Wer sucht, scrollt nicht weit.<br><span class="accent">Platz 1 gewinnt.</span></div>
+    <div class="explain explain-c" id="e5" style="top:310px">Wir optimieren Ihre Seite für Google: <b>Wenn Kunden suchen, stehen Sie ganz oben</b> — denn nach unten scrollt kaum jemand.</div>
     <div id="serp">
       <div class="srch"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /> <path d="M21 21l-6 -6" /></svg><span id="srch-txt"></span><span class="ph-caret" id="srch-caret" style="height:30px"></span></div>
       <div class="serp-row" id="serp-own"><span class="pos">1</span>Ihr Unternehmen</div>
@@ -446,10 +476,11 @@
   </div>
 
   <!-- S6 Warum Verweildauer -->
-  <div id="s6" class="scene">
+  <div id="s6" class="scene"><div class="deco d-sq" data-layout-ignore style="left:240px;top:640px"></div><div class="deco d-dot" data-layout-ignore style="left:1720px;top:260px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="meta meta-tr sm6">Warum schönes Design?</div>
     <div id="s6-line" class="benefit">Wer gern bleibt,<br><span class="accent">fragt eher an</span>.</div>
+    <div class="explain explain-c" id="e6" style="top:310px">Eine schöne Seite macht Lust zu bleiben: <b>Besucher schauen sich mehr an</b> — und aus Interesse wird eine Anfrage.</div>
     <div id="dw-browser">
       <div class="br-bar"><i></i><i></i><i></i></div>
       <div id="dw-page">
@@ -474,17 +505,19 @@
         <div id="int-track"><div id="int-fill"></div></div>
       </div>
     </div>
+    <div id="dw-user" data-layout-ignore></div>
     <div id="dw-badge"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /> <path d="M3 7l9 6l9 -6" /></svg>Neue Anfrage!</div>
   </div>
 
   <!-- S7 Ads -->
-  <div id="s7" class="scene">
+  <div id="s7" class="scene"><div class="deco d-ring" data-layout-ignore style="left:860px;top:870px"></div><div class="deco d-dot" data-layout-ignore style="left:1810px;top:220px"></div>
     <div class="blob blob-p" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>3</div>
     <div class="meta meta-tl sm7">Leistung 3 / 4</div>
     <div id="s7-copy">
       <div class="kicker">Meta &amp; Google Ads</div>
       <h2>Immer wieder<br><span class="accent">im Feed</span>.</h2>
+      <div class="explain" id="e7" style="max-width:720px">Wir schalten gezielte Anzeigen bei <b>Google, Instagram und Facebook</b>. Ihre Marke taucht immer wieder auf — und bleibt im Gedächtnis.</div>
       <div class="benefit" id="s7-benefit" style="font-size:46px">So bleibt Ihre Marke<br><span class="accent">im Kopf</span>.</div>
     </div>
     <div id="phone2">
@@ -502,6 +535,8 @@
         </div>
       </div>
     </div>
+    <div class="heart" id="hb1" data-layout-ignore><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg></div>
+    <div class="heart" id="hb2" data-layout-ignore><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg></div>
     <div id="head-sil">
       <svg viewBox="0 0 200 240">
         <defs><clipPath id="hs-clip"><path d="M100 12 C 152 12 182 48 182 96 C 182 118 174 136 162 150 L 170 176 L 148 182 L 148 214 C 148 224 140 230 130 230 L 78 230 C 66 230 58 222 58 210 L 58 178 C 34 160 20 132 20 100 C 20 50 52 12 100 12 Z"/></clipPath></defs>
@@ -514,12 +549,13 @@
   </div>
 
   <!-- S8 Ergebnis: Lead kommt rein -->
-  <div id="s8" class="scene">
+  <div id="s8" class="scene"><div class="deco d-ring" data-layout-ignore style="left:470px;top:860px"></div><div class="deco d-dot" data-layout-ignore style="left:1450px;top:300px"></div>
     <div class="blob blob-b" data-layout-ignore style="top:130px;left:500px;filter:blur(80px)"></div>
     <div class="meta meta-tr sm8">Das Ergebnis</div>
     <div id="s8-head">
       <div class="kicker">Ihr Ergebnis</div>
       <h2>Aus Besuchern werden <span class="accent">Anfragen</span>.</h2>
+      <div class="explain" id="e8" style="max-width:1250px">Ob Kunden oder Mitarbeiter: <b>Ihre Webseite sammelt die Anfragen</b> — und Sie bekommen sie direkt aufs Handy.</div>
     </div>
     <div id="phone">
       <div id="ph-screen">
@@ -557,22 +593,24 @@
   </div>
 
   <!-- S9 KI & Software -->
-  <div id="s9" class="scene">
+  <div id="s9" class="scene"><div class="deco d-dot" data-layout-ignore style="left:880px;top:150px"></div><div class="deco d-ring" data-layout-ignore style="left:1830px;top:760px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>4</div>
     <div class="meta meta-tl sm9">Leistung 4 / 4</div>
     <div id="s9-copy">
       <div class="kicker">KI &amp; Software</div>
       <h2>Mehr Aufträge?<br><span class="accent">Mehr Aufwand.</span></h2>
+      <div class="explain" id="e9" style="max-width:720px">Mehr Kunden bedeuten mehr Verwaltung. <b>Unsere Automatisierungen, KI-Agenten und Software</b> übernehmen sie — Sie gewinnen Zeit.</div>
       <div class="benefit" id="s9-benefit" style="font-size:46px">Automatisierung übernimmt —<br>Sie gewinnen <span class="accent">Zeit</span>.</div>
     </div>
     <div id="task-zone">
-      <div class="task" id="t1"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /> <path d="M3 7l9 6l9 -6" /></svg>E-Mails beantworten</div>
-      <div class="task" id="t2"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /> <path d="M16 3l0 4" /> <path d="M8 3l0 4" /> <path d="M4 11l16 0" /> <path d="M8 15h2v2h-2z" /></svg>Termine koordinieren</div>
-      <div class="task" id="t3"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M14 3v4a1 1 0 0 0 1 1h4" /> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /> <path d="M9 9l1 0" /> <path d="M9 13l6 0" /> <path d="M9 17l6 0" /></svg>Angebote schreiben</div>
-      <div class="task" id="t4"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2m4 -14h6m-6 4h6m-2 4h2" /></svg>Rechnungen stellen</div>
-      <div class="task" id="t5"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" /> <path d="M4 6v6a8 3 0 0 0 16 0v-6" /> <path d="M4 12v6a8 3 0 0 0 16 0v-6" /></svg>Daten pflegen</div>
+      <div class="task" id="t1" data-layout-allow-overlap><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /> <path d="M3 7l9 6l9 -6" /></svg>E-Mails beantworten</div>
+      <div class="task" id="t2" data-layout-allow-overlap><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /> <path d="M16 3l0 4" /> <path d="M8 3l0 4" /> <path d="M4 11l16 0" /> <path d="M8 15h2v2h-2z" /></svg>Termine koordinieren</div>
+      <div class="task" id="t3" data-layout-allow-overlap><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M14 3v4a1 1 0 0 0 1 1h4" /> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /> <path d="M9 9l1 0" /> <path d="M9 13l6 0" /> <path d="M9 17l6 0" /></svg>Angebote schreiben</div>
+      <div class="task" id="t4" data-layout-allow-overlap><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2m4 -14h6m-6 4h6m-2 4h2" /></svg>Rechnungen stellen</div>
+      <div class="task" id="t5" data-layout-allow-overlap><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" /> <path d="M4 6v6a8 3 0 0 0 16 0v-6" /> <path d="M4 12v6a8 3 0 0 0 16 0v-6" /></svg>Daten pflegen</div>
       <div id="gear"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /></svg></div>
+      <div id="gear-pulse" data-layout-ignore></div>
       <div id="clock-card">
         <svg id="clock-ring" viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="66"/><circle class="fg" id="clock-fg" cx="80" cy="80" r="66" pathLength="1"/></svg>
         <div id="clock-lbl">Gewonnene Zeit</div>
@@ -582,7 +620,7 @@
   </div>
 
   <!-- S10 Zusammen + CTA -->
-  <div id="s10" class="scene">
+  <div id="s10" class="scene"><div class="deco d-ring" data-layout-ignore style="left:160px;top:160px"></div><div class="deco d-dot" data-layout-ignore style="left:1720px;top:860px"></div>
     <div class="blob blob-b" data-layout-ignore></div><div class="blob blob-p" data-layout-ignore></div>
     <div id="s10-content">
       <div id="ring-zone">
@@ -615,6 +653,11 @@ gsap.set('#ripple', { opacity: 0, scale: 0.4 });
 gsap.set('#dw-fg', { strokeDasharray: 1, strokeDashoffset: 1 });
 gsap.set('#clock-fg', { strokeDasharray: 1, strokeDashoffset: 1 });
 gsap.set('#clock-card', { opacity: 0, y: 60 });
+gsap.set('#rlg1, #rlg2, #rlg3, #rck1, #rck2, #rck3', { scale: 0, transformOrigin: '50% 50%' });
+gsap.set('#rl-fly', { autoAlpha: 0 });
+gsap.set('#hb1, #hb2', { autoAlpha: 0, scale: 0.4, transformOrigin: '50% 50%' });
+gsap.set('#gear-pulse', { autoAlpha: 0 });
+gsap.set('#dw-user', { autoAlpha: 0 });
 
 /* Deterministischer Tipp-Effekt */
 function typeInto(sel, text, start, dur) {
@@ -638,7 +681,8 @@ tl.to('#s1-a', { y: -60, opacity: 0, duration: 0.5, ease: 'power2.in' }, 3.0);
 tl.to('#s1-b', { opacity: 1, duration: 0.01 }, 3.4);
 tl.from('#s1-badge', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, 3.45);
 tl.from('#s1-b h1', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 3.6);
-var T1 = 6.4; pushLeft('#s1', '#s2', T1);
+tl.from('#e1', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, 4.3);
+var T1 = 8.0; pushLeft('#s1', '#s2', T1);
 
 /* ============ S2 Design: Was (7 – 11.2) ============ */
 var S2 = T1 + 0.6;
@@ -647,11 +691,15 @@ tl.from('#s2 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }
 tl.from('#s2 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S2 + 0.2);
 tl.from('.c2', { y: 40, opacity: 0, duration: 0.5, ease: 'back.out(1.8)', stagger: 0.1 }, S2 + 0.55);
 tl.from('#sw-row .sw', { scale: 0, opacity: 0, duration: 0.5, ease: 'back.out(2.5)', stagger: 0.1 }, S2 + 0.5);
-tl.from('#logo-tile', { scale: 0, rotation: -20, opacity: 0, duration: 0.8, ease: 'elastic.out(1, 0.55)' }, S2 + 0.85);
-tl.from('#vk-card', { y: 90, opacity: 0, rotation: 10, duration: 0.6, ease: 'back.out(1.6)' }, S2 + 1.35);
-tl.from('#fl-card', { y: 110, opacity: 0, rotation: -10, duration: 0.6, ease: 'back.out(1.5)' }, S2 + 1.55);
-tl.to('#logo-tile', { y: -8, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S2 + 1.9);
-var T2 = 11.2; pushLeft('#s2', '#s3', T2);
+tl.to('#sw-row .sw', { scale: 1.14, duration: 0.28, ease: 'sine.inOut', yoyo: true, repeat: 1, stagger: 0.08 }, S2 + 0.62);
+tl.to('#sw-row .sw', { x: function(i){ return [50, -40, -130][i]; }, y: 180, scale: 0.3, opacity: 0,
+  duration: 0.5, ease: 'power2.in', stagger: 0.08 }, S2 + 1.05);
+tl.from('#logo-tile', { scale: 0, rotation: -20, opacity: 0, duration: 0.8, ease: 'elastic.out(1, 0.55)' }, S2 + 1.5);
+tl.from('#vk-card', { y: 90, opacity: 0, rotation: 10, duration: 0.6, ease: 'back.out(1.6)' }, S2 + 2.1);
+tl.from('#fl-card', { y: 110, opacity: 0, rotation: -10, duration: 0.6, ease: 'back.out(1.5)' }, S2 + 2.3);
+tl.from('#e2', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S2 + 2.0);
+tl.to('#logo-tile', { y: -8, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 2 }, S2 + 2.7);
+var T2 = 15.0; pushLeft('#s2', '#s3', T2);
 
 /* ============ S3 Design: Warum (11.8 – 17) ============ */
 var S3 = T2 + 0.6;
@@ -660,10 +708,23 @@ tl.from('#s3-line', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S3
 tl.from('#r1', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.4)' }, S3 + 0.5);
 tl.from('#r2', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.4)' }, S3 + 0.7);
 tl.from('#r3', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.4)' }, S3 + 0.9);
-tl.from('.rlg', { scale: 0, rotation: -15, duration: 0.55, ease: 'back.out(2.4)', stagger: 0.22 }, S3 + 1.5);
-tl.from('.rck', { scale: 0, duration: 0.45, ease: 'back.out(2.6)', stagger: 0.22 }, S3 + 1.75);
-tl.to('#r2', { y: -8, duration: 1.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S3 + 2.6);
-var T3 = 17; pushLeft('#s3', '#s4', T3);
+tl.from('#e3', { y: 24, opacity: 0, duration: 0.55, ease: 'power2.out' }, S3 + 0.45);
+tl.fromTo('#rl-fly', { autoAlpha: 0, y: -180, scale: 0.6 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, S3 + 1.6);
+tl.to('#rlg1', { scale: 1, duration: 0.4, ease: 'back.out(2.4)' }, S3 + 2.15);
+tl.to('#rck1', { scale: 1, duration: 0.4, ease: 'back.out(2.6)' }, S3 + 2.3);
+tl.to('#rl-fly', { x: 410, duration: 0.5, ease: 'power1.inOut' }, S3 + 2.3);
+tl.to('#rl-fly', { y: -70, duration: 0.25, ease: 'power2.out' }, S3 + 2.3);
+tl.to('#rl-fly', { y: 0, duration: 0.25, ease: 'power2.in' }, S3 + 2.55);
+tl.to('#rlg2', { scale: 1, duration: 0.4, ease: 'back.out(2.4)' }, S3 + 2.85);
+tl.to('#rck2', { scale: 1, duration: 0.4, ease: 'back.out(2.6)' }, S3 + 3.0);
+tl.to('#rl-fly', { x: 820, duration: 0.5, ease: 'power1.inOut' }, S3 + 3.0);
+tl.to('#rl-fly', { y: -70, duration: 0.25, ease: 'power2.out' }, S3 + 3.0);
+tl.to('#rl-fly', { y: 0, duration: 0.25, ease: 'power2.in' }, S3 + 3.25);
+tl.to('#rlg3', { scale: 1, duration: 0.4, ease: 'back.out(2.4)' }, S3 + 3.55);
+tl.to('#rck3', { scale: 1, duration: 0.4, ease: 'back.out(2.6)' }, S3 + 3.7);
+tl.to('#rl-fly', { autoAlpha: 0, scale: 0.6, duration: 0.35, ease: 'power2.in' }, S3 + 4.1);
+tl.to('#r2', { y: -8, duration: 1.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S3 + 4.4);
+var T3 = 22.8; pushLeft('#s3', '#s4', T3);
 
 /* ============ S4 Webseite: Was (17.6 – 21.8) ============ */
 var S4 = T3 + 0.6;
@@ -675,35 +736,42 @@ tl.from('#s4-browser', { x: 200, opacity: 0, rotation: 4, duration: 0.7, ease: '
 tl.from('#s4-browser .hero', { scaleX: 0.85, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 0.9);
 tl.from('#s4-browser .tl1, #s4-browser .tl2', { x: -24, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.12 }, S4 + 1.05);
 tl.from('#s4-browser .cta', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, S4 + 1.3);
-var T4 = 21.8; pushLeft('#s4', '#s5', T4);
+tl.from('#e4', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S4 + 1.5);
+tl.to('#s4-browser', { y: -8, duration: 1.5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S4 + 2.2);
+tl.to('#s4-browser .cta', { scale: 1.07, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 5, transformOrigin: '50% 50%' }, S4 + 2.0);
+var T4 = 29.6; pushLeft('#s4', '#s5', T4);
 
 /* ============ S5 Warum SEO (22.4 – 29.2) ============ */
 var S5 = T4 + 0.6;
 tl.from('.sm5', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5);
 tl.from('#s5-line', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S5 + 0.1);
-tl.from('#serp .srch', { y: 40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S5 + 0.5);
+tl.from('#e5', { y: 24, opacity: 0, duration: 0.55, ease: 'power2.out' }, S5 + 0.45);
+tl.from('#serp .srch', { y: 40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S5 + 0.7);
 typeInto('#srch-txt', 'handwerker in bonn', S5 + 0.8, 0.9);
 caretBlink('#srch-caret', S5 + 0.6, 3);
 tl.set('#srch-caret', { opacity: 0 }, S5 + 2.1);
 tl.from('#serp .serp-row.dim', { y: 40, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.12 }, S5 + 1.9);
 tl.from('#serp-own', { y: -60, opacity: 0, duration: 0.6, ease: 'back.out(2)' }, S5 + 2.3);
 tl.from('#fold', { opacity: 0, duration: 0.6, ease: 'power1.out' }, S5 + 2.9);
-tl.fromTo('#cursor', { x: 1500, y: 900, opacity: 0 }, { x: 900, y: 480, opacity: 1, duration: 0.9, ease: 'power2.inOut' }, S5 + 3.2);
-tl.to('#cursor', { scale: 0.85, duration: 0.1, ease: 'power2.in' }, S5 + 4.15);
-tl.to('#cursor', { scale: 1, duration: 0.25, ease: 'back.out(3)' }, S5 + 4.25);
-tl.fromTo('#ripple', { x: 890, y: 470, opacity: 0.9, scale: 0.4 }, { scale: 3.2, opacity: 0, duration: 0.7, ease: 'power2.out' }, S5 + 4.2);
-tl.to('#serp-own', { scale: 1.03, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, S5 + 4.2);
-tl.fromTo('#visit-ping', { y: 20, opacity: 0, scale: 0.7 }, { y: -10, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 4.5);
-tl.to('#visit-ping', { y: -36, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 5.4);
-var T5 = 29.2; pushLeft('#s5', '#s6', T5);
+tl.fromTo('#cursor', { x: 1500, y: 950, opacity: 0 }, { x: 900, y: 530, opacity: 1, duration: 0.9, ease: 'power2.inOut' }, S5 + 3.4);
+tl.to('#cursor', { scale: 0.85, duration: 0.1, ease: 'power2.in' }, S5 + 4.35);
+tl.to('#cursor', { scale: 1, duration: 0.25, ease: 'back.out(3)' }, S5 + 4.45);
+tl.fromTo('#ripple', { x: 890, y: 520, opacity: 0.9, scale: 0.4 }, { scale: 3.2, opacity: 0, duration: 0.7, ease: 'power2.out' }, S5 + 4.4);
+tl.to('#serp-own', { scale: 1.03, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, S5 + 4.4);
+tl.fromTo('#visit-ping', { y: 20, opacity: 0, scale: 0.7 }, { y: -10, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 4.7);
+tl.to('#visit-ping', { y: -36, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 6.2);
+var T5 = 38.6; pushLeft('#s5', '#s6', T5);
 
 /* ============ S6 Warum Verweildauer (29.8 – 36.6) ============ */
 var S6 = T5 + 0.6;
 tl.from('.sm6', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S6);
 tl.from('#s6-line', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S6 + 0.1);
-tl.from('#dw-browser', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S6 + 0.45);
+tl.from('#e6', { y: 24, opacity: 0, duration: 0.55, ease: 'power2.out' }, S6 + 0.45);
+tl.from('#dw-browser', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S6 + 0.65);
 tl.from('#dw-timer-card', { x: 120, opacity: 0, duration: 0.6, ease: 'power3.out' }, S6 + 0.7);
 tl.from('#dw-int-card', { x: 120, opacity: 0, duration: 0.6, ease: 'power3.out' }, S6 + 0.85);
+tl.to('#dw-user', { autoAlpha: 1, duration: 0.4, ease: 'power2.out' }, S6 + 0.95);
+tl.to('#dw-user', { y: 360, duration: 4.2, ease: 'sine.inOut' }, S6 + 1.1);
 tl.to('#dw-page', { y: -420, duration: 4.2, ease: 'sine.inOut' }, S6 + 1.1);
 tl.to('#dw-fg', { strokeDashoffset: 0, duration: 4.4, ease: 'none' }, S6 + 1.0);
 var dwt = { n: 0 };
@@ -711,26 +779,31 @@ tl.to(dwt, { n: 154, duration: 4.4, ease: 'none', onUpdate: function () {
   var s = Math.round(dwt.n); var m = Math.floor(s / 60);
   document.getElementById('dw-time').textContent = m + ':' + ('0' + (s % 60)).slice(-2); } }, S6 + 1.0);
 tl.fromTo('#int-fill', { scaleX: 0.06 }, { scaleX: 1, duration: 4.2, ease: 'power1.inOut' }, S6 + 1.1);
-tl.to('#dw-badge', { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(2.2)' }, S6 + 5.4);
-var T6 = 36.6; pushLeft('#s6', '#s7', T6);
+tl.to('#dw-badge', { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(2.2)' }, S6 + 5.8);
+var T6 = 47.4; pushLeft('#s6', '#s7', T6);
 
 /* ============ S7 Ads (37.2 – 45) ============ */
 var S7 = T6 + 0.6;
 tl.from('.sm7', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S7);
 tl.from('#s7 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S7 + 0.1);
 tl.from('#s7 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7 + 0.2);
+tl.from('#e7', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S7 + 0.5);
 tl.from('#phone2', { y: 240, rotation: 6, opacity: 0, duration: 0.9, ease: 'back.out(1.3)' }, S7 + 0.4);
 tl.from('#head-sil', { x: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7 + 0.8);
 tl.to('#p2-feed', { y: -900, duration: 5.2, ease: 'sine.inOut' }, S7 + 1.2);
 tl.to('.pa1 .im', { scale: 1.06, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S7 + 1.6);
 tl.to('#hs-fill-rect', { attr: { y: 160 }, duration: 0.5, ease: 'power2.out' }, S7 + 1.8);
+tl.fromTo('#hb1', { x: 905, y: 400, autoAlpha: 0, scale: 0.4 }, { y: 330, autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, S7 + 1.9);
+tl.to('#hb1', { y: 280, autoAlpha: 0, duration: 0.6, ease: 'power1.in' }, S7 + 2.6);
 tl.to('.pa2 .im', { scale: 1.06, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S7 + 3.2);
 tl.to('#hs-fill-rect', { attr: { y: 80 }, duration: 0.5, ease: 'power2.out' }, S7 + 3.4);
+tl.fromTo('#hb2', { x: 1275, y: 520, autoAlpha: 0, scale: 0.4 }, { y: 450, autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, S7 + 3.5);
+tl.to('#hb2', { y: 400, autoAlpha: 0, duration: 0.6, ease: 'power1.in' }, S7 + 4.2);
 tl.to('.pa3 .im', { scale: 1.08, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S7 + 4.8);
 tl.to('#hs-fill-rect', { attr: { y: 0 }, duration: 0.6, ease: 'power2.out' }, S7 + 5.0);
 tl.from('#s7-benefit', { y: 40, opacity: 0, duration: 0.6, ease: 'power3.out' }, S7 + 5.4);
 tl.to('#head-sil', { scale: 1.04, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, S7 + 5.6);
-var T7 = 45;
+var T7 = 56.6;
 tl.to('#s7', { x: -1920, duration: 0.5, ease: 'power3.in' }, T7);
 tl.fromTo('#s8', { x: 1920, opacity: 1 }, { x: 30, duration: 0.4, ease: 'power4.out' }, T7 + 0.1);
 tl.to('#s8', { x: -15, duration: 0.15, ease: 'sine.inOut' }, T7 + 0.5);
@@ -742,6 +815,7 @@ var S8 = T7 + 0.7;
 tl.from('.sm8', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S8);
 tl.from('#s8-head .kicker', { y: -24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S8 + 0.05);
 tl.from('#s8-head h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S8 + 0.2);
+tl.from('#e8', { y: 24, opacity: 0, duration: 0.55, ease: 'power2.out' }, S8 + 0.45);
 tl.from('#rc-leads', { x: -140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S8 + 0.5);
 tl.from('#rc-bew', { x: 140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S8 + 0.65);
 tl.from('#phone', { y: 260, rotation: 5, opacity: 0, duration: 0.9, ease: 'back.out(1.3)' }, S8 + 0.35);
@@ -767,7 +841,7 @@ tl.to(leads, { n: 12, duration: 1.5, ease: 'power1.out', onUpdate: function () {
 tl.to(bew, { n: 7, duration: 1.5, ease: 'power1.out', onUpdate: function () {
   document.getElementById('cnt-bew').textContent = '+' + Math.round(bew.n); } }, S8 + 5.2);
 tl.to('#phone', { y: '-=8', rotation: 0.4, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S8 + 5.5);
-var T8 = 54;
+var T8 = 66.3;
 tl.to('#s8', { y: -1080, duration: 0.55, ease: 'power3.inOut' }, T8);
 tl.fromTo('#s9', { y: 1080, opacity: 1 }, { y: 0, duration: 0.55, ease: 'power3.inOut' }, T8);
 tl.set('#s8', { opacity: 0 }, T8 + 0.6);
@@ -777,13 +851,17 @@ var S9 = T8 + 0.6;
 tl.from('.sm9', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S9);
 tl.from('#s9 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S9 + 0.1);
 tl.from('#s9 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S9 + 0.2);
-tl.from('#t1', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 0.5);
+tl.from('#e9', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S9 + 0.5);
+tl.from('#t1', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 0.7);
 tl.from('#t2', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 0.75);
 tl.from('#t3', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 1.0);
 tl.from('#t4', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 1.25);
 tl.from('#t5', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 1.5);
 tl.from('#gear', { scale: 0, rotation: -90, opacity: 0, duration: 0.7, ease: 'back.out(1.8)' }, S9 + 2.0);
 tl.to('#gear', { rotation: 200, duration: 4.4, ease: 'sine.inOut' }, S9 + 2.7);
+tl.fromTo('#gear-pulse', { autoAlpha: 0.8, scale: 0.5 }, { autoAlpha: 0, scale: 3.4, duration: 0.7, ease: 'power2.out' }, S9 + 3.2);
+tl.fromTo('#gear-pulse', { autoAlpha: 0.8, scale: 0.5 }, { autoAlpha: 0, scale: 3.4, duration: 0.7, ease: 'power2.out' }, S9 + 3.9);
+tl.fromTo('#gear-pulse', { autoAlpha: 0.8, scale: 0.5 }, { autoAlpha: 0, scale: 3.4, duration: 0.7, ease: 'power2.out' }, S9 + 4.5);
 tl.to('#t5', { x: 400, y: 210, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 2.8);
 tl.to('#t4', { x: 400, y: 130, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 3.05);
 tl.to('#t3', { x: 400, y: 50, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 3.3);
@@ -792,7 +870,7 @@ tl.to('#t1', { x: 400, y: -110, scale: 0.15, opacity: 0, duration: 0.55, ease: '
 tl.to('#clock-card', { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.6)' }, S9 + 4.3);
 tl.to('#clock-fg', { strokeDashoffset: 0.25, duration: 1.6, ease: 'power1.inOut' }, S9 + 4.7);
 tl.from('#s9-benefit', { y: 40, opacity: 0, duration: 0.6, ease: 'power3.out' }, S9 + 4.9);
-var T9 = 62.4;
+var T9 = 75.9;
 tl.to('#s9', { opacity: 0, filter: 'blur(14px)', duration: 0.7, ease: 'sine.inOut' }, T9);
 tl.fromTo('#s10', { opacity: 0, filter: 'blur(14px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'sine.out' }, T9 + 0.2);
 
@@ -807,8 +885,13 @@ tl.from('#s10 h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10
 tl.from('#s10-line', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S10 + 1.15);
 tl.from('#s10-cta', { scale: 0.7, opacity: 0, duration: 0.6, ease: 'back.out(1.8)' }, S10 + 1.45);
 tl.from('#s10-sub', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S10 + 1.7);
-tl.to('#s10-cta', { scale: 1.05, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 5 }, S10 + 2.3);
-tl.to('#s10-content', { opacity: 0, y: -20, duration: 0.9, ease: 'power1.in' }, 73.0);
+tl.to('#s10-cta', { scale: 1.05, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 9 }, S10 + 2.3);
+tl.to('#s10-content', { opacity: 0, y: -20, duration: 0.9, ease: 'power1.in' }, 87.6);
+
+document.querySelectorAll('.deco').forEach(function (d, i) {
+  tl.to(d, { y: (i % 2 ? 20 : -20), x: (i % 3 ? 12 : -12), rotation: (i % 3) * 14 - 14,
+    duration: 2.4 + (i % 4) * 0.5, ease: 'sine.inOut', yoyo: true, repeat: 33 }, (i * 0.37) % 2);
+});
 
 window.__timelines['main'] = tl;
 </script>
