@@ -10,153 +10,221 @@
     background: #F8F8FC; font-family: "Inter", sans-serif; color: #0D1238; }
   .scene { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px;
     overflow: hidden; background: #F8F8FC; }
-  #s2, #s3, #s4, #s5, #s6, #s7 { opacity: 0; }
-  #s1 { z-index: 1; } #s2 { z-index: 2; } #s3 { z-index: 3; } #s4 { z-index: 4; }
-  #s5 { z-index: 5; } #s6 { z-index: 6; } #s7 { z-index: 7; }
+  #s2,#s3,#s4,#s5,#s6,#s7,#s8,#s9,#s10 { opacity: 0; }
+  #s1{z-index:1}#s2{z-index:2}#s3{z-index:3}#s4{z-index:4}#s5{z-index:5}
+  #s6{z-index:6}#s7{z-index:7}#s8{z-index:8}#s9{z-index:9}#s10{z-index:10}
 
   /* ---- Gemeinsame Bausteine ---- */
   .blob { position: absolute; border-radius: 62% 38% 55% 45% / 55% 48% 52% 45%; filter: blur(70px); }
-  .blob-b { background: radial-gradient(circle at 40% 40%, rgba(106,124,255,0.35), rgba(157,78,221,0.14) 60%, rgba(157,78,221,0) 78%); }
-  .blob-p { background: radial-gradient(circle at 60% 60%, rgba(255,80,130,0.22), rgba(46,62,232,0.12) 55%, rgba(46,62,232,0) 78%); }
-  .ghost { position: absolute; font-weight: 900; font-size: 780px; line-height: 1;
-    color: transparent; -webkit-text-stroke: 3px rgba(46,62,232,0.10); letter-spacing: -0.04em; }
+  .blob-b { background: radial-gradient(circle at 40% 40%, rgba(106,124,255,0.35), rgba(157,78,221,0.14) 60%, rgba(157,78,221,0) 78%);
+    width: 860px; height: 760px; top: -240px; right: -200px; }
+  .blob-p { background: radial-gradient(circle at 60% 60%, rgba(255,80,130,0.22), rgba(46,62,232,0.12) 55%, rgba(46,62,232,0) 78%);
+    width: 700px; height: 640px; bottom: -240px; left: -200px; }
+  .ghost { position: absolute; font-weight: 900; font-size: 720px; line-height: 1;
+    color: transparent; -webkit-text-stroke: 3px rgba(46,62,232,0.09); letter-spacing: -0.04em;
+    bottom: -130px; right: 50px; }
   .meta { position: absolute; font-size: 22px; font-weight: 800; letter-spacing: 0.16em;
     color: rgba(13,18,56,0.58); text-transform: uppercase; }
   .meta-tl { top: 56px; left: 80px; }
   .meta-tr { top: 56px; right: 80px; text-align: right; }
-  .rule { position: absolute; left: 80px; right: 80px; bottom: 70px; height: 3px;
-    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 55%, #FF5082); border-radius: 2px;
-    transform-origin: left center; }
   .kicker { font-size: 26px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     -webkit-background-clip: text; background-clip: text; color: transparent; }
-  h1, h2 { margin: 0; font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; }
+  h1, h2 { margin: 0; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
   .accent { font-family: "Pacifico", cursive; font-weight: 400; font-size: 1.08em;
     background: linear-gradient(100deg, #6A7CFF, #9D4EDD 55%, #FF5082);
     -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 0.1em; }
-  .sub { font-size: 38px; font-weight: 500; color: rgba(13,18,56,0.62); line-height: 1.45; }
+  .benefit { font-size: 58px; font-weight: 900; letter-spacing: -0.025em; line-height: 1.18; }
   .card { position: absolute; background: #fff; border: 1px solid rgba(13,18,56,0.09);
     border-radius: 20px; box-shadow: 0 24px 64px rgba(27,36,112,0.14); }
-  .chip { position: absolute; display: flex; align-items: center; gap: 14px;
-    background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 999px;
-    box-shadow: 0 16px 40px rgba(27,36,112,0.12); font-size: 28px; font-weight: 700;
-    padding: 20px 34px; }
-  .num-badge { display: inline-flex; align-items: center; justify-content: center;
-    width: 56px; height: 56px; border-radius: 50%; color: #fff; font-size: 30px; font-weight: 800;
-    background: linear-gradient(120deg, #2E3EE8, #9D4EDD 60%, #FF5082); flex: none; }
+  .chip { display: inline-flex; align-items: center; gap: 14px; background: #fff;
+    border: 1px solid rgba(13,18,56,0.09); border-radius: 999px;
+    box-shadow: 0 14px 36px rgba(27,36,112,0.12); font-size: 27px; font-weight: 700;
+    padding: 18px 32px; }
+  .chip .cdot { width: 14px; height: 14px; border-radius: 50%; flex: none;
+    background: linear-gradient(120deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
   .icon { width: 44px; height: 44px; stroke: #2E3EE8; stroke-width: 2; fill: none;
     stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .was-wrap { position: absolute; inset: 0; display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start; padding: 0 140px; gap: 34px; box-sizing: border-box; }
+  .was-wrap h2 { font-size: 104px; }
+  .chip-row { display: flex; gap: 22px; flex-wrap: wrap; max-width: 1000px; }
+  .ph-caret { width: 2.5px; height: 24px; background: #2E3EE8; margin-left: 3px; }
 
-  /* ---- Szene 1: Hook ---- */
-  #s1 .blob-b { width: 900px; height: 800px; top: -260px; right: -220px; }
-  #s1 .blob-p { width: 700px; height: 640px; bottom: -240px; left: -200px; }
-  #s1-ghost { top: 60px; right: 30px; font-size: 640px; }
-  #s1-content { position: absolute; inset: 0; display: flex; flex-direction: column;
-    justify-content: center; padding: 0 140px; gap: 36px; box-sizing: border-box; }
-  #s1-badge { display: inline-flex; align-items: center; gap: 14px; align-self: flex-start;
+  /* ---- S1 Hook ---- */
+  #s1-a, #s1-b { position: absolute; inset: 0; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center; gap: 36px;
+    padding: 0 200px; box-sizing: border-box; }
+  #s1-a h1 { font-size: 116px; }
+  #s1-b h1 { font-size: 110px; }
+  #s1-badge { display: inline-flex; align-items: center; gap: 14px;
     background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 999px;
     padding: 16px 30px; font-size: 24px; font-weight: 800; letter-spacing: 0.14em;
-    text-transform: uppercase; color: #1B2470; box-shadow: 0 12px 32px rgba(27,36,112,0.1);
-    transform: rotate(-1deg); }
+    text-transform: uppercase; color: #1B2470; box-shadow: 0 12px 32px rgba(27,36,112,0.1); }
   #s1-badge i { width: 14px; height: 14px; border-radius: 50%;
     background: linear-gradient(120deg, #2E3EE8, #FF5082); }
-  #s1 h1 { font-size: 128px; }
-  #s1 .sub { max-width: 1100px; }
+  #s1-ghost { font-size: 640px; top: 40px; right: 60px; bottom: auto; }
 
-  /* ---- Szene 2: Phase 1 Marke ---- */
-  #s2 .blob-b { width: 760px; height: 680px; top: -220px; left: -180px; }
-  #s2-ghost { bottom: -140px; right: 40px; }
-  #s2-copy { position: absolute; left: 120px; top: 0; bottom: 0; width: 760px;
-    display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-  #s2 h2 { font-size: 96px; }
-  #s2 .sub { font-size: 36px; }
-  #sw-row { display: flex; gap: 22px; margin-top: 8px; }
-  .sw { width: 74px; height: 74px; border-radius: 50%; box-shadow: 0 12px 28px rgba(27,36,112,0.18); }
-  #logo-tile { position: absolute; left: 1150px; top: 300px; width: 220px; height: 220px;
-    border-radius: 44px; display: flex; align-items: center; justify-content: center;
+  /* ---- S2 Design: Was ---- */
+  #s2-visual { position: absolute; right: 120px; top: 240px; width: 560px; height: 620px; }
+  #sw-row { position: absolute; top: 0; left: 30px; display: flex; gap: 20px; }
+  .sw { width: 70px; height: 70px; border-radius: 50%; box-shadow: 0 12px 28px rgba(27,36,112,0.18); }
+  #logo-tile { position: absolute; left: 20px; top: 120px; width: 190px; height: 190px;
+    border-radius: 40px; display: flex; align-items: center; justify-content: center;
     background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
-    color: #fff; font-size: 110px; font-weight: 900; box-shadow: 0 30px 70px rgba(46,62,232,0.35);
+    color: #fff; font-size: 96px; font-weight: 900; box-shadow: 0 30px 70px rgba(46,62,232,0.35);
     transform: rotate(-2deg); }
-  #vk-card { left: 1010px; top: 620px; width: 300px; height: 176px; transform: rotate(-3deg);
+  #vk-card { left: 250px; top: 180px; width: 290px; height: 170px; transform: rotate(2.5deg);
     padding: 26px; box-sizing: border-box; }
-  #vk-card .l1 { width: 130px; height: 14px; border-radius: 7px;
+  #vk-card .l1 { width: 120px; height: 14px; border-radius: 7px;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD); margin-bottom: 14px; }
-  #vk-card .l2, #vk-card .l3 { width: 190px; height: 10px; border-radius: 5px;
+  #vk-card .l2, #vk-card .l3 { width: 180px; height: 10px; border-radius: 5px;
     background: rgba(13,18,56,0.12); margin-bottom: 10px; }
-  #vk-card .l3 { width: 140px; }
-  .artifact-label { position: absolute; bottom: 18px; left: 26px; font-size: 20px;
-    font-weight: 700; color: rgba(13,18,56,0.5); }
-  #fl-card { left: 1400px; top: 580px; width: 220px; height: 300px; transform: rotate(2.5deg);
-    padding: 24px; box-sizing: border-box; }
-  #fl-card .img { width: 100%; height: 110px; border-radius: 12px;
-    background: linear-gradient(130deg, rgba(46,62,232,0.35), rgba(255,80,130,0.35)); margin-bottom: 16px; }
+  #vk-card .l3 { width: 130px; }
+  #fl-card { left: 60px; top: 370px; width: 210px; height: 250px; transform: rotate(-2.5deg);
+    padding: 22px; box-sizing: border-box; }
+  #fl-card .img { width: 100%; height: 96px; border-radius: 12px;
+    background: linear-gradient(130deg, rgba(46,62,232,0.35), rgba(255,80,130,0.35)); margin-bottom: 14px; }
   #fl-card .l { width: 80%; height: 10px; border-radius: 5px; background: rgba(13,18,56,0.12); margin-bottom: 10px; }
-  #br-mini { left: 1480px; top: 220px; width: 330px; height: 230px; transform: rotate(1.8deg); overflow: hidden; }
-  .br-bar { height: 44px; background: #EEF0FA; border-bottom: 1px solid rgba(13,18,56,0.09);
-    display: flex; align-items: center; gap: 8px; padding-left: 18px; }
-  .br-bar i { width: 12px; height: 12px; border-radius: 50%; background: rgba(13,18,56,0.14); }
-  #br-mini .body { padding: 22px; }
-  #br-mini .l { height: 12px; border-radius: 6px; background: rgba(13,18,56,0.12); margin-bottom: 12px; }
+  .artifact-label { position: absolute; bottom: 16px; left: 24px; font-size: 19px;
+    font-weight: 700; color: rgba(13,18,56,0.5); }
 
-  /* ---- Szene 3: Phase 2 Fotos ---- */
-  #s3 .blob-p { width: 820px; height: 720px; top: -240px; right: -220px; }
-  #s3-ghost { bottom: -150px; left: 30px; }
-  #s3-copy { position: absolute; left: 120px; top: 0; bottom: 0; width: 740px;
-    display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-  #s3 h2 { font-size: 96px; }
-  .photo { position: absolute; width: 330px; height: 240px; border-radius: 20px;
-    box-shadow: 0 26px 60px rgba(27,36,112,0.2); border: 10px solid #fff; box-sizing: border-box;
-    display: flex; align-items: center; justify-content: center; }
-  .photo svg { width: 90px; height: 90px; stroke: rgba(255,255,255,0.9); stroke-width: 1.6; fill: none; }
-  #ph1 { background: linear-gradient(135deg, #6A7CFF, #2E3EE8); left: 1060px; top: 210px; transform: rotate(-4deg); }
-  #ph2 { background: linear-gradient(135deg, #B36AF0, #9D4EDD); left: 1330px; top: 360px; transform: rotate(3deg); }
-  #ph3 { background: linear-gradient(135deg, #FF7FA5, #FF5082); left: 1120px; top: 540px; transform: rotate(-2deg); }
-  #s3-dest { position: absolute; left: 1050px; top: 830px; display: flex; gap: 26px; }
-  #s3-dest .chip { position: static; font-size: 26px; padding: 18px 30px; }
+  /* ---- S3 Design: Warum ---- */
+  #s3-line { position: absolute; top: 170px; left: 0; right: 0; text-align: center; }
+  .rec-row { position: absolute; top: 380px; left: 0; right: 0; display: flex;
+    justify-content: center; gap: 70px; }
+  .rec-item { width: 340px; height: 420px; background: #fff; border: 1px solid rgba(13,18,56,0.09);
+    border-radius: 24px; box-shadow: 0 26px 60px rgba(27,36,112,0.14); position: relative;
+    padding: 30px; box-sizing: border-box; }
+  .rec-item .rl { height: 12px; border-radius: 6px; background: rgba(13,18,56,0.12); margin-bottom: 12px; }
+  .rec-logo { position: absolute; top: 26px; right: 26px; width: 74px; height: 74px;
+    border-radius: 18px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    color: #fff; font-size: 38px; font-weight: 900; }
+  .rec-name { position: absolute; bottom: 22px; left: 30px; font-size: 22px; font-weight: 700;
+    color: rgba(13,18,56,0.5); }
+  .rec-check { position: absolute; bottom: 20px; right: 24px; width: 46px; height: 46px;
+    border-radius: 50%; background: #E9FBF0; display: flex; align-items: center; justify-content: center; }
+  .rec-check svg { width: 26px; height: 26px; stroke: #17A34A; stroke-width: 3; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+  #r2 { transform: rotate(1.4deg); } #r1 { transform: rotate(-1.4deg); } #r3 { transform: rotate(-1deg); }
+  #r1 .rimg { height: 130px; border-radius: 14px; margin-bottom: 16px;
+    background: linear-gradient(135deg, rgba(106,124,255,0.4), rgba(255,80,130,0.35)); }
+  #r3 .rbar { height: 40px; border-radius: 10px; background: #EEF0FA; margin-bottom: 16px; }
 
-  /* ---- Szene 4: Phase 3 Gefunden werden ---- */
-  #s4 .blob-b { width: 780px; height: 700px; bottom: -240px; right: -200px; }
-  #s4-ghost { top: -120px; right: 60px; }
-  #s4-head { position: absolute; top: 110px; left: 120px; right: 120px; display: flex;
-    flex-direction: column; gap: 22px; }
-  #s4 h2 { font-size: 92px; }
-  .panel { position: absolute; top: 400px; width: 780px; height: 480px; background: #fff;
-    border: 1px solid rgba(13,18,56,0.09); border-radius: 26px;
-    box-shadow: 0 30px 70px rgba(27,36,112,0.14); padding: 44px 50px; box-sizing: border-box; }
-  #panel-l { left: 120px; transform: rotate(-0.8deg); }
-  #panel-r { left: 1020px; transform: rotate(0.8deg); }
-  .panel-tag { display: inline-block; font-size: 22px; font-weight: 800; letter-spacing: 0.16em;
-    text-transform: uppercase; padding: 10px 22px; border-radius: 999px; margin-bottom: 30px; }
-  #panel-l .panel-tag { background: rgba(46,62,232,0.09); color: #2E3EE8; }
-  #panel-r .panel-tag { background: rgba(255,80,130,0.1); color: #E23A6E; }
-  .srch { display: flex; align-items: center; gap: 16px; border: 2px solid rgba(13,18,56,0.12);
-    border-radius: 999px; padding: 16px 26px; font-size: 26px; font-weight: 600;
-    color: rgba(13,18,56,0.55); margin-bottom: 26px; }
-  .srch svg { width: 30px; height: 30px; stroke: #2E3EE8; stroke-width: 2.4; fill: none; stroke-linecap: round; }
-  .res { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-radius: 14px;
-    font-size: 26px; font-weight: 700; margin-bottom: 12px; }
-  #res1 { background: rgba(46,62,232,0.08); border: 2px solid rgba(46,62,232,0.35); }
-  #res1 .pos { display: inline-flex; align-items: center; justify-content: center; min-width: 44px;
-    height: 44px; border-radius: 12px; color: #fff; font-size: 24px;
+  /* ---- S4 Webseite: Was ---- */
+  #s4-browser { position: absolute; right: 130px; top: 280px; width: 620px; height: 520px;
+    background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 24px;
+    box-shadow: 0 34px 80px rgba(27,36,112,0.18); overflow: hidden; transform: rotate(1.2deg); }
+  .br-bar { height: 48px; background: #EEF0FA; border-bottom: 1px solid rgba(13,18,56,0.09);
+    display: flex; align-items: center; gap: 8px; padding-left: 20px; flex: none; }
+  .br-bar i { width: 13px; height: 13px; border-radius: 50%; background: rgba(13,18,56,0.14); }
+  #s4-browser .hero { margin: 26px; height: 170px; border-radius: 16px;
+    background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082); position: relative; overflow: hidden; }
+  #s4-browser .hero .hill { position: absolute; bottom: -30px; left: -20px; width: 300px;
+    height: 110px; border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.22); }
+  #s4-browser .tl1 { margin: 0 26px 14px; height: 18px; width: 65%; border-radius: 9px; background: rgba(13,18,56,0.75); }
+  #s4-browser .tl2 { margin: 0 26px 24px; height: 18px; width: 42%; border-radius: 9px; background: rgba(13,18,56,0.3); }
+  #s4-browser .cta { margin: 0 26px; width: 240px; height: 56px; border-radius: 999px;
+    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+
+  /* ---- S5 Warum SEO ---- */
+  #s5-line { position: absolute; top: 130px; left: 0; right: 0; text-align: center; }
+  #serp { position: absolute; left: 560px; top: 380px; width: 800px; }
+  #serp .srch { display: flex; align-items: center; gap: 16px; border: 2px solid rgba(13,18,56,0.12);
+    border-radius: 999px; padding: 20px 30px; font-size: 28px; font-weight: 600;
+    color: rgba(13,18,56,0.6); margin-bottom: 28px; background: #fff;
+    box-shadow: 0 16px 40px rgba(27,36,112,0.1); }
+  #serp .srch svg { width: 32px; height: 32px; stroke: #2E3EE8; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+  .serp-row { display: flex; align-items: center; gap: 20px; background: #fff;
+    border: 1px solid rgba(13,18,56,0.09); border-radius: 16px; padding: 20px 26px;
+    margin-bottom: 16px; font-size: 27px; font-weight: 700; position: relative;
+    box-shadow: 0 12px 30px rgba(27,36,112,0.08); }
+  #serp-own { border: 2.5px solid rgba(46,62,232,0.5); background: rgba(46,62,232,0.05); z-index: 3; }
+  #serp-own .pos { display: inline-flex; align-items: center; justify-content: center; min-width: 46px;
+    height: 46px; border-radius: 13px; color: #fff; font-size: 25px; font-weight: 800;
     background: linear-gradient(120deg, #2E3EE8, #9D4EDD); }
-  .res.dim { color: rgba(13,18,56,0.35); font-weight: 600; }
-  .res.dim .bar { height: 12px; border-radius: 6px; background: rgba(13,18,56,0.1); flex: 1; }
-  #ki-chip { margin-top: 24px; display: inline-flex; align-items: center; gap: 14px;
-    font-size: 25px; font-weight: 700; background: rgba(157,78,221,0.09); color: #7B2FBF;
-    border-radius: 999px; padding: 16px 28px; }
-  .adpill { display: flex; align-items: center; gap: 18px; background: #F8F8FC;
-    border: 2px solid rgba(13,18,56,0.1); border-radius: 18px; padding: 24px 28px;
-    font-size: 28px; font-weight: 700; margin-bottom: 20px; }
-  .adpill svg { width: 40px; height: 40px; stroke: #FF5082; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  #s4-goal { margin-top: 26px; font-size: 25px; font-weight: 600; color: rgba(13,18,56,0.55); }
+  .serp-row.dim { color: rgba(13,18,56,0.35); font-weight: 600; }
+  .serp-row.dim .bar { height: 12px; border-radius: 6px; background: rgba(13,18,56,0.1); flex: 1; }
+  #fold { position: absolute; left: -40px; right: -40px; top: 285px; height: 280px;
+    background: linear-gradient(rgba(13,18,56,0), rgba(13,18,56,0.1)); border-top: 3px dashed rgba(13,18,56,0.25);
+    border-radius: 8px; }
+  #fold-lbl { position: absolute; top: 14px; left: 50%; width: 600px; margin-left: -300px;
+    text-align: center; font-size: 23px; font-weight: 700; color: rgba(13,18,56,0.45); }
+  #cursor { position: absolute; left: 0; top: 0; width: 36px; height: 36px; z-index: 6; }
+  #cursor svg { width: 100%; height: 100%; fill: #0D1238; stroke: #fff; stroke-width: 1.4; }
+  #ripple { position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%;
+    border: 4px solid #2E3EE8; z-index: 5; }
+  #visit-ping { position: absolute; left: 700px; top: -8px; padding: 12px 24px; border-radius: 999px;
+    color: #fff; font-size: 23px; font-weight: 800; background: #FF5082;
+    box-shadow: 0 14px 34px rgba(27,36,112,0.25); z-index: 6; }
 
-  /* ---- Szene 5: Phase 4 Ergebnis ---- */
-  #s5 .blob-b { width: 900px; height: 820px; top: 130px; left: 500px; filter: blur(80px); }
-  #s5-ghost { bottom: -140px; left: 40px; }
-  #s5-head { position: absolute; top: 100px; left: 0; right: 0; display: flex;
+  /* ---- S6 Warum Verweildauer ---- */
+  #s6-line { position: absolute; top: 130px; left: 0; right: 0; text-align: center; }
+  #dw-browser { position: absolute; left: 400px; top: 370px; width: 560px; height: 560px;
+    background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(27,36,112,0.16); overflow: hidden; transform: rotate(-1deg); }
+  #dw-page { padding: 24px; }
+  #dw-page .blk { border-radius: 14px; margin-bottom: 18px; }
+  #dw-stats { position: absolute; left: 1080px; top: 400px; width: 440px; display: flex;
+    flex-direction: column; gap: 36px; }
+  #dw-timer-card, #dw-int-card { background: #fff; border: 1px solid rgba(13,18,56,0.09);
+    border-radius: 22px; box-shadow: 0 22px 54px rgba(27,36,112,0.13); padding: 30px 34px; }
+  #dw-timer-card { display: flex; align-items: center; gap: 28px; transform: rotate(1deg); }
+  #dw-ring { width: 106px; height: 106px; transform: rotate(-90deg); }
+  #dw-ring .bg { fill: none; stroke: rgba(13,18,56,0.08); stroke-width: 10; }
+  #dw-ring .fg { fill: none; stroke: #2E3EE8; stroke-width: 10; stroke-linecap: round; }
+  #dw-time { font-size: 44px; font-weight: 900; font-variant-numeric: tabular-nums; }
+  #dw-timer-card .lbl, #dw-int-card .lbl { font-size: 21px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase; color: rgba(13,18,56,0.45); }
+  #dw-int-card { transform: rotate(-0.8deg); }
+  #int-track { margin-top: 16px; height: 22px; border-radius: 11px; background: rgba(13,18,56,0.07); overflow: hidden; }
+  #int-fill { height: 100%; width: 100%; border-radius: 11px; transform-origin: left center;
+    background: linear-gradient(90deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+  #dw-badge { position: absolute; left: 1110px; top: 800px; display: inline-flex; align-items: center;
+    gap: 14px; padding: 20px 34px; border-radius: 999px; color: #fff; font-size: 30px; font-weight: 800;
+    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 20px 50px rgba(157,78,221,0.4); }
+  #dw-badge svg { width: 32px; height: 32px; stroke: #fff; stroke-width: 2.4; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---- S7 Ads ---- */
+  #s7-copy { position: absolute; left: 130px; top: 0; bottom: 0; width: 700px;
+    display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+  #s7-copy h2 { font-size: 92px; }
+  #phone2 { position: absolute; left: 950px; top: 170px; width: 340px; height: 680px;
+    border-radius: 52px; background: #0D1238; padding: 12px; box-sizing: border-box;
+    box-shadow: 0 44px 96px rgba(13,18,56,0.38); transform: rotate(1.5deg); }
+  #p2-screen { width: 100%; height: 100%; border-radius: 42px; background: #F8F8FC;
+    overflow: hidden; position: relative; }
+  #p2-island { position: absolute; top: 12px; left: 50%; margin-left: -48px; width: 96px;
+    height: 28px; border-radius: 15px; background: #0D1238; z-index: 6; }
+  #p2-feed { position: absolute; left: 16px; right: 16px; top: 56px; }
+  .post { background: #fff; border: 1px solid rgba(13,18,56,0.08); border-radius: 16px;
+    padding: 14px; margin-bottom: 14px; position: relative; }
+  .post .ph { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .post .av { width: 30px; height: 30px; border-radius: 50%; background: rgba(13,18,56,0.15); }
+  .post .nm { height: 10px; width: 90px; border-radius: 5px; background: rgba(13,18,56,0.15); }
+  .post .im { height: 120px; border-radius: 10px; background: rgba(13,18,56,0.08); }
+  .post.ad { border: 2px solid rgba(157,78,221,0.45); }
+  .post.ad .av { background: linear-gradient(130deg, #2E3EE8, #FF5082); }
+  .post.ad .im { background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082);
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    font-size: 34px; font-weight: 900; }
+  .post.ad .tag { position: absolute; top: 60px; left: 22px; font-size: 13px;
+    font-weight: 800; letter-spacing: 0.1em; color: rgba(255,255,255,0.95);
+    background: rgba(13,18,56,0.4); border-radius: 6px; padding: 3px 8px; z-index: 2; }
+  #head-sil { position: absolute; left: 1420px; top: 330px; width: 300px; height: 420px; }
+  #head-sil svg { width: 300px; height: 360px; }
+  #hs-outline { fill: none; stroke: rgba(13,18,56,0.3); stroke-width: 5; }
+  #hs-logo { font-size: 64px; font-weight: 900; fill: #fff; font-family: 'Inter', sans-serif; }
+  #hs-lbl { margin-top: 6px; text-align: center; font-size: 22px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase; color: rgba(13,18,56,0.5); }
+
+  /* ---- S8 Ergebnis (Handy + Formular) ---- */
+  #s8-head { position: absolute; top: 100px; left: 0; right: 0; display: flex;
     flex-direction: column; align-items: center; gap: 20px; text-align: center; }
-  #s5 h2 { font-size: 92px; }
-  /* iPhone-Mockup mit Mini-Webseite */
+  #s8-head h2 { font-size: 92px; }
   #phone { position: absolute; left: 770px; top: 265px; width: 380px; height: 760px;
     border-radius: 58px; background: #0D1238; padding: 14px; box-sizing: border-box;
     box-shadow: 0 50px 110px rgba(13,18,56,0.4); }
@@ -187,7 +255,6 @@
   .ph-field { height: 46px; border: 2px solid rgba(13,18,56,0.12); border-radius: 12px;
     display: flex; align-items: center; padding: 0 14px; font-size: 20px; font-weight: 600;
     color: #0D1238; background: #F8F8FC; }
-  .ph-caret { width: 2.5px; height: 24px; background: #2E3EE8; margin-left: 3px; }
   #ph-btn { height: 54px; border-radius: 999px; display: flex; align-items: center;
     justify-content: center; gap: 10px; color: #fff; font-size: 21px; font-weight: 800;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
@@ -219,155 +286,238 @@
     background: linear-gradient(100deg, #2E3EE8, #FF5082);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     font-variant-numeric: tabular-nums; }
-  .ping { position: absolute; padding: 12px 24px; border-radius: 999px; color: #fff;
-    font-size: 24px; font-weight: 800; box-shadow: 0 14px 34px rgba(27,36,112,0.25); }
-  #ping1 { background: #FF5082; left: 620px; top: 420px; }
-  #ping2 { background: #9D4EDD; left: 1180px; top: 520px; }
-  #ping3 { background: #2E3EE8; left: 640px; top: 660px; }
-  #s3-flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; }
 
-  /* ---- Szene 6: Phase 5 Alltag ---- */
-  #s6 .blob-p { width: 800px; height: 700px; top: -240px; left: -200px; }
-  #s6-ghost { bottom: -150px; right: 40px; }
-  #s6-head { position: absolute; top: 130px; left: 120px; right: 120px; display: flex;
-    flex-direction: column; gap: 22px; }
-  #s6 h2 { font-size: 96px; }
-  .auto-card { position: absolute; top: 560px; width: 470px; background: #fff; border-radius: 24px;
-    border: 1px solid rgba(13,18,56,0.09); box-shadow: 0 28px 66px rgba(27,36,112,0.15);
-    padding: 40px 42px; box-sizing: border-box; }
-  #ac1 { left: 120px; transform: rotate(-1.2deg); }
-  #ac2 { left: 725px; transform: rotate(0.9deg); }
-  #ac3 { left: 1330px; transform: rotate(-0.9deg); }
-  .auto-card .ic { width: 84px; height: 84px; border-radius: 22px; background: rgba(46,62,232,0.08);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 26px; }
-  .auto-card .ic svg { width: 46px; height: 46px; stroke: #2E3EE8; stroke-width: 2; fill: none;
+  /* ---- S9 KI/Software ---- */
+  #s9-copy { position: absolute; left: 130px; top: 0; bottom: 0; width: 720px;
+    display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+  #s9-copy h2 { font-size: 92px; }
+  #task-zone { position: absolute; left: 1000px; top: 220px; width: 800px; height: 700px; }
+  .task { position: absolute; left: 60px; width: 300px; display: flex; align-items: center; gap: 14px;
+    background: #fff; border: 1px solid rgba(13,18,56,0.09); border-radius: 16px;
+    padding: 16px 20px; box-shadow: 0 14px 34px rgba(27,36,112,0.12); font-size: 21px; font-weight: 700;
+    box-sizing: border-box; }
+  .task svg { width: 30px; height: 30px; stroke: #9D4EDD; stroke-width: 2; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  #t1 { top: 420px; } #t2 { top: 340px; transform: rotate(-1.5deg); }
+  #t3 { top: 260px; transform: rotate(1.2deg); } #t4 { top: 180px; transform: rotate(-1deg); }
+  #t5 { top: 100px; transform: rotate(1.5deg); }
+  #gear { position: absolute; left: 470px; top: 220px; width: 190px; height: 190px;
+    border-radius: 50%; background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 26px 64px rgba(46,62,232,0.35); }
+  #gear svg { width: 96px; height: 96px; stroke: #fff; stroke-width: 2; fill: none;
     stroke-linecap: round; stroke-linejoin: round; }
-  .auto-card .t { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; }
-  .auto-card .s { font-size: 24px; font-weight: 500; color: rgba(13,18,56,0.58); margin-top: 12px; line-height: 1.4; }
-  .arrow { position: absolute; top: 660px; width: 90px; height: 6px; border-radius: 3px;
-    background: linear-gradient(90deg, #2E3EE8, #9D4EDD); transform-origin: left center; }
-  .arrow::after { content: ''; position: absolute; right: -4px; top: -9px;
-    border-left: 20px solid #9D4EDD; border-top: 12px solid rgba(157,78,221,0);
-    border-bottom: 12px solid rgba(157,78,221,0); }
-  #ar1 { left: 613px; } #ar2 { left: 1218px; }
-  #s6-steige { position: absolute; top: 470px; left: 120px; font-size: 24px; font-weight: 800;
-    letter-spacing: 0.18em; text-transform: uppercase; color: rgba(13,18,56,0.58); }
+  #clock-card { position: absolute; left: 400px; top: 470px; width: 330px; background: #fff;
+    border: 1px solid rgba(13,18,56,0.09); border-radius: 24px; padding: 30px;
+    box-shadow: 0 24px 60px rgba(27,36,112,0.15); text-align: center; transform: rotate(1deg);
+    box-sizing: border-box; }
+  #clock-ring { width: 150px; height: 150px; transform: rotate(-90deg); }
+  #clock-ring .bg { fill: none; stroke: rgba(13,18,56,0.08); stroke-width: 12; }
+  #clock-ring .fg { fill: none; stroke: #9D4EDD; stroke-width: 12; stroke-linecap: round; }
+  #clock-lbl { margin-top: 16px; font-size: 24px; font-weight: 800; }
+  #clock-sub { font-size: 20px; font-weight: 600; color: rgba(13,18,56,0.5); margin-top: 6px; }
 
-  /* ---- Szene 7: Outro ---- */
-  #s7 .blob-b { width: 1000px; height: 880px; top: -300px; right: -260px; }
-  #s7 .blob-p { width: 800px; height: 720px; bottom: -260px; left: -240px; }
-  #s7-content { position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 40px; text-align: center; }
-  #s7-logo { height: 110px; }
-  #s7 h2 { font-size: 84px; max-width: 1400px; }
-  #s7-cta { display: flex; align-items: center; gap: 20px; padding: 26px 54px; border-radius: 999px;
+  /* ---- S10 Zusammen + CTA ---- */
+  #s10-content { position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 34px; text-align: center; }
+  #ring-zone { position: relative; width: 480px; height: 120px; }
+  .ring-chip { position: absolute; top: 10px; width: 96px; height: 96px; border-radius: 26px; background: #fff;
+    border: 1px solid rgba(13,18,56,0.09); box-shadow: 0 18px 44px rgba(27,36,112,0.16);
+    display: flex; align-items: center; justify-content: center; }
+  .ring-chip svg { width: 48px; height: 48px; stroke: #2E3EE8; stroke-width: 2; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+  #q1 { left: 20px; } #q2 { left: 135px; } #q3 { left: 250px; } #q4 { left: 365px; }
+  #s10-logo { height: 96px; }
+  #s10 h2 { font-size: 78px; max-width: 1500px; }
+  #s10-line { font-size: 38px; font-weight: 600; color: rgba(13,18,56,0.7); }
+  #s10-line b { font-weight: 800; color: #0D1238; }
+  #s10-cta { display: flex; align-items: center; gap: 20px; padding: 26px 54px; border-radius: 999px;
     color: #fff; font-size: 34px; font-weight: 800;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     box-shadow: 0 24px 60px rgba(157,78,221,0.4); }
-  #s7-sub { font-size: 30px; font-weight: 600; color: rgba(13,18,56,0.55); }
-  #s7-line { font-size: 36px; font-weight: 600; color: rgba(13,18,56,0.7); }
-  #s7-line b { font-weight: 800; color: #0D1238; }
+  #s10-sub { font-size: 29px; font-weight: 600; color: rgba(13,18,56,0.55); }
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="46">
+<div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="74">
 
-  <!-- Szene 1: Hook -->
+  <svg width="0" height="0" style="position:absolute"><defs>
+    <linearGradient id="hsgrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#2E3EE8"/><stop offset="0.6" stop-color="#9D4EDD"/><stop offset="1" stop-color="#FF5082"/></linearGradient>
+  </defs></svg>
+
+  <!-- S1 Hook -->
   <div id="s1" class="scene">
     <div class="blob blob-b" data-layout-ignore></div><div class="blob blob-p" data-layout-ignore></div>
-    <div id="s1-ghost" class="ghost" data-layout-ignore>W3</div>
-    <div class="meta meta-tl s1-meta">WECONN3CT · Webdesign-Studio</div>
-    <div class="meta meta-tr s1-meta">Bad Honnef</div>
-    <div id="s1-content">
-      <div id="s1-badge"><i></i>In 5 Schritten zum System</div>
-      <h1><span id="s1-l1">Ihr Unternehmen</span><br>
-          <span id="s1-l2">verdient ein <span class="accent">System</span>,</span><br>
-          <span id="s1-l3">das <span class="accent">Kunden</span> bringt.</span></h1>
-      <div class="sub" id="s1-sub">Marke, Webseite, Sichtbarkeit, Automatisierung — alles aus einer Hand, alles in einer Linie.</div>
+    <div id="s1-ghost" class="ghost" data-layout-ignore>?</div>
+    <div id="s1-a">
+      <h1>Ihre Webseite bringt<br><span class="accent">keine Anfragen</span>?</h1>
     </div>
-    <div class="rule" id="s1-rule"></div>
+    <div id="s1-b">
+      <div id="s1-badge"><i></i>WECONN3CT · Bad Honnef</div>
+      <h1>Zeit für ein <span class="accent">System</span>,<br>das <span class="accent">Kunden</span> bringt.</h1>
+    </div>
   </div>
 
-  <!-- Szene 2: Phase 1 Marke -->
+  <!-- S2 Design: Was -->
   <div id="s2" class="scene">
     <div class="blob blob-b" data-layout-ignore></div>
-    <div id="s2-ghost" class="ghost" data-layout-ignore>1</div>
-    <div class="meta meta-tl s2-meta">Schritt 1 / 5</div>
-    <div class="meta meta-tr s2-meta">Ihre Marke</div>
-    <div id="s2-copy">
-      <div class="kicker">Zuerst: Ihre Marke</div>
-      <h2>Farben, Logo —<br><span class="accent">eine Linie</span>.</h2>
-      <div class="sub">Aus Ihrem Corporate Design entstehen Visitenkarten, Flyer und Ihre Webseite. Alles im selben Look.</div>
+    <div class="ghost" data-layout-ignore>1</div>
+    <div class="meta meta-tl sm2">Leistung 1 / 4</div>
+    <div class="was-wrap" style="padding-right: 760px;">
+      <div class="kicker">Design</div>
+      <h2>Ihre Marke.<br><span class="accent">Eine Linie.</span></h2>
+      <div class="chip-row">
+        <div class="chip c2"><span class="cdot"></span>Corporate Design</div>
+        <div class="chip c2"><span class="cdot"></span>Logo</div>
+        <div class="chip c2"><span class="cdot"></span>Visitenkarten</div>
+        <div class="chip c2"><span class="cdot"></span>Flyer</div>
+      </div>
+    </div>
+    <div id="s2-visual">
       <div id="sw-row">
         <div class="sw" style="background:#2E3EE8"></div>
         <div class="sw" style="background:#9D4EDD"></div>
         <div class="sw" style="background:#FF5082"></div>
       </div>
+      <div id="logo-tile">A</div>
+      <div id="vk-card" class="card"><div class="l1"></div><div class="l2"></div><div class="l3"></div>
+        <div class="artifact-label">Visitenkarte</div></div>
+      <div id="fl-card" class="card"><div class="img"></div><div class="l"></div><div class="l" style="width:60%"></div>
+        <div class="artifact-label">Flyer</div></div>
     </div>
-    <div id="logo-tile">A</div>
-    <div id="vk-card" class="card"><div class="l1"></div><div class="l2"></div><div class="l3"></div>
-      <div class="artifact-label">Visitenkarte</div></div>
-    <div id="fl-card" class="card"><div class="img"></div><div class="l"></div><div class="l" style="width:60%"></div>
-      <div class="artifact-label">Flyer</div></div>
-    <div id="br-mini" class="card"><div class="br-bar"><i></i><i></i><i></i></div>
-      <div class="body"><div class="l" style="width:75%"></div><div class="l" style="width:55%"></div><div class="l" style="width:40%"></div></div>
-      <div class="artifact-label">Webseite</div></div>
   </div>
 
-  <!-- Szene 3: Phase 2 Echte Bilder -->
+  <!-- S3 Design: Warum -->
   <div id="s3" class="scene">
     <div class="blob blob-p" data-layout-ignore></div>
-    <div id="s3-ghost" class="ghost" data-layout-ignore>2</div>
-    <div class="meta meta-tl s3-meta">Schritt 2 / 5</div>
-    <div class="meta meta-tr s3-meta">Echte Bilder</div>
-    <div id="s3-copy">
-      <div class="kicker">Echte Bilder &amp; Videos</div>
-      <h2>Echt wirkt<br><span class="accent">besser</span>.</h2>
-      <div class="sub">Ein Profi-Fotograf setzt Ihren Betrieb in Szene — die Bilder und Videos landen auf Ihrer Webseite und auf Social Media.</div>
+    <div class="meta meta-tr sm3">Warum Design?</div>
+    <div id="s3-line" class="benefit">Überall sofort <span class="accent">wiedererkannt</span>.</div>
+    <div class="rec-row">
+      <div id="r1" class="rec-item"><div class="rimg"></div><div class="rl" style="width:80%"></div><div class="rl" style="width:55%"></div>
+        <div class="rec-logo rlg">A</div><div class="rec-name">Webseite</div>
+        <div class="rec-check rck"><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></svg></div></div>
+      <div id="r2" class="rec-item"><div class="rl" style="width:60%;height:16px"></div><div class="rl" style="width:85%"></div><div class="rl" style="width:70%"></div>
+        <div class="rec-logo rlg">A</div><div class="rec-name">Visitenkarte</div>
+        <div class="rec-check rck"><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></svg></div></div>
+      <div id="r3" class="rec-item"><div class="rbar"></div><div class="rl" style="width:75%"></div><div class="rl" style="width:50%"></div>
+        <div class="rec-logo rlg">A</div><div class="rec-name">Social Media</div>
+        <div class="rec-check rck"><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></svg></div></div>
     </div>
-    <div id="ph1" class="photo"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg></div>
-    <div id="ph2" class="photo"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-    <div id="ph3" class="photo"><svg viewBox="0 0 24 24"><polygon points="10 8 16 12 10 16"/><rect x="2" y="4" width="20" height="16" rx="3"/></svg></div>
-    <div id="s3-dest">
-      <div class="chip" id="dest-web"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Ihre Webseite</div>
-      <div class="chip" id="dest-social"><svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/></svg>Social Media</div>
-    </div>
-    <div id="s3-flash" data-layout-ignore></div>
   </div>
 
-  <!-- Szene 4: Phase 3 Gefunden werden -->
+  <!-- S4 Webseite: Was -->
   <div id="s4" class="scene">
     <div class="blob blob-b" data-layout-ignore></div>
-    <div id="s4-ghost" class="ghost" data-layout-ignore>3</div>
-    <div class="meta meta-tl s4-meta">Schritt 3 / 5</div>
-    <div class="meta meta-tr s4-meta">Sichtbarkeit</div>
-    <div id="s4-head">
-      <div class="kicker">Sichtbarkeit</div>
-      <h2>So werden Sie <span class="accent">gefunden</span>.</h2>
+    <div class="ghost" data-layout-ignore>2</div>
+    <div class="meta meta-tl sm4">Leistung 2 / 4</div>
+    <div class="was-wrap" style="padding-right: 820px;">
+      <div class="kicker">Webseite</div>
+      <h2>Schön. Gefunden.<br>Ein <span class="accent">Magnet</span>.</h2>
+      <div class="chip-row">
+        <div class="chip c4"><span class="cdot"></span>Individuelles Design</div>
+        <div class="chip c4"><span class="cdot"></span>SEO-optimiert</div>
+        <div class="chip c4"><span class="cdot"></span>Lead- &amp; Bewerber-Magnet</div>
+      </div>
     </div>
-    <div id="panel-l" class="panel">
-      <span class="panel-tag">Von selbst</span>
-      <div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span id="srch-txt"></span><span class="ph-caret" id="srch-caret" style="height:28px"></span></div>
-      <div class="res" id="res1"><span class="pos">1</span>Ihr Unternehmen</div>
-      <div class="res dim"><span class="bar"></span></div>
-      <div class="res dim"><span class="bar"></span></div>
-      <div id="ki-chip">✦ Auch KIs empfehlen Sie weiter</div>
-    </div>
-    <div id="panel-r" class="panel">
-      <span class="panel-tag">Mit Werbung</span>
-      <div class="adpill"><svg viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>Google-Anzeigen</div>
-      <div class="adpill"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.3"/></svg>Insta- &amp; Facebook-Anzeigen</div>
-      <div id="s4-goal">Je nach Ziel: Kunden gewinnen oder Mitarbeiter finden — Ihre Webseite ist genau darauf optimiert.</div>
+    <div id="s4-browser">
+      <div class="br-bar"><i></i><i></i><i></i></div>
+      <div class="hero"><div class="hill"></div></div>
+      <div class="tl1"></div><div class="tl2"></div>
+      <div class="cta"></div>
     </div>
   </div>
 
-  <!-- Szene 5: Phase 4 Ergebnis -->
+  <!-- S5 Warum SEO -->
   <div id="s5" class="scene">
+    <div class="blob blob-p" data-layout-ignore></div>
+    <div class="meta meta-tr sm5">Warum SEO?</div>
+    <div id="s5-line" class="benefit">Wer sucht, scrollt nicht weit.<br><span class="accent">Platz 1 gewinnt.</span></div>
+    <div id="serp">
+      <div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span id="srch-txt"></span><span class="ph-caret" id="srch-caret" style="height:30px"></span></div>
+      <div class="serp-row" id="serp-own"><span class="pos">1</span>Ihr Unternehmen</div>
+      <div class="serp-row dim"><span class="bar"></span></div>
+      <div class="serp-row dim"><span class="bar"></span></div>
+      <div id="fold" data-layout-ignore><div id="fold-lbl">Bis hier scrollt kaum noch jemand</div></div>
+      <div id="visit-ping">+1 Besucher</div>
+    </div>
+    <div id="cursor" data-layout-ignore><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.5L11 19 5 3z"/></svg></div>
+    <div id="ripple" data-layout-ignore></div>
+  </div>
+
+  <!-- S6 Warum Verweildauer -->
+  <div id="s6" class="scene">
     <div class="blob blob-b" data-layout-ignore></div>
-    <div id="s5-ghost" class="ghost" data-layout-ignore>4</div>
-    <div class="meta meta-tl s5-meta">Schritt 4 / 5</div>
-    <div class="meta meta-tr s5-meta">Ihr Ergebnis</div>
-    <div id="s5-head">
+    <div class="meta meta-tr sm6">Warum schönes Design?</div>
+    <div id="s6-line" class="benefit">Wer gern bleibt,<br><span class="accent">fragt eher an</span>.</div>
+    <div id="dw-browser">
+      <div class="br-bar"><i></i><i></i><i></i></div>
+      <div id="dw-page">
+        <div class="blk" style="height:150px;background:linear-gradient(135deg,#6A7CFF,#9D4EDD 55%,#FF5082)"></div>
+        <div class="blk" style="height:18px;width:70%;background:rgba(13,18,56,0.7)"></div>
+        <div class="blk" style="height:14px;width:50%;background:rgba(13,18,56,0.25)"></div>
+        <div class="blk" style="height:120px;background:rgba(46,62,232,0.1)"></div>
+        <div class="blk" style="height:14px;width:80%;background:rgba(13,18,56,0.18)"></div>
+        <div class="blk" style="height:14px;width:65%;background:rgba(13,18,56,0.18)"></div>
+        <div class="blk" style="height:120px;background:linear-gradient(135deg,rgba(157,78,221,0.25),rgba(255,80,130,0.25))"></div>
+        <div class="blk" style="height:14px;width:70%;background:rgba(13,18,56,0.18)"></div>
+        <div class="blk" style="height:56px;width:220px;border-radius:999px;background:linear-gradient(100deg,#2E3EE8,#9D4EDD 60%,#FF5082)"></div>
+      </div>
+    </div>
+    <div id="dw-stats">
+      <div id="dw-timer-card">
+        <svg id="dw-ring" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="dw-fg" cx="60" cy="60" r="52" pathLength="1"/></svg>
+        <div><div class="lbl">Verweildauer</div><div id="dw-time">0:00</div></div>
+      </div>
+      <div id="dw-int-card">
+        <div class="lbl">Interesse</div>
+        <div id="int-track"><div id="int-fill"></div></div>
+      </div>
+    </div>
+    <div id="dw-badge"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 6-10 7L2 6"/></svg>Neue Anfrage!</div>
+  </div>
+
+  <!-- S7 Ads -->
+  <div id="s7" class="scene">
+    <div class="blob blob-p" data-layout-ignore></div>
+    <div class="ghost" data-layout-ignore>3</div>
+    <div class="meta meta-tl sm7">Leistung 3 / 4</div>
+    <div id="s7-copy">
+      <div class="kicker">Meta &amp; Google Ads</div>
+      <h2>Immer wieder<br><span class="accent">im Feed</span>.</h2>
+      <div class="benefit" id="s7-benefit" style="font-size:46px">So bleibt Ihre Marke<br><span class="accent">im Kopf</span>.</div>
+    </div>
+    <div id="phone2">
+      <div id="p2-screen">
+        <div id="p2-island"></div>
+        <div id="p2-feed">
+          <div class="post"><div class="ph"><div class="av"></div><div class="nm"></div></div><div class="im"></div></div>
+          <div class="post ad pa1"><div class="ph"><div class="av"></div><div class="nm" style="width:120px"></div></div><div class="im">A</div><div class="tag">ANZEIGE</div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div class="nm"></div></div><div class="im"></div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div class="nm"></div></div><div class="im" style="height:90px"></div></div>
+          <div class="post ad pa2"><div class="ph"><div class="av"></div><div class="nm" style="width:120px"></div></div><div class="im">A</div><div class="tag">ANZEIGE</div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div class="nm"></div></div><div class="im"></div></div>
+          <div class="post ad pa3"><div class="ph"><div class="av"></div><div class="nm" style="width:120px"></div></div><div class="im">A</div><div class="tag">ANZEIGE</div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div class="nm"></div></div><div class="im"></div></div>
+        </div>
+      </div>
+    </div>
+    <div id="head-sil">
+      <svg viewBox="0 0 200 240">
+        <defs><clipPath id="hs-clip"><path d="M100 12 C 152 12 182 48 182 96 C 182 118 174 136 162 150 L 170 176 L 148 182 L 148 214 C 148 224 140 230 130 230 L 78 230 C 66 230 58 222 58 210 L 58 178 C 34 160 20 132 20 100 C 20 50 52 12 100 12 Z"/></clipPath></defs>
+        <rect id="hs-fill-rect" x="0" y="240" width="200" height="240" fill="url(#hsgrad)" clip-path="url(#hs-clip)"/>
+        <path id="hs-outline" d="M100 12 C 152 12 182 48 182 96 C 182 118 174 136 162 150 L 170 176 L 148 182 L 148 214 C 148 224 140 230 130 230 L 78 230 C 66 230 58 222 58 210 L 58 178 C 34 160 20 132 20 100 C 20 50 52 12 100 12 Z"/>
+        <text id="hs-logo" x="100" y="125" text-anchor="middle">A</text>
+      </svg>
+      <div id="hs-lbl">bleibt im Kopf</div>
+    </div>
+  </div>
+
+  <!-- S8 Ergebnis: Lead kommt rein -->
+  <div id="s8" class="scene">
+    <div class="blob blob-b" data-layout-ignore style="top:130px;left:500px;filter:blur(80px)"></div>
+    <div class="meta meta-tr sm8">Das Ergebnis</div>
+    <div id="s8-head">
       <div class="kicker">Ihr Ergebnis</div>
       <h2>Aus Besuchern werden <span class="accent">Anfragen</span>.</h2>
     </div>
@@ -404,50 +554,48 @@
       <div><div class="t">Bewerbungen</div><div class="s">Wenn Sie Mitarbeiter suchen</div></div>
       <div class="count" id="cnt-bew">0</div>
     </div>
-    <div id="ping1" class="ping">+1 Lead</div>
-    <div id="ping2" class="ping">+1 Bewerbung</div>
-    <div id="ping3" class="ping">+1 Lead</div>
   </div>
 
-  <!-- Szene 6: Phase 5 Arbeitsalltag -->
-  <div id="s6" class="scene">
-    <div class="blob blob-p" data-layout-ignore></div>
-    <div id="s6-ghost" class="ghost" data-layout-ignore>5</div>
-    <div class="meta meta-tl s6-meta">Schritt 5 / 5</div>
-    <div class="meta meta-tr s6-meta">Ihr Arbeitsalltag</div>
-    <div id="s6-head">
-      <div class="kicker">Ihr Arbeitsalltag</div>
-      <h2>Und der Alltag? <span class="accent">Läuft.</span></h2>
+  <!-- S9 KI & Software -->
+  <div id="s9" class="scene">
+    <div class="blob blob-b" data-layout-ignore></div>
+    <div class="ghost" data-layout-ignore>4</div>
+    <div class="meta meta-tl sm9">Leistung 4 / 4</div>
+    <div id="s9-copy">
+      <div class="kicker">KI &amp; Software</div>
+      <h2>Mehr Aufträge?<br><span class="accent">Mehr Aufwand.</span></h2>
+      <div class="benefit" id="s9-benefit" style="font-size:46px">Automatisierung übernimmt —<br>Sie gewinnen <span class="accent">Zeit</span>.</div>
     </div>
-    <div id="s6-steige">Vom Ablauf bis zum eigenen System</div>
-    <div id="ac1" class="auto-card">
-      <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <div class="t">Abläufe automatisieren</div>
-      <div class="s">Wiederkehrendes läuft von selbst — ohne Papierkram.</div>
-    </div>
-    <div id="ar1" class="arrow"></div>
-    <div id="ac2" class="auto-card">
-      <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M8 4h8"/><circle cx="9" cy="14" r="1.3"/><circle cx="15" cy="14" r="1.3"/></svg></div>
-      <div class="t">KI-Agenten</div>
-      <div class="s">Digitale Helfer, die mitdenken und Aufgaben übernehmen.</div>
-    </div>
-    <div id="ar2" class="arrow"></div>
-    <div id="ac3" class="auto-card">
-      <div class="ic"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
-      <div class="t">Eigene Software</div>
-      <div class="s">Bis zum kompletten System — gebaut für Ihre Abläufe.</div>
+    <div id="task-zone">
+      <div class="task" id="t1"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 6-10 7L2 6"/></svg>E-Mails beantworten</div>
+      <div class="task" id="t2"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Termine koordinieren</div>
+      <div class="task" id="t3"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Angebote schreiben</div>
+      <div class="task" id="t4"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>Rechnungen stellen</div>
+      <div class="task" id="t5"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 20V9"/></svg>Daten pflegen</div>
+      <div id="gear"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M8 4h8"/><circle cx="9" cy="14" r="1.3"/><circle cx="15" cy="14" r="1.3"/></svg></div>
+      <div id="clock-card">
+        <svg id="clock-ring" viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="66"/><circle class="fg" id="clock-fg" cx="80" cy="80" r="66" pathLength="1"/></svg>
+        <div id="clock-lbl">Gewonnene Zeit</div>
+        <div id="clock-sub">für Ihr eigentliches Geschäft</div>
+      </div>
     </div>
   </div>
 
-  <!-- Szene 7: Outro -->
-  <div id="s7" class="scene">
+  <!-- S10 Zusammen + CTA -->
+  <div id="s10" class="scene">
     <div class="blob blob-b" data-layout-ignore></div><div class="blob blob-p" data-layout-ignore></div>
-    <div id="s7-content">
-      <img id="s7-logo" src="logo.png" alt="WECONN3CT">
-      <h2>Alles aus einer Hand.<br>Ein <span class="accent">Ansprechpartner</span>.</h2>
-      <div id="s7-line">Und das Beste: Auf Wunsch macht <b>WECONN3CT</b> all das für Sie.</div>
-      <div id="s7-cta">webseite.weconn3ct.de</div>
-      <div id="s7-sub">Kostenloses Festpreis-Angebot — Antwort in 24 Stunden.</div>
+    <div id="s10-content">
+      <div id="ring-zone">
+        <div class="ring-chip" id="q1"><svg viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
+        <div class="ring-chip" id="q2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <div class="ring-chip" id="q3"><svg viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+        <div class="ring-chip" id="q4"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M8 4h8"/><circle cx="9" cy="14" r="1.3"/><circle cx="15" cy="14" r="1.3"/></svg></div>
+      </div>
+      <img id="s10-logo" src="logo.png" alt="WECONN3CT">
+      <h2>Alles greift <span class="accent">ineinander</span>.</h2>
+      <div id="s10-line">Und auf Wunsch macht <b>WECONN3CT</b> all das für Sie.</div>
+      <div id="s10-cta">webseite.weconn3ct.de</div>
+      <div id="s10-sub">Kostenloses Festpreis-Angebot — Antwort in 24 Stunden.</div>
     </div>
   </div>
 </div>
@@ -455,198 +603,212 @@
 <script>
 window.__timelines = window.__timelines || {};
 var tl = gsap.timeline({ paused: true });
+
+/* Anfangszustände (alle Elemente existieren beim Laden) */
 gsap.set('#ph-check', { scale: 0, transformOrigin: '50% 50%' });
 gsap.set('#ph-notif', { y: -150, opacity: 0 });
 gsap.set('#ph-c2', { opacity: 0 });
+gsap.set('#s1-b', { opacity: 0 });
+gsap.set('#dw-badge', { opacity: 0, scale: 0.6 });
+gsap.set('#visit-ping', { opacity: 0 });
+gsap.set('#ripple', { opacity: 0, scale: 0.4 });
+gsap.set('#dw-fg', { strokeDasharray: 1, strokeDashoffset: 1 });
+gsap.set('#clock-fg', { strokeDasharray: 1, strokeDashoffset: 1 });
+gsap.set('#clock-card', { opacity: 0, y: 60 });
 
-/* Deterministischer Tipp-Effekt: Zeichen für Zeichen, seekbar */
+/* Deterministischer Tipp-Effekt */
 function typeInto(sel, text, start, dur) {
   var o = { n: 0 }, el = document.querySelector(sel);
   tl.to(o, { n: text.length, duration: dur, ease: 'none', onUpdate: function () {
     el.textContent = text.slice(0, Math.round(o.n)); } }, start);
 }
-/* Blinkende Schreibmarke (endliche Wiederholungen) */
 function caretBlink(sel, start, cycles) {
   tl.to(sel, { opacity: 0, duration: 0.32, ease: 'steps(1)', yoyo: true, repeat: cycles * 2 - 1 }, start);
 }
+function pushLeft(oldSel, newSel, T) {
+  tl.to(oldSel, { x: -1920, duration: 0.55, ease: 'power3.inOut' }, T);
+  tl.fromTo(newSel, { x: 1920, opacity: 1 }, { x: 0, duration: 0.55, ease: 'power3.inOut' }, T);
+  tl.set(oldSel, { opacity: 0 }, T + 0.6);
+}
 
-/* ============ Szene 1: Hook (0 – 4.2) ============ */
-tl.from('.s1-meta', { y: -20, opacity: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1 }, 0.15);
-tl.from('#s1-badge', { scale: 0.7, opacity: 0, duration: 0.55, ease: 'back.out(2)' }, 0.25);
-tl.from('#s1-l1', { y: 70, opacity: 0, duration: 0.7, ease: 'power3.out' }, 0.5);
-tl.from('#s1-l2', { y: 70, opacity: 0, duration: 0.7, ease: 'power3.out' }, 0.68);
-tl.from('#s1-l3', { y: 70, opacity: 0, duration: 0.7, ease: 'expo.out' }, 0.86);
-tl.from('#s1-sub', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, 1.25);
-tl.from('#s1-rule', { scaleX: 0, duration: 0.9, ease: 'power3.inOut' }, 1.4);
-tl.from('#s1-ghost', { x: 120, opacity: 0, duration: 1.1, ease: 'power2.out' }, 0.3);
-tl.to('#s1 .blob-b', { x: -40, y: 30, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 0.2);
+/* ============ S1 Hook (0 – 6.4) ============ */
+tl.from('#s1-a h1', { y: 70, opacity: 0, duration: 0.8, ease: 'power3.out' }, 0.3);
+tl.from('#s1-ghost', { x: 120, opacity: 0, duration: 1.1, ease: 'power2.out' }, 0.4);
+tl.to('#s1-a', { y: -60, opacity: 0, duration: 0.5, ease: 'power2.in' }, 3.0);
+tl.to('#s1-b', { opacity: 1, duration: 0.01 }, 3.4);
+tl.from('#s1-badge', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, 3.45);
+tl.from('#s1-b h1', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 3.6);
+var T1 = 6.4; pushLeft('#s1', '#s2', T1);
 
-/* Übergang 1→2: Push Slide */
-var T1 = 4.2;
-tl.to('#s1', { x: -1920, duration: 0.55, ease: 'power3.inOut' }, T1);
-tl.fromTo('#s2', { x: 1920, opacity: 1 }, { x: 0, duration: 0.55, ease: 'power3.inOut' }, T1);
-tl.set('#s1', { opacity: 0 }, T1 + 0.6);
-
-/* ============ Szene 2: Marke (4.75 – 11.2) ============ */
+/* ============ S2 Design: Was (7 – 11.2) ============ */
 var S2 = T1 + 0.6;
-tl.from('.s2-meta', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.1 }, S2);
-tl.from('#s2-ghost', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, S2);
-tl.from('#s2-copy .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S2 + 0.1);
-tl.from('#s2-copy h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S2 + 0.25);
-tl.from('#s2-copy .sub', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S2 + 0.5);
-tl.from('#sw-row .sw', { scale: 0, opacity: 0, duration: 0.5, ease: 'back.out(2.5)', stagger: 0.12 }, S2 + 0.7);
-tl.from('#logo-tile', { scale: 0, rotation: -20, opacity: 0, duration: 0.8, ease: 'elastic.out(1, 0.55)' }, S2 + 1.1);
-tl.from('#vk-card', { y: 90, opacity: 0, rotation: -12, duration: 0.6, ease: 'back.out(1.6)' }, S2 + 1.7);
-tl.from('#fl-card', { y: 110, opacity: 0, rotation: 10, duration: 0.6, ease: 'back.out(1.5)' }, S2 + 1.9);
-tl.from('#br-mini', { x: 120, opacity: 0, duration: 0.6, ease: 'power3.out' }, S2 + 2.1);
-tl.to('#logo-tile', { y: -10, duration: 1.4, ease: 'sine.inOut', yoyo: true, repeat: 2 }, S2 + 2.4);
-tl.to('#vk-card', { y: 8, duration: 1.7, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S2 + 2.6);
+tl.from('.sm2', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S2);
+tl.from('#s2 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S2 + 0.1);
+tl.from('#s2 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S2 + 0.2);
+tl.from('.c2', { y: 40, opacity: 0, duration: 0.5, ease: 'back.out(1.8)', stagger: 0.1 }, S2 + 0.55);
+tl.from('#sw-row .sw', { scale: 0, opacity: 0, duration: 0.5, ease: 'back.out(2.5)', stagger: 0.1 }, S2 + 0.5);
+tl.from('#logo-tile', { scale: 0, rotation: -20, opacity: 0, duration: 0.8, ease: 'elastic.out(1, 0.55)' }, S2 + 0.85);
+tl.from('#vk-card', { y: 90, opacity: 0, rotation: 10, duration: 0.6, ease: 'back.out(1.6)' }, S2 + 1.35);
+tl.from('#fl-card', { y: 110, opacity: 0, rotation: -10, duration: 0.6, ease: 'back.out(1.5)' }, S2 + 1.55);
+tl.to('#logo-tile', { y: -8, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S2 + 1.9);
+var T2 = 11.2; pushLeft('#s2', '#s3', T2);
 
-/* Übergang 2→3: Push Slide */
-var T2 = 11.2;
-tl.to('#s2', { x: -1920, duration: 0.55, ease: 'power3.inOut' }, T2);
-tl.fromTo('#s3', { x: 1920, opacity: 1 }, { x: 0, duration: 0.55, ease: 'power3.inOut' }, T2);
-tl.set('#s2', { opacity: 0 }, T2 + 0.6);
-
-/* ============ Szene 3: Echte Bilder (11.8 – 17.2) ============ */
+/* ============ S3 Design: Warum (11.8 – 17) ============ */
 var S3 = T2 + 0.6;
-tl.from('.s3-meta', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.1 }, S3);
-tl.from('#s3-ghost', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, S3);
-tl.from('#s3-copy .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S3 + 0.1);
-tl.from('#s3-copy h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S3 + 0.25);
-tl.from('#s3-copy .sub', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S3 + 0.5);
-tl.from('#ph1', { y: -160, opacity: 0, rotation: -14, duration: 0.7, ease: 'back.out(1.4)' }, S3 + 0.7);
-tl.from('#ph2', { x: 180, opacity: 0, rotation: 12, duration: 0.7, ease: 'back.out(1.4)' }, S3 + 0.95);
-tl.from('#ph3', { y: 160, opacity: 0, rotation: -10, duration: 0.7, ease: 'back.out(1.4)' }, S3 + 1.2);
-/* Kamera-Blitze, wenn die Fotos "geschossen" werden */
-tl.fromTo('#s3-flash', { opacity: 0 }, { opacity: 0.65, duration: 0.08, ease: 'power1.in' }, S3 + 0.85);
-tl.to('#s3-flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, S3 + 0.93);
-tl.fromTo('#s3-flash', { opacity: 0 }, { opacity: 0.55, duration: 0.08, ease: 'power1.in' }, S3 + 1.1);
-tl.to('#s3-flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, S3 + 1.18);
-tl.fromTo('#s3-flash', { opacity: 0 }, { opacity: 0.55, duration: 0.08, ease: 'power1.in' }, S3 + 1.35);
-tl.to('#s3-flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, S3 + 1.43);
-tl.from('#dest-web', { y: 50, opacity: 0, duration: 0.5, ease: 'power2.out' }, S3 + 1.7);
-tl.from('#dest-social', { y: 50, opacity: 0, duration: 0.5, ease: 'power2.out' }, S3 + 1.85);
-tl.to('#ph1', { y: 8, duration: 1.5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S3 + 2.2);
-tl.to('#ph2', { y: -8, duration: 1.7, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S3 + 2.3);
+tl.from('.sm3', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S3);
+tl.from('#s3-line', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S3 + 0.1);
+tl.from('#r1', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.4)' }, S3 + 0.5);
+tl.from('#r2', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.4)' }, S3 + 0.7);
+tl.from('#r3', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.4)' }, S3 + 0.9);
+tl.from('.rlg', { scale: 0, rotation: -15, duration: 0.55, ease: 'back.out(2.4)', stagger: 0.22 }, S3 + 1.5);
+tl.from('.rck', { scale: 0, duration: 0.45, ease: 'back.out(2.6)', stagger: 0.22 }, S3 + 1.75);
+tl.to('#r2', { y: -8, duration: 1.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S3 + 2.6);
+var T3 = 17; pushLeft('#s3', '#s4', T3);
 
-/* Übergang 3→4: Push Slide */
-var T3 = 17.2;
-tl.to('#s3', { x: -1920, duration: 0.55, ease: 'power3.inOut' }, T3);
-tl.fromTo('#s4', { x: 1920, opacity: 1 }, { x: 0, duration: 0.55, ease: 'power3.inOut' }, T3);
-tl.set('#s3', { opacity: 0 }, T3 + 0.6);
-
-/* ============ Szene 4: Gefunden werden (17.8 – 24.2) ============ */
+/* ============ S4 Webseite: Was (17.6 – 21.8) ============ */
 var S4 = T3 + 0.6;
-tl.from('.s4-meta', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.1 }, S4);
-tl.from('#s4-ghost', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, S4);
-tl.from('#s4-head .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 0.1);
-tl.from('#s4-head h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.25);
-tl.from('#panel-l', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.6);
-tl.from('#panel-r', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.8);
-tl.from('#panel-l .srch', { scaleX: 0.6, opacity: 0, duration: 0.5, ease: 'power2.out', transformOrigin: 'left center' }, S4 + 1.1);
-typeInto('#srch-txt', 'ihr handwerker in bonn', S4 + 1.35, 1.0);
-caretBlink('#srch-caret', S4 + 1.1, 4);
-tl.from('#panel-l .res.dim', { x: -40, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.12 }, S4 + 2.2);
-tl.from('#res1', { x: -60, opacity: 0, duration: 0.55, ease: 'back.out(2.2)' }, S4 + 2.5);
-tl.from('#ki-chip', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, S4 + 2.9);
-tl.from('#panel-r .adpill', { x: 80, opacity: 0, duration: 0.55, ease: 'power3.out', stagger: 0.18 }, S4 + 1.5);
-tl.from('#s4-goal', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 2.4);
-tl.to('#res1', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 3 }, S4 + 3.1);
+tl.from('.sm4', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S4);
+tl.from('#s4 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 0.1);
+tl.from('#s4 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S4 + 0.2);
+tl.from('.c4', { y: 40, opacity: 0, duration: 0.5, ease: 'back.out(1.8)', stagger: 0.12 }, S4 + 0.55);
+tl.from('#s4-browser', { x: 200, opacity: 0, rotation: 4, duration: 0.7, ease: 'power3.out' }, S4 + 0.4);
+tl.from('#s4-browser .hero', { scaleX: 0.85, opacity: 0, duration: 0.5, ease: 'power2.out' }, S4 + 0.9);
+tl.from('#s4-browser .tl1, #s4-browser .tl2', { x: -24, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.12 }, S4 + 1.05);
+tl.from('#s4-browser .cta', { scale: 0.7, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, S4 + 1.3);
+var T4 = 21.8; pushLeft('#s4', '#s5', T4);
 
-/* Übergang 4→5: Elastic Push (Höhepunkt) */
-var T4 = 24.2;
-tl.to('#s4', { x: -1920, duration: 0.5, ease: 'power3.in' }, T4);
-tl.fromTo('#s5', { x: 1920, opacity: 1 }, { x: 30, duration: 0.4, ease: 'power4.out' }, T4 + 0.1);
-tl.to('#s5', { x: -15, duration: 0.15, ease: 'sine.inOut' }, T4 + 0.5);
-tl.to('#s5', { x: 0, duration: 0.1, ease: 'sine.out' }, T4 + 0.65);
-tl.set('#s4', { opacity: 0 }, T4 + 0.6);
+/* ============ S5 Warum SEO (22.4 – 29.2) ============ */
+var S5 = T4 + 0.6;
+tl.from('.sm5', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5);
+tl.from('#s5-line', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S5 + 0.1);
+tl.from('#serp .srch', { y: 40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S5 + 0.5);
+typeInto('#srch-txt', 'handwerker in bonn', S5 + 0.8, 0.9);
+caretBlink('#srch-caret', S5 + 0.6, 3);
+tl.set('#srch-caret', { opacity: 0 }, S5 + 2.1);
+tl.from('#serp .serp-row.dim', { y: 40, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.12 }, S5 + 1.9);
+tl.from('#serp-own', { y: -60, opacity: 0, duration: 0.6, ease: 'back.out(2)' }, S5 + 2.3);
+tl.from('#fold', { opacity: 0, duration: 0.6, ease: 'power1.out' }, S5 + 2.9);
+tl.fromTo('#cursor', { x: 1500, y: 900, opacity: 0 }, { x: 900, y: 480, opacity: 1, duration: 0.9, ease: 'power2.inOut' }, S5 + 3.2);
+tl.to('#cursor', { scale: 0.85, duration: 0.1, ease: 'power2.in' }, S5 + 4.15);
+tl.to('#cursor', { scale: 1, duration: 0.25, ease: 'back.out(3)' }, S5 + 4.25);
+tl.fromTo('#ripple', { x: 890, y: 470, opacity: 0.9, scale: 0.4 }, { scale: 3.2, opacity: 0, duration: 0.7, ease: 'power2.out' }, S5 + 4.2);
+tl.to('#serp-own', { scale: 1.03, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, S5 + 4.2);
+tl.fromTo('#visit-ping', { y: 20, opacity: 0, scale: 0.7 }, { y: -10, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 4.5);
+tl.to('#visit-ping', { y: -36, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 5.4);
+var T5 = 29.2; pushLeft('#s5', '#s6', T5);
 
-/* ============ Szene 5: Ergebnis (24.9 – 30.2) ============ */
-var S5 = T4 + 0.7;
-tl.from('.s5-meta', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.1 }, S5);
-tl.from('#s5-ghost', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, S5);
-tl.from('#s5-head .kicker', { y: -24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S5 + 0.05);
-tl.from('#s5-head h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S5 + 0.2);
-/* Ergebnis-Karten früh an die Seiten, Zähler noch bei 0 */
-tl.from('#rc-leads', { x: -140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S5 + 0.5);
-tl.from('#rc-bew', { x: 140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S5 + 0.65);
+/* ============ S6 Warum Verweildauer (29.8 – 36.6) ============ */
+var S6 = T5 + 0.6;
+tl.from('.sm6', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S6);
+tl.from('#s6-line', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S6 + 0.1);
+tl.from('#dw-browser', { y: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S6 + 0.45);
+tl.from('#dw-timer-card', { x: 120, opacity: 0, duration: 0.6, ease: 'power3.out' }, S6 + 0.7);
+tl.from('#dw-int-card', { x: 120, opacity: 0, duration: 0.6, ease: 'power3.out' }, S6 + 0.85);
+tl.to('#dw-page', { y: -420, duration: 4.2, ease: 'sine.inOut' }, S6 + 1.1);
+tl.to('#dw-fg', { strokeDashoffset: 0, duration: 4.4, ease: 'none' }, S6 + 1.0);
+var dwt = { n: 0 };
+tl.to(dwt, { n: 154, duration: 4.4, ease: 'none', onUpdate: function () {
+  var s = Math.round(dwt.n); var m = Math.floor(s / 60);
+  document.getElementById('dw-time').textContent = m + ':' + ('0' + (s % 60)).slice(-2); } }, S6 + 1.0);
+tl.fromTo('#int-fill', { scaleX: 0.06 }, { scaleX: 1, duration: 4.2, ease: 'power1.inOut' }, S6 + 1.1);
+tl.to('#dw-badge', { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(2.2)' }, S6 + 5.4);
+var T6 = 36.6; pushLeft('#s6', '#s7', T6);
 
-/* Das Handy fährt rein, die Mini-Webseite baut sich auf */
-tl.from('#phone', { y: 260, rotation: 5, opacity: 0, duration: 0.9, ease: 'back.out(1.3)' }, S5 + 0.35);
-tl.from('#ph-nav', { y: 14, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5 + 0.95);
-tl.from('#ph-hero', { y: 22, opacity: 0, duration: 0.45, ease: 'power3.out' }, S5 + 1.05);
-tl.from('#ph-h1', { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5 + 1.15);
-tl.from('#ph-h2', { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, S5 + 1.25);
-tl.from('#ph-form', { scale: 0.92, y: 20, opacity: 0, duration: 0.5, ease: 'back.out(1.6)' }, S5 + 1.4);
+/* ============ S7 Ads (37.2 – 45) ============ */
+var S7 = T6 + 0.6;
+tl.from('.sm7', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S7);
+tl.from('#s7 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S7 + 0.1);
+tl.from('#s7 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7 + 0.2);
+tl.from('#phone2', { y: 240, rotation: 6, opacity: 0, duration: 0.9, ease: 'back.out(1.3)' }, S7 + 0.4);
+tl.from('#head-sil', { x: 120, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7 + 0.8);
+tl.to('#p2-feed', { y: -900, duration: 5.2, ease: 'sine.inOut' }, S7 + 1.2);
+tl.to('.pa1 .im', { scale: 1.06, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S7 + 1.6);
+tl.to('#hs-fill-rect', { attr: { y: 160 }, duration: 0.5, ease: 'power2.out' }, S7 + 1.8);
+tl.to('.pa2 .im', { scale: 1.06, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S7 + 3.2);
+tl.to('#hs-fill-rect', { attr: { y: 80 }, duration: 0.5, ease: 'power2.out' }, S7 + 3.4);
+tl.to('.pa3 .im', { scale: 1.08, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S7 + 4.8);
+tl.to('#hs-fill-rect', { attr: { y: 0 }, duration: 0.6, ease: 'power2.out' }, S7 + 5.0);
+tl.from('#s7-benefit', { y: 40, opacity: 0, duration: 0.6, ease: 'power3.out' }, S7 + 5.4);
+tl.to('#head-sil', { scale: 1.04, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, S7 + 5.6);
+var T7 = 45;
+tl.to('#s7', { x: -1920, duration: 0.5, ease: 'power3.in' }, T7);
+tl.fromTo('#s8', { x: 1920, opacity: 1 }, { x: 30, duration: 0.4, ease: 'power4.out' }, T7 + 0.1);
+tl.to('#s8', { x: -15, duration: 0.15, ease: 'sine.inOut' }, T7 + 0.5);
+tl.to('#s8', { x: 0, duration: 0.1, ease: 'sine.out' }, T7 + 0.65);
+tl.set('#s7', { opacity: 0 }, T7 + 0.6);
 
-/* Das Formular tippt sich — Feld 1, dann Feld 2 */
-typeInto('#ph-t1', 'Max Mustermann', S5 + 1.85, 0.85);
-caretBlink('#ph-c1', S5 + 1.5, 2);
-tl.set('#ph-c1', { opacity: 0 }, S5 + 2.8);
-tl.set('#ph-c2', { opacity: 1 }, S5 + 2.85);
-typeInto('#ph-t2', '0170 123 45 67', S5 + 2.95, 0.8);
-tl.set('#ph-c2', { opacity: 0 }, S5 + 3.85);
-
-/* Button-Press mit Feedback, Häkchen poppt */
-tl.to('#ph-btn', { scale: 0.94, duration: 0.11, ease: 'power2.in' }, S5 + 4.0);
-tl.to('#ph-btn', { scale: 1, duration: 0.35, ease: 'back.out(3)' }, S5 + 4.11);
-tl.to('#ph-check', { scale: 1, duration: 0.45, ease: 'back.out(2.5)' }, S5 + 4.25);
-
-/* Der Moment: die Anfrage kommt als Push-Nachricht rein */
-tl.to('#ph-notif', { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)' }, S5 + 4.7);
-tl.to('#ph-notif', { scale: 1.03, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S5 + 5.4);
-
-/* Zähler ticken hoch, Pings ploppen */
+/* ============ S8 Ergebnis (45.7 – 54) ============ */
+var S8 = T7 + 0.7;
+tl.from('.sm8', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S8);
+tl.from('#s8-head .kicker', { y: -24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S8 + 0.05);
+tl.from('#s8-head h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S8 + 0.2);
+tl.from('#rc-leads', { x: -140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S8 + 0.5);
+tl.from('#rc-bew', { x: 140, opacity: 0, duration: 0.65, ease: 'power3.out' }, S8 + 0.65);
+tl.from('#phone', { y: 260, rotation: 5, opacity: 0, duration: 0.9, ease: 'back.out(1.3)' }, S8 + 0.35);
+tl.from('#ph-nav', { y: 14, opacity: 0, duration: 0.4, ease: 'power2.out' }, S8 + 0.95);
+tl.from('#ph-hero', { y: 22, opacity: 0, duration: 0.45, ease: 'power3.out' }, S8 + 1.05);
+tl.from('#ph-h1', { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, S8 + 1.15);
+tl.from('#ph-h2', { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, S8 + 1.25);
+tl.from('#ph-form', { scale: 0.92, y: 20, opacity: 0, duration: 0.5, ease: 'back.out(1.6)' }, S8 + 1.4);
+typeInto('#ph-t1', 'Max Mustermann', S8 + 1.85, 0.85);
+caretBlink('#ph-c1', S8 + 1.5, 2);
+tl.set('#ph-c1', { opacity: 0 }, S8 + 2.8);
+tl.set('#ph-c2', { opacity: 1 }, S8 + 2.85);
+typeInto('#ph-t2', '0170 123 45 67', S8 + 2.95, 0.8);
+tl.set('#ph-c2', { opacity: 0 }, S8 + 3.85);
+tl.to('#ph-btn', { scale: 0.94, duration: 0.11, ease: 'power2.in' }, S8 + 4.0);
+tl.to('#ph-btn', { scale: 1, duration: 0.35, ease: 'back.out(3)' }, S8 + 4.11);
+tl.to('#ph-check', { scale: 1, duration: 0.45, ease: 'back.out(2.5)' }, S8 + 4.25);
+tl.to('#ph-notif', { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)' }, S8 + 4.7);
+tl.to('#ph-notif', { scale: 1.03, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S8 + 5.4);
 var leads = { n: 0 }, bew = { n: 0 };
 tl.to(leads, { n: 12, duration: 1.5, ease: 'power1.out', onUpdate: function () {
-  document.getElementById('cnt-leads').textContent = '+' + Math.round(leads.n); } }, S5 + 5.0);
+  document.getElementById('cnt-leads').textContent = '+' + Math.round(leads.n); } }, S8 + 5.0);
 tl.to(bew, { n: 7, duration: 1.5, ease: 'power1.out', onUpdate: function () {
-  document.getElementById('cnt-bew').textContent = '+' + Math.round(bew.n); } }, S5 + 5.2);
-tl.fromTo('#ping1', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 5.1);
-tl.to('#ping1', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 5.9);
-tl.fromTo('#ping2', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 5.7);
-tl.to('#ping2', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 6.5);
-tl.fromTo('#ping3', { y: 20, opacity: 0, scale: 0.7 }, { y: -14, opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, S5 + 6.2);
-tl.to('#ping3', { y: -40, opacity: 0, duration: 0.5, ease: 'power1.in' }, S5 + 7.0);
-tl.to('#phone', { y: '-=8', rotation: 0.4, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S5 + 5.3);
+  document.getElementById('cnt-bew').textContent = '+' + Math.round(bew.n); } }, S8 + 5.2);
+tl.to('#phone', { y: '-=8', rotation: 0.4, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S8 + 5.5);
+var T8 = 54;
+tl.to('#s8', { y: -1080, duration: 0.55, ease: 'power3.inOut' }, T8);
+tl.fromTo('#s9', { y: 1080, opacity: 1 }, { y: 0, duration: 0.55, ease: 'power3.inOut' }, T8);
+tl.set('#s8', { opacity: 0 }, T8 + 0.6);
 
-/* Übergang 5→6: Vertical Push (Themenwechsel) */
-var T5 = 32.4;
-tl.to('#s5', { y: -1080, duration: 0.55, ease: 'power3.inOut' }, T5);
-tl.fromTo('#s6', { y: 1080, opacity: 1 }, { y: 0, duration: 0.55, ease: 'power3.inOut' }, T5);
-tl.set('#s5', { opacity: 0 }, T5 + 0.6);
+/* ============ S9 KI & Software (54.6 – 62.4) ============ */
+var S9 = T8 + 0.6;
+tl.from('.sm9', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out' }, S9);
+tl.from('#s9 .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S9 + 0.1);
+tl.from('#s9 h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S9 + 0.2);
+tl.from('#t1', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 0.5);
+tl.from('#t2', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 0.75);
+tl.from('#t3', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 1.0);
+tl.from('#t4', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 1.25);
+tl.from('#t5', { y: 120, opacity: 0, duration: 0.45, ease: 'back.out(1.5)' }, S9 + 1.5);
+tl.from('#gear', { scale: 0, rotation: -90, opacity: 0, duration: 0.7, ease: 'back.out(1.8)' }, S9 + 2.0);
+tl.to('#gear', { rotation: 200, duration: 4.4, ease: 'sine.inOut' }, S9 + 2.7);
+tl.to('#t5', { x: 400, y: 210, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 2.8);
+tl.to('#t4', { x: 400, y: 130, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 3.05);
+tl.to('#t3', { x: 400, y: 50, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 3.3);
+tl.to('#t2', { x: 400, y: -30, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 3.55);
+tl.to('#t1', { x: 400, y: -110, scale: 0.15, opacity: 0, duration: 0.55, ease: 'power2.in' }, S9 + 3.8);
+tl.to('#clock-card', { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.6)' }, S9 + 4.3);
+tl.to('#clock-fg', { strokeDashoffset: 0.25, duration: 1.6, ease: 'power1.inOut' }, S9 + 4.7);
+tl.from('#s9-benefit', { y: 40, opacity: 0, duration: 0.6, ease: 'power3.out' }, S9 + 4.9);
+var T9 = 62.4;
+tl.to('#s9', { opacity: 0, filter: 'blur(14px)', duration: 0.7, ease: 'sine.inOut' }, T9);
+tl.fromTo('#s10', { opacity: 0, filter: 'blur(14px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'sine.out' }, T9 + 0.2);
 
-/* ============ Szene 6: Arbeitsalltag (30.8 – 37.2) ============ */
-var S6 = T5 + 0.6;
-tl.from('.s6-meta', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.out', stagger: 0.1 }, S6);
-tl.from('#s6-ghost', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, S6);
-tl.from('#s6-head .kicker', { x: -40, opacity: 0, duration: 0.5, ease: 'power2.out' }, S6 + 0.1);
-tl.from('#s6-head h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, S6 + 0.25);
-tl.from('#s6-steige', { opacity: 0, duration: 0.5, ease: 'power1.out' }, S6 + 0.6);
-tl.from('#ac1', { y: 130, opacity: 0, duration: 0.65, ease: 'back.out(1.4)' }, S6 + 0.8);
-tl.from('#ar1', { scaleX: 0, duration: 0.4, ease: 'power2.inOut' }, S6 + 1.35);
-tl.from('#ac2', { y: 130, opacity: 0, duration: 0.65, ease: 'back.out(1.4)' }, S6 + 1.6);
-tl.from('#ar2', { scaleX: 0, duration: 0.4, ease: 'power2.inOut' }, S6 + 2.15);
-tl.from('#ac3', { y: 130, opacity: 0, duration: 0.65, ease: 'back.out(1.4)' }, S6 + 2.4);
-tl.to('#ac1', { y: -8, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S6 + 3.2);
-tl.to('#ac3', { y: 8, duration: 1.8, ease: 'sine.inOut', yoyo: true, repeat: 1 }, S6 + 3.3);
-
-/* Übergang 6→7: Blur-Crossfade (Ausklang) */
-var T6 = 39.4;
-tl.to('#s6', { opacity: 0, filter: 'blur(14px)', duration: 0.7, ease: 'sine.inOut' }, T6);
-tl.fromTo('#s7', { opacity: 0, filter: 'blur(14px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'sine.out' }, T6 + 0.2);
-
-/* ============ Szene 7: Outro (38 – 44) ============ */
-var S7 = T6 + 0.8;
-tl.from('#s7-logo', { y: -40, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7);
-tl.from('#s7 h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S7 + 0.25);
-tl.from('#s7-line', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S7 + 0.55);
-tl.from('#s7-cta', { scale: 0.7, opacity: 0, duration: 0.6, ease: 'back.out(1.8)' }, S7 + 0.85);
-tl.from('#s7-sub', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S7 + 1.1);
-tl.to('#s7-cta', { scale: 1.05, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, S7 + 1.7);
-/* Finale: sanft ausblenden (nur letzte Szene darf) */
-tl.to('#s7-content', { opacity: 0, y: -20, duration: 0.8, ease: 'power1.in' }, 45.1);
+/* ============ S10 Zusammen + CTA (63.2 – 74) ============ */
+var S10 = T9 + 0.8;
+tl.from('#q1', { x: -300, y: -160, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10);
+tl.from('#q2', { x: 300, y: -160, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10 + 0.12);
+tl.from('#q3', { x: -300, y: 160, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10 + 0.24);
+tl.from('#q4', { x: 300, y: 160, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10 + 0.36);
+tl.from('#s10-logo', { y: -40, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10 + 0.6);
+tl.from('#s10 h2', { y: 50, opacity: 0, duration: 0.7, ease: 'power3.out' }, S10 + 0.85);
+tl.from('#s10-line', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, S10 + 1.15);
+tl.from('#s10-cta', { scale: 0.7, opacity: 0, duration: 0.6, ease: 'back.out(1.8)' }, S10 + 1.45);
+tl.from('#s10-sub', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, S10 + 1.7);
+tl.to('#s10-cta', { scale: 1.05, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 5 }, S10 + 2.3);
+tl.to('#s10-content', { opacity: 0, y: -20, duration: 0.9, ease: 'power1.in' }, 73.0);
 
 window.__timelines['main'] = tl;
 </script>
