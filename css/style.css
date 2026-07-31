@@ -75,8 +75,11 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 999; pointer-eve
     animation: pulse-dot 2.4s ease-in-out infinite; }
 @keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.6; } }
 
-h1 { font-size: clamp(2.3rem, 4.8vw, 3.7rem); font-weight: 900;
-    letter-spacing: -0.035em; line-height: 1.08; margin-bottom: 24px; }
+h1 { font-size: clamp(2.1rem, 4.3vw, 3.4rem); font-weight: 900;
+    letter-spacing: -0.035em; line-height: 1.14; margin-bottom: 24px; }
+.h1-line { display: block; white-space: nowrap; }
+.h1-line .script-blue, .h1-line .script-purple { margin-left: 0.06em; }
+.h1-line:last-child .script-purple { margin-left: 0; }
 
 /* Pacifico wirkt bei gleicher Schriftgröße kleiner als fettes Inter,
    deshalb 1.14em, damit die Akzent-Wörter optisch gleichauf sind (wie auf weconn3ct.de) */
