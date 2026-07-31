@@ -112,6 +112,12 @@ h1 { font-size: clamp(2.1rem, 4.3vw, 3.4rem); font-weight: 900;
     50% { opacity: 0.6; }
 }
 
+/* In H2s wirkt Pacifico bei 1.14em zu dominant, dort dezenter skalieren */
+h2 .script-accent, h2 .script-blue, h2 .script-purple { font-size: 1.04em; }
+
+/* Pacificos Versal-A liest sich wie ein Kleinbuchstabe, Anfangsbuchstabe leicht hochskalieren */
+.script-cap { font-size: 1.18em; }
+
 .swash-wrap { position: relative; display: inline-block; }
 .swash { position: absolute; left: -2%; bottom: -0.28em; width: 104%; height: 0.32em; overflow: visible; }
 
