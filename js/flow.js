@@ -13,12 +13,17 @@
 
     function fit() {
         var vw = scaleBox.clientWidth;
-        /* Mobil: näher an die Action zoomen (Basis 760 statt 900), Ränder werden sauber beschnitten */
-        var base = vw < 640 ? 760 : 900;
-        var s = Math.min(vw, 1124) / base;
+        var mobile = vw < 700;
+        /* Desktop: ganze Bühne (Textspalte + Szene). Mobil: auf die Szene gezoomt,
+           der Text sitzt dann unter der Szene — beides innerhalb derselben Bühne. */
+        var base = mobile ? 860 : 1240;
+        var offX = mobile ? 350 : 0;
+        var h = mobile ? 740 : 470;
+        var s = Math.min(vw, 1244) / base;
         stage.style.transform = 'scale(' + s + ')';
-        stage.style.marginLeft = ((vw - 900 * s) / 2) + 'px';
-        scaleBox.style.height = (470 * s) + 'px';
+        stage.style.marginLeft = (mobile ? -offX * s : (vw - 1240 * s) / 2) + 'px';
+        stage.style.height = h + 'px';
+        scaleBox.style.height = (h * s) + 'px';
     }
     fit();
     window.addEventListener('resize', fit, { passive: true });
@@ -40,7 +45,7 @@
             gsap.set('#st-browser, #st-stars', { autoAlpha: 1 });
             gsap.set('#st-wipe', { scaleX: 1 });
             gsap.set('.st-nav .ndot', { autoAlpha: 1 });
-            gsap.set('#ca3', { autoAlpha: 1 });
+            gsap.set('#tx2', { autoAlpha: 1 });
             dots[1].classList.add('on');
             return;
         }
@@ -55,7 +60,7 @@
             gsap.set('#st-p1', { scale: 0, transformOrigin: '50% 50%' });
             gsap.set('#st-own', { top: 174 });
             gsap.set('#st-r1', { top: 0 }); gsap.set('#st-r2', { top: 58 }); gsap.set('#st-r3', { top: 116 });
-            gsap.set('.st-call', { autoAlpha: 0 });
+            gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-q', { textContent: '' });
             document.getElementById('st-cnt').textContent = '0';
             document.getElementById('st-nname').textContent = 'Max M. · gerade eben';
@@ -67,17 +72,18 @@
         var POP = 'back.out(1.45)', SOFT = 'power2.out', OUT = 'power3.out',
             MOVE = 'power3.inOut', IN = 'power2.in', IDLE = 'sine.inOut';
 
-        /* Sprechblase erscheint an ihrer Grafik und verschwindet wieder */
+        /* Textblock der Szene: Kicker und Satz laufen leicht versetzt ein */
         function say(sel, tIn, tOut) {
             tl.to(sel, { autoAlpha: 1, duration: 0.01 }, tIn);
-            tl.from(sel, { y: 12, scale: 0.94, duration: 0.5, ease: SOFT, immediateRender: false }, tIn + 0.01);
-            tl.to(sel, { autoAlpha: 0, y: -10, duration: 0.4, ease: IN }, tOut);
+            tl.from(sel + ' .k', { y: 14, autoAlpha: 0, duration: 0.45, ease: SOFT, immediateRender: false }, tIn + 0.01);
+            tl.from(sel + ' p', { y: 16, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, tIn + 0.14);
+            tl.to(sel, { autoAlpha: 0, y: -12, duration: 0.45, ease: IN }, tOut);
+            tl.set(sel, { y: 0 }, tOut + 0.5);
         }
 
         /* ========== Kapitel 1: Drei Farben → Design → Branding (0 – 9) ========== */
         tl.call(setDot(0), null, 0);
-        say('#ca1', 0.85, 8.4);
-        say('#ca2', 5.4, 8.5);
+        say('#tx1', 0.9, 8.4);
         tl.from('#st-sw1', { x: -160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.55);
         tl.from('#st-sw2', { y: -140, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.72);
         tl.from('#st-sw3', { x: 160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.89);
@@ -120,7 +126,7 @@
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
         tl.call(setDot(1), null, 9);
-        say('#ca3', 11.3, 16.5);
+        say('#tx2', 10.9, 16.5);
         /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
         tl.to('#st-vk', { x: 240, y: -10, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.65);
         tl.to('#st-fly', { x: -204, y: 17, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.73);
@@ -150,7 +156,7 @@
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24) ========== */
         tl.call(setDot(2), null, 17);
-        say('#ca4', 18.1, 23.5);
+        say('#tx3', 17.6, 23.5);
         /* Blitz — das erste Foto entsteht und fliegt IN den Hero */
         tl.fromTo('#st-flash', { opacity: 0 }, { opacity: 0.7, duration: 0.08, ease: IN }, 17.5);
         tl.to('#st-flash', { opacity: 0, duration: 0.35, ease: SOFT }, 17.58);
@@ -179,8 +185,8 @@
 
         /* ========== Kapitel 4: SEO-Optimierung, dann Aufstieg auf Platz 1 (24 – 36.5) ========== */
         tl.call(setDot(3), null, 24);
-        say('#ca5', 24.95, 27.9);
-        say('#ca6', 31.3, 36.1);
+        say('#tx4', 24.7, 28.0);
+        say('#tx5', 30.0, 36.1);
         /* SEO-Scan fährt über die fertige Seite */
         tl.fromTo('#st-scan', { x: -60, autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25, immediateRender: false }, 24.55);
         tl.to('#st-scan', { x: 575, duration: 2.2, ease: 'power1.inOut' }, 24.6);
@@ -243,8 +249,7 @@
 
         /* ========== Kapitel 5: Besucher zählen hoch, Anfrage kommt (36.5 – 45) ========== */
         tl.call(setDot(4), null, 36.5);
-        say('#ca7', 38.15, 46.6);
-        say('#ca8', 39.7, 50.1);
+        say('#tx6', 37.4, 50.2);
         tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 36.8);
         tl.to('#st-cursor', { autoAlpha: 0, y: 190, duration: 0.4, ease: IN }, 36.8);
         tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 37.1);
