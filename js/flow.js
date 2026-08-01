@@ -12,9 +12,12 @@
     var scaleBox = document.getElementById('stage-scale');
 
     function fit() {
-        var w = Math.min(scaleBox.clientWidth, 900);
-        var s = w / 900;
+        var vw = scaleBox.clientWidth;
+        /* Mobil: näher an die Action zoomen (Basis 760 statt 900), Ränder werden sauber beschnitten */
+        var base = vw < 640 ? 760 : 900;
+        var s = Math.min(vw, 1124) / base;
         stage.style.transform = 'scale(' + s + ')';
+        stage.style.marginLeft = ((vw - 900 * s) / 2) + 'px';
         scaleBox.style.height = (470 * s) + 'px';
     }
     fit();
@@ -60,7 +63,8 @@
         setInitial();
 
         var tl = gsap.timeline({ paused: true, repeat: -1 });
-        var POP = 'back.out(1.7)', SOFT = 'power2.out', OUT = 'power3.out',
+        tl.timeScale(0.9);
+        var POP = 'back.out(1.45)', SOFT = 'power2.out', OUT = 'power3.out',
             MOVE = 'power3.inOut', IN = 'power2.in', IDLE = 'sine.inOut';
 
         function cap(i, t) {
@@ -103,7 +107,7 @@
         tl.fromTo('#st-b5', { autoAlpha: 1, x: 0, y: 0 }, { x: -20, y: -100, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
         tl.fromTo('#st-b6', { autoAlpha: 1, x: 0, y: 0 }, { x: 25, y: 100, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
         /* Das Design-Board entsteht */
-        tl.from('#st-design', { scale: 0, rotation: -10, autoAlpha: 0, duration: 0.85, ease: 'elastic.out(1, 0.6)' }, 3.3);
+        tl.from('#st-design', { scale: 0, rotation: -10, autoAlpha: 0, duration: 0.85, ease: 'elastic.out(1, 0.7)' }, 3.3);
         /* Daraus: Visitenkarte und Flyer */
         tl.from('#st-vk', { x: 220, y: -20, scale: 0.4, rotation: 8, autoAlpha: 0, duration: 0.7, ease: POP }, 4.5);
         tl.from('#st-fly', { x: -200, y: -10, scale: 0.4, rotation: -8, autoAlpha: 0, duration: 0.7, ease: POP }, 4.8);
@@ -127,16 +131,16 @@
         tl.fromTo('#st-b3', { x: 25, y: 60, autoAlpha: 1 }, { x: 25, y: -80, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 10.5);
         /* Aus der Verschmelzung wächst die Webseite — organisch, federnd */
         tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 10.55);
-        tl.from('#st-browser', { scale: 0.22, transformOrigin: '50% 50%', duration: 1.0, ease: 'elastic.out(1, 0.62)' }, 10.55);
+        tl.from('#st-browser', { scale: 0.22, transformOrigin: '50% 50%', duration: 1.0, ease: 'elastic.out(1, 0.72)' }, 10.55);
         tl.from('#st-browser .st-bar', { y: -20, autoAlpha: 0, duration: 0.4, ease: SOFT }, 11.35);
         tl.from('#st-browser .st-nav', { y: 14, autoAlpha: 0, duration: 0.4, ease: SOFT }, 11.5);
         /* Das Logo rastet ein, der Marken-Verlauf wischt über die Seite */
         tl.to('.st-nav .ndot', { autoAlpha: 1, duration: 0.01 }, 11.85);
-        tl.from('.st-nav .ndot', { scale: 0, rotation: -90, duration: 0.5, ease: 'back.out(2.6)' }, 11.85);
+        tl.from('.st-nav .ndot', { scale: 0, rotation: -90, duration: 0.5, ease: 'back.out(2.1)' }, 11.85);
         tl.fromTo('#st-b4', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -273, y: -114, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, 11.95);
         tl.fromTo('#st-b5', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -224, y: -112, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, 11.98);
         tl.from('#st-browser .st-line', { x: -22, autoAlpha: 0, duration: 0.4, ease: SOFT, stagger: 0.12 }, 12.4);
-        tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(2.2)' }, 12.85);
+        tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(1.9)' }, 12.85);
         tl.to('#st-browser', { y: -6, duration: 1.4, ease: IDLE, yoyo: true, repeat: 1 }, 14.3);
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24) ========== */
@@ -165,7 +169,7 @@
         tl.to('#st-ph2', { x: -115, y: 56, rotation: 0, duration: 0.65, ease: MOVE }, 21.55);
         /* Die Seite ist jetzt schön: Sterne + Glanz */
         tl.to('#st-stars', { autoAlpha: 1, duration: 0.01 }, 22.3);
-        tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2.4)' }, 22.31);
+        tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2)' }, 22.31);
         tl.to('#st-browser', { scale: 1.02, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1 }, 22.4);
 
         /* ========== Kapitel 4: SEO-Optimierung, dann Aufstieg auf Platz 1 (24 – 36.5) ========== */
@@ -178,11 +182,11 @@
         tl.to('#st-scan', { autoAlpha: 0, duration: 0.25 }, 26.55);
         /* Prüf-Chips poppen an den optimierten Stellen */
         tl.to('#sc1', { autoAlpha: 1, duration: 0.01 }, 24.8);
-        tl.from('#sc1', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(2.2)' }, 24.81);
+        tl.from('#sc1', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(1.9)' }, 24.81);
         tl.to('#sc2', { autoAlpha: 1, duration: 0.01 }, 25.25);
-        tl.from('#sc2', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(2.2)' }, 25.26);
+        tl.from('#sc2', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(1.9)' }, 25.26);
         tl.to('#sc3', { autoAlpha: 1, duration: 0.01 }, 25.7);
-        tl.from('#sc3', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(2.2)' }, 25.71);
+        tl.from('#sc3', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(1.9)' }, 25.71);
         /* SEO-Score zählt auf 100 */
         tl.to('#st-score', { autoAlpha: 1, duration: 0.01 }, 25.0);
         tl.from('#st-score', { scale: 0.5, y: 14, duration: 0.5, ease: 'back.out(2)' }, 25.01);
@@ -215,7 +219,7 @@
         tl.to('#st-r2', { top: 116, duration: 0.55, ease: MOVE }, 32.8);
         tl.to('#st-own', { top: 0, duration: 0.6, ease: 'back.out(2)' }, 33.7);
         tl.to('#st-r1', { top: 58, duration: 0.6, ease: MOVE }, 33.7);
-        tl.to('#st-p1', { scale: 1, duration: 0.5, ease: 'back.out(2.4)' }, 34.4);
+        tl.to('#st-p1', { scale: 1, duration: 0.5, ease: 'back.out(2)' }, 34.4);
         tl.to('#st-own', { scale: 1.04, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 34.6);
 
         /* ========== Kapitel 5: Besucher zählen hoch, Anfrage kommt (36.5 – 45) ========== */
@@ -231,9 +235,9 @@
                 { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 38.5 + r * 0.55);
         }
         tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, 38.5);
-        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 38.6);
+        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 38.6);
         tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN }, 39.6);
-        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 39.7);
+        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 39.7);
         (function () {
             var v = { n: 0 };
             tl.to(v, { n: 47, duration: 3.0, ease: 'power1.inOut', onUpdate: function () {

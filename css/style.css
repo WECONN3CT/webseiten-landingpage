@@ -241,7 +241,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 
 /* ---------- System-Story (Bühne, GSAP-Loop in js/flow.js) ---------- */
 .stage-wrap { display: flex; flex-direction: column; align-items: center; }
-#stage-scale { width: 900px; max-width: 100%; }
+#stage-scale { width: 100%; max-width: 1124px; overflow: hidden; }
 #stage { position: relative; width: 900px; height: 470px; transform-origin: top left; }
 .st-sw { position: absolute; width: 58px; height: 58px; border-radius: 50%;
     box-shadow: 0 12px 28px rgba(27,36,112,0.2); }
@@ -429,6 +429,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .sdot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
     background: rgba(13,18,56,0.18); transition: transform 0.2s, background 0.2s; }
 .sdot.on { background: linear-gradient(120deg, #2E3EE8, #FF5082); transform: scale(1.35); }
+@media (max-width: 640px) {
+    .stage-wrap { margin: 0 -28px; }
+    #st-counter { left: 636px; top: 96px; }
+    #stage-caption { font-size: 1rem; padding: 0 20px; height: 3.4em; }
+    .sdot { width: 13px; height: 13px; }
+}
 
 /* ---------- Ablauf ---------- */
 .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
