@@ -148,12 +148,12 @@
         tl.to('#st-flash', { opacity: 0, duration: 0.35, ease: SOFT }, 19.78);
         tl.to('#st-vid', { autoAlpha: 1, duration: 0.01 }, 19.85);
         tl.from('#st-vid', { x: 160, y: -60, rotation: 14, duration: 0.6, ease: POP }, 19.86);
-        tl.to('#st-vid', { x: -84, y: -12, rotation: -2, duration: 0.6, ease: MOVE }, 20.6);
+        tl.to('#st-vid', { x: -272, y: 12, rotation: 0, duration: 0.65, ease: MOVE }, 20.6);
         tl.to('#st-vid .play', { scale: 1.18, duration: 0.4, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 21.3);
         /* Zweites Foto dockt links an */
         tl.to('#st-ph2', { autoAlpha: 1, duration: 0.01 }, 20.9);
         tl.from('#st-ph2', { x: -160, y: 60, rotation: -14, duration: 0.6, ease: POP }, 20.91);
-        tl.to('#st-ph2', { x: -400, y: -95, rotation: -6, duration: 0.7, ease: MOVE }, 21.55);
+        tl.to('#st-ph2', { x: -115, y: 56, rotation: 0, duration: 0.65, ease: MOVE }, 21.55);
         /* Die Seite ist jetzt schön: Sterne + Glanz */
         tl.to('#st-stars', { autoAlpha: 1, duration: 0.01 }, 22.3);
         tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2.4)' }, 22.31);
