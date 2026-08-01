@@ -50,7 +50,7 @@
         function setInitial() {
             gsap.set('#st-serp, #st-counter, #st-notif, #st-stars, #st-browser', { autoAlpha: 0 });
             gsap.set('.st-photo, #st-vid', { autoAlpha: 0 });
-            gsap.set('#st-mark, #st-pop, .st-b, #st-scan, .seo-chip, #st-score', { autoAlpha: 0 });
+            gsap.set('#st-mark, #st-pop, .st-b, #st-scan, .seo-chip, #st-score, #st-cursor', { autoAlpha: 0 });
             gsap.set('.st-nav .ndot', { autoAlpha: 0 });
             gsap.set('#st-wipe', { scaleX: 0 });
             gsap.set('#st-p1', { scale: 0, transformOrigin: '50% 50%' });
@@ -227,11 +227,20 @@
         tl.to('#st-r1', { top: 58, duration: 0.6, ease: MOVE }, 33.7);
         tl.to('#st-p1', { scale: 1, duration: 0.5, ease: 'back.out(2)' }, 34.4);
         tl.to('#st-own', { scale: 1.04, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 34.6);
+        /* Der Mauszeiger kommt und klickt auf Platz 1 */
+        tl.to('#st-cursor', { autoAlpha: 1, duration: 0.01 }, 35.0);
+        tl.fromTo('#st-cursor', { x: 700, y: 430 }, { x: 455, y: 150, duration: 0.85, ease: MOVE, immediateRender: false }, 35.0);
+        tl.to('#st-cursor', { scale: 0.82, duration: 0.09, ease: IN, transformOrigin: '20% 15%' }, 35.95);
+        tl.to('#st-cursor', { scale: 1, duration: 0.28, ease: 'back.out(2.1)' }, 36.05);
+        tl.fromTo('#st-rip1', { x: 447, y: 140, autoAlpha: 0.8, scale: 0.4 }, { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 36.0);
+        tl.to('#st-own', { scale: 0.975, duration: 0.1, ease: IN, transformOrigin: '50% 50%' }, 36.0);
+        tl.to('#st-own', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 36.1);
 
         /* ========== Kapitel 5: Besucher zählen hoch, Anfrage kommt (36.5 – 45) ========== */
         tl.call(setDot(4), null, 36.5);
         cap(4, 36.5);
         tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 36.8);
+        tl.to('#st-cursor', { autoAlpha: 0, y: 190, duration: 0.4, ease: IN }, 36.8);
         tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 37.1);
         tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 37.9);
         tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP }, 37.9);

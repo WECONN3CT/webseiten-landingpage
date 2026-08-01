@@ -420,6 +420,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     stroke-linecap: round; stroke-linejoin: round; }
 #st-notif b { font-size: 16px; display: block; }
 #st-notif small { font-size: 13px; color: rgba(13,18,56,0.55); }
+#st-cursor { position: absolute; left: 0; top: 0; width: 30px; height: 30px; z-index: 9; }
+#st-cursor svg { width: 100%; height: 100%; fill: #0D1238; stroke: #fff; stroke-width: 1.4; }
 .st-rip { position: absolute; width: 20px; height: 20px; border-radius: 50%;
     border: 3px solid var(--blue); opacity: 0; z-index: 7; }
 #stage-caption { position: relative; margin-top: 18px; height: 2.4em; width: 100%;
