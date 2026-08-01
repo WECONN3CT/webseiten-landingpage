@@ -47,7 +47,7 @@
         function setInitial() {
             gsap.set('#st-serp, #st-counter, #st-notif, #st-stars, #st-browser', { autoAlpha: 0 });
             gsap.set('.st-photo, #st-vid', { autoAlpha: 0 });
-            gsap.set('#st-mark, #st-pop, .st-b', { autoAlpha: 0 });
+            gsap.set('#st-mark, #st-pop, .st-b, #st-scan, .seo-chip, #st-score', { autoAlpha: 0 });
             gsap.set('.st-nav .ndot', { autoAlpha: 0 });
             gsap.set('#st-wipe', { scaleX: 0 });
             gsap.set('#st-p1', { scale: 0, transformOrigin: '50% 50%' });
@@ -159,69 +159,93 @@
         tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2.4)' }, 22.31);
         tl.to('#st-browser', { scale: 1.02, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1 }, 22.4);
 
-        /* ========== Kapitel 4: SEO — Aufstieg auf Platz 1 (24 – 33.5) ========== */
+        /* ========== Kapitel 4: SEO-Optimierung, dann Aufstieg auf Platz 1 (24 – 36.5) ========== */
         tl.call(setDot(3), null, 24);
         cap(3, 24);
-        tl.to('#st-browser', { scale: 0.72, x: -250, y: 40, autoAlpha: 0.35, duration: 0.7, ease: MOVE }, 24.3);
-        tl.to('.st-photo, #st-vid, #st-stars', { autoAlpha: 0, duration: 0.4, ease: IN }, 24.3);
-        tl.to('#st-serp', { autoAlpha: 1, duration: 0.01 }, 24.9);
-        tl.from('#st-serp', { y: 60, scale: 0.9, duration: 0.6, ease: POP }, 24.9);
+        /* SEO-Scan fährt über die fertige Seite */
+        tl.fromTo('#st-scan', { x: -80, autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, 24.3);
+        tl.to('#st-scan', { x: 560, duration: 1.1, ease: IDLE }, 24.35);
+        tl.to('#st-scan', { x: -80, duration: 1.1, ease: IDLE }, 25.5);
+        tl.to('#st-scan', { autoAlpha: 0, duration: 0.25 }, 26.55);
+        /* Prüf-Chips poppen an den optimierten Stellen */
+        tl.to('#sc1', { autoAlpha: 1, duration: 0.01 }, 24.8);
+        tl.from('#sc1', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(2.2)' }, 24.81);
+        tl.to('#sc2', { autoAlpha: 1, duration: 0.01 }, 25.25);
+        tl.from('#sc2', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(2.2)' }, 25.26);
+        tl.to('#sc3', { autoAlpha: 1, duration: 0.01 }, 25.7);
+        tl.from('#sc3', { scale: 0.4, y: 12, duration: 0.5, ease: 'back.out(2.2)' }, 25.71);
+        /* SEO-Score zählt auf 100 */
+        tl.to('#st-score', { autoAlpha: 1, duration: 0.01 }, 25.0);
+        tl.from('#st-score', { scale: 0.5, y: 14, duration: 0.5, ease: 'back.out(2)' }, 25.01);
+        (function () {
+            var sc = { n: 0 };
+            tl.to(sc, { n: 100, duration: 1.7, ease: 'power1.inOut', onUpdate: function () {
+                document.getElementById('st-seo').textContent = Math.round(sc.n);
+            } }, 25.2);
+        })();
+        tl.to('#st-score', { scale: 1.08, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 27.0);
+        tl.to('#st-browser', { scale: 1.015, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 27.0);
+        /* Optimiert — jetzt zur Suche */
+        tl.to('.seo-chip, #st-score, .st-photo, #st-vid, #st-stars', { autoAlpha: 0, duration: 0.4, ease: IN }, 27.9);
+        tl.to('#st-browser', { scale: 0.72, x: -250, y: 40, autoAlpha: 0.35, duration: 0.7, ease: MOVE }, 28.1);
+        tl.to('#st-serp', { autoAlpha: 1, duration: 0.01 }, 28.7);
+        tl.from('#st-serp', { y: 60, scale: 0.9, duration: 0.6, ease: POP }, 28.7);
         (function () {
             var q = { n: 0 }, txt = 'handwerker in bonn';
             tl.to(q, { n: txt.length, duration: 0.9, ease: 'none', onUpdate: function () {
                 document.getElementById('st-q').textContent = txt.slice(0, Math.round(q.n));
-            } }, 25.6);
+            } }, 29.4);
         })();
-        tl.to('#st-caret', { opacity: 0, duration: 0.3, ease: 'steps(1)', yoyo: true, repeat: 5 }, 25.4);
-        tl.set('#st-caret', { opacity: 0 }, 27.2);
-        tl.from('.st-row', { y: 26, autoAlpha: 0, duration: 0.45, ease: SOFT, stagger: 0.12 }, 26.8);
+        tl.to('#st-caret', { opacity: 0, duration: 0.3, ease: 'steps(1)', yoyo: true, repeat: 5 }, 29.2);
+        tl.set('#st-caret', { opacity: 0 }, 31.0);
+        tl.from('.st-row', { y: 26, autoAlpha: 0, duration: 0.45, ease: SOFT, stagger: 0.12 }, 30.6);
         /* Der Aufstieg: Platz 4 → 3 → 2 → 1 */
-        tl.to('#st-own', { top: 116, duration: 0.55, ease: POP }, 28.1);
-        tl.to('#st-r3', { top: 174, duration: 0.55, ease: MOVE }, 28.1);
-        tl.to('#st-own', { top: 58, duration: 0.55, ease: POP }, 29.0);
-        tl.to('#st-r2', { top: 116, duration: 0.55, ease: MOVE }, 29.0);
-        tl.to('#st-own', { top: 0, duration: 0.6, ease: 'back.out(2)' }, 29.9);
-        tl.to('#st-r1', { top: 58, duration: 0.6, ease: MOVE }, 29.9);
-        tl.to('#st-p1', { scale: 1, duration: 0.5, ease: 'back.out(2.4)' }, 30.6);
-        tl.to('#st-own', { scale: 1.04, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 30.8);
+        tl.to('#st-own', { top: 116, duration: 0.55, ease: POP }, 31.9);
+        tl.to('#st-r3', { top: 174, duration: 0.55, ease: MOVE }, 31.9);
+        tl.to('#st-own', { top: 58, duration: 0.55, ease: POP }, 32.8);
+        tl.to('#st-r2', { top: 116, duration: 0.55, ease: MOVE }, 32.8);
+        tl.to('#st-own', { top: 0, duration: 0.6, ease: 'back.out(2)' }, 33.7);
+        tl.to('#st-r1', { top: 58, duration: 0.6, ease: MOVE }, 33.7);
+        tl.to('#st-p1', { scale: 1, duration: 0.5, ease: 'back.out(2.4)' }, 34.4);
+        tl.to('#st-own', { scale: 1.04, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 34.6);
 
-        /* ========== Kapitel 5: Besucher zählen hoch, Anfrage kommt (33.5 – 42) ========== */
-        tl.call(setDot(4), null, 33.5);
-        cap(4, 33.5);
-        tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 33.8);
-        tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 34.1);
-        tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 34.9);
-        tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP }, 34.9);
+        /* ========== Kapitel 5: Besucher zählen hoch, Anfrage kommt (36.5 – 45) ========== */
+        tl.call(setDot(4), null, 36.5);
+        cap(4, 36.5);
+        tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 36.8);
+        tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 37.1);
+        tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 37.9);
+        tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP }, 37.9);
         var rips = ['#st-rip1', '#st-rip2', '#st-rip3'];
         for (var r = 0; r < 6; r++) {
             tl.fromTo(rips[r % 3], { x: 240 + (r % 3) * 22, y: 336 + (r % 2) * 12, autoAlpha: 0.85, scale: 0.4 },
-                { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT }, 35.5 + r * 0.55);
+                { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT }, 38.5 + r * 0.55);
         }
-        tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, 35.5);
-        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 35.6);
-        tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN }, 36.6);
-        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 36.7);
+        tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, 38.5);
+        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 38.6);
+        tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN }, 39.6);
+        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 39.7);
         (function () {
             var v = { n: 0 };
             tl.to(v, { n: 47, duration: 3.0, ease: 'power1.inOut', onUpdate: function () {
                 document.getElementById('st-cnt').textContent = '+' + Math.round(v.n);
-            } }, 35.4);
+            } }, 38.4);
         })();
-        tl.to('#st-counter', { scale: 1.05, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 38.2);
-        tl.to('#st-notif', { autoAlpha: 1, duration: 0.01 }, 39.0);
-        tl.from('#st-notif', { y: -90, scale: 0.9, duration: 0.6, ease: 'back.out(1.7)' }, 39.0);
-        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 39.9);
+        tl.to('#st-counter', { scale: 1.05, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 41.2);
+        tl.to('#st-notif', { autoAlpha: 1, duration: 0.01 }, 42.0);
+        tl.from('#st-notif', { y: -90, scale: 0.9, duration: 0.6, ease: 'back.out(1.7)' }, 42.0);
+        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 42.9);
 
-        /* ========== Ausklang & Reset (42.2 – 43.6) ========== */
-        tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 42.2);
+        /* ========== Ausklang & Reset (45.2 – 46.6) ========== */
+        tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 45.2);
         tl.call(function () {
             gsap.set('#stage *', { clearProps: 'all' });
             setInitial();
-        }, null, 42.85);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.4, ease: SOFT }, 43.0);
-        tl.set({}, {}, 43.6);
+        }, null, 45.85);
+        tl.to('#stage', { autoAlpha: 1, duration: 0.4, ease: SOFT }, 46.0);
+        tl.set({}, {}, 46.6);
 
-        var CHAPTER_TIMES = [0, 9, 17, 24, 33.5];
+        var CHAPTER_TIMES = [0, 9, 17, 24, 36.5];
         dots.forEach(function (d) {
             d.addEventListener('click', function () {
                 var i = parseInt(d.getAttribute('data-ch'), 10);
