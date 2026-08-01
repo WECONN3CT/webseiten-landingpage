@@ -59,6 +59,7 @@
             gsap.set('.cap', { autoAlpha: 0, y: 8 });
             gsap.set('#st-q', { textContent: '' });
             document.getElementById('st-cnt').textContent = '0';
+            document.getElementById('st-nname').textContent = 'Max M. · gerade eben';
         }
         setInitial();
 
@@ -254,47 +255,62 @@
             tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 37.81 + k * 0.15);
         });
         /* Jeder Besucher: klickt den Button (→ Neue Anfrage), wandert nach rechts, wird zum Lead */
+        var NAMES = ['Max M. · gerade eben', 'Sarah K. · gerade eben', 'Tobias R. · gerade eben'];
         function setLead(n) {
             return function () { document.getElementById('st-cnt').textContent = '+' + n; };
         }
+        function setName(i) {
+            return function () { document.getElementById('st-nname').textContent = NAMES[i]; };
+        }
         (function () {
+            /* Gleichmäßiger Takt: 2,6 s Abstand — die Push hat Zeit zu wirken, bevor der Nächste startet */
             var runs = [
                 { p: '#pp1', rip: '#st-rip1', t: 38.4, dyBtn: 194, dyLead: 49 },
-                { p: '#pp2', rip: '#st-rip2', t: 40.25, dyBtn: 116, dyLead: -29 },
-                { p: '#pp3', rip: '#st-rip3', t: 42.1, dyBtn: 38, dyLead: -107 }
+                { p: '#pp2', rip: '#st-rip2', t: 41.0, dyBtn: 116, dyLead: -29 },
+                { p: '#pp3', rip: '#st-rip3', t: 43.6, dyBtn: 38, dyLead: -107 }
             ];
             runs.forEach(function (r, k) {
-                /* Zum Button (leicht vorgelehnt, weich abbremsend) */
-                tl.to(r.p, { x: 195, y: r.dyBtn, scale: 0.8, rotation: 5, duration: 0.8, ease: MOVE }, r.t);
-                tl.to(r.p, { rotation: 0, duration: 0.25, ease: SOFT }, r.t + 0.72);
-                /* Klick: Button drückt, Ring pulst, die Anfrage-Push erscheint */
-                tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, r.t + 1.0);
-                tl.to('#st-btn', { scale: 1, duration: 0.28, ease: 'back.out(2.1)' }, r.t + 1.1);
+                /* Zum Button: ruhig hinlaufen, leicht vorgelehnt, weich ankommen */
+                tl.to(r.p, { x: 195, y: r.dyBtn, scale: 0.8, rotation: 5, duration: 1.0, ease: MOVE }, r.t);
+                tl.to(r.p, { rotation: 0, duration: 0.3, ease: SOFT }, r.t + 0.9);
+                /* Kurz schauen, dann klicken */
+                tl.to('#st-btn', { scale: 0.94, duration: 0.1, ease: IN, transformOrigin: '50% 50%' }, r.t + 1.35);
+                tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, r.t + 1.46);
                 tl.fromTo(r.rip, { x: 250, y: 332, autoAlpha: 0.85, scale: 0.4 },
-                    { scale: 2.4, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, r.t + 1.02);
+                    { scale: 2.4, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, r.t + 1.37);
+                /* Name wechseln, dann fällt die Push ein */
+                tl.call(setName(k), null, r.t + 1.42);
                 tl.fromTo('#st-notif', { y: -80, autoAlpha: 0 },
-                    { y: 0, autoAlpha: 1, duration: 0.5, ease: 'back.out(1.6)', immediateRender: false }, r.t + 1.15);
+                    { y: 0, autoAlpha: 1, duration: 0.55, ease: 'back.out(1.6)', immediateRender: false }, r.t + 1.5);
                 /* Weiter nach rechts — als Lead ankommen */
-                tl.to(r.p, { x: 739, y: r.dyLead, scale: 0.5, rotation: -4, duration: 0.8, ease: MOVE }, r.t + 1.35);
-                tl.to(r.p, { autoAlpha: 0, rotation: 0, duration: 0.25, ease: IN }, r.t + 2.05);
-                tl.call(setLead(k + 1), null, r.t + 2.15);
-                tl.to('#st-counter', { scale: 1.08, duration: 0.25, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 2.15);
-                /* Push zieht sich zurück — außer beim letzten Lead */
+                tl.to(r.p, { x: 739, y: r.dyLead, scale: 0.5, rotation: -4, duration: 1.0, ease: MOVE }, r.t + 1.75);
+                tl.to(r.p, { autoAlpha: 0, rotation: 0, duration: 0.3, ease: IN }, r.t + 2.6);
+                tl.call(setLead(k + 1), null, r.t + 2.72);
+                tl.to('#st-counter', { scale: 1.08, duration: 0.28, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 2.72);
+                /* Push zieht sich zurück — außer beim letzten */
                 if (k < 2) {
-                    tl.to('#st-notif', { y: -70, autoAlpha: 0, duration: 0.4, ease: IN }, r.t + 2.5);
+                    tl.to('#st-notif', { y: -70, autoAlpha: 0, duration: 0.45, ease: IN }, r.t + 2.9);
                 }
             });
         })();
-        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 44.75);
+        /* Nach dem dritten Lead läuft der Zähler weiter hoch — das System arbeitet weiter */
+        (function () {
+            var c = { n: 3 };
+            tl.to(c, { n: 28, duration: 2.6, ease: 'power2.out', onUpdate: function () {
+                document.getElementById('st-cnt').textContent = '+' + Math.round(c.n);
+            } }, 46.6);
+        })();
+        tl.to('#st-counter', { scale: 1.06, duration: 0.35, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 46.8);
+        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 47.0);
 
         /* ========== Ausklang & Reset (45.2 – 46.6) ========== */
-        tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 45.6);
+        tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 50.4);
         tl.call(function () {
             gsap.set('#stage *', { clearProps: 'all' });
             setInitial();
-        }, null, 46.25);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.4, ease: SOFT }, 46.4);
-        tl.set({}, {}, 47.0);
+        }, null, 51.05);
+        tl.to('#stage', { autoAlpha: 1, duration: 0.4, ease: SOFT }, 51.2);
+        tl.set({}, {}, 51.8);
 
         var CHAPTER_TIMES = [0, 9, 17, 24, 36.5];
         dots.forEach(function (d) {
