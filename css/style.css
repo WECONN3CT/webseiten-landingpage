@@ -300,7 +300,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #st-fly .fl-l2 { width: 60%; height: 8px; border-radius: 4px; background: rgba(13,18,56,0.18); }
 #st-fly .fl-cta { width: 76px; height: 24px; border-radius: 999px; margin-top: 12px;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
-#st-browser { position: absolute; left: 215px; top: 70px; width: 470px; height: 330px;
+#st-browser { position: absolute; left: 170px; top: 45px; width: 560px; height: 380px;
     background: #fff; border: 1px solid var(--line); border-radius: 18px;
     box-shadow: 0 26px 64px rgba(27,36,112,0.16); overflow: hidden; }
 .st-bar { height: 34px; background: #EEF0FA; border-bottom: 1px solid var(--line);
@@ -310,7 +310,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .st-nav .ndot { width: 18px; height: 18px; border-radius: 6px;
     background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
 .st-nav .nl { height: 7px; border-radius: 4px; background: rgba(13,18,56,0.13); }
-#st-hero { margin: 10px 18px; height: 110px; border-radius: 12px; position: relative; overflow: hidden;
+#st-hero { margin: 10px 18px; height: 140px; border-radius: 12px; position: relative; overflow: hidden;
     background: #E9EAF3; }
 #st-wipe { position: absolute; inset: 0; transform-origin: left center;
     background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082); }
@@ -325,7 +325,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     box-shadow: 0 8px 20px rgba(157,78,221,0.35); }
-#st-stars { position: absolute; left: 630px; top: 88px; padding: 8px 16px; border-radius: 999px;
+#st-stars { position: absolute; left: 640px; top: 58px; padding: 8px 16px; border-radius: 999px;
     background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(27,36,112,0.16);
     color: #F5A623; font-size: 16px; font-weight: 800; letter-spacing: 0.06em; z-index: 4; }
 .st-photo { position: absolute; width: 150px; height: 108px; border-radius: 12px;
@@ -376,7 +376,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #st-p1 { margin-left: auto; padding: 4px 12px; border-radius: 999px; color: #fff;
     font-size: 12px; font-weight: 800;
     background: linear-gradient(120deg, #2E3EE8, #9D4EDD); }
-#st-counter { position: absolute; left: 660px; top: 120px; width: 190px; background: #fff;
+#st-counter { position: absolute; left: 706px; top: 112px; width: 182px; background: #fff;
     border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; z-index: 5;
     box-shadow: 0 18px 44px rgba(27,36,112,0.16); }
 #st-counter .cl { font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
@@ -385,7 +385,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: linear-gradient(100deg, #2E3EE8, #FF5082);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     font-variant-numeric: tabular-nums; }
-#st-notif { position: absolute; left: 275px; top: 96px; width: 350px; background: #fff;
+#st-notif { position: absolute; left: 288px; top: 96px; width: 360px; background: #fff;
     border-radius: 16px; box-shadow: 0 22px 54px rgba(13,18,56,0.28); z-index: 8;
     display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
 #st-notif .ni { width: 42px; height: 42px; border-radius: 12px; flex: none;

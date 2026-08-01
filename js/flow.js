@@ -124,8 +124,8 @@
         /* Das Logo rastet ein, der Marken-Verlauf wischt über die Seite */
         tl.to('.st-nav .ndot', { autoAlpha: 1, duration: 0.01 }, 11.85);
         tl.from('.st-nav .ndot', { scale: 0, rotation: -90, duration: 0.5, ease: 'back.out(2.6)' }, 11.85);
-        tl.fromTo('#st-b4', { x: -206, y: -67, autoAlpha: 0.9, scale: 0.7 }, { x: -226, y: -92, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.95);
-        tl.fromTo('#st-b5', { x: -206, y: -67, autoAlpha: 0.9, scale: 0.7 }, { x: -181, y: -90, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.98);
+        tl.fromTo('#st-b4', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -273, y: -114, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.95);
+        tl.fromTo('#st-b5', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -224, y: -112, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.98);
         tl.from('#st-browser .st-line', { x: -22, autoAlpha: 0, duration: 0.4, ease: SOFT, stagger: 0.12 }, 12.4);
         tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(2.2)' }, 12.85);
         tl.to('#st-browser', { y: -6, duration: 1.4, ease: IDLE, yoyo: true, repeat: 1 }, 14.3);
@@ -138,7 +138,7 @@
         tl.to('#st-flash', { opacity: 0, duration: 0.35, ease: SOFT }, 17.58);
         tl.to('#st-ph1', { autoAlpha: 1, duration: 0.01 }, 17.65);
         tl.from('#st-ph1', { x: -180, y: -40, rotation: -18, duration: 0.6, ease: POP }, 17.66);
-        tl.to('#st-ph1', { x: 245, y: 70, rotation: 0, scale: 1.15, duration: 0.7, ease: MOVE }, 18.5);
+        tl.to('#st-ph1', { x: 245, y: 55, rotation: 0, scale: 1.3, duration: 0.7, ease: MOVE }, 18.5);
         /* Beim Aufprall füllt sich der Hero mit Farbe, das Foto geht in der Seite auf */
         tl.to('#st-wipe', { scaleX: 1, duration: 0.45, ease: SOFT }, 19.1);
         tl.to('#st-ph1', { autoAlpha: 0, scale: 0.9, duration: 0.3, ease: IN }, 19.15);
@@ -148,12 +148,12 @@
         tl.to('#st-flash', { opacity: 0, duration: 0.35, ease: SOFT }, 19.78);
         tl.to('#st-vid', { autoAlpha: 1, duration: 0.01 }, 19.85);
         tl.from('#st-vid', { x: 160, y: -60, rotation: 14, duration: 0.6, ease: POP }, 19.86);
-        tl.to('#st-vid', { x: -95, y: -35, rotation: -2, duration: 0.6, ease: MOVE }, 20.6);
+        tl.to('#st-vid', { x: -84, y: -12, rotation: -2, duration: 0.6, ease: MOVE }, 20.6);
         tl.to('#st-vid .play', { scale: 1.18, duration: 0.4, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 21.3);
         /* Zweites Foto dockt links an */
         tl.to('#st-ph2', { autoAlpha: 1, duration: 0.01 }, 20.9);
         tl.from('#st-ph2', { x: -160, y: 60, rotation: -14, duration: 0.6, ease: POP }, 20.91);
-        tl.to('#st-ph2', { x: 60, y: -50, rotation: -4, duration: 0.55, ease: MOVE }, 21.55);
+        tl.to('#st-ph2', { x: -400, y: -95, rotation: -6, duration: 0.7, ease: MOVE }, 21.55);
         /* Die Seite ist jetzt schön: Sterne + Glanz */
         tl.to('#st-stars', { autoAlpha: 1, duration: 0.01 }, 22.3);
         tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2.4)' }, 22.31);
@@ -194,7 +194,7 @@
         tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP }, 34.9);
         var rips = ['#st-rip1', '#st-rip2', '#st-rip3'];
         for (var r = 0; r < 6; r++) {
-            tl.fromTo(rips[r % 3], { x: 290 + (r % 3) * 22, y: 330 + (r % 2) * 14, autoAlpha: 0.85, scale: 0.4 },
+            tl.fromTo(rips[r % 3], { x: 240 + (r % 3) * 22, y: 336 + (r % 2) * 12, autoAlpha: 0.85, scale: 0.4 },
                 { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT }, 35.5 + r * 0.55);
         }
         tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, 35.5);
