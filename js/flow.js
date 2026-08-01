@@ -76,15 +76,24 @@
         tl.from('#st-sw1', { x: -160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.4);
         tl.from('#st-sw2', { y: -140, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.55);
         tl.from('#st-sw3', { x: 160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.7);
-        /* Farbtanz: die Punkte umkreisen sich einmal */
-        tl.to('#st-sw1', { x: 125, y: -80, duration: 0.9, ease: MOVE }, 1.4);
-        tl.to('#st-sw2', { x: 120, y: 90, duration: 0.9, ease: MOVE }, 1.4);
-        tl.to('#st-sw3', { x: -245, y: -10, duration: 0.9, ease: MOVE }, 1.4);
-        /* Verschmelzen in der Mitte */
-        tl.to('#st-sw1', { x: 152, y: -22, scale: 0.45, duration: 0.55, ease: IN }, 2.6);
-        tl.to('#st-sw2', { x: 27, y: 58, scale: 0.45, duration: 0.55, ease: IN }, 2.6);
-        tl.to('#st-sw3', { x: -93, y: -32, scale: 0.45, duration: 0.55, ease: IN }, 2.6);
-        tl.set('.st-sw', { autoAlpha: 0 }, 3.12);
+        /* Farbtanz: die Punkte kreisen umeinander und spiralen ins Zentrum */
+        (function () {
+            var o = { a: 0, r: 95 };
+            var C = { x: 450, y: 195 };
+            var PH = [-Math.PI / 2, Math.PI * 5 / 6, Math.PI / 6];
+            var base = [[421, 71], [339, 214], [503, 214]];
+            var els = ['#st-sw1', '#st-sw2', '#st-sw3'];
+            tl.to(o, { a: Math.PI * 3, duration: 1.7, ease: 'power1.in', onUpdate: function () {
+                for (var k = 0; k < 3; k++) {
+                    var cx = C.x + o.r * Math.cos(PH[k] + o.a);
+                    var cy = C.y + o.r * Math.sin(PH[k] + o.a);
+                    gsap.set(els[k], { x: cx - 29 - base[k][0], y: cy - 29 - base[k][1] });
+                }
+            } }, 1.4);
+            tl.to(o, { r: 6, duration: 1.7, ease: 'power2.in' }, 1.4);
+        })();
+        tl.to('.st-sw', { scale: 0.5, duration: 0.9, ease: IN }, 2.2);
+        tl.set('.st-sw', { autoAlpha: 0 }, 3.1);
         tl.fromTo('#st-pop', { autoAlpha: 1, scale: 0.3 }, { scale: 3.2, autoAlpha: 0, duration: 0.55, ease: SOFT }, 3.1);
         /* Funken sprühen */
         tl.fromTo('#st-b1', { autoAlpha: 1, x: 0, y: 0 }, { x: -90, y: -70, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
