@@ -94,14 +94,14 @@
         })();
         tl.to('.st-sw', { scale: 0.5, duration: 0.9, ease: IN }, 2.2);
         tl.set('.st-sw', { autoAlpha: 0 }, 3.1);
-        tl.fromTo('#st-pop', { autoAlpha: 1, scale: 0.3 }, { scale: 3.2, autoAlpha: 0, duration: 0.55, ease: SOFT }, 3.1);
+        tl.fromTo('#st-pop', { autoAlpha: 1, scale: 0.3 }, { scale: 3.2, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 3.1);
         /* Funken sprühen */
-        tl.fromTo('#st-b1', { autoAlpha: 1, x: 0, y: 0 }, { x: -90, y: -70, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
-        tl.fromTo('#st-b2', { autoAlpha: 1, x: 0, y: 0 }, { x: 95, y: -55, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
-        tl.fromTo('#st-b3', { autoAlpha: 1, x: 0, y: 0 }, { x: -70, y: 80, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
-        tl.fromTo('#st-b4', { autoAlpha: 1, x: 0, y: 0 }, { x: 85, y: 70, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
-        tl.fromTo('#st-b5', { autoAlpha: 1, x: 0, y: 0 }, { x: -20, y: -100, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
-        tl.fromTo('#st-b6', { autoAlpha: 1, x: 0, y: 0 }, { x: 25, y: 100, autoAlpha: 0, duration: 0.6, ease: SOFT }, 3.12);
+        tl.fromTo('#st-b1', { autoAlpha: 1, x: 0, y: 0 }, { x: -90, y: -70, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
+        tl.fromTo('#st-b2', { autoAlpha: 1, x: 0, y: 0 }, { x: 95, y: -55, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
+        tl.fromTo('#st-b3', { autoAlpha: 1, x: 0, y: 0 }, { x: -70, y: 80, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
+        tl.fromTo('#st-b4', { autoAlpha: 1, x: 0, y: 0 }, { x: 85, y: 70, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
+        tl.fromTo('#st-b5', { autoAlpha: 1, x: 0, y: 0 }, { x: -20, y: -100, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
+        tl.fromTo('#st-b6', { autoAlpha: 1, x: 0, y: 0 }, { x: 25, y: 100, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.12);
         /* Das Design-Board entsteht */
         tl.from('#st-design', { scale: 0, rotation: -10, autoAlpha: 0, duration: 0.85, ease: 'elastic.out(1, 0.6)' }, 3.3);
         /* Daraus: Visitenkarte und Flyer */
@@ -121,10 +121,10 @@
         /* Verschmelzen: Stapel zieht sich zusammen, Lichtblitz */
         tl.to('#st-vk, #st-fly, #st-design', { scale: 0.28, autoAlpha: 0, duration: 0.4, ease: IN }, 10.15);
         tl.fromTo('#st-pop', { x: 25, y: 60, autoAlpha: 1, scale: 0.4 },
-            { scale: 4.2, autoAlpha: 0, duration: 0.6, ease: SOFT }, 10.45);
-        tl.fromTo('#st-b1', { x: 25, y: 60, autoAlpha: 1 }, { x: -75, y: -10, autoAlpha: 0, duration: 0.55, ease: SOFT }, 10.5);
-        tl.fromTo('#st-b2', { x: 25, y: 60, autoAlpha: 1 }, { x: 125, y: 10, autoAlpha: 0, duration: 0.55, ease: SOFT }, 10.5);
-        tl.fromTo('#st-b3', { x: 25, y: 60, autoAlpha: 1 }, { x: 25, y: -80, autoAlpha: 0, duration: 0.55, ease: SOFT }, 10.5);
+            { scale: 4.2, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 10.45);
+        tl.fromTo('#st-b1', { x: 25, y: 60, autoAlpha: 1 }, { x: -75, y: -10, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 10.5);
+        tl.fromTo('#st-b2', { x: 25, y: 60, autoAlpha: 1 }, { x: 125, y: 10, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 10.5);
+        tl.fromTo('#st-b3', { x: 25, y: 60, autoAlpha: 1 }, { x: 25, y: -80, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 10.5);
         /* Aus der Verschmelzung wächst die Webseite — organisch, federnd */
         tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 10.55);
         tl.from('#st-browser', { scale: 0.22, transformOrigin: '50% 50%', duration: 1.0, ease: 'elastic.out(1, 0.62)' }, 10.55);
@@ -133,8 +133,8 @@
         /* Das Logo rastet ein, der Marken-Verlauf wischt über die Seite */
         tl.to('.st-nav .ndot', { autoAlpha: 1, duration: 0.01 }, 11.85);
         tl.from('.st-nav .ndot', { scale: 0, rotation: -90, duration: 0.5, ease: 'back.out(2.6)' }, 11.85);
-        tl.fromTo('#st-b4', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -273, y: -114, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.95);
-        tl.fromTo('#st-b5', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -224, y: -112, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.98);
+        tl.fromTo('#st-b4', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -273, y: -114, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, 11.95);
+        tl.fromTo('#st-b5', { x: -251, y: -88, autoAlpha: 0.9, scale: 0.7 }, { x: -224, y: -112, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, 11.98);
         tl.from('#st-browser .st-line', { x: -22, autoAlpha: 0, duration: 0.4, ease: SOFT, stagger: 0.12 }, 12.4);
         tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(2.2)' }, 12.85);
         tl.to('#st-browser', { y: -6, duration: 1.4, ease: IDLE, yoyo: true, repeat: 1 }, 14.3);
@@ -228,7 +228,7 @@
         var rips = ['#st-rip1', '#st-rip2', '#st-rip3'];
         for (var r = 0; r < 6; r++) {
             tl.fromTo(rips[r % 3], { x: 240 + (r % 3) * 22, y: 336 + (r % 2) * 12, autoAlpha: 0.85, scale: 0.4 },
-                { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT }, 38.5 + r * 0.55);
+                { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 38.5 + r * 0.55);
         }
         tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, 38.5);
         tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.6)' }, 38.6);
