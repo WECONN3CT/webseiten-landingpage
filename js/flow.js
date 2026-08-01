@@ -102,28 +102,34 @@
         tl.to('#st-vk', { y: 6, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 6.0);
         tl.to('#st-fly', { y: -6, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 6.1);
 
-        /* ========== Kapitel 2: Das Branding formt die Webseite (9 – 17) ========== */
+        /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
         tl.call(setDot(1), null, 9);
         cap(1, 9);
-        tl.to('#st-vk', { x: -120, y: 90, scale: 0.6, autoAlpha: 0, duration: 0.6, ease: IN }, 9.4);
-        tl.to('#st-fly', { x: 120, y: 90, scale: 0.6, autoAlpha: 0, duration: 0.6, ease: IN }, 9.5);
-        tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 9.9);
-        tl.from('#st-browser', { scale: 0.6, y: 60, duration: 0.75, ease: POP }, 9.9);
-        tl.from('#st-browser .st-bar', { y: -20, autoAlpha: 0, duration: 0.4, ease: SOFT }, 10.5);
-        tl.from('#st-browser .st-nav', { y: 14, autoAlpha: 0, duration: 0.4, ease: SOFT }, 10.65);
-        /* Das Logo fliegt vom Design-Board in die Webseite */
-        tl.set('#st-mark', { autoAlpha: 1 }, 10.6);
-        tl.to('#st-design', { autoAlpha: 0, y: 60, scale: 0.7, duration: 0.55, ease: IN }, 10.7);
-        tl.to('#st-mark', { x: -131, y: -70, scale: 0.38, duration: 0.85, ease: MOVE }, 10.8);
-        tl.to('#st-mark', { y: -27, duration: 0.3, ease: IN }, 11.35);
-        tl.set('#st-mark', { autoAlpha: 0 }, 11.68);
-        tl.to('.st-nav .ndot', { autoAlpha: 1, duration: 0.01 }, 11.68);
-        tl.from('.st-nav .ndot', { scale: 0, duration: 0.45, ease: 'back.out(2.6)' }, 11.68);
-        /* Der Marken-Verlauf wischt über die graue Seite — Design angewendet */
-        tl.to('#st-wipe', { scaleX: 1, duration: 0.8, ease: MOVE }, 12.1);
-        tl.from('#st-browser .st-line', { x: -22, autoAlpha: 0, duration: 0.4, ease: SOFT, stagger: 0.12 }, 12.6);
-        tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(2.2)' }, 13.0);
-        tl.to('#st-browser', { y: -6, duration: 1.4, ease: IDLE, yoyo: true, repeat: 1 }, 14.2);
+        /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
+        tl.to('#st-vk', { x: 240, y: -10, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.4);
+        tl.to('#st-fly', { x: -204, y: 17, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.48);
+        tl.to('#st-design', { x: -5, y: 19, scale: 0.75, duration: 0.65, ease: MOVE }, 9.56);
+        /* Verschmelzen: Stapel zieht sich zusammen, Lichtblitz */
+        tl.to('#st-vk, #st-fly, #st-design', { scale: 0.28, autoAlpha: 0, duration: 0.4, ease: IN }, 10.15);
+        tl.fromTo('#st-pop', { x: 25, y: 60, autoAlpha: 1, scale: 0.4 },
+            { scale: 4.2, autoAlpha: 0, duration: 0.6, ease: SOFT }, 10.45);
+        tl.fromTo('#st-b1', { x: 25, y: 60, autoAlpha: 1 }, { x: -75, y: -10, autoAlpha: 0, duration: 0.55, ease: SOFT }, 10.5);
+        tl.fromTo('#st-b2', { x: 25, y: 60, autoAlpha: 1 }, { x: 125, y: 10, autoAlpha: 0, duration: 0.55, ease: SOFT }, 10.5);
+        tl.fromTo('#st-b3', { x: 25, y: 60, autoAlpha: 1 }, { x: 25, y: -80, autoAlpha: 0, duration: 0.55, ease: SOFT }, 10.5);
+        /* Aus der Verschmelzung wächst die Webseite — organisch, federnd */
+        tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 10.55);
+        tl.from('#st-browser', { scale: 0.22, transformOrigin: '50% 50%', duration: 1.0, ease: 'elastic.out(1, 0.62)' }, 10.55);
+        tl.from('#st-browser .st-bar', { y: -20, autoAlpha: 0, duration: 0.4, ease: SOFT }, 11.35);
+        tl.from('#st-browser .st-nav', { y: 14, autoAlpha: 0, duration: 0.4, ease: SOFT }, 11.5);
+        /* Das Logo rastet ein, der Marken-Verlauf wischt über die Seite */
+        tl.to('.st-nav .ndot', { autoAlpha: 1, duration: 0.01 }, 11.85);
+        tl.from('.st-nav .ndot', { scale: 0, rotation: -90, duration: 0.5, ease: 'back.out(2.6)' }, 11.85);
+        tl.fromTo('#st-b4', { x: -206, y: -67, autoAlpha: 0.9, scale: 0.7 }, { x: -226, y: -92, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.95);
+        tl.fromTo('#st-b5', { x: -206, y: -67, autoAlpha: 0.9, scale: 0.7 }, { x: -181, y: -90, autoAlpha: 0, duration: 0.5, ease: SOFT }, 11.98);
+        tl.to('#st-wipe', { scaleX: 1, duration: 0.8, ease: MOVE }, 12.25);
+        tl.from('#st-browser .st-line', { x: -22, autoAlpha: 0, duration: 0.4, ease: SOFT, stagger: 0.12 }, 12.75);
+        tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(2.2)' }, 13.15);
+        tl.to('#st-browser', { y: -6, duration: 1.4, ease: IDLE, yoyo: true, repeat: 1 }, 14.3);
 
         /* ========== Kapitel 3: Fotos & Videos (17 – 24) ========== */
         tl.call(setDot(2), null, 17);
