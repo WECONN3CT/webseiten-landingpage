@@ -437,11 +437,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #pp3 { top: 274px; background: linear-gradient(130deg, #FF5082, #FF8FB0); }
 .st-rip { position: absolute; width: 20px; height: 20px; border-radius: 50%;
     border: 3px solid var(--blue); opacity: 0; z-index: 7; }
-#stage-caption { position: relative; margin-top: 18px; height: 2.4em; width: 100%;
-    max-width: 720px; text-align: center; font-size: 1.1rem; color: var(--ink-60); }
-#stage-caption .cap { position: absolute; inset: 0; opacity: 0; }
-#stage-caption strong { color: var(--ink); }
-#stage-dots { display: flex; gap: 10px; margin-top: 6px; }
+/* Sprechblasen direkt an der Grafik */
+.st-call { position: absolute; z-index: 8; background: #fff; border: 1px solid var(--line);
+    border-radius: 999px; padding: 11px 22px; font-size: 16px; font-weight: 700;
+    color: var(--ink); white-space: nowrap; box-shadow: 0 14px 34px rgba(27,36,112,0.16); }
+#ca1 { left: 50%; top: 8px; transform: translateX(-50%); }
+#ca2 { left: 50%; top: 386px; transform: translateX(-50%); }
+#ca3 { left: 50%; top: 2px; transform: translateX(-50%); }
+#ca4 { left: 50%; top: 428px; transform: translateX(-50%); }
+#ca5 { left: 50%; top: 2px; transform: translateX(-50%); }
+#ca6 { left: 50%; top: 428px; transform: translateX(-50%); }
+#ca7 { left: 22px; top: 68px; font-size: 14px; padding: 8px 16px;
+    color: rgba(13,18,56,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+#ca8 { left: 50%; top: 428px; transform: translateX(-50%); }
+#stage-dots { display: flex; gap: 10px; margin-top: 20px; }
 .sdot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
     background: rgba(13,18,56,0.18); transition: transform 0.2s, background 0.2s; }
 .sdot.on { background: linear-gradient(120deg, #2E3EE8, #FF5082); transform: scale(1.35); }
@@ -449,7 +458,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     .stage-wrap { margin: 0 -28px; }
     #st-counter { left: 640px; top: 96px; }
     .st-person { left: 80px; }
-    #stage-caption { font-size: 1rem; padding: 0 20px; height: 3.4em; }
+    .st-call { font-size: 29px; padding: 16px 32px; border-radius: 999px; white-space: normal;
+        max-width: 620px; text-align: center; line-height: 1.3; }
+    #ca2 { top: 352px; } #ca4, #ca6, #ca8 { top: 402px; }
+    #ca7 { left: 92px; top: 46px; font-size: 24px; padding: 12px 22px; }
     .sdot { width: 13px; height: 13px; }
 }
 
