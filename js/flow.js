@@ -50,7 +50,7 @@
         function setInitial() {
             gsap.set('#st-serp, #st-counter, #st-notif, #st-stars, #st-browser', { autoAlpha: 0 });
             gsap.set('.st-photo, #st-vid', { autoAlpha: 0 });
-            gsap.set('#st-mark, #st-pop, .st-b, #st-scan, .seo-chip, #st-score, #st-cursor', { autoAlpha: 0 });
+            gsap.set('#st-mark, #st-pop, .st-b, #st-scan, .seo-chip, #st-score, #st-cursor, .st-person', { autoAlpha: 0 });
             gsap.set('.st-nav .ndot', { autoAlpha: 0 });
             gsap.set('#st-wipe', { scaleX: 0 });
             gsap.set('#st-p1', { scale: 0, transformOrigin: '50% 50%' });
@@ -241,27 +241,40 @@
         tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 36.8);
         tl.to('#st-cursor', { autoAlpha: 0, y: 190, duration: 0.4, ease: IN }, 36.8);
         tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 37.1);
-        tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 37.9);
-        tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP }, 37.9);
-        var rips = ['#st-rip1', '#st-rip2', '#st-rip3'];
-        for (var r = 0; r < 6; r++) {
-            tl.fromTo(rips[r % 3], { x: 240 + (r % 3) * 22, y: 336 + (r % 2) * 12, autoAlpha: 0.85, scale: 0.4 },
-                { scale: 2.6, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 38.5 + r * 0.55);
+        /* Lead-Karte dockt links an */
+        tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 37.6);
+        tl.from('#st-counter', { x: -60, scale: 0.85, duration: 0.55, ease: POP, immediateRender: false }, 37.6);
+        /* Interessenten erscheinen rechts untereinander */
+        ['#pp1', '#pp2', '#pp3'].forEach(function (p, k) {
+            tl.to(p, { autoAlpha: 1, duration: 0.01 }, 37.8 + k * 0.15);
+            tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 37.81 + k * 0.15);
+        });
+        /* Jede Person: klickt den Button, wandert durch die Seite nach links, wird zum Lead */
+        function setLead(n) {
+            return function () { document.getElementById('st-cnt').textContent = '+' + n; };
         }
-        tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, 38.5);
-        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 38.6);
-        tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN }, 39.6);
-        tl.to('#st-btn', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 39.7);
         (function () {
-            var v = { n: 0 };
-            tl.to(v, { n: 47, duration: 3.0, ease: 'power1.inOut', onUpdate: function () {
-                document.getElementById('st-cnt').textContent = '+' + Math.round(v.n);
-            } }, 38.4);
+            var runs = [
+                { p: '#pp1', rip: '#st-rip1', t: 38.4, dyBtn: 192, dyLead: 42 },
+                { p: '#pp2', rip: '#st-rip2', t: 39.9, dyBtn: 144, dyLead: -36 },
+                { p: '#pp3', rip: '#st-rip3', t: 41.4, dyBtn: 66, dyLead: -114 }
+            ];
+            runs.forEach(function (r, k) {
+                tl.to(r.p, { x: -547, y: r.dyBtn, scale: 0.8, duration: 0.75, ease: MOVE }, r.t);
+                tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, r.t + 0.78);
+                tl.to('#st-btn', { scale: 1, duration: 0.28, ease: 'back.out(2.1)' }, r.t + 0.88);
+                tl.fromTo(r.rip, { x: 250, y: 332, autoAlpha: 0.85, scale: 0.4 },
+                    { scale: 2.4, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, r.t + 0.8);
+                tl.to(r.p, { x: -716, y: r.dyLead, scale: 0.5, duration: 0.75, ease: MOVE }, r.t + 1.0);
+                tl.to(r.p, { autoAlpha: 0, duration: 0.25, ease: IN }, r.t + 1.62);
+                tl.call(setLead(k + 1), null, r.t + 1.72);
+                tl.to('#st-counter', { scale: 1.08, duration: 0.25, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 1.72);
+            });
         })();
-        tl.to('#st-counter', { scale: 1.05, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 41.2);
-        tl.to('#st-notif', { autoAlpha: 1, duration: 0.01 }, 42.0);
-        tl.from('#st-notif', { y: -90, scale: 0.9, duration: 0.6, ease: 'back.out(1.7)' }, 42.0);
-        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 42.9);
+        /* Payoff: die Anfrage-Push */
+        tl.to('#st-notif', { autoAlpha: 1, duration: 0.01 }, 43.5);
+        tl.from('#st-notif', { y: -90, scale: 0.9, duration: 0.6, ease: 'back.out(1.7)' }, 43.5);
+        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 44.35);
 
         /* ========== Ausklang & Reset (45.2 – 46.6) ========== */
         tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 45.2);
