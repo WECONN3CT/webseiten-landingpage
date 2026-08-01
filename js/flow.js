@@ -176,23 +176,22 @@
         tl.call(setDot(3), null, 24);
         cap(3, 24);
         /* SEO-Scan fährt über die fertige Seite */
-        tl.fromTo('#st-scan', { x: -80, autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, 24.3);
-        tl.to('#st-scan', { x: 560, duration: 1.1, ease: IDLE }, 24.35);
-        tl.to('#st-scan', { x: -80, duration: 1.1, ease: IDLE }, 25.5);
-        tl.to('#st-scan', { autoAlpha: 0, duration: 0.25 }, 26.55);
+        tl.fromTo('#st-scan', { x: -60, autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25, immediateRender: false }, 24.3);
+        tl.to('#st-scan', { x: 575, duration: 2.2, ease: 'power1.inOut' }, 24.35);
+        tl.to('#st-scan', { autoAlpha: 0, duration: 0.3 }, 26.4);
         /* Prüf-Chips erscheinen genau dort, wo der Scan-Strahl sie "findet" — mit Ring-Puls */
-        tl.to('#sc1', { autoAlpha: 1, duration: 0.01 }, 24.6);
-        tl.from('#sc1', { scale: 0.55, y: -12, rotation: -5, duration: 0.6, ease: 'back.out(1.8)', transformOrigin: '50% 100%' }, 24.61);
-        tl.fromTo('#st-rip1', { x: 216, y: 102, autoAlpha: 0.7, scale: 0.4 }, { scale: 2.2, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 24.62);
-        tl.to('#sc3', { autoAlpha: 1, duration: 0.01 }, 25.1);
-        tl.from('#sc3', { scale: 0.55, y: -12, rotation: 5, duration: 0.6, ease: 'back.out(1.8)', transformOrigin: '50% 100%' }, 25.11);
-        tl.fromTo('#st-rip2', { x: 568, y: 118, autoAlpha: 0.7, scale: 0.4 }, { scale: 2.2, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 25.12);
-        tl.to('#sc2', { autoAlpha: 1, duration: 0.01 }, 26.0);
-        tl.from('#sc2', { scale: 0.55, y: -12, rotation: -5, duration: 0.6, ease: 'back.out(1.8)', transformOrigin: '50% 100%' }, 26.01);
+        tl.to('#sc1', { autoAlpha: 1, duration: 0.01 }, 24.8);
+        tl.from('#sc1', { scale: 0.55, y: -12, rotation: -5, duration: 0.6, ease: 'back.out(1.8)', transformOrigin: '50% 100%' }, 24.81);
+        tl.fromTo('#st-rip1', { x: 216, y: 102, autoAlpha: 0.7, scale: 0.4 }, { scale: 2.2, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 24.82);
+        tl.to('#sc3', { autoAlpha: 1, duration: 0.01 }, 26.0);
+        tl.from('#sc3', { scale: 0.55, y: -12, rotation: 5, duration: 0.6, ease: 'back.out(1.8)', transformOrigin: '50% 100%' }, 26.01);
+        tl.fromTo('#st-rip2', { x: 568, y: 118, autoAlpha: 0.7, scale: 0.4 }, { scale: 2.2, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 25.07);
+        tl.to('#sc2', { autoAlpha: 1, duration: 0.01 }, 25.05);
+        tl.from('#sc2', { scale: 0.55, y: -12, rotation: -5, duration: 0.6, ease: 'back.out(1.8)', transformOrigin: '50% 100%' }, 25.06);
         tl.fromTo('#st-rip3', { x: 216, y: 282, autoAlpha: 0.7, scale: 0.4 }, { scale: 2.2, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, 26.02);
         /* Chips atmen leicht, während der Score klettert */
-        tl.to('#sc1', { y: -3, duration: 1.1, ease: IDLE, yoyo: true, repeat: 1 }, 25.4);
-        tl.to('#sc3', { y: 3, duration: 1.1, ease: IDLE, yoyo: true, repeat: 1 }, 25.9);
+        tl.to('#sc1', { y: -3, duration: 1.1, ease: IDLE, yoyo: true, repeat: 1 }, 25.6);
+        tl.to('#sc3', { y: 3, duration: 1.1, ease: IDLE, yoyo: true, repeat: 1 }, 26.7);
         /* SEO-Score zählt auf 100 */
         tl.to('#st-score', { autoAlpha: 1, duration: 0.01 }, 25.0);
         tl.from('#st-score', { scale: 0.5, y: 14, duration: 0.5, ease: 'back.out(2)' }, 25.01);

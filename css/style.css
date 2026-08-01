@@ -352,9 +352,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #st-vid .play i { display: block; width: 0; height: 0; margin-left: 3px;
     border-left: 11px solid #2E3EE8; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
 #st-flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; border-radius: 18px; }
-#st-scan { position: absolute; left: 170px; top: 45px; width: 90px; height: 380px; z-index: 6;
-    background: linear-gradient(90deg, rgba(46,62,232,0), rgba(46,62,232,0.16) 45%,
-        rgba(106,124,255,0.5) 50%, rgba(46,62,232,0.16) 55%, rgba(46,62,232,0)); }
+#st-scanclip { position: absolute; left: 170px; top: 45px; width: 560px; height: 380px;
+    border-radius: 18px; overflow: hidden; z-index: 6; pointer-events: none; }
+#st-scan { position: absolute; left: 0; top: 0; width: 56px; height: 100%;
+    background: linear-gradient(90deg, rgba(106,124,255,0) 0%, rgba(106,124,255,0.1) 38%,
+        rgba(106,124,255,0.28) 50%, rgba(106,124,255,0.1) 62%, rgba(106,124,255,0) 100%); }
+#st-scan::after { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2.5px;
+    margin-left: -1.25px; border-radius: 2px;
+    background: linear-gradient(180deg, rgba(46,62,232,0), #6A7CFF 25%, #9D4EDD 75%, rgba(157,78,221,0)); }
 .seo-chip { position: absolute; display: flex; align-items: center; gap: 8px; z-index: 7;
     background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px;
     font-size: 14px; font-weight: 800; color: var(--ink);
