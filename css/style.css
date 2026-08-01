@@ -339,6 +339,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     border-radius: 50%; background: rgba(255,255,255,0.85); }
 .st-photo .hill { position: absolute; bottom: -12px; left: -8px; width: 110px; height: 42px;
     border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.3); }
+#st-hero .ph-ic { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px;
+    margin: -17px 0 0 -17px; stroke: rgba(13,18,56,0.25); stroke-width: 2; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+#st-vid { position: absolute; left: 640px; top: 300px; width: 128px; height: 88px; border-radius: 12px;
+    border: 6px solid #fff; box-sizing: border-box; z-index: 5;
+    background: linear-gradient(135deg, #1B2470, #2E3EE8 60%, #9D4EDD);
+    box-shadow: 0 16px 40px rgba(27,36,112,0.25);
+    display: flex; align-items: center; justify-content: center; }
+#st-vid .play { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.92);
+    display: flex; align-items: center; justify-content: center; }
+#st-vid .play i { display: block; width: 0; height: 0; margin-left: 3px;
+    border-left: 11px solid #2E3EE8; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
 #st-flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; border-radius: 18px; }
 #st-serp { position: absolute; left: 235px; top: 42px; width: 430px; background: #fff;
     border: 1px solid var(--line); border-radius: 18px; padding: 20px;
