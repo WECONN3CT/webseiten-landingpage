@@ -241,40 +241,47 @@
         tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 36.8);
         tl.to('#st-cursor', { autoAlpha: 0, y: 190, duration: 0.4, ease: IN }, 36.8);
         tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 37.1);
-        /* Lead-Karte dockt links an */
+        /* Lead-Karte dockt rechts an */
         tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 37.6);
-        tl.from('#st-counter', { x: -60, scale: 0.85, duration: 0.55, ease: POP, immediateRender: false }, 37.6);
-        /* Interessenten erscheinen rechts untereinander */
+        tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP, immediateRender: false }, 37.6);
+        /* Besucher erscheinen links untereinander */
         ['#pp1', '#pp2', '#pp3'].forEach(function (p, k) {
             tl.to(p, { autoAlpha: 1, duration: 0.01 }, 37.8 + k * 0.15);
             tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 37.81 + k * 0.15);
         });
-        /* Jede Person: klickt den Button, wandert durch die Seite nach links, wird zum Lead */
+        /* Jeder Besucher: klickt den Button (→ Neue Anfrage), wandert nach rechts, wird zum Lead */
         function setLead(n) {
             return function () { document.getElementById('st-cnt').textContent = '+' + n; };
         }
         (function () {
             var runs = [
-                { p: '#pp1', rip: '#st-rip1', t: 38.4, dyBtn: 192, dyLead: 42 },
-                { p: '#pp2', rip: '#st-rip2', t: 39.9, dyBtn: 144, dyLead: -36 },
-                { p: '#pp3', rip: '#st-rip3', t: 41.4, dyBtn: 66, dyLead: -114 }
+                { p: '#pp1', rip: '#st-rip1', t: 38.3, dyBtn: 194, dyLead: 49 },
+                { p: '#pp2', rip: '#st-rip2', t: 39.95, dyBtn: 116, dyLead: -29 },
+                { p: '#pp3', rip: '#st-rip3', t: 41.6, dyBtn: 38, dyLead: -107 }
             ];
             runs.forEach(function (r, k) {
-                tl.to(r.p, { x: -547, y: r.dyBtn, scale: 0.8, duration: 0.75, ease: MOVE }, r.t);
-                tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, r.t + 0.78);
-                tl.to('#st-btn', { scale: 1, duration: 0.28, ease: 'back.out(2.1)' }, r.t + 0.88);
+                /* Zum Button (leicht vorgelehnt, weich abbremsend) */
+                tl.to(r.p, { x: 195, y: r.dyBtn, scale: 0.8, rotation: 5, duration: 0.8, ease: MOVE }, r.t);
+                tl.to(r.p, { rotation: 0, duration: 0.25, ease: SOFT }, r.t + 0.75);
+                /* Klick: Button drückt, Ring pulst, die Anfrage-Push erscheint */
+                tl.to('#st-btn', { scale: 0.94, duration: 0.09, ease: IN, transformOrigin: '50% 50%' }, r.t + 0.85);
+                tl.to('#st-btn', { scale: 1, duration: 0.28, ease: 'back.out(2.1)' }, r.t + 0.95);
                 tl.fromTo(r.rip, { x: 250, y: 332, autoAlpha: 0.85, scale: 0.4 },
-                    { scale: 2.4, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, r.t + 0.8);
-                tl.to(r.p, { x: -716, y: r.dyLead, scale: 0.5, duration: 0.75, ease: MOVE }, r.t + 1.0);
-                tl.to(r.p, { autoAlpha: 0, duration: 0.25, ease: IN }, r.t + 1.62);
-                tl.call(setLead(k + 1), null, r.t + 1.72);
-                tl.to('#st-counter', { scale: 1.08, duration: 0.25, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 1.72);
+                    { scale: 2.4, autoAlpha: 0, duration: 0.5, ease: SOFT, immediateRender: false }, r.t + 0.87);
+                tl.fromTo('#st-notif', { y: -80, autoAlpha: 0 },
+                    { y: 0, autoAlpha: 1, duration: 0.5, ease: 'back.out(1.6)', immediateRender: false }, r.t + 1.0);
+                /* Weiter nach rechts — als Lead ankommen */
+                tl.to(r.p, { x: 739, y: r.dyLead, scale: 0.5, rotation: -4, duration: 0.8, ease: MOVE }, r.t + 1.2);
+                tl.to(r.p, { autoAlpha: 0, rotation: 0, duration: 0.25, ease: IN }, r.t + 1.9);
+                tl.call(setLead(k + 1), null, r.t + 2.0);
+                tl.to('#st-counter', { scale: 1.08, duration: 0.25, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 2.0);
+                /* Push zieht sich zurück — außer beim letzten Lead */
+                if (k < 2) {
+                    tl.to('#st-notif', { y: -70, autoAlpha: 0, duration: 0.4, ease: IN }, r.t + 2.35);
+                }
             });
         })();
-        /* Payoff: die Anfrage-Push */
-        tl.to('#st-notif', { autoAlpha: 1, duration: 0.01 }, 43.5);
-        tl.from('#st-notif', { y: -90, scale: 0.9, duration: 0.6, ease: 'back.out(1.7)' }, 43.5);
-        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 44.35);
+        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 44.3);
 
         /* ========== Ausklang & Reset (45.2 – 46.6) ========== */
         tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 45.2);
