@@ -359,14 +359,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px;
     font-size: 14px; font-weight: 800; color: var(--ink);
     box-shadow: 0 12px 30px rgba(27,36,112,0.18); }
-.seo-chip i { width: 18px; height: 18px; border-radius: 50%; flex: none; position: relative; }
-.seo-chip i.ok { background: #17A34A; }
-.seo-chip i.ok::after { content: ''; position: absolute; left: 5px; top: 4px; width: 6px; height: 9px;
-    border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(42deg); }
-.seo-chip i.zap { background: linear-gradient(130deg, #2E3EE8, #9D4EDD); }
-.seo-chip i.zap::after { content: '⚡'; position: absolute; left: 3px; top: -1px; font-size: 11px; }
+.seo-chip .ic { width: 20px; height: 20px; border-radius: 50%; flex: none;
+    display: flex; align-items: center; justify-content: center; }
+.seo-chip .ic svg { width: 12px; height: 12px; stroke: #fff; stroke-width: 3; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+.seo-chip .ic.ok { background: #17A34A; }
+.seo-chip .ic.zap { background: linear-gradient(130deg, #2E3EE8, #9D4EDD); }
+.seo-chip .ic.zap svg { fill: #fff; stroke: none; width: 11px; height: 11px; }
 #sc1 { left: 196px; top: 84px; }
-#sc2 { left: 196px; top: 292px; }
+#sc2 { left: 196px; top: 264px; }
 #sc3 { left: 548px; top: 100px; }
 #st-score { position: absolute; left: 118px; top: 364px; z-index: 7; background: #fff;
     border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px;
