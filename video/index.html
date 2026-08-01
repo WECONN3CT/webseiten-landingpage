@@ -456,6 +456,13 @@
   #mem-lbl { position: absolute; left: 0; right: 0; top: 428px; text-align: center; font-size: 22px;
     font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(13,18,56,0.5); }
   .shot { width: 100%; display: block; }
+  #s4b-stats { display: flex; gap: 16px; padding: 4px 24px 12px; }
+  .s4b-st { flex: 1; display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
+    border: 1px solid rgba(13,18,56,0.09); border-radius: 14px; padding: 12px 16px; }
+  .s4b-st b { font-size: 22px; font-weight: 900;
+    background: linear-gradient(100deg, #2E3EE8, #FF5082);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .s4b-st span { width: 100%; }
   #s4shot-wrap { height: 472px; overflow: hidden; position: relative; }
   #dw-shot-wrap { height: 512px; overflow: hidden; position: relative; }
   .post .im.photo { background: none !important; padding: 0; overflow: hidden; position: relative; }
@@ -483,12 +490,12 @@
     <div class="blob blob-b" data-layout-ignore></div><div class="blob blob-p" data-layout-ignore></div>
     <div id="s1-ghost" class="ghost" data-layout-ignore>?</div>
     <div id="s1-a">
-      <h1>Ihre Webseite bringt<br><span class="accent">keine Anfragen</span>?</h1>
+      <h1>Ihre Webseite kostet Geld —<br>und bringt <span class="accent">keine Kunden</span>?</h1>
     </div>
     <div id="s1-b">
       <div id="s1-badge"><i></i>WECONN3CT · Bad Honnef</div>
-      <h1>Zeit für ein <span class="accent">System</span>,<br>das <span class="accent">Kunden</span> bringt.</h1>
-      <div class="explain" id="e1" style="max-width:1250px">Wir bauen es Ihnen — <b>Marke, Webseite, Werbung und Automatisierung</b>, alles aus einer Hand.</div>
+      <h1>Wir bauen Ihnen ein <span class="accent">System</span>,<br>das täglich <span class="accent">Anfragen</span> liefert.</h1>
+      <div class="explain" id="e1" style="max-width:1250px"><b>Marke, Webseite, Werbung, Automatisierung</b> — geplant als ein Ganzes, gebaut von einem Team.</div>
     </div>
   </div>
 
@@ -496,17 +503,17 @@
   <div id="s2" class="scene"><div class="deco d-dot" data-layout-ignore style="left:1760px;top:140px"></div><div class="deco d-ring" data-layout-ignore style="left:1000px;top:880px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>1</div>
-    <div class="meta meta-tl sm2">Leistung 1 / 4</div>
+    <div class="meta meta-tl sm2">Schritt 1 von 4</div>
     <div class="was-wrap" style="padding-right: 760px;">
-      <div class="kicker">Design</div>
-      <h2>Ihre Marke.<br><span class="accent">Eine Linie.</span></h2>
+      <div class="kicker">Marke &amp; Design</div>
+      <h2>Eine Marke, die man<br>sich <span class="accent">merkt</span>.</h2>
       <div class="chip-row">
         <div class="chip c2"><span class="cdot"></span>Corporate Design</div>
         <div class="chip c2"><span class="cdot"></span>Logo</div>
         <div class="chip c2"><span class="cdot"></span>Visitenkarten</div>
         <div class="chip c2"><span class="cdot"></span>Flyer</div>
       </div>
-      <div class="explain" id="e2" style="max-width:900px"><b>Das brauchen Sie als Grundlage:</b> Farben und Logo legen Ihren Stil fest — daraus entstehen Visitenkarten, Flyer und Ihre Webseite.</div>
+      <div class="explain" id="e2" style="max-width:900px"><b>Der erste Schritt:</b> Wir entwickeln Logo und Corporate Design — und gestalten damit Visitenkarten, Flyer und Webseite. Ein Stil, sofort erkennbar.</div>
     </div>
     <div id="s2-visual">
       <div id="sw-row">
@@ -526,13 +533,23 @@
   <div id="s3" class="scene"><div class="deco d-sq" data-layout-ignore style="left:180px;top:720px"></div><div class="deco d-dot" data-layout-ignore style="left:1720px;top:240px"></div>
     <div class="blob blob-p" data-layout-ignore></div>
     <div class="meta meta-tr sm3">Warum Design?</div>
-    <div id="s3-line" class="benefit">Überall sofort <span class="accent">wiedererkannt</span>.</div>
-    <div class="explain explain-c" id="e3" style="top:262px"><b>Wofür?</b> Damit Kunden Sie auf jedem Kanal sofort erkennen — das wirkt professionell und schafft Vertrauen.</div>
+    <div id="s3-line" class="benefit">Überall derselbe <span class="accent">starke Auftritt</span>.</div>
+    <div class="explain explain-c" id="e3" style="top:262px">Ob Webseite, Visitenkarte oder Instagram: <b>Kunden sehen sofort, dass Sie es sind.</b> Wiedererkennung schafft Vertrauen — und Vertrauen bringt Aufträge.</div>
     <div id="rl-fly" data-layout-allow-overlap>A</div>
     <div class="rec-row" style="align-items:center">
       <div id="r1" class="rec-item" style="padding:0">
         <div class="mini-bar"><i></i><i></i><i></i></div>
-        <div id="r1-shot"><img src="assets/mertes-thumb.webp" alt=""></div>
+        <div id="r1w-hero"><div style="position:absolute;top:12px;right:14px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.85)"></div>
+          <div style="position:absolute;bottom:-18px;left:-12px;width:150px;height:60px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.3)"></div>
+          <div style="position:absolute;bottom:-14px;left:90px;width:180px;height:52px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.18)"></div>
+          <div class="wl" style="width:65%"></div><div class="wl" style="width:40%;margin-top:10px;background:rgba(255,255,255,0.6)"></div></div>
+        <div class="m-line dark" style="height:12px;width:60%;margin:6px 16px 0"></div>
+        <div class="m-line" style="height:10px;width:45%;margin:10px 16px 0"></div>
+        <div id="r1-btn"></div>
+        <div style="display:flex;gap:10px;margin:14px 16px 0">
+          <div style="flex:1;height:40px;border-radius:10px;border:1px solid rgba(13,18,56,0.09)"></div>
+          <div style="flex:1;height:40px;border-radius:10px;border:1px solid rgba(13,18,56,0.09)"></div>
+        </div>
         <div class="rec-logo" id="rlg1">A</div><div class="rec-name">Webseite</div>
         <div class="rec-check" id="rck1"><svg viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10" /></svg></div>
       </div>
@@ -570,22 +587,51 @@
   <div id="s4" class="scene"><div class="deco d-dot" data-layout-ignore style="left:880px;top:150px"></div><div class="deco d-sq" data-layout-ignore style="left:1800px;top:860px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>2</div>
-    <div class="meta meta-tl sm4">Leistung 2 / 4</div>
+    <div class="meta meta-tl sm4">Schritt 2 von 4</div>
     <div class="was-wrap" style="padding-right: 820px;">
       <div class="kicker">Webseite</div>
-      <h2>Schön. Gefunden.<br>Ein <span class="accent">Magnet</span>.</h2>
+      <h2>Ihre Webseite verkauft.<br><span class="accent">Rund um die Uhr.</span></h2>
       <div class="chip-row">
         <div class="chip c4"><span class="cdot"></span>Individuelles Design</div>
         <div class="chip c4"><span class="cdot"></span>SEO-optimiert</div>
         <div class="chip c4"><span class="cdot"></span>Lead- &amp; Bewerber-Magnet</div>
       </div>
-      <div class="explain" id="e4" style="max-width:900px"><b>Die brauchen Sie als digitale Zentrale:</b> Hier landen alle Interessenten — und werden zu Anfragen. Wie hier bei unserem Kunden:</div>
+      <div class="explain" id="e4" style="max-width:900px"><b>Individuell gebaut, schnell geladen, klar geführt:</b> Jede Seite hat genau ein Ziel — den Besucher zur Anfrage zu bringen.</div>
     </div>
     <div id="s4-browser">
       <div class="br-bar"><i></i><i></i><i></i></div>
-      <div id="s4shot-wrap"><img id="s4shot" class="shot" src="assets/mertes-scroll.webp" alt=""></div>
+      <div id="s4b-nav"><div class="ldot"></div>
+        <div class="m-line" style="height:9px;width:70px"></div>
+        <div class="m-line" style="height:8px;width:40px;margin-left:auto"></div>
+        <div class="m-line" style="height:8px;width:40px"></div>
+        <div style="width:86px;height:26px;border-radius:999px;background:linear-gradient(100deg,#2E3EE8,#9D4EDD 60%,#FF5082)"></div>
+      </div>
+      <div id="s4b-hero">
+        <div id="s4b-hl">
+          <div class="m-line dark" style="height:18px;width:85%"></div>
+          <div style="height:18px;width:60%;border-radius:9px;background:linear-gradient(100deg,#2E3EE8,#9D4EDD 60%,#FF5082);margin-top:10px"></div>
+          <div class="m-line" style="height:10px;width:75%;margin-top:14px"></div>
+          <div class="m-line" style="height:10px;width:55%;margin-top:8px"></div>
+          <div id="s4b-cta"></div>
+        </div>
+        <div id="s4b-img"><div class="sun"></div>
+          <div style="position:absolute;bottom:-24px;left:60px;width:190px;height:80px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.16)"></div>
+          <div class="hill"></div>
+          <div style="position:absolute;top:14px;left:14px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.9);font-size:13px;font-weight:800;color:#2E3EE8">★ 5,0</div>
+        </div>
+      </div>
+      <div id="s4b-stats">
+        <div class="s4b-st"><b>250+</b><span class="m-line" style="height:7px;width:70%"></span></div>
+        <div class="s4b-st"><b>24h</b><span class="m-line" style="height:7px;width:70%"></span></div>
+        <div class="s4b-st"><b>★★★★★</b><span class="m-line" style="height:7px;width:70%"></span></div>
+      </div>
+      <div id="s4b-feats">
+        <div class="s4b-f"><div class="fdot"></div><div class="m-line" style="height:9px;width:80%"></div><div class="m-line" style="height:8px;width:55%;margin-top:7px"></div></div>
+        <div class="s4b-f"><div class="fdot"></div><div class="m-line" style="height:9px;width:80%"></div><div class="m-line" style="height:8px;width:55%;margin-top:7px"></div></div>
+        <div class="s4b-f"><div class="fdot"></div><div class="m-line" style="height:9px;width:80%"></div><div class="m-line" style="height:8px;width:55%;margin-top:7px"></div></div>
+      </div>
     </div>
-    <div id="cursor4"<div id="cursor4" data-layout-ignore><svg viewBox="0 0 24 24"><path d="M7.904 17.563a1.2 1.2 0 0 0 2.228 .308l2.09 -3.093l4.907 4.907a1.067 1.067 0 0 0 1.509 0l1.047 -1.047a1.067 1.067 0 0 0 0 -1.509l-4.907 -4.907l3.113 -2.09a1.2 1.2 0 0 0 -.309 -2.228l-13.582 -3.904l3.904 13.563z" /></svg></div>
+    <div id="cursor4"<div id="cursor4"<div id="cursor4" data-layout-ignore><svg viewBox="0 0 24 24"><path d="M7.904 17.563a1.2 1.2 0 0 0 2.228 .308l2.09 -3.093l4.907 4.907a1.067 1.067 0 0 0 1.509 0l1.047 -1.047a1.067 1.067 0 0 0 0 -1.509l-4.907 -4.907l3.113 -2.09a1.2 1.2 0 0 0 -.309 -2.228l-13.582 -3.904l3.904 13.563z" /></svg></div>
     <div id="ripple4" data-layout-ignore></div>
   </div>
 
@@ -593,8 +639,8 @@
   <div id="s5" class="scene"><div class="deco d-ring" data-layout-ignore style="left:240px;top:560px"></div><div class="deco d-dot" data-layout-ignore style="left:1660px;top:700px"></div>
     <div class="blob blob-p" data-layout-ignore></div>
     <div class="meta meta-tr sm5">Warum SEO?</div>
-    <div id="s5-line" class="benefit">Wer sucht, scrollt nicht weit.<br><span class="accent">Platz 1 gewinnt.</span></div>
-    <div class="explain explain-c" id="e5" style="top:310px"><b>SEO brauchen Sie, damit man Sie findet:</b> Wenn Kunden nach Ihrer Leistung googeln, stehen Sie ganz oben — sonst gehen sie zur Konkurrenz.</div>
+    <div id="s5-line" class="benefit">Ganz oben, wenn<br>Kunden <span class="accent">suchen</span>.</div>
+    <div class="explain explain-c" id="e5" style="top:310px">Wir optimieren Ihre Seite für Google: <b>Wer nach Ihrer Leistung sucht, findet Sie — nicht die Konkurrenz.</b> Denn geklickt wird fast nur oben.</div>
     <div id="serp" style="position:absolute;left:520px;top:400px;width:880px">
       <div class="srch"><svg viewBox="0 0 24 24"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg><span id="srch-txt"></span><span class="ph-caret" id="srch-caret" style="height:30px"></span></div>
       <div class="serp-res" id="serp-own2">
@@ -621,13 +667,45 @@
   <div id="s6" class="scene"><div class="deco d-sq" data-layout-ignore style="left:240px;top:640px"></div><div class="deco d-dot" data-layout-ignore style="left:1720px;top:260px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="meta meta-tr sm6">Warum schönes Design?</div>
-    <div id="s6-line" class="benefit">Wer gern bleibt,<br><span class="accent">fragt eher an</span>.</div>
-    <div class="explain explain-c" id="e6" style="top:310px"><b>Schönes Design brauchen Sie, damit Besucher bleiben:</b> Je länger sie sich umschauen, desto eher fragen sie an.</div>
+    <div id="s6-line" class="benefit">Gutes Design ist kein Schmuck.<br><span class="accent">Es verkauft.</span></div>
+    <div class="explain explain-c" id="e6" style="top:310px">Je wohler sich Besucher fühlen, desto länger bleiben sie — <b>und desto eher schreiben sie Ihnen.</b> Wir bauen Seiten, auf denen man gern bleibt.</div>
     <div id="dw-browser">
       <div class="br-bar"><i></i><i></i><i></i></div>
-      <div id="dw-shot-wrap"><img id="dw-shot" class="shot" src="assets/kaya-scroll.webp" alt=""></div>
+      <div id="dw-page">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:22px;height:22px;border-radius:8px;background:linear-gradient(130deg,#2E3EE8,#9D4EDD 60%,#FF5082)"></div>
+          <div class="m-line" style="height:9px;width:70px"></div>
+          <div class="m-line" style="height:8px;width:36px;margin-left:auto"></div>
+          <div class="m-line" style="height:8px;width:36px"></div>
+        </div>
+        <div style="height:140px;border-radius:14px;position:relative;overflow:hidden;background:linear-gradient(135deg,#6A7CFF,#9D4EDD 55%,#FF5082);margin-bottom:16px;padding:18px;box-sizing:border-box">
+          <div style="position:absolute;top:12px;right:14px;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.85)"></div>
+          <div style="position:absolute;bottom:-20px;left:-14px;width:170px;height:66px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.28)"></div>
+          <div style="position:absolute;bottom:-16px;left:120px;width:200px;height:58px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.16)"></div>
+          <div style="height:12px;width:60%;border-radius:6px;background:rgba(255,255,255,0.9)"></div>
+          <div style="height:10px;width:40%;border-radius:5px;background:rgba(255,255,255,0.55);margin-top:9px"></div>
+          <div style="width:96px;height:26px;border-radius:999px;background:#fff;margin-top:14px"></div>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:16px">
+          <div class="s4b-f"><div class="fdot" style="width:22px;height:22px"></div><div class="m-line" style="height:8px;width:80%"></div><div class="m-line" style="height:7px;width:55%;margin-top:6px"></div></div>
+          <div class="s4b-f"><div class="fdot" style="width:22px;height:22px"></div><div class="m-line" style="height:8px;width:80%"></div><div class="m-line" style="height:7px;width:55%;margin-top:6px"></div></div>
+        </div>
+        <div style="border:1px solid rgba(13,18,56,0.09);border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 20px rgba(27,36,112,0.07);margin-bottom:16px">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(130deg,#2E3EE8,#FF5082);flex:none"></div>
+          <div style="flex:1"><div class="m-line" style="height:9px;width:90%"></div><div class="m-line" style="height:8px;width:65%;margin-top:7px"></div></div>
+          <div style="color:#F5A623;font-size:15px;font-weight:800;flex:none">★★★★★</div>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:16px">
+          <div style="flex:1;height:88px;border-radius:12px;position:relative;overflow:hidden;background:linear-gradient(135deg,#8F9DFF,#B36AF0)"><div style="position:absolute;bottom:-14px;left:-8px;width:100px;height:44px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.3)"></div><div style="position:absolute;top:8px;right:10px;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,0.8)"></div></div>
+          <div style="flex:1;height:88px;border-radius:12px;position:relative;overflow:hidden;background:linear-gradient(135deg,#C77CF5,#FF7FA5)"><div style="position:absolute;bottom:-14px;right:-8px;width:110px;height:46px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.28)"></div></div>
+        </div>
+        <div class="m-line dark" style="height:13px;width:70%"></div>
+        <div class="m-line" style="height:9px;width:85%;margin-top:10px"></div>
+        <div class="m-line" style="height:9px;width:60%;margin-top:8px"></div>
+        <div style="width:170px;height:44px;border-radius:999px;background:linear-gradient(100deg,#2E3EE8,#9D4EDD 60%,#FF5082);margin-top:16px"></div>
+      </div>
     </div>
-    <div id="dw-stats"><div id="dw-stats"></div>
+    <div id="dw-stats"><div id="dw-stats"><div id="dw-stats"></div>
     </div>
     <div id="dw-stats">
       <div id="dw-timer-card">
@@ -647,23 +725,23 @@
   <div id="s7" class="scene"><div class="deco d-ring" data-layout-ignore style="left:860px;top:870px"></div><div class="deco d-dot" data-layout-ignore style="left:1810px;top:220px"></div>
     <div class="blob blob-p" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>3</div>
-    <div class="meta meta-tl sm7">Leistung 3 / 4</div>
+    <div class="meta meta-tl sm7">Schritt 3 von 4</div>
     <div id="s7-copy">
-      <div class="kicker">Meta &amp; Google Ads</div>
-      <h2>Immer wieder<br><span class="accent">im Feed</span>.</h2>
-      <div class="explain" id="e7" style="max-width:720px"><b>Ads brauchen Sie für planbare Reichweite:</b> Ihre Zielgruppe sieht Sie bei Google, Instagram und Facebook immer wieder — und denkt zuerst an Sie.</div>
-      <div class="benefit" id="s7-benefit" style="font-size:46px">So bleibt Ihre Marke<br><span class="accent">im Kopf</span>.</div>
+      <div class="kicker">Werbung · Meta &amp; Google Ads</div>
+      <h2>Sichtbar, wo Ihre Kunden<br><span class="accent">täglich sind</span>.</h2>
+      <div class="explain" id="e7" style="max-width:720px">Mit Google- und Instagram-Anzeigen erreichen Sie genau die Menschen, die Ihre Leistung brauchen — <b>immer wieder, bis Ihr Name der erste ist, der ihnen einfällt.</b></div>
+      <div class="benefit" id="s7-benefit" style="font-size:46px">Ihr Name wird zur<br><span class="accent">ersten Wahl</span>.</div>
     </div>
     <div id="phone2">
       <div id="p2-screen">
         <div id="p2-island"></div>
         <div id="p2-feed">
-          <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im photo"><img src="assets/post-1.webp" alt=""></div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
-          <div class="post ad pa1"><div class="adhead"><div class="a-tile">A</div><div class="nm" style="width:100px"></div><div class="tag" style="position:static;margin-left:auto">ANZEIGE</div></div><div class="im photo"><img src="assets/ad-kaya.webp" alt=""><div style="position:absolute;inset:0;background:linear-gradient(rgba(13,18,56,0),rgba(13,18,56,0.45))"></div><div style="position:absolute;left:12px;bottom:10px;color:#fff;font-size:15px;font-weight:800">Jetzt entdecken</div></div><div class="a-cta">Mehr erfahren</div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
-          <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im photo" style="height:96px"><img src="assets/post-2.webp" alt=""></div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
-          <div class="post ad pa2"><div class="adhead"><div class="a-tile">A</div><div class="nm" style="width:100px"></div><div class="tag" style="position:static;margin-left:auto">ANZEIGE</div></div><div class="im photo"><img src="assets/ad-kaya.webp" alt=""><div style="position:absolute;inset:0;background:linear-gradient(rgba(13,18,56,0),rgba(13,18,56,0.45))"></div><div style="position:absolute;left:12px;bottom:10px;color:#fff;font-size:15px;font-weight:800">Jetzt entdecken</div></div><div class="a-cta">Mehr erfahren</div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
-          <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im photo"><img src="assets/post-1.webp" alt="" style="object-position:bottom"></div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
-          <div class="post ad pa3"><div class="adhead"><div class="a-tile">A</div><div class="nm" style="width:100px"></div><div class="tag" style="position:static;margin-left:auto">ANZEIGE</div></div><div class="im photo"><img src="assets/ad-kaya.webp" alt=""><div style="position:absolute;inset:0;background:linear-gradient(rgba(13,18,56,0),rgba(13,18,56,0.45))"></div><div style="position:absolute;left:12px;bottom:10px;color:#fff;font-size:15px;font-weight:800">Jetzt entdecken</div></div><div class="a-cta">Mehr erfahren</div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#8F9DFF,#6A7CFF)"><div style="position:absolute;top:10px;right:12px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.85)"></div><div style="position:absolute;bottom:-18px;left:-10px;width:130px;height:56px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.3)"></div><div style="position:absolute;bottom:-14px;left:90px;width:150px;height:48px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.18)"></div></div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
+          <div class="post ad pa1"><div class="adhead"><div class="a-tile">A</div><div class="nm" style="width:100px"></div><div class="tag" style="position:static;margin-left:auto">ANZEIGE</div></div><div class="im" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#6A7CFF,#9D4EDD 55%,#FF5082)"><div style="position:absolute;left:12px;top:14px"><div style="height:11px;width:130px;border-radius:5px;background:rgba(255,255,255,0.92)"></div><div style="height:9px;width:90px;border-radius:5px;background:rgba(255,255,255,0.6);margin-top:8px"></div></div><div style="position:absolute;left:12px;bottom:10px;padding:5px 14px;border-radius:999px;background:#fff;color:#2E3EE8;font-size:13px;font-weight:800">Jetzt anfragen</div><div style="position:absolute;right:10px;bottom:8px;font-size:28px;font-weight:900;color:rgba(255,255,255,0.9)">A</div></div><div class="a-cta">Mehr erfahren</div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im" style="position:relative;overflow:hidden;height:96px;background:linear-gradient(135deg,#C77CF5,#9D4EDD)"><div style="position:absolute;bottom:-16px;right:-8px;width:140px;height:52px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.26)"></div><div style="position:absolute;top:8px;left:10px;width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,0.8)"></div></div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
+          <div class="post ad pa2"><div class="adhead"><div class="a-tile">A</div><div class="nm" style="width:100px"></div><div class="tag" style="position:static;margin-left:auto">ANZEIGE</div></div><div class="im" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#6A7CFF,#9D4EDD 55%,#FF5082)"><div style="position:absolute;left:12px;top:14px"><div style="height:11px;width:130px;border-radius:5px;background:rgba(255,255,255,0.92)"></div><div style="height:9px;width:90px;border-radius:5px;background:rgba(255,255,255,0.6);margin-top:8px"></div></div><div style="position:absolute;left:12px;bottom:10px;padding:5px 14px;border-radius:999px;background:#fff;color:#2E3EE8;font-size:13px;font-weight:800">Jetzt anfragen</div><div style="position:absolute;right:10px;bottom:8px;font-size:28px;font-weight:900;color:rgba(255,255,255,0.9)">A</div></div><div class="a-cta">Mehr erfahren</div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
+          <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#FF9EBB,#FF5082)"><div style="position:absolute;bottom:-18px;left:20px;width:150px;height:58px;border-radius:50% 50% 0 0;background:rgba(255,255,255,0.28)"></div><div style="position:absolute;top:10px;right:12px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.85)"></div></div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
+          <div class="post ad pa3"><div class="adhead"><div class="a-tile">A</div><div class="nm" style="width:100px"></div><div class="tag" style="position:static;margin-left:auto">ANZEIGE</div></div><div class="im" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#6A7CFF,#9D4EDD 55%,#FF5082)"><div style="position:absolute;left:12px;top:14px"><div style="height:11px;width:130px;border-radius:5px;background:rgba(255,255,255,0.92)"></div><div style="height:9px;width:90px;border-radius:5px;background:rgba(255,255,255,0.6);margin-top:8px"></div></div><div style="position:absolute;left:12px;bottom:10px;padding:5px 14px;border-radius:999px;background:#fff;color:#2E3EE8;font-size:13px;font-weight:800">Jetzt anfragen</div><div style="position:absolute;right:10px;bottom:8px;font-size:28px;font-weight:900;color:rgba(255,255,255,0.9)">A</div></div><div class="a-cta">Mehr erfahren</div><div class="acts"><svg class="hrt" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.6 2.9 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3c.7-1.2 2.1-2.3 4.1-2.3 3.5 0 5.6 3.6 4.1 6.8C19.5 16.1 12 21 12 21z"/></svg><div class="cir"></div><div class="cir"></div></div></div>
           <div class="post"><div class="ph"><div class="av"></div><div><div class="nm"></div><div class="tm"></div></div></div><div class="im"></div></div>
         </div>
       </div>
@@ -685,8 +763,8 @@
     <div class="meta meta-tr sm8">Das Ergebnis</div>
     <div id="s8-head">
       <div class="kicker">Ihr Ergebnis</div>
-      <h2>Aus Besuchern werden <span class="accent">Anfragen</span>.</h2>
-      <div class="explain" id="e8" style="max-width:1250px"><b>Dafür machen wir das alles:</b> Ihre Webseite sammelt Anfragen von Kunden oder Bewerbern — und Sie bekommen sie direkt aufs Handy.</div>
+      <h2>Und dann <span class="accent">klingelt</span> Ihr Handy.</h2>
+      <div class="explain" id="e8" style="max-width:1250px">Neue Kunden oder neue Mitarbeiter: <b>Jede Anfrage von Ihrer Webseite landet sofort bei Ihnen</b> — ohne Umwege, ohne Zettelwirtschaft.</div>
     </div>
     <div id="phone">
       <div id="ph-screen">
@@ -727,12 +805,12 @@
   <div id="s9" class="scene"><div class="deco d-dot" data-layout-ignore style="left:880px;top:150px"></div><div class="deco d-ring" data-layout-ignore style="left:1830px;top:760px"></div>
     <div class="blob blob-b" data-layout-ignore></div>
     <div class="ghost" data-layout-ignore>4</div>
-    <div class="meta meta-tl sm9">Leistung 4 / 4</div>
+    <div class="meta meta-tl sm9">Schritt 4 von 4</div>
     <div id="s9-copy">
       <div class="kicker">KI &amp; Software</div>
-      <h2>Mehr Aufträge?<br><span class="accent">Mehr Aufwand.</span></h2>
-      <div class="explain" id="e9" style="max-width:720px"><b>Das brauchen Sie, sobald die Aufträge steigen:</b> Automatisierungen, KI-Agenten und eigene Software übernehmen die Verwaltung — Sie gewinnen Zeit.</div>
-      <div class="benefit" id="s9-benefit" style="font-size:46px">Automatisierung übernimmt —<br>Sie gewinnen <span class="accent">Zeit</span>.</div>
+      <h2>Wachsen ohne<br><span class="accent">Papierkram</span>.</h2>
+      <div class="explain" id="e9" style="max-width:720px">Mehr Aufträge heißen sonst: mehr E-Mails, Termine, Rechnungen. <b>Unsere Automatisierungen und KI-Agenten erledigen das</b> — Sie kümmern sich um Ihr Geschäft.</div>
+      <div class="benefit" id="s9-benefit" style="font-size:46px">Sie gewinnen Stunden.<br><span class="accent">Jede Woche.</span></div>
     </div>
     <div id="task-zone">
       <div class="task" id="t1" data-layout-allow-overlap><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /> <path d="M3 7l9 6l9 -6" /></svg>E-Mails beantworten</div>
@@ -761,10 +839,10 @@
         <div class="ring-chip" id="q4"><svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /> <path d="M12 2v2" /> <path d="M9 12v9" /> <path d="M15 12v9" /> <path d="M5 16l4 -2" /> <path d="M15 14l4 2" /> <path d="M9 18h6" /> <path d="M10 8v.01" /> <path d="M14 8v.01" /></svg></div>
       </div>
       <img id="s10-logo" src="logo.png" alt="WECONN3CT">
-      <h2>Alles greift <span class="accent">ineinander</span>.</h2>
-      <div id="s10-line">Und auf Wunsch macht <b>WECONN3CT</b> all das für Sie.</div>
+      <h2>Ein Team. Ein System.<br>Ihr <span class="accent">Wachstum</span>.</h2>
+      <div id="s10-line"><b>WECONN3CT</b> baut Ihnen all das — auf Wunsch komplett.</div>
       <div id="s10-cta">webseite.weconn3ct.de</div>
-      <div id="s10-sub">Kostenloses Festpreis-Angebot — Antwort in 24 Stunden.</div>
+      <div id="s10-sub">Kostenloses Festpreis-Angebot in 24 Stunden — unverbindlich.</div>
     </div>
   </div>
 </div>
@@ -879,12 +957,18 @@ tl.from('#s4 .kicker', { x: -40, opacity: 0, duration: D.m, ease: EASE.soft }, S
 tl.from('#s4 h2', { y: 60, opacity: 0, duration: D.l, ease: EASE.out }, S4 + 0.2);
 tl.from('.c4', { y: 40, opacity: 0, duration: D.m, ease: EASE.pop, stagger: 0.1 }, S4 + 0.55);
 tl.from('#s4-browser', { x: 200, opacity: 0, rotation: 4, duration: D.l, ease: EASE.out }, S4 + 0.4);
-tl.from('#s4shot', { y: 80, opacity: 0, duration: D.l, ease: EASE.out }, S4 + 0.85);
-tl.to('#s4shot', { y: -560, duration: 3.2, ease: EASE.idle }, S4 + 1.6);
-tl.fromTo('#cursor4', { x: 1750, y: 980, autoAlpha: 0 }, { x: 1310, y: 620, autoAlpha: 1, duration: D.xl, ease: EASE.move }, S4 + 2.4);
+tl.from('#s4b-nav', { y: -16, opacity: 0, duration: D.s, ease: EASE.soft }, S4 + 0.85);
+tl.from('#s4b-hl > div', { x: -26, opacity: 0, duration: D.s, ease: EASE.soft, stagger: 0.1 }, S4 + 0.98);
+tl.from('#s4b-img', { x: 60, opacity: 0, duration: D.m, ease: EASE.out }, S4 + 1.15);
+tl.from('.s4b-st', { y: 30, opacity: 0, duration: D.s, ease: EASE.pop, stagger: 0.1 }, S4 + 1.55);
+tl.from('.s4b-f', { y: 34, opacity: 0, duration: D.s, ease: EASE.pop, stagger: 0.1 }, S4 + 1.8);
+
+tl.fromTo('#cursor4', { x: 1750, y: 980, autoAlpha: 0 }, { x: 1300, y: 585, autoAlpha: 1, duration: D.xl, ease: EASE.move }, S4 + 2.4);
 tl.to('#cursor4', { scale: 0.85, duration: 0.1, ease: EASE['in'] }, S4 + 3.3);
 tl.to('#cursor4', { scale: 1, duration: D.xs, ease: EASE.popHard }, S4 + 3.42);
-tl.fromTo('#ripple4', { x: 1300, y: 610, autoAlpha: 0.9, scale: 0.4 }, { scale: 3, autoAlpha: 0, duration: D.m, ease: EASE.soft }, S4 + 3.38);
+tl.fromTo('#ripple4', { x: 1290, y: 575, autoAlpha: 0.9, scale: 0.4 }, { scale: 3, autoAlpha: 0, duration: D.m, ease: EASE.soft }, S4 + 3.38);
+tl.to('#s4b-cta', { scale: 0.92, duration: 0.1, ease: EASE['in'], transformOrigin: '50% 50%' }, S4 + 3.35);
+tl.to('#s4b-cta', { scale: 1, duration: D.xs, ease: EASE.popHard }, S4 + 3.46);
 tl.from('#e4', { y: 30, opacity: 0, duration: D.m, ease: EASE.soft }, S4 + 1.5);
 tl.to('#s4-browser', { y: -8, duration: 1.5, ease: EASE.idle, yoyo: true, repeat: 1 }, S4 + 2.2);
 var T4 = 29.6; pushLeft('#s4', '#s5', T4);
@@ -920,7 +1004,7 @@ tl.from('#dw-timer-card', { x: 120, opacity: 0, duration: D.m, ease: EASE.out },
 tl.from('#dw-int-card', { x: 120, opacity: 0, duration: D.m, ease: EASE.out }, S6 + 0.85);
 tl.to('#dw-user', { autoAlpha: 1, duration: D.s, ease: EASE.soft }, S6 + 0.95);
 tl.to('#dw-user', { y: 360, duration: 4.2, ease: EASE.idle }, S6 + 1.1);
-tl.to('#dw-shot', { y: -1080, duration: 4.4, ease: EASE.idle }, S6 + 1.1);
+tl.to('#dw-page', { y: -560, duration: 4.4, ease: EASE.idle }, S6 + 1.1);
 tl.to('#dw-fg', { strokeDashoffset: 0, duration: 4.4, ease: 'none' }, S6 + 1.0);
 var dwt = { n: 0 };
 tl.to(dwt, { n: 154, duration: 4.4, ease: 'none', onUpdate: function () {
