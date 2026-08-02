@@ -67,6 +67,22 @@
         });
     }
 
+    /* ---------- Header: transparente Leiste zieht sich zur Glaspille zusammen ---------- */
+    var header = document.querySelector('.site-header');
+    if (header) {
+        var shrunk = null;
+        var syncHeader = function () {
+            var next = window.scrollY > 20;
+            if (next !== shrunk) {
+                shrunk = next;
+                header.classList.toggle('shrunk', next);
+            }
+        };
+        window.addEventListener('scroll', syncHeader, { passive: true });
+        window.addEventListener('resize', syncHeader, { passive: true });
+        syncHeader();
+    }
+
     /* ---------- Reveal on Scroll ----------
        Bewusst ohne IntersectionObserver: der feuert nicht, wenn das Dokument
        beim Scrollen nicht sichtbar ist (Prerender, Hintergrund-Tab, Embeds) —
