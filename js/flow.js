@@ -85,7 +85,7 @@
             gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-tab, #st-phone, #st-fit', { autoAlpha: 0 });
             gsap.set('#st-ads, #st-tapdot, #st-again', { autoAlpha: 0 });
-            gsap.set('.fin-card, #fin-logo, #fin-burst, #fin-glow', { autoAlpha: 0 });
+            gsap.set('.fin-card, #fin-logo, #fin-burst', { autoAlpha: 0 });
             gsap.set('.fin-card', { x: 0, y: 0, scale: 1 });
             gsap.set('#ig-feed', { y: 0 });
             gsap.set('#st-scene', { x: 0, scale: 1, transformOrigin: '50% 50%' });
@@ -95,7 +95,7 @@
         }
         setInitial();
 
-        var tl = gsap.timeline({ paused: true, repeat: -1 });
+        var tl = gsap.timeline({ paused: true });
         tl.timeScale(0.9);
         var PAN = 'power2.inOut';
         var POP = 'back.out(1.45)', SOFT = 'power2.out', OUT = 'power3.out',
@@ -432,10 +432,10 @@
         tl.to('#st-scene', { x: 0, y: 0, scale: 1, duration: 0.95, ease: PAN }, 66.85);
         /* Die sieben Leistungen stellen sich im Kreis auf */
         tl.to('.fin-card', { autoAlpha: 1, duration: 0.01 }, 67.3);
-        tl.from('.fin-card', { scale: 0.3, autoAlpha: 0, duration: 0.6, ease: POP,
-            stagger: 0.09, immediateRender: false }, 67.31);
-        /* Sie drehen sich umeinander und ziehen zur Mitte */
-        tl.to('.fin-card .lb', { autoAlpha: 0, y: -6, duration: 0.4, ease: IN }, 69.6);
+        tl.from('.fin-card', { scale: 0.84, y: 16, autoAlpha: 0, duration: 0.7, ease: OUT,
+            stagger: 0.08, immediateRender: false }, 67.31);
+        /* Erst verabschieden sich die Beschriftungen, dann setzt die Drehung ein */
+        tl.to('.fin-card .lb', { autoAlpha: 0, y: -6, duration: 0.4, ease: IN }, 69.2);
         (function () {
             /* Der Ring ist eine Ellipse: quer ist mehr Platz als hoch.
                Beim Einziehen laufen beide Halbachsen auf denselben Wert zu,
@@ -456,34 +456,19 @@
                         y: C.y + o.ry * Math.sin(ang) - BASE[k][1]
                     });
                 }
-            } }, 69.5);
-            tl.to(o, { rx: 8, ry: 8, duration: 2.4, ease: 'power2.in' }, 69.5);
+            } }, 69.6);
+            tl.to(o, { rx: 8, ry: 8, duration: 2.4, ease: 'power2.in' }, 69.6);
         })();
-        tl.to('.fin-card', { scale: 0.22, duration: 1.1, ease: IN }, 70.8);
-        tl.set('.fin-card', { autoAlpha: 0 }, 71.9);
-        /* Lichtblitz, Funken — und die Marke steht */
-        tl.fromTo('#fin-burst', { autoAlpha: 1, scale: 0.22 },
-            { scale: 2.9, autoAlpha: 0, duration: 1.0, ease: SOFT, immediateRender: false }, 71.8);
-        /* Das Licht bleibt kurz stehen und traegt das Logo */
-        tl.fromTo('#fin-glow', { autoAlpha: 0, scale: 0.45 },
-            { autoAlpha: 1, scale: 1, duration: 0.8, ease: SOFT, immediateRender: false }, 71.95);
-        tl.to('#fin-glow', { autoAlpha: 0, scale: 1.12, duration: 0.9, ease: IN }, 75.6);
-        tl.to('#fin-logo', { autoAlpha: 1, duration: 0.01 }, 72.0);
-        tl.from('#fin-logo', { scale: 0.35, autoAlpha: 0, duration: 1.1,
-            ease: 'elastic.out(1, 0.72)', transformOrigin: '50% 50%', immediateRender: false }, 72.01);
-        tl.to('#fin-logo', { scale: 1.03, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1,
-            transformOrigin: '50% 50%' }, 73.3);
-        tl.to('#fin-logo', { autoAlpha: 0, scale: 1.06, duration: 0.7, ease: IN }, 76.0);
-
-        /* ========== Ausklang & Reset (58 – 60) ========== */
-        tl.to('#st-scene', { scale: 1, y: 0, duration: 0.5, ease: MOVE }, 76.6);
-        tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 77.1);
-        tl.call(function () {
-            gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
-            setInitial();
-        }, null, 77.6);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 77.75);
-        tl.set({}, {}, 78.4);
+        tl.to('.fin-card', { scale: 0.2, duration: 1.2, ease: IN }, 70.9);
+        tl.set('.fin-card', { autoAlpha: 0 }, 72.1);
+        /* Aus dem Zusammenstoß kommt Licht, daraus steht die Marke */
+        tl.fromTo('#fin-burst', { autoAlpha: 1, scale: 0.2 },
+            { scale: 2.6, autoAlpha: 0, duration: 0.95, ease: SOFT, immediateRender: false }, 71.95);
+        tl.fromTo('#fin-logo', { autoAlpha: 0, scale: 0.9 },
+            { autoAlpha: 1, scale: 1, duration: 1.0, ease: OUT,
+                transformOrigin: '50% 50%', immediateRender: false }, 72.15);
+        /* Hier endet die Geschichte: das Logo bleibt stehen. */
+        tl.set({}, {}, 75.4);
 
         var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5, 51.6, 66.6];
         dots.forEach(function (d) {
@@ -495,14 +480,23 @@
             });
         });
 
+        function rewind() {
+            tl.pause(0);
+            gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
+            setInitial();
+            setDot(0)();
+        }
+
         ScrollTrigger.create({
             trigger: '.stage-wrap',
             start: 'top 85%',
             end: 'bottom top',
             onEnter: function () { tl.play(); },
-            onLeave: function () { tl.pause(); },
             onEnterBack: function () { tl.play(); },
-            onLeaveBack: function () { tl.pause(); }
+            /* Außer Sicht zurückspulen: wer wiederkommt, sieht die ganze
+               Geschichte noch einmal — und wieder das Logo am Ende. */
+            onLeave: rewind,
+            onLeaveBack: rewind
         });
 
         return function () { tl.kill(); };
