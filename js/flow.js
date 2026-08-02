@@ -27,6 +27,28 @@
     fit();
     window.addEventListener('resize', fit, { passive: true });
 
+    /* Jedes Wort bekommt eine eigene Hülle, damit der Text lesegerecht einläuft */
+    (function splitWords() {
+        document.querySelectorAll('.st-txt p, .st-txt .k').forEach(function (el) {
+            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+            var nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(function (n) {
+                if (!n.nodeValue.trim()) return;
+                var frag = document.createDocumentFragment();
+                n.nodeValue.split(/(\s+)/).forEach(function (part) {
+                    if (!part) return;
+                    if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                    var sp = document.createElement('span');
+                    sp.className = 'w';
+                    sp.textContent = part;
+                    frag.appendChild(sp);
+                });
+                n.parentNode.replaceChild(frag, n);
+            });
+        });
+    })();
+
     var dots = Array.prototype.slice.call(document.querySelectorAll('.sdot'));
     function setDot(i) {
         return function () {
@@ -79,10 +101,12 @@
         /* Textblock der Szene: Kicker und Satz laufen leicht versetzt ein */
         function say(sel, tIn, tOut) {
             tl.to(sel, { autoAlpha: 1, duration: 0.01 }, tIn);
-            tl.from(sel + ' .k', { y: 14, autoAlpha: 0, duration: 0.45, ease: SOFT, immediateRender: false }, tIn + 0.01);
-            tl.from(sel + ' p', { y: 16, autoAlpha: 0, duration: 0.55, ease: SOFT, immediateRender: false }, tIn + 0.14);
-            tl.to(sel, { autoAlpha: 0, y: -12, duration: 0.45, ease: IN }, tOut);
-            tl.set(sel, { y: 0 }, tOut + 0.5);
+            tl.from(sel + ' .k .w', { y: 12, autoAlpha: 0, duration: 0.5, ease: 'power2.out',
+                stagger: 0.035, immediateRender: false }, tIn + 0.01);
+            tl.from(sel + ' p .w', { y: 14, autoAlpha: 0, duration: 0.55, ease: 'power2.out',
+                stagger: 0.018, immediateRender: false }, tIn + 0.16);
+            tl.to(sel, { autoAlpha: 0, y: -14, duration: 0.5, ease: 'power1.in' }, tOut);
+            tl.set(sel, { y: 0 }, tOut + 0.55);
         }
 
         /* ========== Kapitel 1: Drei Farben → Design → Branding (0 – 9) ========== */

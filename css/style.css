@@ -448,22 +448,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #pp3 { top: 274px; background: linear-gradient(130deg, #FF5082, #FF8FB0); }
 .st-rip { position: absolute; width: 20px; height: 20px; border-radius: 50%;
     border: 3px solid var(--blue); opacity: 0; z-index: 7; }
-/* Erklärkarten: sitzen jeweils dort, wo in der Szene gerade Platz ist */
-.st-txt { position: absolute; z-index: 8; width: 280px; background: #fff; border-radius: 18px;
-    border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(27,36,112,0.14);
-    padding: 18px 22px 20px; overflow: hidden; }
-.st-txt::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-    background: var(--grad); }
-.st-txt .k { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.15em;
-    text-transform: uppercase; margin-bottom: 9px;
-    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.st-txt p { font-size: 15px; line-height: 1.58; color: var(--ink-60); }
+/* Erklärtexte: freie Typografie in der Szene, kein Kasten */
+.st-txt { position: absolute; z-index: 8; width: 300px; }
+.st-txt .k { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.st-txt p { font-size: 16.5px; line-height: 1.68; color: rgba(13,18,56,0.72);
+    letter-spacing: -0.005em; }
 .st-txt b { color: var(--ink); font-weight: 700; }
-#tx2, #tx5, #tx6, #tx8 { left: 22px; top: 146px; width: 268px; }
-#tx1 { left: 24px; top: 342px; width: 430px; }
-#tx3 { left: 610px; top: 146px; width: 268px; }
-#tx4 { left: 100px; top: 382px; width: 700px; }
-#tx7 { left: 26px; top: 384px; width: 620px; }
+.st-txt .w { display: inline-block; will-change: transform, opacity; }
+#tx2, #tx5, #tx6, #tx8 { left: 22px; top: 142px; width: 292px; }
+#tx1 { left: 26px; top: 348px; width: 430px; }
+#tx3 { left: 590px; top: 142px; width: 288px; }
+#tx4 { left: 118px; top: 392px; width: 664px; text-align: center; }
+#tx7 { left: 28px; top: 392px; width: 560px; }
 
 /* Tablet und Handy für die mobile Optimierung */
 #st-tab, #st-phone { position: absolute; z-index: 2; background: #0D1238; box-sizing: border-box;
@@ -575,11 +572,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     #st-counter { left: 640px; top: 96px; }
     .st-person { left: 80px; }
     .stage-wrap { margin: 0 -28px; }
-    #tx1, #tx2, #tx3, #tx4, #tx5, #tx6, #tx7 { left: 34px; top: 496px; width: 832px;
-        padding: 26px 32px 30px; border-radius: 26px; }
-    .st-txt::before { width: 8px; }
-    .st-txt .k { font-size: 24px; letter-spacing: 0.14em; margin-bottom: 14px; }
-    .st-txt p { font-size: 30px; line-height: 1.5; }
+    #tx1, #tx2, #tx3, #tx4, #tx5, #tx6, #tx7, #tx8 { left: 46px; top: 500px; width: 808px;
+        text-align: left; }
+    .st-txt .k { font-size: 23px; letter-spacing: 0.15em; margin-bottom: 16px; }
+    .st-txt p { font-size: 30px; line-height: 1.6; }
     .sdot { width: 13px; height: 13px; }
 }
 
