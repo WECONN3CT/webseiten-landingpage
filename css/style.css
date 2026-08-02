@@ -915,13 +915,25 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .bento > .bt:nth-child(6) { transition-delay: 0.5s; }
 .bento > .bt:nth-child(7) { transition-delay: 0.6s; }
 
-/* Webdesign: ein Lichtstreifen wandert über die Vorschau */
-.bt-shot { position: relative; }
-.bt-shot::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 3;
-    background: linear-gradient(105deg, rgba(255,255,255,0) 38%, rgba(255,255,255,0.62) 50%,
-        rgba(255,255,255,0) 62%);
-    transform: translateX(-120%); animation: bt-sweep 5.5s ease-in-out infinite; }
-@keyframes bt-sweep { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+/* Webdesign: die Seite entsteht Stück für Stück und beginnt von vorn —
+   dasselbe, was der Text daneben behauptet. */
+@keyframes bt-build {
+    0%, 3% { opacity: 0; transform: translateY(14px) scale(0.97); }
+    11%, 76% { opacity: 1; transform: translateY(0) scale(1); }
+    86%, 100% { opacity: 0; transform: translateY(-8px) scale(0.99); }
+}
+.sh-page > * { animation: bt-build 9s ease-in-out infinite; }
+.sh-page > *:nth-child(2) { animation-delay: 0.3s; }
+.sh-page > *:nth-child(3) { animation-delay: 0.6s; }
+.sh-page > *:nth-child(4) { animation-delay: 0.9s; }
+.sh-page > *:nth-child(5) { animation-delay: 1.2s; }
+.sh-page > *:nth-child(6) { animation-delay: 1.5s; }
+.sh-page > *:nth-child(7) { animation-delay: 1.8s; }
+/* Der Knopf kommt zum Schluss und bleibt kurz stehen */
+@keyframes bt-cta { 0%, 20% { opacity: 0; transform: scale(0.7); }
+    28%, 76% { opacity: 1; transform: scale(1); }
+    86%, 100% { opacity: 0; transform: scale(0.9); } }
+.sh-cta { animation: bt-cta 9s ease-in-out infinite; transform-origin: left center; }
 
 /* Geräte: die Seite im Handy wird gescrollt */
 .dv-roll { animation: bt-roll 7s ease-in-out infinite; }
@@ -962,6 +974,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .ap-row:nth-child(3), .ap-row:nth-child(3) .pill { animation-delay: 2.4s; }
 .ap-row:nth-child(4), .ap-row:nth-child(4) .pill { animation-delay: 3.6s; }
 .ap-row:nth-child(5), .ap-row:nth-child(5) .pill { animation-delay: 4.8s; }
+/* Der Agent schreibt zwei Zeilen und meldet dann fertig */
+@keyframes bt-write { 0%, 6% { width: 0; opacity: 0; }
+    14% { opacity: 1; } 30%, 84% { width: 100%; opacity: 1; }
+    94%, 100% { width: 0; opacity: 0; } }
+@keyframes bt-write2 { 0%, 20% { width: 0; opacity: 0; }
+    28% { opacity: 1; } 44%, 84% { width: 62%; opacity: 1; }
+    94%, 100% { width: 0; opacity: 0; } }
+@keyframes bt-fertig { 0%, 46% { opacity: 0; transform: scale(0.5); }
+    56% { opacity: 1; transform: scale(1.18); }
+    64%, 86% { opacity: 1; transform: scale(1); }
+    94%, 100% { opacity: 0; transform: scale(0.9); } }
+.ag-l { animation: bt-write 3.5s ease-in-out infinite; }
+.ag-l.s { animation: bt-write2 3.5s ease-in-out infinite; }
+.ag-do { transform-origin: left center; animation: bt-fertig 3.5s ease-in-out infinite; }
 
 /* Google: der eigene Treffer steigt von unten auf Platz 1 */
 @keyframes bt-rise {
@@ -1218,7 +1244,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     .hero-showcase { overflow-x: auto; }
     html { scroll-behavior: auto; }
     .site-header, .header-inner, .logo { transition: none; }
-    .bt-shot::after, .dv-roll, .bt-chan .ch, .bt-chan .live, .ag-live,
+    .sh-page > *, .sh-cta, .ag-l, .ag-do, .dv-roll, .bt-chan .ch, .bt-chan .live, .ag-live,
     .ap-row, .ap-row .pill, .sp-hit, .sp-row, .sp-hit .rank,
     .bt-shots .play, .bt-shots .play::before, .st-grid i { animation: none; }
     .bento > .bt { transition-delay: 0s !important; }
