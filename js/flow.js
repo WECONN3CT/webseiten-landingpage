@@ -192,32 +192,42 @@
         /* ========== Kapitel 4: Auf jedem Gerät (24.5 – 32) ========== */
         tl.call(setDot(3), null, 24.5);
         tl.to('#st-scene', { x: 0, duration: 0.9, ease: MOVE }, 24.5);
-        /* Die Requisiten des Foto-Kapitels treten ab, die Seite bleibt in der Mitte */
+        /* Die Requisiten des Foto-Kapitels treten ab, die Seite rückt in ihre neue Position */
         tl.to('.st-photo, #st-vid, #st-stars', { autoAlpha: 0, scale: 0.9, duration: 0.45, ease: IN }, 24.6);
-        tl.to('#st-browser', { scale: 0.76, duration: 0.95, ease: MOVE, transformOrigin: '50% 50%' }, 24.9);
-        say('#tx4', 25.9, 31.3);
-        /* Tablet fährt von links herein, Handy von rechts */
-        tl.to('#st-tab', { autoAlpha: 1, duration: 0.01 }, 25.95);
-        tl.from('#st-tab', { x: 308, y: 26, rotation: 0, scale: 0.6, duration: 1.0, ease: 'back.out(1.3)', immediateRender: false }, 25.96);
-        tl.to('#st-phone', { autoAlpha: 1, duration: 0.01 }, 26.35);
-        tl.from('#st-phone', { x: -347, y: 22, rotation: 0, scale: 0.58, duration: 1.0, ease: 'back.out(1.3)', immediateRender: false }, 26.36);
-        /* Dieselbe Seite auf jedem Schirm: die Inhalte bauen sich kurz nach */
-        tl.from('#st-tab .mnav, #st-phone .mnav', { autoAlpha: 0, y: -6, duration: 0.35, ease: SOFT, stagger: 0.1 }, 27.15);
-        tl.from('#st-tab .mh, #st-phone .mh', { scaleY: 0.45, autoAlpha: 0, duration: 0.42, ease: SOFT, transformOrigin: '50% 0%', stagger: 0.1 }, 27.3);
-        tl.from('#st-tab .ml, #st-phone .ml', { x: -10, autoAlpha: 0, duration: 0.35, ease: SOFT, stagger: 0.06 }, 27.6);
-        tl.from('#st-tab .mb, #st-phone .mb', { scale: 0.55, autoAlpha: 0, duration: 0.5, ease: 'back.out(2)', stagger: 0.12 }, 27.95);
-        tl.to('#st-fit', { autoAlpha: 1, duration: 0.01 }, 28.6);
-        tl.from('#st-fit', { scale: 0.5, y: 12, duration: 0.55, ease: 'back.out(2)', immediateRender: false }, 28.61);
-        /* Ruhiges Atmen: die drei Geräte wippen versetzt */
-        tl.to('#st-tab', { y: -8, duration: 1.5, ease: IDLE, yoyo: true, repeat: 1 }, 29.1);
-        tl.to('#st-browser', { y: -6, duration: 1.5, ease: IDLE, yoyo: true, repeat: 1 }, 29.35);
-        tl.to('#st-phone', { y: 8, duration: 1.5, ease: IDLE, yoyo: true, repeat: 1 }, 29.6);
-        tl.to('#st-tab .mb, #st-phone .mb', { scale: 1.07, duration: 0.42, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 30.3);
-        /* Geräte treten ab, die Webseite kommt zurück */
-        tl.to('#st-fit', { autoAlpha: 0, y: 10, duration: 0.4, ease: IN }, 31.15);
-        tl.to('#st-tab', { x: 275, y: 20, scale: 0.6, autoAlpha: 0, duration: 0.7, ease: IN }, 31.25);
-        tl.to('#st-phone', { x: -315, y: 16, scale: 0.6, autoAlpha: 0, duration: 0.7, ease: IN }, 31.35);
-        tl.to('#st-browser', { scale: 1, y: 0, duration: 0.85, ease: MOVE }, 31.7);
+        tl.to('#st-browser', { scale: 0.7, x: 33, duration: 1.0, ease: MOVE, transformOrigin: '50% 50%' }, 24.9);
+        say('#tx4', 25.9, 31.2);
+        /* Tablet und Handy schieben sich versetzt hinter der Seite hervor und richten sich aus */
+        tl.to('#st-tab', { autoAlpha: 1, duration: 0.01 }, 25.85);
+        tl.fromTo('#st-tab', { x: 335, y: 24, scale: 0.62, rotation: 4 },
+            { x: 0, y: 0, scale: 1, rotation: -1.2, duration: 1.05, ease: 'power3.out', immediateRender: false }, 25.86);
+        tl.to('#st-tab', { rotation: 0, duration: 0.5, ease: 'sine.out' }, 26.75);
+        tl.to('#st-phone', { autoAlpha: 1, duration: 0.01 }, 26.25);
+        tl.fromTo('#st-phone', { x: -302, y: 20, scale: 0.6, rotation: -4 },
+            { x: 0, y: 0, scale: 1, rotation: 1.2, duration: 1.05, ease: 'power3.out', immediateRender: false }, 26.26);
+        tl.to('#st-phone', { rotation: 0, duration: 0.5, ease: 'sine.out' }, 27.15);
+        /* Dieselbe Seite baut sich auf jedem Schirm auf: von links nach rechts durchlaufend */
+        tl.from('#st-tab .mnav', { autoAlpha: 0, y: -6, duration: 0.35, ease: SOFT }, 27.0);
+        tl.from('#st-tab .mh', { scaleY: 0.45, autoAlpha: 0, duration: 0.42, ease: SOFT, transformOrigin: '50% 0%' }, 27.14);
+        tl.from('#st-tab .ml', { x: -9, autoAlpha: 0, duration: 0.34, ease: SOFT, stagger: 0.07 }, 27.34);
+        tl.from('#st-tab .mb', { scale: 0.55, autoAlpha: 0, duration: 0.5, ease: 'back.out(2)' }, 27.6);
+        tl.from('#st-phone .mnav', { autoAlpha: 0, y: -6, duration: 0.35, ease: SOFT }, 27.3);
+        tl.from('#st-phone .mh', { scaleY: 0.45, autoAlpha: 0, duration: 0.42, ease: SOFT, transformOrigin: '50% 0%' }, 27.44);
+        tl.from('#st-phone .ml', { x: -9, autoAlpha: 0, duration: 0.34, ease: SOFT, stagger: 0.07 }, 27.64);
+        tl.from('#st-phone .mb', { scale: 0.55, autoAlpha: 0, duration: 0.5, ease: 'back.out(2)' }, 27.9);
+        tl.to('#st-fit', { autoAlpha: 1, duration: 0.01 }, 28.45);
+        tl.from('#st-fit', { scale: 0.55, y: -12, duration: 0.55, ease: 'back.out(2)', immediateRender: false }, 28.46);
+        /* Ruhephase: eine Welle läuft durch die drei Geräte, dann leichtes Schweben */
+        tl.to('#st-tab', { y: -9, duration: 1.8, ease: IDLE, yoyo: true, repeat: 1 }, 28.9);
+        tl.to('#st-browser', { y: -7, duration: 1.8, ease: IDLE, yoyo: true, repeat: 1 }, 29.15);
+        tl.to('#st-phone', { y: -9, duration: 1.8, ease: IDLE, yoyo: true, repeat: 1 }, 29.4);
+        tl.to('#st-tab .mb', { scale: 1.06, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 29.9);
+        tl.to('#st-browser #st-btn', { scale: 1.05, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 30.05);
+        tl.to('#st-phone .mb', { scale: 1.06, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 30.2);
+        /* Geräte gleiten wieder hinter die Seite, die Webseite kommt zurück */
+        tl.to('#st-fit', { autoAlpha: 0, y: -10, duration: 0.4, ease: IN }, 31.1);
+        tl.to('#st-tab', { x: 300, y: 18, scale: 0.62, autoAlpha: 0, duration: 0.75, ease: 'power2.in' }, 31.25);
+        tl.to('#st-phone', { x: -270, y: 16, scale: 0.62, autoAlpha: 0, duration: 0.75, ease: 'power2.in' }, 31.35);
+        tl.to('#st-browser', { scale: 1, x: 0, y: 0, duration: 0.9, ease: MOVE }, 31.6);
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
         tl.call(setDot(4), null, 32);
