@@ -77,6 +77,7 @@
             gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-tab, #st-phone, #st-fit', { autoAlpha: 0 });
             gsap.set('#st-ads, #st-tapdot, #st-again', { autoAlpha: 0 });
+            gsap.set('.st-sw, #st-design, #st-vk, #st-fly', { autoAlpha: 0 });
             gsap.set('.fin-card, #fin-logo, #fin-burst', { autoAlpha: 0 });
             gsap.set('.fin-card', { x: 0, y: 0, scale: 1 });
             gsap.set('#ig-feed', { y: 0 });
@@ -87,7 +88,7 @@
         }
         setInitial();
 
-        var tl = gsap.timeline({ paused: true });
+        var tl = gsap.timeline({ paused: true, repeat: -1 });
         tl.timeScale(0.9);
         var PAN = 'power2.inOut';
         var POP = 'back.out(1.45)', SOFT = 'power2.out', OUT = 'power3.out',
@@ -107,9 +108,12 @@
         /* ========== Kapitel 1: Drei Farben → Design → Branding (0 – 9) ========== */
         tl.set('#st-scene', { y: -14 }, 0);
         say('#tx1', 0.9, 8.4);
-        tl.from('#st-sw1', { x: -160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.2);
-        tl.from('#st-sw2', { y: -140, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.37);
-        tl.from('#st-sw3', { x: 160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.54);
+        tl.to('#st-sw1', { autoAlpha: 1, duration: 0.01 }, 0.2);
+        tl.from('#st-sw1', { x: -160, y: 60, scale: 0, duration: 0.6, ease: POP, immediateRender: false }, 0.21);
+        tl.to('#st-sw2', { autoAlpha: 1, duration: 0.01 }, 0.37);
+        tl.from('#st-sw2', { y: -140, scale: 0, duration: 0.6, ease: POP, immediateRender: false }, 0.38);
+        tl.to('#st-sw3', { autoAlpha: 1, duration: 0.01 }, 0.54);
+        tl.from('#st-sw3', { x: 160, y: 60, scale: 0, duration: 0.6, ease: POP, immediateRender: false }, 0.55);
         /* Farbtanz: die Punkte kreisen umeinander und spiralen ins Zentrum */
         (function () {
             var o = { a: 0, r: 95 };
@@ -137,10 +141,14 @@
         tl.fromTo('#st-b5', { autoAlpha: 1, x: 0, y: 0 }, { x: -20, y: -100, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.27);
         tl.fromTo('#st-b6', { autoAlpha: 1, x: 0, y: 0 }, { x: 25, y: 100, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 3.27);
         /* Das Design-Board entsteht */
-        tl.from('#st-design', { scale: 0, rotation: -10, autoAlpha: 0, duration: 0.85, ease: 'elastic.out(1, 0.7)' }, 3.45);
+        tl.to('#st-design', { autoAlpha: 1, duration: 0.01 }, 3.45);
+        tl.from('#st-design', { scale: 0, rotation: -10, duration: 0.85,
+            ease: 'elastic.out(1, 0.7)', immediateRender: false }, 3.46);
         /* Daraus: Visitenkarte und Flyer */
-        tl.from('#st-vk', { x: 220, y: -20, scale: 0.4, rotation: 8, autoAlpha: 0, duration: 0.7, ease: POP }, 4.5);
-        tl.from('#st-fly', { x: -200, y: -10, scale: 0.4, rotation: -8, autoAlpha: 0, duration: 0.7, ease: POP }, 4.8);
+        tl.to('#st-vk', { autoAlpha: 1, duration: 0.01 }, 4.5);
+        tl.from('#st-vk', { x: 220, y: -20, scale: 0.4, rotation: 8, duration: 0.7, ease: POP, immediateRender: false }, 4.51);
+        tl.to('#st-fly', { autoAlpha: 1, duration: 0.01 }, 4.8);
+        tl.from('#st-fly', { x: -200, y: -10, scale: 0.4, rotation: -8, duration: 0.7, ease: POP, immediateRender: false }, 4.81);
         tl.to('#st-design', { y: -7, duration: 1.2, ease: IDLE, yoyo: true, repeat: 1 }, 5.9);
         tl.to('#st-vk', { y: 6, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 6.0);
         tl.to('#st-fly', { y: -6, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 6.1);
@@ -451,8 +459,15 @@
         tl.fromTo('#fin-logo', { autoAlpha: 0, scale: 0.9 },
             { autoAlpha: 1, scale: 1, duration: 1.0, ease: OUT,
                 transformOrigin: '50% 50%', immediateRender: false }, 72.15);
-        /* Hier endet die Geschichte: das Logo bleibt stehen. */
-        tl.set({}, {}, 75.4);
+        /* Das Logo haelt, blendet weich ab — dann beginnt die Geschichte von vorn.
+           Weil zum Schluss nur noch das Logo zu sehen ist, genuegt sein Abblenden:
+           die Buehne ist danach leer, Kapitel 1 startet aus dem Nichts. */
+        tl.to('#fin-logo', { autoAlpha: 0, duration: 0.9, ease: 'power2.inOut' }, 76.4);
+        tl.call(function () {
+            gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
+            setInitial();
+        }, null, 77.5);
+        tl.set({}, {}, 78.3);
 
         function rewind() {
             tl.pause(0);
@@ -476,7 +491,7 @@
            mitten drin), löst kein onEnter aus — dann hier selbst starten. */
         if (st.isActive) tl.play();
         ScrollTrigger.addEventListener('refresh', function () {
-            if (st.isActive && !tl.isActive() && tl.progress() < 1) tl.play();
+            if (st.isActive && !tl.isActive()) tl.play();
         });
 
         return function () { tl.kill(); };
