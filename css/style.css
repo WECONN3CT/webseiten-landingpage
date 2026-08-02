@@ -799,7 +799,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .bt-hero, .bt-tall, .bt-auto { padding-bottom: 0;
     background: linear-gradient(165deg, #fff 0%, #FAFAFE 46%, #F4F5FD 100%); }
 .bt-hero h3 { font-size: 1.42rem; }
-.bt-hero p { font-size: 1rem; max-width: 44ch; }
+.bt-hero p { font-size: 1rem; }
 .bt-shot { margin: 30px 0 0; flex: 1; min-height: 180px; border-radius: 16px 16px 0 0;
     border: 1px solid var(--line); border-bottom: none; background: #fff; overflow: hidden;
     box-shadow: 0 -2px 30px rgba(27, 36, 112, 0.06);
