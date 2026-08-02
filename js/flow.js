@@ -49,13 +49,6 @@
         });
     })();
 
-    var dots = Array.prototype.slice.call(document.querySelectorAll('.sdot'));
-    function setDot(i) {
-        return function () {
-            dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
-        };
-    }
-
     var mm = gsap.matchMedia();
 
     mm.add({
@@ -67,7 +60,6 @@
             gsap.set('#st-wipe', { scaleX: 1 });
             gsap.set('.st-nav .ndot', { autoAlpha: 1 });
             gsap.set('#tx2', { autoAlpha: 1 });
-            dots[1].classList.add('on');
             return;
         }
 
@@ -114,7 +106,6 @@
 
         /* ========== Kapitel 1: Drei Farben → Design → Branding (0 – 9) ========== */
         tl.set('#st-scene', { y: -14 }, 0);
-        tl.call(setDot(0), null, 0);
         say('#tx1', 0.9, 8.4);
         tl.from('#st-sw1', { x: -160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.2);
         tl.from('#st-sw2', { y: -140, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.37);
@@ -157,7 +148,6 @@
         tl.to('#st-design .d-chips i', { scale: 1.18, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1, stagger: 0.14, transformOrigin: '50% 50%' }, 7.0);
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
-        tl.call(setDot(1), null, 9);
         tl.to('#st-scene', { x: 158, y: 0, duration: 1.15, ease: PAN }, 8.95);
         say('#tx2', 10.9, 16.5);
         /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
@@ -188,7 +178,6 @@
         tl.to('#st-btn', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 16.0);
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24.4) ========== */
-        tl.call(setDot(2), null, 17);
         tl.to('#st-scene', { x: -168, y: 0, duration: 1.35, ease: PAN }, 16.85);
         say('#tx3', 17.9, 23.7);
         /* Erst wenn die Kamera steht, entsteht das erste Foto: weicher Lichtblitz, kein Vollbild-Blinken */
@@ -221,7 +210,6 @@
         tl.to('#st-browser', { scale: 1.02, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1 }, 22.85);
 
         /* ========== Kapitel 4: Auf jedem Gerät (24.5 – 32) ========== */
-        tl.call(setDot(3), null, 24.5);
         tl.to('#st-scene', { x: 0, y: -30, duration: 1.2, ease: PAN }, 24.4);
         /* Die Requisiten des Foto-Kapitels treten ab, die Seite rückt in ihre neue Position */
         tl.to('.st-photo, #st-vid, #st-stars', { autoAlpha: 0, scale: 0.9, duration: 0.45, ease: IN }, 24.6);
@@ -261,7 +249,6 @@
         tl.to('#st-browser', { scale: 1, x: 0, y: 0, duration: 0.9, ease: MOVE }, 31.6);
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
-        tl.call(setDot(4), null, 32);
         tl.to('#st-scene', { x: -158, y: 0, duration: 1.2, ease: PAN }, 31.9);
         say('#tx5', 32.7, 36.1);
         say('#tx6', 38.2, 44.1);
@@ -327,7 +314,6 @@
         tl.to('#st-own', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 44.25);
 
         /* ========== Kapitel 6: Anzeigen bei Instagram (44.5 – 53.5) ========== */
-        tl.call(setDot(5), null, 44.5);
         /* Erst räumt die Suche ab, dann fährt die Kamera, dann kommt das Handy */
         tl.to('#st-cursor', { autoAlpha: 0, duration: 0.3, ease: IN }, 44.4);
         tl.to('#st-serp', { y: -48, autoAlpha: 0, duration: 0.55, ease: 'power2.in' }, 44.45);
@@ -361,7 +347,6 @@
             transformOrigin: '50% 42%' }, 51.55);
 
         /* ========== Kapitel 6: Besucher werden zu Leads (44.5 – 58) ========== */
-        tl.call(setDot(6), null, 51.7);
         tl.to('#st-scene', { x: 0, y: -38, scale: 0.8, duration: 1.15, ease: 'power3.out' }, 51.75);
         say('#tx7', 53.2, 65.9);
         /* ... und die Webseite wächst genau dort heraus, wo die Anzeige stand */
@@ -427,7 +412,6 @@
         tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 62.9);
 
         /* ========== Kapitel 8: Alles wird zur Marke (66.6 – 76.4) ========== */
-        tl.call(setDot(7), null, 66.6);
         tl.to('#st-browser, #st-counter, #st-notif', { autoAlpha: 0, scale: 0.92, duration: 0.6, ease: IN }, 66.45);
         tl.to('#st-scene', { x: 0, y: 0, scale: 1, duration: 0.95, ease: PAN }, 66.85);
         /* Die sieben Leistungen stellen sich im Kreis auf */
@@ -470,24 +454,13 @@
         /* Hier endet die Geschichte: das Logo bleibt stehen. */
         tl.set({}, {}, 75.4);
 
-        var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5, 51.6, 66.6];
-        dots.forEach(function (d) {
-            d.addEventListener('click', function () {
-                var i = parseInt(d.getAttribute('data-ch'), 10);
-                gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
-                setInitial();
-                tl.play(CHAPTER_TIMES[i] + 0.01);
-            });
-        });
-
         function rewind() {
             tl.pause(0);
             gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
             setInitial();
-            setDot(0)();
         }
 
-        ScrollTrigger.create({
+        var st = ScrollTrigger.create({
             trigger: '.stage-wrap',
             start: 'top 85%',
             end: 'bottom top',
@@ -497,6 +470,13 @@
                Geschichte noch einmal — und wieder das Logo am Ende. */
             onLeave: rewind,
             onLeaveBack: rewind
+        });
+
+        /* Wer direkt auf dem Abschnitt landet (Ankerlink, kurze Seite, Reload
+           mitten drin), löst kein onEnter aus — dann hier selbst starten. */
+        if (st.isActive) tl.play();
+        ScrollTrigger.addEventListener('refresh', function () {
+            if (st.isActive && !tl.isActive() && tl.progress() < 1) tl.play();
         });
 
         return function () { tl.kill(); };
