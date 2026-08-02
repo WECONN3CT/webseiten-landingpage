@@ -334,7 +334,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     box-shadow: 0 16px 40px rgba(27,36,112,0.22); }
 #st-ph1 { left: 130px; top: 90px; transform: rotate(-5deg);
     background: linear-gradient(135deg, #8F9DFF, #6A7CFF); }
-#st-ph2 { left: 620px; top: 250px; transform: rotate(4deg);
+#st-ph2 { left: 560px; top: 250px; transform: rotate(4deg);
     background: linear-gradient(135deg, #FF9EBB, #FF5082); }
 .st-photo .sun { position: absolute; top: 8px; right: 10px; width: 16px; height: 16px;
     border-radius: 50%; background: rgba(255,255,255,0.85); }
@@ -343,7 +343,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #st-hero .ph-ic { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px;
     margin: -17px 0 0 -17px; stroke: rgba(13,18,56,0.25); stroke-width: 2; fill: none;
     stroke-linecap: round; stroke-linejoin: round; }
-#st-vid { position: absolute; left: 640px; top: 300px; width: 128px; height: 88px; border-radius: 12px;
+#st-vid { position: absolute; left: 588px; top: 306px; width: 128px; height: 88px; border-radius: 12px;
     border: 6px solid #fff; box-sizing: border-box; z-index: 5;
     background: linear-gradient(135deg, #1B2470, #2E3EE8 60%, #9D4EDD);
     box-shadow: 0 16px 40px rgba(27,36,112,0.25);
@@ -455,12 +455,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .st-txt p { font-size: 16.5px; line-height: 1.68; color: rgba(13,18,56,0.72);
     letter-spacing: -0.005em; }
 .st-txt b { color: var(--ink); font-weight: 700; }
-.st-txt .w { display: inline-block; will-change: transform, opacity; }
-#tx2, #tx5, #tx6, #tx8 { left: 22px; top: 142px; width: 292px; }
-#tx1 { left: 26px; top: 348px; width: 430px; }
-#tx3 { left: 590px; top: 142px; width: 288px; }
-#tx4 { left: 118px; top: 392px; width: 664px; text-align: center; }
-#tx7 { left: 28px; top: 392px; width: 560px; }
+.st-txt .w { display: inline-block; }
+.st-txt { -webkit-font-smoothing: antialiased; }
+#tx2, #tx5, #tx6 { left: 22px; top: 140px; width: 252px; }
+#tx8 { left: 22px; top: 148px; width: 292px; }
+#tx1 { left: 40px; top: 358px; width: 556px; }
+#tx3 { left: 612px; top: 140px; width: 266px; }
+#tx4 { left: 118px; top: 380px; width: 664px; text-align: center; }
+#tx7 { left: 168px; top: 380px; width: 564px; }
 
 /* Tablet und Handy für die mobile Optimierung */
 #st-tab, #st-phone { position: absolute; z-index: 2; background: #0D1238; box-sizing: border-box;
