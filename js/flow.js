@@ -260,7 +260,7 @@
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
         tl.call(setDot(4), null, 32);
-        tl.to('#st-scene', { x: 168, y: 0, duration: 1.2, ease: PAN }, 31.9);
+        tl.to('#st-scene', { x: -168, y: 0, duration: 1.2, ease: PAN }, 31.9);
         say('#tx5', 32.7, 36.1);
         say('#tx6', 38.2, 44.1);
         /* SEO-Scan fährt über die fertige Seite */

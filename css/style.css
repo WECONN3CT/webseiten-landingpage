@@ -461,7 +461,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .st-txt b { color: var(--ink); font-weight: 700; }
 .st-txt .w { display: inline-block; }
 .st-txt { -webkit-font-smoothing: antialiased; }
-#tx2, #tx5, #tx6 { left: 22px; top: 140px; width: 252px; }
+#tx2 { left: 22px; top: 140px; width: 252px; }
+#tx5, #tx6 { left: 612px; top: 140px; width: 266px; }
 #tx8 { left: 22px; top: 148px; width: 292px; }
 #tx1 { left: 40px; top: 358px; width: 556px; }
 #tx3 { left: 612px; top: 140px; width: 266px; }
