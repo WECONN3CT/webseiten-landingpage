@@ -123,7 +123,7 @@
         tl.to('#st-vk', { y: 6, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 6.0);
         tl.to('#st-fly', { y: -6, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 6.1);
         /* Leben in der Haltephase: die Farbchips des Boards schimmern nacheinander */
-        tl.to('#st-design .d-chips i', { scale: 1.18, duration: 0.3, ease: IDLE, yoyo: true, repeat: 9, stagger: 0.14, transformOrigin: '50% 50%' }, 7.0);
+        tl.to('#st-design .d-chips i', { scale: 1.18, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1, stagger: 0.14, transformOrigin: '50% 50%' }, 7.0);
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
         tl.call(setDot(1), null, 9);
@@ -153,8 +153,8 @@
         tl.from('#st-browser .st-line', { x: -22, autoAlpha: 0, duration: 0.4, ease: SOFT, stagger: 0.12 }, 12.65);
         tl.from('#st-btn', { scale: 0.6, autoAlpha: 0, duration: 0.55, ease: 'back.out(1.9)' }, 13.1);
         tl.to('#st-browser', { y: -6, duration: 1.4, ease: IDLE, yoyo: true, repeat: 1 }, 14.4);
-        tl.to('#st-hero .ph-ic', { scale: 1.15, duration: 0.35, ease: IDLE, yoyo: true, repeat: 9, transformOrigin: '50% 50%' }, 15.5);
-        tl.to('#st-btn', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 9, transformOrigin: '50% 50%' }, 16.0);
+        tl.to('#st-hero .ph-ic', { scale: 1.15, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 15.5);
+        tl.to('#st-btn', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 16.0);
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24) ========== */
         tl.call(setDot(2), null, 17);
@@ -176,7 +176,7 @@
         tl.to('#st-vid', { autoAlpha: 1, duration: 0.01 }, 19.85);
         tl.from('#st-vid', { x: 160, y: -60, rotation: 14, duration: 0.6, ease: POP }, 19.86);
         tl.to('#st-vid', { x: -272, y: 12, rotation: 0, duration: 0.65, ease: MOVE }, 20.66);
-        tl.to('#st-vid .play', { scale: 1.18, duration: 0.4, ease: IDLE, yoyo: true, repeat: 11, transformOrigin: '50% 50%' }, 21.3);
+        tl.to('#st-vid .play', { scale: 1.18, duration: 0.4, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 21.3);
         /* Zweites Foto dockt links an */
         tl.to('#st-ph2', { autoAlpha: 1, duration: 0.01 }, 20.9);
         tl.from('#st-ph2', { x: -160, y: 60, rotation: -14, duration: 0.6, ease: POP }, 20.91);
@@ -236,7 +236,7 @@
             var sc = { n: 0 };
             tl.to(sc, { n: 100, duration: 1.7, ease: 'power1.inOut', onUpdate: function () {
                 document.getElementById('st-seo').textContent = Math.round(sc.n);
-            } }, 25.65);
+            } }, 33.65);
         })();
         tl.to('#st-score', { scale: 1.08, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 35.45);
         tl.to('#st-browser', { scale: 1.015, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 35.62);
@@ -249,7 +249,7 @@
             var q = { n: 0 }, txt = 'handwerker in bonn';
             tl.to(q, { n: txt.length, duration: 0.9, ease: 'none', onUpdate: function () {
                 document.getElementById('st-q').textContent = txt.slice(0, Math.round(q.n));
-            } }, 29.7);
+            } }, 37.7);
         })();
         tl.to('#st-caret', { opacity: 0, duration: 0.3, ease: 'steps(1)', yoyo: true, repeat: 5 }, 37.5);
         tl.set('#st-caret', { opacity: 0 }, 39.3);
@@ -262,7 +262,7 @@
         tl.to('#st-own', { top: 0, duration: 0.6, ease: 'back.out(2)' }, 42);
         tl.to('#st-r1', { top: 58, duration: 0.6, ease: MOVE }, 42);
         tl.to('#st-p1', { scale: 1, duration: 0.5, ease: 'back.out(2)' }, 42.7);
-        tl.to('#st-own', { scale: 1.04, duration: 0.35, ease: IDLE, yoyo: true, repeat: 9, transformOrigin: '50% 50%' }, 42.9);
+        tl.to('#st-own', { scale: 1.04, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 42.9);
         /* Der Mauszeiger kommt und klickt auf Platz 1 */
         tl.to('#st-cursor', { autoAlpha: 1, duration: 0.01 }, 43.15);
         tl.fromTo('#st-cursor', { x: 700, y: 430 }, { x: 455, y: 150, duration: 0.85, ease: MOVE, immediateRender: false }, 43.15);
@@ -284,8 +284,8 @@
         tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP, immediateRender: false }, 45.6);
         /* Besucher erscheinen links untereinander */
         ['#pp1', '#pp2', '#pp3'].forEach(function (p, k) {
-            tl.to(p, { autoAlpha: 1, duration: 0.01 }, 37.8 + k * 0.15);
-            tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 37.81 + k * 0.15);
+            tl.to(p, { autoAlpha: 1, duration: 0.01 }, 45.95 + k * 0.15);
+            tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 45.96 + k * 0.15);
         });
         /* Jeder Besucher: klickt den Button (→ Neue Anfrage), wandert nach rechts, wird zum Lead */
         var NAMES = ['Max M. · gerade eben', 'Sarah K. · gerade eben', 'Tobias R. · gerade eben'];
@@ -318,8 +318,9 @@
                 /* Weiter nach rechts — als Lead ankommen */
                 tl.to(r.p, { x: 739, y: r.dyLead, scale: 0.5, rotation: -4, duration: 1.0, ease: MOVE }, r.t + 1.75);
                 tl.to(r.p, { autoAlpha: 0, rotation: 0, duration: 0.3, ease: IN }, r.t + 2.6);
-                tl.call(setLead(k + 1), null, r.t + 2.72);
-                tl.to('#st-counter', { scale: 1.08, duration: 0.28, ease: IDLE, yoyo: true, repeat: 9, transformOrigin: '50% 50%' }, r.t + 2.72);
+                tl.call(setLead(k + 1), null, r.t + 1.52);
+                tl.to('#st-counter', { scale: 1.08, duration: 0.28, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 1.52);
+                tl.to('#st-counter', { scale: 1.04, duration: 0.25, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, r.t + 2.6);
                 /* Push zieht sich zurück — außer beim letzten */
                 if (k < 2) {
                     tl.to('#st-notif', { y: -70, autoAlpha: 0, duration: 0.45, ease: IN }, r.t + 2.9);
@@ -331,20 +332,20 @@
             var c = { n: 3 };
             tl.to(c, { n: 28, duration: 2.6, ease: 'power2.out', onUpdate: function () {
                 document.getElementById('st-cnt').textContent = '+' + Math.round(c.n);
-            } }, 46.6);
+            } }, 54.6);
         })();
-        tl.to('#st-counter', { scale: 1.06, duration: 0.35, ease: IDLE, yoyo: true, repeat: 11, transformOrigin: '50% 50%' }, 54.8);
+        tl.to('#st-counter', { scale: 1.06, duration: 0.35, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 54.9);
         tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 55);
 
-        /* ========== Ausklang & Reset (45.2 – 46.6) ========== */
+        /* ========== Ausklang & Reset (58 – 60) ========== */
         tl.to('#st-scene', { scale: 1, duration: 0.5, ease: MOVE }, 58.0);
         tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 58.6);
         tl.call(function () {
             gsap.set('#stage *', { clearProps: 'all' });
             setInitial();
-        }, null, 51.05);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 59.15);
-        tl.set({}, {}, 59.8);
+        }, null, 59.1);
+        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 59.25);
+        tl.set({}, {}, 59.9);
 
         var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5];
         dots.forEach(function (d) {
