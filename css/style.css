@@ -1165,19 +1165,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .bt-tall:hover .dv-phone { transform: translateY(-8px); }
 .bt-hero:hover .bt-shot { transform: translateY(-6px); }
 
-/* ---------- FAQ ---------- */
-.faq details { border-bottom: 1px solid var(--line); }
-.faq details:first-of-type { border-top: 1px solid var(--line); }
-.faq summary { font-weight: 800; font-size: 1.08rem; letter-spacing: -0.015em;
-    padding: 22px 44px 22px 4px; cursor: pointer;
-    list-style: none; position: relative; transition: color 0.2s ease; }
-.faq summary:hover { color: var(--blue); }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: '+'; position: absolute; right: 8px; top: 50%;
-    transform: translateY(-50%); font-size: 1.6rem; font-weight: 400; color: var(--blue);
-    transition: transform 0.25s var(--ease); }
-.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.faq details p { padding: 0 4px 24px; color: var(--ink-60); font-size: 0.97rem; max-width: 62ch; }
 
 /* ---------- Final CTA ---------- */
 .final-cta { padding-bottom: 120px; }
