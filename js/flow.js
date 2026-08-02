@@ -54,6 +54,7 @@
             gsap.set('#st-serp, #st-counter, #st-notif, #st-stars, #st-browser', { autoAlpha: 0 });
             gsap.set('.st-photo, #st-vid', { autoAlpha: 0 });
             gsap.set('#st-mark, #st-pop, .st-b, #st-scan, .seo-chip, #st-score, #st-cursor, .st-person', { autoAlpha: 0 });
+            gsap.set('#st-seobar', { scaleX: 0 });
             gsap.set('.st-nav .ndot', { autoAlpha: 0 });
             gsap.set('#st-wipe', { scaleX: 0 });
             gsap.set('#st-p1', { scale: 0, transformOrigin: '50% 50%' });
@@ -240,13 +241,14 @@
         tl.to('#sc3', { y: 3, duration: 1.1, ease: IDLE, yoyo: true, repeat: 1 }, 35.1);
         /* SEO-Score zählt auf 100 */
         tl.to('#st-score', { autoAlpha: 1, duration: 0.01 }, 33.45);
-        tl.from('#st-score', { scale: 0.5, y: 14, duration: 0.5, ease: 'back.out(2)' }, 33.46);
+        tl.from('#st-score', { scale: 0.55, y: -16, duration: 0.55, ease: 'back.out(2)' }, 33.46);
         (function () {
             var sc = { n: 0 };
             tl.to(sc, { n: 100, duration: 1.7, ease: 'power1.inOut', onUpdate: function () {
                 document.getElementById('st-seo').textContent = Math.round(sc.n);
             } }, 33.65);
         })();
+        tl.fromTo('#st-seobar', { scaleX: 0 }, { scaleX: 1, duration: 1.7, ease: 'power1.inOut', immediateRender: false }, 33.65);
         tl.to('#st-score', { scale: 1.08, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 35.45);
         tl.to('#st-browser', { scale: 1.015, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 35.62);
         /* Optimiert — jetzt zur Suche */

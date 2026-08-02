@@ -375,14 +375,24 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #sc1 { left: 196px; top: 84px; }
 #sc2 { left: 196px; top: 264px; }
 #sc3 { left: 548px; top: 100px; }
-#st-score { position: absolute; left: 200px; top: 366px; z-index: 7; background: #fff;
-    border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px;
-    font-size: 15px; font-weight: 800; letter-spacing: 0.08em; color: rgba(13,18,56,0.55);
-    box-shadow: 0 14px 34px rgba(27,36,112,0.18); }
-#st-score b { font-size: 19px; margin-left: 4px;
+#st-score { position: absolute; left: 314px; top: 8px; z-index: 7; display: flex;
+    align-items: center; gap: 12px; background: #fff; border: 1px solid var(--line);
+    border-radius: 999px; padding: 10px 20px 10px 14px;
+    box-shadow: 0 16px 40px rgba(27,36,112,0.2); }
+#st-score .gg { width: 26px; height: 26px; flex: none; display: flex;
+    align-items: center; justify-content: center; }
+#st-score .gg svg { width: 22px; height: 22px; }
+#st-score .lbl { font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(13,18,56,0.5); }
+#st-score b { font-size: 22px; font-weight: 900; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
     background: linear-gradient(100deg, #2E3EE8, #FF5082);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    font-variant-numeric: tabular-nums; }
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+#st-score .track { width: 74px; height: 7px; border-radius: 4px; overflow: hidden;
+    background: rgba(13,18,56,0.09); }
+#st-score .track i { display: block; width: 100%; height: 100%; border-radius: 4px;
+    transform-origin: left center; transform: scaleX(0);
+    background: linear-gradient(90deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
 #st-serp { position: absolute; left: 235px; top: 42px; width: 430px; background: #fff;
     border: 1px solid var(--line); border-radius: 18px; padding: 20px;
     box-shadow: 0 30px 70px rgba(27,36,112,0.2); z-index: 6; box-sizing: border-box; }
