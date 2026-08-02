@@ -557,21 +557,172 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: linear-gradient(130deg, #2E3EE8, #FF5082); }
 /* Finale: alle Leistungen verschmelzen zur Marke */
 #st-final { position: absolute; inset: 0; z-index: 6; }
-.fin-chip { position: absolute; width: 76px; display: flex; flex-direction: column;
-    align-items: center; gap: 8px; }
-.fin-chip .ic { width: 76px; height: 76px; border-radius: 24px; background: #fff;
-    border: 1px solid var(--line); box-shadow: 0 16px 38px rgba(27,36,112,0.16);
-    display: flex; align-items: center; justify-content: center; }
-.fin-chip .ic svg { width: 34px; height: 34px; stroke: url(#fingrad); stroke-width: 1.8; fill: none;
-    stroke-linecap: round; stroke-linejoin: round; color: var(--purple); }
-.fin-chip .lb { font-size: 11.5px; font-weight: 800; letter-spacing: 0.06em;
-    color: rgba(13,18,56,0.55); white-space: nowrap; }
-#fin-burst { position: absolute; left: 370px; top: 128px; width: 160px; height: 160px;
+.fin-card { position: absolute; width: 150px; height: 110px; display: flex;
+    flex-direction: column; align-items: center; }
+#fc0 { left: 375px; top: 47px; }
+#fc1 { left: 614px; top: 106px; }
+#fc2 { left: 673px; top: 238px; }
+#fc3 { left: 508px; top: 344px; }
+#fc4 { left: 242px; top: 344px; }
+#fc5 { left: 77px; top: 238px; }
+#fc6 { left: 136px; top: 106px; }
+.fin-art { position: relative; width: 150px; height: 88px; flex: none; }
+.fin-card .lb { margin-top: 5px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+    text-transform: uppercase; color: rgba(13,18,56,0.48); white-space: nowrap; }
+
+/* Design — Visitenkarte mit Markenfarben */
+#fc0 .fa-vk { position: absolute; left: 10px; top: 9px; width: 104px; height: 66px;
+    background: #fff; border: 1px solid var(--line); border-radius: 11px; overflow: hidden;
+    box-shadow: 0 14px 30px rgba(27,36,112,0.16); transform: rotate(-5deg); }
+#fc0 .fa-vk .edge { position: absolute; left: 0; top: 0; bottom: 0; width: 7px;
+    background: linear-gradient(180deg, #FF2D9C, #2E3EE8 55%, #FFC53D); }
+#fc0 .fa-vk .mark { position: absolute; right: 9px; top: 9px; width: 22px; height: 22px;
+    border-radius: 7px; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 11px; font-weight: 900; font-style: normal;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#fc0 .fa-vk .l1 { position: absolute; left: 18px; top: 20px; width: 46px; height: 7px;
+    border-radius: 4px; background: rgba(13,18,56,0.72); }
+#fc0 .fa-vk .l2 { position: absolute; left: 18px; top: 32px; width: 30px; height: 5px;
+    border-radius: 3px; background: rgba(13,18,56,0.26); }
+#fc0 .fa-vk .sep { position: absolute; left: 18px; right: 12px; top: 46px; height: 2px;
+    border-radius: 1px; background: linear-gradient(90deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#fc0 .fa-dot { position: absolute; width: 26px; height: 26px; border-radius: 50%;
+    border: 2px solid #fff; box-shadow: 0 8px 18px rgba(27,36,112,0.2); }
+#fc0 .d1 { left: 92px; top: 40px; background: #FF2D9C; }
+#fc0 .d2 { left: 110px; top: 56px; background: #2E3EE8; }
+#fc0 .d3 { left: 122px; top: 34px; background: #FFC53D; }
+
+/* Foto & Video — Bilderstapel mit Play */
+#fc1 .fa-ph { position: absolute; width: 84px; height: 60px; border: 5px solid #fff;
+    box-sizing: border-box; border-radius: 11px; overflow: hidden;
+    box-shadow: 0 14px 32px rgba(27,36,112,0.22); }
+#fc1 .p1 { left: 8px; top: 8px; transform: rotate(-7deg);
+    background: linear-gradient(135deg, #8F9DFF, #6A7CFF); }
+#fc1 .p2 { left: 58px; top: 22px; transform: rotate(6deg);
+    background: linear-gradient(135deg, #FF9EBB, #FF5082); }
+#fc1 .fa-ph .sun { position: absolute; top: 5px; right: 7px; width: 11px; height: 11px;
+    border-radius: 50%; background: rgba(255,255,255,0.85); }
+#fc1 .fa-ph .hill { position: absolute; bottom: -8px; left: -6px; width: 62px; height: 26px;
+    border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.32); }
+#fc1 .fa-play { position: absolute; left: 86px; top: 38px; width: 28px; height: 28px;
+    border-radius: 50%; background: rgba(255,255,255,0.94); display: flex;
+    align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(27,36,112,0.24); }
+#fc1 .fa-play i { display: block; width: 0; height: 0; margin-left: 2px;
+    border-left: 9px solid #FF5082; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+
+/* Webseite — Laptop mit der Mini-Seite aus den Geräte-Szenen */
+#fc2 .fa-lap { position: absolute; left: 17px; top: 2px; width: 116px; height: 78px;
+    background: #0D1238; border-radius: 9px; padding: 5px; box-sizing: border-box;
+    box-shadow: 0 18px 40px rgba(13,18,56,0.3); }
+#fc2 .fa-lap .scr { width: 100%; height: 100%; border-radius: 5px; background: #fff; overflow: hidden; }
+#fc2 .fa-foot { position: absolute; left: 4px; top: 79px; width: 142px; height: 7px;
+    border-radius: 2px 2px 6px 6px; background: linear-gradient(180deg, #232C7E, #0D1238);
+    box-shadow: 0 10px 22px rgba(13,18,56,0.28); }
+.mini.tiny .mnav { padding: 4px 6px 3px; gap: 4px; }
+.mini.tiny .mnav .mdot { width: 7px; height: 7px; border-radius: 2.5px; }
+.mini.tiny .mnav .mline { height: 3px; width: 20px; }
+.mini.tiny .mh { height: 34%; }
+.mini.tiny .mh .sun { top: 4px; right: 5px; width: 7px; height: 7px; }
+.mini.tiny .mh .hill { bottom: -7px; left: -5px; width: 54px; height: 20px; }
+.mini.tiny .ml { height: 3px; border-radius: 2px; margin: 5px 7px 0; }
+.mini.tiny .ml.dark { height: 4px; }
+.mini.tiny .mb { height: 12px; margin: 6px 7px 0; font-size: 5.5px;
+    box-shadow: 0 3px 7px rgba(157,78,221,0.32); }
+
+/* SEO — der eigene Treffer auf Platz 1 */
+#fc3 .fa-serp { position: absolute; left: 9px; top: 5px; width: 132px; height: 78px;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px;
+    box-sizing: border-box; box-shadow: 0 16px 36px rgba(27,36,112,0.16); }
+#fc3 .g-srch { height: 19px; border-radius: 999px; background: #F4F5FC;
+    border: 1px solid var(--line); display: flex; align-items: center; gap: 6px; padding: 0 8px; }
+#fc3 .g-srch svg { width: 11px; height: 11px; flex: none; }
+#fc3 .g-srch .q { height: 4px; width: 52px; border-radius: 2px; background: rgba(13,18,56,0.18); }
+#fc3 .g-row { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+#fc3 .g-row .fav { width: 11px; height: 11px; border-radius: 3px; flex: none;
+    background: rgba(13,18,56,0.12); }
+#fc3 .g-row .bar { height: 4px; border-radius: 2px; background: rgba(13,18,56,0.16); }
+#fc3 .g-row.own { margin: 7px -4px 0; padding: 4px 5px; border-radius: 7px;
+    background: linear-gradient(90deg, rgba(46,62,232,0.12), rgba(157,78,221,0.05)); }
+#fc3 .g-row.own .fav { display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 7px; font-weight: 900; font-style: normal;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#fc3 .g-row.own b { font-size: 7.5px; font-weight: 800; color: var(--ink); white-space: nowrap; }
+#fc3 .g-row.own .p1 { margin-left: auto; width: 14px; height: 14px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    font-size: 8px; font-weight: 900; flex: none;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 4px 10px rgba(46,62,232,0.32); }
+
+/* Werbeanzeigen — die gesponserte Anzeige */
+#fc4 .fa-ad { position: absolute; left: 22px; top: 2px; width: 106px; height: 84px;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 7px;
+    box-sizing: border-box; box-shadow: 0 16px 36px rgba(27,36,112,0.18); }
+#fc4 .a-top { display: flex; align-items: center; gap: 5px; }
+#fc4 .a-top .av { width: 16px; height: 16px; border-radius: 50%; flex: none;
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    font-size: 8px; font-weight: 900; font-style: normal;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#fc4 .a-top .nm { width: 24px; height: 4px; border-radius: 2px; background: rgba(13,18,56,0.2); }
+#fc4 .a-top .tag { margin-left: auto; font-size: 5.5px; font-weight: 800;
+    letter-spacing: 0.04em; color: var(--blue); }
+#fc4 .a-im { margin-top: 6px; height: 32px; border-radius: 8px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082); }
+#fc4 .a-im .sun { position: absolute; top: 5px; right: 7px; width: 10px; height: 10px;
+    border-radius: 50%; background: rgba(255,255,255,0.85); }
+#fc4 .a-im .hill { position: absolute; bottom: -8px; left: -6px; width: 66px; height: 26px;
+    border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.3); }
+#fc4 .a-cta { margin-top: 6px; height: 14px; border-radius: 999px; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 6px; font-weight: 800;
+    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 4px 10px rgba(157,78,221,0.32); }
+
+/* Software — Auswertungsfenster */
+#fc5 .fa-dash { position: absolute; left: 10px; top: 4px; width: 130px; height: 80px;
+    background: #fff; border: 1px solid var(--line); border-radius: 11px; overflow: hidden;
+    box-shadow: 0 16px 36px rgba(27,36,112,0.16); }
+#fc5 .d-top { height: 16px; background: #EEF0FA; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 4px; padding: 0 8px; }
+#fc5 .d-top i { width: 5px; height: 5px; border-radius: 50%; background: rgba(13,18,56,0.16); }
+#fc5 .d-top .pill { margin-left: auto; width: 22px; height: 6px; border-radius: 3px;
+    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#fc5 .d-in { display: flex; gap: 9px; padding: 11px 10px 0; }
+#fc5 .d-chart { display: flex; align-items: flex-end; gap: 5px; height: 44px; flex: none; }
+#fc5 .d-chart i { width: 11px; border-radius: 3px 3px 0 0;
+    background: linear-gradient(180deg, #8F9DFF, #6A7CFF); }
+#fc5 .d-chart .hi { background: linear-gradient(180deg, #9D4EDD, #FF5082); }
+#fc5 .d-side { flex: 1; display: flex; flex-direction: column; gap: 7px; padding-top: 6px; }
+#fc5 .d-side .dl { height: 4px; border-radius: 2px; background: rgba(13,18,56,0.16); }
+#fc5 .d-side .dl.dark { height: 5px; background: rgba(13,18,56,0.62); }
+#fc5 .d-side .dl.s { width: 60%; }
+
+/* KI — Assistent, der antwortet */
+#fc6 .fa-chat { position: absolute; left: 12px; top: 3px; width: 122px; height: 82px;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 9px;
+    box-sizing: border-box; box-shadow: 0 16px 36px rgba(27,36,112,0.16);
+    display: flex; flex-direction: column; gap: 6px; }
+#fc6 .bub { padding: 5px 7px; display: flex; flex-direction: column; gap: 4px; }
+#fc6 .bub i { height: 3.5px; border-radius: 2px; }
+#fc6 .bub.in { align-self: flex-start; background: #EEF0FA; border-radius: 9px 9px 9px 3px; }
+#fc6 .bub.in i { background: rgba(13,18,56,0.24); }
+#fc6 .bub.out { align-self: flex-end; border-radius: 9px 9px 3px 9px;
+    background: linear-gradient(120deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 6px 14px rgba(157,78,221,0.3); }
+#fc6 .bub.out i { background: rgba(255,255,255,0.82); }
+#fc6 .bub.type { align-self: flex-start; flex-direction: row; align-items: center; gap: 3px;
+    background: #EEF0FA; border-radius: 9px 9px 9px 3px; padding: 5px 7px; }
+#fc6 .bub.type b { width: 4px; height: 4px; border-radius: 50%; background: rgba(13,18,56,0.28); }
+#fc6 .fa-spark { position: absolute; right: 6px; top: -2px; width: 26px; height: 26px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 8px 18px rgba(46,62,232,0.34); }
+#fc6 .fa-spark svg { width: 15px; height: 15px; fill: #fff; }
+
+#fin-burst { position: absolute; left: 350px; top: 158px; width: 200px; height: 200px;
     border-radius: 50%; opacity: 0;
     background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(157,78,221,0.35) 45%, rgba(157,78,221,0) 70%); }
-.fin-sp { position: absolute; left: 442px; top: 200px; width: 13px; height: 13px; border-radius: 50%; opacity: 0; }
+.fin-sp { position: absolute; left: 443px; top: 251px; width: 13px; height: 13px; border-radius: 50%; opacity: 0; }
 #fs1, #fs4 { background: #2E3EE8; } #fs2, #fs5 { background: #9D4EDD; } #fs3, #fs6 { background: #FF5082; }
-#fin-logo { position: absolute; left: 210px; top: 172px; width: 480px; opacity: 0; }
+#fin-logo { position: absolute; left: 210px; top: 194px; width: 480px; opacity: 0; }
 #st-tapdot { position: absolute; z-index: 9; width: 34px; height: 34px; border-radius: 50%;
     background: rgba(13,18,56,0.16); border: 2px solid rgba(13,18,56,0.4); }
 #st-again { position: absolute; z-index: 7; left: 520px; top: 2px; display: flex; align-items: center;

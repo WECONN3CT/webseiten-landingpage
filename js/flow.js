@@ -85,8 +85,8 @@
             gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-tab, #st-phone, #st-fit', { autoAlpha: 0 });
             gsap.set('#st-ads, #st-tapdot, #st-again', { autoAlpha: 0 });
-            gsap.set('.fin-chip, #fin-logo, #fin-burst, .fin-sp', { autoAlpha: 0 });
-            gsap.set('.fin-chip', { x: 0, y: 0, scale: 1 });
+            gsap.set('.fin-card, #fin-logo, #fin-burst, .fin-sp', { autoAlpha: 0 });
+            gsap.set('.fin-card', { x: 0, y: 0, scale: 1 });
             gsap.set('#ig-feed', { y: 0 });
             gsap.set('#st-scene', { x: 0, scale: 1, transformOrigin: '50% 50%' });
             gsap.set('#st-q', { textContent: '' });
@@ -431,40 +431,48 @@
         tl.to('#st-browser, #st-counter, #st-notif', { autoAlpha: 0, scale: 0.92, duration: 0.6, ease: IN }, 66.45);
         tl.to('#st-scene', { x: 0, y: 0, scale: 1, duration: 0.95, ease: PAN }, 66.85);
         /* Die sieben Leistungen stellen sich im Kreis auf */
-        tl.to('.fin-chip', { autoAlpha: 1, duration: 0.01 }, 67.3);
-        tl.from('.fin-chip', { scale: 0.3, autoAlpha: 0, duration: 0.6, ease: POP,
+        tl.to('.fin-card', { autoAlpha: 1, duration: 0.01 }, 67.3);
+        tl.from('.fin-card', { scale: 0.3, autoAlpha: 0, duration: 0.6, ease: POP,
             stagger: 0.09, immediateRender: false }, 67.31);
         /* Sie drehen sich umeinander und ziehen zur Mitte */
-        tl.to('.fin-chip .lb', { autoAlpha: 0, y: -6, duration: 0.4, ease: IN }, 69.6);
+        tl.to('.fin-card .lb', { autoAlpha: 0, y: -6, duration: 0.4, ease: IN }, 69.6);
         (function () {
-            var o = { a: 0, r: 152 };
-            var BASE = [[450.0, 56.0], [568.8, 113.2], [598.2, 241.8], [516.0, 344.9], [384.0, 344.9], [301.8, 241.8], [331.2, 113.2]];
-            var C = { x: 450, y: 208 };
+            /* Der Ring ist eine Ellipse: quer ist mehr Platz als hoch.
+               Beim Einziehen laufen beide Halbachsen auf denselben Wert zu,
+               aus der Ellipse wird also unterwegs ein Kreis. */
+            var RX = 306, RY = 156;
+            var C = { x: 450, y: 258 };
+            var BASE = [[450, 102], [689, 161], [748, 293], [583, 399], [317, 399], [152, 293], [211, 161]];
             var els = ['#fc0', '#fc1', '#fc2', '#fc3', '#fc4', '#fc5', '#fc6'];
-            tl.to(o, { a: Math.PI * 2.4, duration: 2.3, ease: 'power2.in', onUpdate: function () {
+            var ang0 = BASE.map(function (b) {
+                return Math.atan2((b[1] - C.y) / RY, (b[0] - C.x) / RX);
+            });
+            var o = { a: 0, rx: RX, ry: RY };
+            tl.to(o, { a: Math.PI * 2.4, duration: 2.4, ease: 'power2.in', onUpdate: function () {
                 for (var k = 0; k < 7; k++) {
-                    var ang = Math.atan2(BASE[k][1] - C.y, BASE[k][0] - C.x) + o.a;
-                    var cxk = C.x + o.r * Math.cos(ang);
-                    var cyk = C.y + o.r * Math.sin(ang);
-                    gsap.set(els[k], { x: cxk - BASE[k][0], y: cyk - BASE[k][1] });
+                    var ang = ang0[k] + o.a;
+                    gsap.set(els[k], {
+                        x: C.x + o.rx * Math.cos(ang) - BASE[k][0],
+                        y: C.y + o.ry * Math.sin(ang) - BASE[k][1]
+                    });
                 }
             } }, 69.5);
-            tl.to(o, { r: 8, duration: 2.3, ease: 'power2.in' }, 69.5);
+            tl.to(o, { rx: 8, ry: 8, duration: 2.4, ease: 'power2.in' }, 69.5);
         })();
-        tl.to('.fin-chip', { scale: 0.35, duration: 1.0, ease: IN }, 70.8);
-        tl.set('.fin-chip', { autoAlpha: 0 }, 71.8);
+        tl.to('.fin-card', { scale: 0.22, duration: 1.1, ease: IN }, 70.8);
+        tl.set('.fin-card', { autoAlpha: 0 }, 71.9);
         /* Lichtblitz, Funken — und die Marke steht */
         tl.fromTo('#fin-burst', { autoAlpha: 1, scale: 0.3 },
-            { scale: 3.4, autoAlpha: 0, duration: 0.85, ease: SOFT, immediateRender: false }, 71.75);
-        tl.fromTo('#fs1', { autoAlpha: 1, x: 0, y: 0 }, { x: -128, y: -84, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
-        tl.fromTo('#fs2', { autoAlpha: 1, x: 0, y: 0 }, { x: 134, y: -70, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
-        tl.fromTo('#fs3', { autoAlpha: 1, x: 0, y: 0 }, { x: -96, y: 96, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
-        tl.fromTo('#fs4', { autoAlpha: 1, x: 0, y: 0 }, { x: 108, y: 92, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
-        tl.fromTo('#fs5', { autoAlpha: 1, x: 0, y: 0 }, { x: -18, y: -132, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
-        tl.fromTo('#fs6', { autoAlpha: 1, x: 0, y: 0 }, { x: 24, y: 128, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
-        tl.to('#fin-logo', { autoAlpha: 1, duration: 0.01 }, 71.9);
+            { scale: 3.4, autoAlpha: 0, duration: 0.85, ease: SOFT, immediateRender: false }, 71.85);
+        tl.fromTo('#fs1', { autoAlpha: 1, x: 0, y: 0 }, { x: -128, y: -84, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.fromTo('#fs2', { autoAlpha: 1, x: 0, y: 0 }, { x: 134, y: -70, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.fromTo('#fs3', { autoAlpha: 1, x: 0, y: 0 }, { x: -96, y: 96, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.fromTo('#fs4', { autoAlpha: 1, x: 0, y: 0 }, { x: 108, y: 92, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.fromTo('#fs5', { autoAlpha: 1, x: 0, y: 0 }, { x: -18, y: -132, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.fromTo('#fs6', { autoAlpha: 1, x: 0, y: 0 }, { x: 24, y: 128, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.to('#fin-logo', { autoAlpha: 1, duration: 0.01 }, 72.0);
         tl.from('#fin-logo', { scale: 0.35, autoAlpha: 0, duration: 1.1,
-            ease: 'elastic.out(1, 0.72)', transformOrigin: '50% 50%', immediateRender: false }, 71.91);
+            ease: 'elastic.out(1, 0.72)', transformOrigin: '50% 50%', immediateRender: false }, 72.01);
         tl.to('#fin-logo', { scale: 1.03, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1,
             transformOrigin: '50% 50%' }, 73.3);
         tl.to('#fin-logo', { autoAlpha: 0, scale: 1.06, duration: 0.7, ease: IN }, 76.0);
@@ -473,7 +481,7 @@
         tl.to('#st-scene', { scale: 1, y: 0, duration: 0.5, ease: MOVE }, 76.6);
         tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 77.1);
         tl.call(function () {
-            gsap.set('#stage *:not(.w)', { clearProps: 'all' });
+            gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
             setInitial();
         }, null, 77.6);
         tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 77.75);
@@ -483,7 +491,7 @@
         dots.forEach(function (d) {
             d.addEventListener('click', function () {
                 var i = parseInt(d.getAttribute('data-ch'), 10);
-                gsap.set('#stage *:not(.w)', { clearProps: 'all' });
+                gsap.set('#stage *:not(.w)', { clearProps: 'transform,opacity,visibility' });
                 setInitial();
                 tl.play(CHAPTER_TIMES[i] + 0.01);
             });
