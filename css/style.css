@@ -458,8 +458,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 /* Tablet und Handy für die mobile Optimierung */
 #st-tab, #st-phone { position: absolute; background: #0D1238; box-sizing: border-box;
     box-shadow: 0 26px 60px rgba(13,18,56,0.32); }
-#st-tab { left: 556px; top: 118px; width: 186px; height: 244px; border-radius: 20px; padding: 10px; }
-#st-phone { left: 768px; top: 168px; width: 108px; height: 194px; border-radius: 18px; padding: 7px; }
+#st-tab { left: 18px; top: 112px; width: 190px; height: 250px; border-radius: 20px; padding: 10px; }
+#st-phone { left: 712px; top: 152px; width: 112px; height: 202px; border-radius: 18px; padding: 7px; }
 #st-tab .scr, #st-phone .scr { width: 100%; height: 100%; border-radius: 12px; background: #fff;
     overflow: hidden; }
 #st-phone .scr { border-radius: 11px; }
@@ -471,7 +471,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .mini .ml { height: 6px; border-radius: 3px; background: rgba(13,18,56,0.16); margin: 9px 10px 0; }
 .mini .mb { height: 15px; width: 62%; border-radius: 999px; margin: 11px 10px 0;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
-#st-fit { position: absolute; left: 676px; top: 388px; z-index: 7; display: flex; align-items: center;
+#st-fit { position: absolute; left: 686px; top: 376px; z-index: 7; display: flex; align-items: center;
     gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px;
     padding: 9px 18px; font-size: 14px; font-weight: 800;
     box-shadow: 0 12px 30px rgba(27,36,112,0.16); }
