@@ -85,9 +85,9 @@
         /* ========== Kapitel 1: Drei Farben → Design → Branding (0 – 9) ========== */
         tl.call(setDot(0), null, 0);
         say('#tx1', 0.9, 8.4);
-        tl.from('#st-sw1', { x: -160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.55);
-        tl.from('#st-sw2', { y: -140, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.72);
-        tl.from('#st-sw3', { x: 160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.89);
+        tl.from('#st-sw1', { x: -160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.2);
+        tl.from('#st-sw2', { y: -140, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.37);
+        tl.from('#st-sw3', { x: 160, y: 60, scale: 0, autoAlpha: 0, duration: 0.6, ease: POP }, 0.54);
         /* Farbtanz: die Punkte kreisen umeinander und spiralen ins Zentrum */
         (function () {
             var o = { a: 0, r: 95 };
@@ -127,7 +127,7 @@
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
         tl.call(setDot(1), null, 9);
-        tl.to('#st-scene', { x: 105, duration: 0.9, ease: MOVE }, 9.0);
+        tl.to('#st-scene', { x: 140, duration: 0.9, ease: MOVE }, 9.0);
         say('#tx2', 10.9, 16.5);
         /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
         tl.to('#st-vk', { x: 240, y: -10, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.65);
@@ -158,7 +158,7 @@
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24) ========== */
         tl.call(setDot(2), null, 17);
-        tl.to('#st-scene', { x: -105, duration: 0.9, ease: MOVE }, 17.0);
+        tl.to('#st-scene', { x: -140, duration: 0.9, ease: MOVE }, 17.0);
         say('#tx3', 17.6, 23.5);
         /* Blitz — das erste Foto entsteht und fliegt IN den Hero */
         tl.fromTo('#st-flash', { opacity: 0 }, { opacity: 0.7, duration: 0.08, ease: IN }, 17.5);
@@ -189,13 +189,13 @@
         /* ========== Kapitel 4: Auf jedem Gerät (24.5 – 32) ========== */
         tl.call(setDot(3), null, 24.5);
         tl.to('#st-scene', { x: 0, duration: 0.9, ease: MOVE }, 24.5);
-        say('#tx4', 24.9, 31.4);
+        say('#tx4', 25.9, 31.3);
         /* Die Webseite rückt zusammen, Tablet und Handy stellen sich daneben */
-        tl.to('#st-browser', { scale: 0.72, x: -132, duration: 0.9, ease: MOVE, transformOrigin: '50% 50%' }, 25.3);
+        tl.to('#st-browser', { scale: 0.72, x: -132, duration: 0.9, ease: MOVE, transformOrigin: '50% 50%' }, 24.9);
         tl.to('#st-tab', { autoAlpha: 1, duration: 0.01 }, 26.2);
-        tl.from('#st-tab', { x: 150, y: 40, rotation: 6, scale: 0.7, duration: 0.75, ease: POP, immediateRender: false }, 26.21);
+        tl.from('#st-tab', { x: 88, y: 40, rotation: 6, scale: 0.7, duration: 0.75, ease: POP, immediateRender: false }, 26.21);
         tl.to('#st-phone', { autoAlpha: 1, duration: 0.01 }, 26.9);
-        tl.from('#st-phone', { x: 130, y: 30, rotation: 8, scale: 0.7, duration: 0.75, ease: POP, immediateRender: false }, 26.91);
+        tl.from('#st-phone', { y: 46, rotation: 8, scale: 0.6, duration: 0.75, ease: POP, immediateRender: false }, 26.91);
         tl.to('#st-fit', { autoAlpha: 1, duration: 0.01 }, 27.9);
         tl.from('#st-fit', { scale: 0.5, y: 12, duration: 0.55, ease: 'back.out(2)', immediateRender: false }, 27.91);
         tl.to('#st-tab', { y: -7, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1 }, 28.6);
@@ -203,13 +203,13 @@
         tl.to('#st-tab .mb, #st-phone .mb', { scale: 1.08, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '0% 50%' }, 29.6);
         /* Geräte treten ab, die Webseite kommt zurück */
         tl.to('#st-fit', { autoAlpha: 0, y: 10, duration: 0.4, ease: IN }, 31.2);
-        tl.to('#st-tab', { x: 140, autoAlpha: 0, duration: 0.55, ease: IN }, 31.35);
-        tl.to('#st-phone', { x: 130, autoAlpha: 0, duration: 0.55, ease: IN }, 31.45);
+        tl.to('#st-tab', { x: 90, autoAlpha: 0, duration: 0.55, ease: IN }, 31.35);
+        tl.to('#st-phone', { x: 80, autoAlpha: 0, duration: 0.55, ease: IN }, 31.45);
         tl.to('#st-browser', { scale: 1, x: 0, duration: 0.8, ease: MOVE }, 31.5);
 
         /* ========== Kapitel 4: SEO-Optimierung, dann Aufstieg auf Platz 1 (24 – 36.5) ========== */
         tl.call(setDot(4), null, 32);
-        tl.to('#st-scene', { x: 105, duration: 0.9, ease: MOVE }, 32.0);
+        tl.to('#st-scene', { x: 140, duration: 0.9, ease: MOVE }, 32.0);
         say('#tx5', 32.7, 36.1);
         say('#tx6', 38.2, 44.1);
         /* SEO-Scan fährt über die fertige Seite */
@@ -242,7 +242,7 @@
         tl.to('#st-browser', { scale: 1.015, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 35.62);
         /* Optimiert — jetzt zur Suche */
         tl.to('.seo-chip, #st-score, .st-photo, #st-vid, #st-stars', { autoAlpha: 0, duration: 0.4, ease: IN }, 36.2);
-        tl.to('#st-browser', { scale: 0.72, x: -250, y: 40, autoAlpha: 0.35, duration: 0.7, ease: MOVE }, 36.4);
+        tl.to('#st-browser', { scale: 0.72, x: -55, y: 40, autoAlpha: 0.32, duration: 0.7, ease: MOVE }, 36.4);
         tl.to('#st-serp', { autoAlpha: 1, duration: 0.01 }, 37);
         tl.from('#st-serp', { y: 60, scale: 0.9, duration: 0.6, ease: POP }, 37);
         (function () {
@@ -274,7 +274,7 @@
 
         /* ========== Kapitel 5: Besucher zählen hoch, Anfrage kommt (36.5 – 45) ========== */
         tl.call(setDot(5), null, 44.5);
-        tl.to('#st-scene', { x: 0, scale: 0.78, duration: 0.9, ease: MOVE }, 44.8);
+        tl.to('#st-scene', { x: 0, scale: 0.74, duration: 0.9, ease: MOVE }, 44.8);
         say('#tx7', 45.4, 57.6);
         tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 44.8);
         tl.to('#st-cursor', { autoAlpha: 0, y: 190, duration: 0.4, ease: IN }, 44.8);
@@ -338,12 +338,12 @@
 
         /* ========== Ausklang & Reset (45.2 – 46.6) ========== */
         tl.to('#st-scene', { scale: 1, duration: 0.5, ease: MOVE }, 58.0);
-        tl.to('#stage', { autoAlpha: 0, duration: 0.55, ease: IN }, 58.4);
+        tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 58.6);
         tl.call(function () {
             gsap.set('#stage *', { clearProps: 'all' });
             setInitial();
         }, null, 51.05);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.4, ease: SOFT }, 59.2);
+        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 59.15);
         tl.set({}, {}, 59.8);
 
         var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5];

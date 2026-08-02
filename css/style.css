@@ -375,7 +375,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #sc1 { left: 196px; top: 84px; }
 #sc2 { left: 196px; top: 264px; }
 #sc3 { left: 548px; top: 100px; }
-#st-score { position: absolute; left: 118px; top: 364px; z-index: 7; background: #fff;
+#st-score { position: absolute; left: 200px; top: 366px; z-index: 7; background: #fff;
     border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px;
     font-size: 15px; font-weight: 800; letter-spacing: 0.08em; color: rgba(13,18,56,0.55);
     box-shadow: 0 14px 34px rgba(27,36,112,0.18); }
@@ -449,11 +449,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .st-txt p { font-size: 15px; line-height: 1.58; color: var(--ink-60); }
 .st-txt b { color: var(--ink); font-weight: 700; }
-#tx2, #tx5, #tx6 { left: 24px; top: 146px; }
+#tx2, #tx5, #tx6 { left: 22px; top: 146px; width: 268px; }
 #tx1 { left: 24px; top: 342px; width: 430px; }
-#tx3 { left: 596px; top: 146px; }
-#tx4 { left: 24px; top: 356px; width: 440px; }
-#tx7 { left: 26px; top: 388px; width: 452px; }
+#tx3 { left: 610px; top: 146px; width: 268px; }
+#tx4 { left: 24px; top: 380px; width: 624px; }
+#tx7 { left: 26px; top: 384px; width: 620px; }
 
 /* Tablet und Handy für die mobile Optimierung */
 #st-tab, #st-phone { position: absolute; background: #0D1238; box-sizing: border-box;
