@@ -236,10 +236,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 /* ---------- Section-Head (editorial, links) ---------- */
 .section { padding: 100px 0; }
 .section-head { position: relative; max-width: 640px; margin-bottom: 56px; }
-.section-head::before { content: attr(data-num); position: absolute; top: -0.52em; left: -0.06em;
-    font-size: clamp(5.5rem, 11vw, 8.5rem); font-weight: 900; line-height: 1;
-    letter-spacing: -0.04em; color: transparent; z-index: -1;
-    -webkit-text-stroke: 1.5px rgba(46, 62, 232, 0.13); }
 .kicker { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
     background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
     margin-bottom: 12px; }
