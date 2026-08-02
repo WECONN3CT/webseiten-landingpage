@@ -850,6 +850,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .sp-row .b { height: 5px; width: 62%; border-radius: 3px; background: rgba(13, 18, 56, 0.14); }
 .sp-row .b.s { width: 44%; }
 .bt-seo p { max-width: 34ch; }
+/* Erreichbarkeit: die drei Wege als Schaltflaechen, der erste ist besetzt */
+.bt-chan { display: flex; gap: 12px; margin-top: 22px; }
+.bt-chan .ch { position: relative; width: 52px; height: 52px; border-radius: 17px; flex: none;
+    background: #fff; border: 1px solid var(--line); display: flex; align-items: center;
+    justify-content: center; box-shadow: 0 10px 24px rgba(27, 36, 112, 0.1);
+    transition: transform 0.4s var(--ease); }
+.bt-chan .ch svg { width: 21px; height: 21px; stroke: var(--blue); stroke-width: 1.8; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
+.bt-chan .ch.on { border-color: transparent;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 12px 26px rgba(46, 62, 232, 0.32); }
+.bt-chan .ch.on svg { stroke: #fff; }
+.bt-chan .live { position: absolute; right: -4px; top: -4px; width: 14px; height: 14px;
+    border-radius: 50%; background: #17A34A; border: 2.5px solid #fff; }
+.bt-reach:hover .ch { transform: translateY(-4px); }
+.bt-reach:hover .ch:nth-child(2) { transition-delay: 0.05s; }
+.bt-reach:hover .ch:nth-child(3) { transition-delay: 0.1s; }
 .bt-seo:hover .sp-card { transform: translateY(-6px); }
 .bt-media:hover .p1 { transform: rotate(-8deg) translate(-4px, -4px); }
 .bt-media:hover .p2 { transform: rotate(7deg) translate(4px, 4px); }
@@ -885,6 +902,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: rgba(13, 18, 56, 0.13); }
 .sh-lines i.s { width: 40%; margin-top: 9px; background: rgba(13, 18, 56, 0.09); }
 .sh-cards { display: flex; gap: 12px; margin-top: 18px; }
+.sh-cards.two i { height: 76px; }
 .sh-cards i { flex: 1; height: 58px; border-radius: 10px; background: #F1F2FA;
     border: 1px solid var(--line); }
 
