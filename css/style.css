@@ -820,6 +820,37 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .bt-shots .play i { width: 0; height: 0; margin-left: 3px;
     border-left: 11px solid #2E3EE8; border-top: 7px solid transparent;
     border-bottom: 7px solid transparent; }
+/* Google: die Trefferliste mit dem eigenen Eintrag auf Platz 1 */
+.bt-serp { flex: none; width: 214px; margin-right: -28px; }
+.sp-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px;
+    box-shadow: 0 16px 38px rgba(27, 36, 112, 0.14);
+    transition: transform 0.5s var(--ease); }
+.sp-search { height: 30px; border-radius: 999px; background: #F4F5FC; border: 1px solid var(--line);
+    display: flex; align-items: center; gap: 9px; padding: 0 12px; margin-bottom: 12px; }
+.sp-search svg { width: 14px; height: 14px; flex: none; }
+.sp-search .q { height: 5px; width: 84px; border-radius: 3px; background: rgba(13, 18, 56, 0.18); }
+.sp-hit { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 11px;
+    background: linear-gradient(100deg, rgba(46,62,232,0.12), rgba(157,78,221,0.06)); }
+.sp-hit .fav { width: 26px; height: 26px; border-radius: 8px; flex: none; font-style: normal;
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    font-size: 0.72rem; font-weight: 900;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+.sp-name { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+.sp-name b { display: block; height: 7px; width: 72%; border-radius: 4px;
+    background: rgba(13, 18, 56, 0.6); }
+.sp-name .stars { font-style: normal; font-size: 0.52rem; letter-spacing: 0.1em; color: #F5A623; }
+.sp-hit .rank { width: 22px; height: 22px; border-radius: 50%; flex: none;
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    font-size: 0.72rem; font-weight: 900;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 6px 14px rgba(46, 62, 232, 0.34); }
+.sp-row { display: flex; align-items: center; gap: 10px; margin-top: 11px; padding: 0 10px; }
+.sp-row .dot { width: 16px; height: 16px; border-radius: 5px; flex: none;
+    background: rgba(13, 18, 56, 0.1); }
+.sp-row .b { height: 5px; width: 62%; border-radius: 3px; background: rgba(13, 18, 56, 0.14); }
+.sp-row .b.s { width: 44%; }
+.bt-seo p { max-width: 34ch; }
+.bt-seo:hover .sp-card { transform: translateY(-6px); }
 .bt-media:hover .p1 { transform: rotate(-8deg) translate(-4px, -4px); }
 .bt-media:hover .p2 { transform: rotate(7deg) translate(4px, 4px); }
 .bt-hero, .bt-tall, .bt-auto { padding-bottom: 0;
@@ -1081,10 +1112,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     .bt { padding: 24px; border-radius: 22px; }
     .bt-hero, .bt-tall, .bt-auto, .bt-wide { grid-column: span 1; grid-row: span 1; }
     /* Nebeneinander bliebe fuer den Text nur eine Handbreit: Stapel unter den Text */
-    .bt-media { flex-direction: column; align-items: flex-start; }
-    .bt-media .ic { margin-bottom: 18px; }
-    .bt-media p { max-width: none; }
+    .bt-media, .bt-seo { flex-direction: column; align-items: flex-start; }
+    .bt-media .ic, .bt-seo .ic { margin-bottom: 18px; }
+    .bt-media p, .bt-seo p { max-width: none; }
     .bt-shots { margin: 20px 0 0 -4px; }
+    .bt-serp { width: 100%; max-width: 260px; margin: 20px 0 0; }
     .bt-hero { min-height: 400px; } .bt-tall { min-height: 380px; }
     .bt-hero h3 { font-size: 1.2rem; }
 }
