@@ -296,21 +296,21 @@
         tl.from('#st-ads', { y: 90, scale: 0.85, duration: 0.9, ease: POP, immediateRender: false }, 45.11);
         say('#tx8', 45.6, 52.6);
         /* Der Feed scrollt: die Anzeige zieht vorbei ... */
-        tl.fromTo('#ig-feed', { y: 0 }, { y: -196, duration: 1.5, ease: 'power1.inOut', immediateRender: false }, 46.2);
+        tl.fromTo('#ig-feed', { y: 0 }, { y: -100, duration: 1.5, ease: 'power1.inOut', immediateRender: false }, 46.2);
         tl.to('#st-ads .ad .im', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 46.9);
         /* ... und taucht später wieder auf: so bleibt die Marke im Kopf */
-        tl.to('#ig-feed', { y: -560, duration: 1.6, ease: 'power1.inOut' }, 48.1);
+        tl.to('#ig-feed', { y: -597, duration: 1.7, ease: 'power1.inOut' }, 48.1);
         tl.to('#st-again', { autoAlpha: 1, duration: 0.01 }, 49.2);
         tl.from('#st-again', { scale: 0.5, y: -12, duration: 0.55, ease: 'back.out(2)', immediateRender: false }, 49.21);
         tl.to('#ig-ad2 .im', { scale: 1.05, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 49.3);
         /* Finger tippt auf den Button der Anzeige */
         tl.to('#st-tapdot', { autoAlpha: 1, duration: 0.01 }, 50.0);
-        tl.fromTo('#st-tapdot', { x: 700, y: 430, scale: 1.2 }, { x: 628, y: 336, scale: 1, duration: 0.75, ease: MOVE, immediateRender: false }, 50.0);
+        tl.fromTo('#st-tapdot', { x: 706, y: 442, scale: 1.2 }, { x: 626, y: 328, scale: 1, duration: 0.75, ease: MOVE, immediateRender: false }, 50.0);
         tl.to('#st-tapdot', { scale: 0.72, duration: 0.12, ease: IN }, 50.85);
         tl.to('#st-tapdot', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 50.97);
         tl.to('#ig-ad2 .cta', { scale: 0.93, duration: 0.12, ease: IN, transformOrigin: '50% 50%' }, 50.85);
         tl.to('#ig-ad2 .cta', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 50.97);
-        tl.fromTo('#st-rip1', { x: 620, y: 328, autoAlpha: 0.8, scale: 0.4 },
+        tl.fromTo('#st-rip1', { x: 633, y: 335, autoAlpha: 0.8, scale: 0.4 },
             { scale: 2.6, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 50.9);
         tl.to('#st-tapdot', { autoAlpha: 0, duration: 0.3, ease: IN }, 51.5);
         /* Der Klick führt weiter: Handy tritt ab, die Webseite kommt zurück */
