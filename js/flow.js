@@ -85,6 +85,8 @@
             gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-tab, #st-phone, #st-fit', { autoAlpha: 0 });
             gsap.set('#st-ads, #st-tapdot, #st-again', { autoAlpha: 0 });
+            gsap.set('.fin-chip, #fin-logo, #fin-burst, .fin-sp', { autoAlpha: 0 });
+            gsap.set('.fin-chip', { x: 0, y: 0, scale: 1 });
             gsap.set('#ig-feed', { y: 0 });
             gsap.set('#st-scene', { x: 0, scale: 1, transformOrigin: '50% 50%' });
             gsap.set('#st-q', { textContent: '' });
@@ -156,7 +158,7 @@
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
         tl.call(setDot(1), null, 9);
-        tl.to('#st-scene', { x: 168, y: 0, duration: 1.15, ease: PAN }, 8.95);
+        tl.to('#st-scene', { x: 158, y: 0, duration: 1.15, ease: PAN }, 8.95);
         say('#tx2', 10.9, 16.5);
         /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
         tl.to('#st-vk', { x: 240, y: -10, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.65);
@@ -260,7 +262,7 @@
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
         tl.call(setDot(4), null, 32);
-        tl.to('#st-scene', { x: -168, y: 0, duration: 1.2, ease: PAN }, 31.9);
+        tl.to('#st-scene', { x: -158, y: 0, duration: 1.2, ease: PAN }, 31.9);
         say('#tx5', 32.7, 36.1);
         say('#tx6', 38.2, 44.1);
         /* SEO-Scan fährt über die fertige Seite */
@@ -361,7 +363,7 @@
         /* ========== Kapitel 6: Besucher werden zu Leads (44.5 – 58) ========== */
         tl.call(setDot(6), null, 51.7);
         tl.to('#st-scene', { x: 0, y: -38, scale: 0.8, duration: 1.15, ease: 'power3.out' }, 51.75);
-        say('#tx7', 53.2, 66.6);
+        say('#tx7', 53.2, 65.9);
         /* ... und die Webseite wächst genau dort heraus, wo die Anzeige stand */
         tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 51.75);
         tl.fromTo('#st-browser', { x: 189, y: 26, scale: 0.36 },
@@ -424,21 +426,64 @@
         tl.to('#st-counter', { scale: 1.06, duration: 0.35, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 62.7);
         tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 62.9);
 
-        /* ========== Ausklang & Reset (58 – 60) ========== */
-        tl.to('#st-scene', { scale: 1, y: 0, duration: 0.5, ease: MOVE }, 67);
-        tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 67.6);
-        tl.call(function () {
-            gsap.set('#stage *', { clearProps: 'all' });
-            setInitial();
-        }, null, 68.1);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 68.25);
-        tl.set({}, {}, 68.9);
+        /* ========== Kapitel 8: Alles wird zur Marke (66.6 – 76.4) ========== */
+        tl.call(setDot(7), null, 66.6);
+        tl.to('#st-browser, #st-counter, #st-notif', { autoAlpha: 0, scale: 0.92, duration: 0.6, ease: IN }, 66.45);
+        tl.to('#st-scene', { x: 0, y: 0, scale: 1, duration: 0.95, ease: PAN }, 66.85);
+        /* Die sieben Leistungen stellen sich im Kreis auf */
+        tl.to('.fin-chip', { autoAlpha: 1, duration: 0.01 }, 67.3);
+        tl.from('.fin-chip', { scale: 0.3, autoAlpha: 0, duration: 0.6, ease: POP,
+            stagger: 0.09, immediateRender: false }, 67.31);
+        /* Sie drehen sich umeinander und ziehen zur Mitte */
+        tl.to('.fin-chip .lb', { autoAlpha: 0, y: -6, duration: 0.4, ease: IN }, 69.6);
+        (function () {
+            var o = { a: 0, r: 152 };
+            var BASE = [[450.0, 56.0], [568.8, 113.2], [598.2, 241.8], [516.0, 344.9], [384.0, 344.9], [301.8, 241.8], [331.2, 113.2]];
+            var C = { x: 450, y: 208 };
+            var els = ['#fc0', '#fc1', '#fc2', '#fc3', '#fc4', '#fc5', '#fc6'];
+            tl.to(o, { a: Math.PI * 2.4, duration: 2.3, ease: 'power2.in', onUpdate: function () {
+                for (var k = 0; k < 7; k++) {
+                    var ang = Math.atan2(BASE[k][1] - C.y, BASE[k][0] - C.x) + o.a;
+                    var cxk = C.x + o.r * Math.cos(ang);
+                    var cyk = C.y + o.r * Math.sin(ang);
+                    gsap.set(els[k], { x: cxk - BASE[k][0], y: cyk - BASE[k][1] });
+                }
+            } }, 69.5);
+            tl.to(o, { r: 8, duration: 2.3, ease: 'power2.in' }, 69.5);
+        })();
+        tl.to('.fin-chip', { scale: 0.35, duration: 1.0, ease: IN }, 70.8);
+        tl.set('.fin-chip', { autoAlpha: 0 }, 71.8);
+        /* Lichtblitz, Funken — und die Marke steht */
+        tl.fromTo('#fin-burst', { autoAlpha: 1, scale: 0.3 },
+            { scale: 3.4, autoAlpha: 0, duration: 0.85, ease: SOFT, immediateRender: false }, 71.75);
+        tl.fromTo('#fs1', { autoAlpha: 1, x: 0, y: 0 }, { x: -128, y: -84, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
+        tl.fromTo('#fs2', { autoAlpha: 1, x: 0, y: 0 }, { x: 134, y: -70, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
+        tl.fromTo('#fs3', { autoAlpha: 1, x: 0, y: 0 }, { x: -96, y: 96, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
+        tl.fromTo('#fs4', { autoAlpha: 1, x: 0, y: 0 }, { x: 108, y: 92, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
+        tl.fromTo('#fs5', { autoAlpha: 1, x: 0, y: 0 }, { x: -18, y: -132, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
+        tl.fromTo('#fs6', { autoAlpha: 1, x: 0, y: 0 }, { x: 24, y: 128, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.78);
+        tl.to('#fin-logo', { autoAlpha: 1, duration: 0.01 }, 71.9);
+        tl.from('#fin-logo', { scale: 0.35, autoAlpha: 0, duration: 1.1,
+            ease: 'elastic.out(1, 0.72)', transformOrigin: '50% 50%', immediateRender: false }, 71.91);
+        tl.to('#fin-logo', { scale: 1.03, duration: 1.3, ease: IDLE, yoyo: true, repeat: 1,
+            transformOrigin: '50% 50%' }, 73.3);
+        tl.to('#fin-logo', { autoAlpha: 0, scale: 1.06, duration: 0.7, ease: IN }, 76.0);
 
-        var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5, 51.6];
+        /* ========== Ausklang & Reset (58 – 60) ========== */
+        tl.to('#st-scene', { scale: 1, y: 0, duration: 0.5, ease: MOVE }, 76.6);
+        tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 77.1);
+        tl.call(function () {
+            gsap.set('#stage *:not(.w)', { clearProps: 'all' });
+            setInitial();
+        }, null, 77.6);
+        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 77.75);
+        tl.set({}, {}, 78.4);
+
+        var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5, 51.6, 66.6];
         dots.forEach(function (d) {
             d.addEventListener('click', function () {
                 var i = parseInt(d.getAttribute('data-ch'), 10);
-                gsap.set('#stage *', { clearProps: 'all' });
+                gsap.set('#stage *:not(.w)', { clearProps: 'all' });
                 setInitial();
                 tl.play(CHAPTER_TIMES[i] + 0.01);
             });
