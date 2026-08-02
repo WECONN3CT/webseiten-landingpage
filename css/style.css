@@ -353,7 +353,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     display: flex; align-items: center; justify-content: center; }
 #st-vid .play i { display: block; width: 0; height: 0; margin-left: 3px;
     border-left: 11px solid #2E3EE8; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
-#st-flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; border-radius: 18px; }
+#st-flash { position: absolute; inset: 0; opacity: 0; z-index: 9; border-radius: 18px;
+    transform-origin: 58% 44%;
+    background: radial-gradient(circle at 58% 44%, rgba(255,255,255,0.95) 0%,
+        rgba(255,255,255,0.5) 26%, rgba(255,255,255,0) 58%); }
 #st-scanclip { position: absolute; left: 170px; top: 45px; width: 560px; height: 380px;
     border-radius: 18px; overflow: hidden; z-index: 6; pointer-events: none; }
 #st-scan { position: absolute; left: 0; top: 0; width: 56px; height: 100%;

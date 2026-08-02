@@ -185,35 +185,38 @@
         tl.to('#st-hero .ph-ic', { scale: 1.15, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 15.5);
         tl.to('#st-btn', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 16.0);
 
-        /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24) ========== */
+        /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24.4) ========== */
         tl.call(setDot(2), null, 17);
         tl.to('#st-scene', { x: -168, y: 0, duration: 1.35, ease: PAN }, 16.85);
-        say('#tx3', 17.6, 23.5);
-        /* Blitz — das erste Foto entsteht und fliegt IN den Hero */
-        tl.fromTo('#st-flash', { opacity: 0 }, { opacity: 0.7, duration: 0.08, ease: IN }, 17.5);
-        tl.to('#st-flash', { opacity: 0, duration: 0.35, ease: SOFT }, 17.58);
-        tl.to('#st-ph1', { autoAlpha: 1, duration: 0.01 }, 17.65);
-        tl.from('#st-ph1', { x: -180, y: -40, rotation: -18, duration: 0.6, ease: POP }, 17.66);
-        tl.to('#st-ph1', { x: 245, y: 55, rotation: 0, scale: 1.3, duration: 0.7, ease: MOVE }, 18.5);
-        /* Beim Aufprall füllt sich der Hero mit Farbe, das Foto geht in der Seite auf */
-        tl.to('#st-wipe', { scaleX: 1, duration: 0.45, ease: SOFT }, 19.1);
-        tl.to('#st-ph1', { autoAlpha: 0, scale: 0.9, duration: 0.3, ease: IN }, 19.15);
-        tl.to('#st-hero', { scale: 1.05, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1 }, 19.2);
-        /* Blitz — das Video dockt unten rechts an der Seite an */
-        tl.fromTo('#st-flash', { opacity: 0 }, { opacity: 0.55, duration: 0.08, ease: IN }, 19.7);
-        tl.to('#st-flash', { opacity: 0, duration: 0.35, ease: SOFT }, 19.78);
-        tl.to('#st-vid', { autoAlpha: 1, duration: 0.01 }, 19.85);
-        tl.from('#st-vid', { x: 84, y: 108, rotation: 14, duration: 0.6, ease: POP }, 19.86);
-        tl.to('#st-vid', { x: -220, y: 6, rotation: 0, duration: 0.65, ease: MOVE }, 20.66);
-        tl.to('#st-vid .play', { scale: 1.18, duration: 0.4, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 21.3);
-        /* Zweites Foto dockt links an */
-        tl.to('#st-ph2', { autoAlpha: 1, duration: 0.01 }, 20.9);
-        tl.from('#st-ph2', { x: -100, y: 66, rotation: -14, duration: 0.6, ease: POP }, 20.91);
-        tl.to('#st-ph2', { x: -55, y: 56, rotation: 0, duration: 0.65, ease: MOVE }, 21.55);
+        say('#tx3', 17.9, 23.7);
+        /* Erst wenn die Kamera steht, entsteht das erste Foto: weicher Lichtblitz, kein Vollbild-Blinken */
+        tl.fromTo('#st-flash', { opacity: 0, scale: 0.86 },
+            { opacity: 0.5, scale: 1, duration: 0.16, ease: SOFT, immediateRender: false }, 18.28);
+        tl.to('#st-flash', { opacity: 0, duration: 0.6, ease: 'power2.out' }, 18.44);
+        tl.to('#st-ph1', { autoAlpha: 1, duration: 0.01 }, 18.3);
+        tl.from('#st-ph1', { x: -170, y: -34, rotation: -16, scale: 0.82, duration: 0.7, ease: POP,
+            immediateRender: false }, 18.31);
+        /* Das Foto zieht in die Seite und färbt sie ein */
+        tl.to('#st-ph1', { x: 245, y: 55, rotation: 0, scale: 1.3, duration: 0.85, ease: PAN }, 19.15);
+        tl.to('#st-wipe', { scaleX: 1, duration: 0.55, ease: 'power2.out' }, 19.85);
+        tl.to('#st-ph1', { autoAlpha: 0, scale: 1.42, duration: 0.45, ease: 'power2.out' }, 19.95);
+        tl.to('#st-hero', { scale: 1.04, duration: 0.42, ease: IDLE, yoyo: true, repeat: 1 }, 20.05);
+        /* Das Video dockt an: ohne Blitz, dafür mit weicher Landung */
+        tl.to('#st-vid', { autoAlpha: 1, duration: 0.01 }, 20.55);
+        tl.from('#st-vid', { x: 78, y: 104, rotation: 12, scale: 0.85, duration: 0.7, ease: POP,
+            immediateRender: false }, 20.56);
+        tl.to('#st-vid', { x: -220, y: 6, rotation: 0, duration: 0.75, ease: PAN }, 21.25);
+        tl.to('#st-vid .play', { scale: 1.16, duration: 0.42, ease: IDLE, yoyo: true, repeat: 3,
+            transformOrigin: '50% 50%' }, 22.0);
+        /* Zweites Foto legt sich dazu */
+        tl.to('#st-ph2', { autoAlpha: 1, duration: 0.01 }, 21.15);
+        tl.from('#st-ph2', { x: -96, y: 62, rotation: -13, scale: 0.85, duration: 0.7, ease: POP,
+            immediateRender: false }, 21.16);
+        tl.to('#st-ph2', { x: -55, y: 56, rotation: 0, duration: 0.75, ease: PAN }, 21.85);
         /* Die Seite ist jetzt schön: Sterne + Glanz */
-        tl.to('#st-stars', { autoAlpha: 1, duration: 0.01 }, 22.3);
-        tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2)' }, 22.31);
-        tl.to('#st-browser', { scale: 1.02, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1 }, 22.4);
+        tl.to('#st-stars', { autoAlpha: 1, duration: 0.01 }, 22.75);
+        tl.from('#st-stars', { scale: 0, rotation: -8, duration: 0.55, ease: 'back.out(2)' }, 22.76);
+        tl.to('#st-browser', { scale: 1.02, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1 }, 22.85);
 
         /* ========== Kapitel 4: Auf jedem Gerät (24.5 – 32) ========== */
         tl.call(setDot(3), null, 24.5);
