@@ -198,9 +198,9 @@
         say('#tx4', 25.9, 31.3);
         /* Tablet fährt von links herein, Handy von rechts */
         tl.to('#st-tab', { autoAlpha: 1, duration: 0.01 }, 25.95);
-        tl.from('#st-tab', { x: 337, y: 26, rotation: 0, scale: 0.6, duration: 1.0, ease: 'back.out(1.3)', immediateRender: false }, 25.96);
+        tl.from('#st-tab', { x: 308, y: 26, rotation: 0, scale: 0.6, duration: 1.0, ease: 'back.out(1.3)', immediateRender: false }, 25.96);
         tl.to('#st-phone', { autoAlpha: 1, duration: 0.01 }, 26.35);
-        tl.from('#st-phone', { x: -318, y: 22, rotation: 0, scale: 0.58, duration: 1.0, ease: 'back.out(1.3)', immediateRender: false }, 26.36);
+        tl.from('#st-phone', { x: -347, y: 22, rotation: 0, scale: 0.58, duration: 1.0, ease: 'back.out(1.3)', immediateRender: false }, 26.36);
         /* Dieselbe Seite auf jedem Schirm: die Inhalte bauen sich kurz nach */
         tl.from('#st-tab .mnav, #st-phone .mnav', { autoAlpha: 0, y: -6, duration: 0.35, ease: SOFT, stagger: 0.1 }, 27.15);
         tl.from('#st-tab .mh, #st-phone .mh', { scaleY: 0.45, autoAlpha: 0, duration: 0.42, ease: SOFT, transformOrigin: '50% 0%', stagger: 0.1 }, 27.3);
@@ -215,8 +215,8 @@
         tl.to('#st-tab .mb, #st-phone .mb', { scale: 1.07, duration: 0.42, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 30.3);
         /* Geräte treten ab, die Webseite kommt zurück */
         tl.to('#st-fit', { autoAlpha: 0, y: 10, duration: 0.4, ease: IN }, 31.15);
-        tl.to('#st-tab', { x: 300, y: 20, scale: 0.6, autoAlpha: 0, duration: 0.7, ease: IN }, 31.25);
-        tl.to('#st-phone', { x: -285, y: 16, scale: 0.6, autoAlpha: 0, duration: 0.7, ease: IN }, 31.35);
+        tl.to('#st-tab', { x: 275, y: 20, scale: 0.6, autoAlpha: 0, duration: 0.7, ease: IN }, 31.25);
+        tl.to('#st-phone', { x: -315, y: 16, scale: 0.6, autoAlpha: 0, duration: 0.7, ease: IN }, 31.35);
         tl.to('#st-browser', { scale: 1, y: 0, duration: 0.85, ease: MOVE }, 31.7);
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
