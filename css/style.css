@@ -243,7 +243,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .stage-wrap { display: flex; flex-direction: column; align-items: center; }
 #stage-scale { width: 100%; max-width: 1124px; }
 #stage { position: relative; width: 900px; height: 502px; transform-origin: top left; }
-#st-scene { position: absolute; left: 0; top: 0; width: 900px; height: 470px; }
+#st-scene { position: absolute; left: 0; top: 0; width: 900px; height: 470px;
+    will-change: transform; backface-visibility: hidden; }
 .st-sw { position: absolute; width: 58px; height: 58px; border-radius: 50%;
     box-shadow: 0 12px 28px rgba(27,36,112,0.2); }
 #st-sw1 { left: 421px; top: 71px; background: #FF2D9C; }
@@ -462,7 +463,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #tx1 { left: 40px; top: 358px; width: 556px; }
 #tx3 { left: 612px; top: 140px; width: 266px; }
 #tx4 { left: 118px; top: 380px; width: 664px; text-align: center; }
-#tx7 { left: 168px; top: 380px; width: 564px; }
+#tx7 { left: 122px; top: 406px; width: 656px; }
 
 /* Tablet und Handy für die mobile Optimierung */
 #st-tab, #st-phone { position: absolute; z-index: 2; background: #0D1238; box-sizing: border-box;

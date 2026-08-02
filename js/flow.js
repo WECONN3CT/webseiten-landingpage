@@ -17,7 +17,7 @@
         /* Desktop: ganze Bühne (Textspalte + Szene). Mobil: auf die Szene gezoomt,
            der Text sitzt dann unter der Szene — beides innerhalb derselben Bühne. */
         var base = 900;
-        var h = mobile ? 800 : 502;
+        var h = mobile ? 830 : 546;
         var s = Math.min(vw, 1124) / base;
         stage.style.transform = 'scale(' + s + ')';
         stage.style.marginLeft = (mobile ? 0 : (vw - 900 * s) / 2) + 'px';
@@ -95,6 +95,7 @@
 
         var tl = gsap.timeline({ paused: true, repeat: -1 });
         tl.timeScale(0.9);
+        var PAN = 'power2.inOut';
         var POP = 'back.out(1.45)', SOFT = 'power2.out', OUT = 'power3.out',
             MOVE = 'power3.inOut', IN = 'power2.in', IDLE = 'sine.inOut';
 
@@ -155,7 +156,7 @@
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
         tl.call(setDot(1), null, 9);
-        tl.to('#st-scene', { x: 168, y: 0, duration: 0.9, ease: MOVE }, 9.0);
+        tl.to('#st-scene', { x: 168, y: 0, duration: 1.15, ease: PAN }, 8.95);
         say('#tx2', 10.9, 16.5);
         /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
         tl.to('#st-vk', { x: 240, y: -10, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.65);
@@ -186,7 +187,7 @@
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24) ========== */
         tl.call(setDot(2), null, 17);
-        tl.to('#st-scene', { x: -168, y: 0, duration: 0.9, ease: MOVE }, 17.0);
+        tl.to('#st-scene', { x: -168, y: 0, duration: 1.35, ease: PAN }, 16.85);
         say('#tx3', 17.6, 23.5);
         /* Blitz — das erste Foto entsteht und fliegt IN den Hero */
         tl.fromTo('#st-flash', { opacity: 0 }, { opacity: 0.7, duration: 0.08, ease: IN }, 17.5);
@@ -216,7 +217,7 @@
 
         /* ========== Kapitel 4: Auf jedem Gerät (24.5 – 32) ========== */
         tl.call(setDot(3), null, 24.5);
-        tl.to('#st-scene', { x: 0, y: -30, duration: 0.9, ease: MOVE }, 24.5);
+        tl.to('#st-scene', { x: 0, y: -30, duration: 1.2, ease: PAN }, 24.4);
         /* Die Requisiten des Foto-Kapitels treten ab, die Seite rückt in ihre neue Position */
         tl.to('.st-photo, #st-vid, #st-stars', { autoAlpha: 0, scale: 0.9, duration: 0.45, ease: IN }, 24.6);
         tl.to('#st-browser', { scale: 0.7, x: 33, duration: 1.0, ease: MOVE, transformOrigin: '50% 50%' }, 24.9);
@@ -256,7 +257,7 @@
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
         tl.call(setDot(4), null, 32);
-        tl.to('#st-scene', { x: 168, y: 0, duration: 0.9, ease: MOVE }, 32.0);
+        tl.to('#st-scene', { x: 168, y: 0, duration: 1.2, ease: PAN }, 31.9);
         say('#tx5', 32.7, 36.1);
         say('#tx6', 38.2, 44.1);
         /* SEO-Scan fährt über die fertige Seite */
@@ -322,13 +323,13 @@
 
         /* ========== Kapitel 6: Anzeigen bei Instagram (44.5 – 53.5) ========== */
         tl.call(setDot(5), null, 44.5);
-        tl.to('#st-scene', { x: 0, y: 0, duration: 0.9, ease: MOVE }, 44.5);
-        /* Suchergebnis und Webseite treten ab, das Handy übernimmt die Bühne */
-        tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 44.5);
-        tl.to('#st-cursor', { autoAlpha: 0, duration: 0.35, ease: IN }, 44.5);
-        tl.to('#st-browser', { scale: 0.5, autoAlpha: 0, duration: 0.7, ease: IN }, 44.6);
-        tl.to('#st-ads', { autoAlpha: 1, duration: 0.01 }, 45.1);
-        tl.from('#st-ads', { y: 90, scale: 0.85, duration: 0.9, ease: POP, immediateRender: false }, 45.11);
+        /* Erst räumt die Suche ab, dann fährt die Kamera, dann kommt das Handy */
+        tl.to('#st-cursor', { autoAlpha: 0, duration: 0.3, ease: IN }, 44.4);
+        tl.to('#st-serp', { y: -48, autoAlpha: 0, duration: 0.55, ease: 'power2.in' }, 44.45);
+        tl.to('#st-browser', { scale: 0.82, autoAlpha: 0, duration: 0.65, ease: 'power2.in' }, 44.6);
+        tl.to('#st-scene', { x: 0, y: 0, duration: 1.05, ease: PAN }, 44.9);
+        tl.to('#st-ads', { autoAlpha: 1, duration: 0.01 }, 45.35);
+        tl.from('#st-ads', { y: 78, scale: 0.88, duration: 1.0, ease: 'power3.out', immediateRender: false }, 45.36);
         say('#tx8', 45.6, 51.3);
         /* Der Feed scrollt: die Anzeige zieht vorbei ... */
         tl.fromTo('#ig-feed', { y: 0 }, { y: -100, duration: 1.5, ease: 'power1.inOut', immediateRender: false }, 46.2);
@@ -356,11 +357,11 @@
 
         /* ========== Kapitel 6: Besucher werden zu Leads (44.5 – 58) ========== */
         tl.call(setDot(6), null, 51.7);
-        tl.to('#st-scene', { x: 0, y: -26, scale: 0.64, duration: 1.15, ease: 'power3.out' }, 51.75);
+        tl.to('#st-scene', { x: 0, y: -38, scale: 0.8, duration: 1.15, ease: 'power3.out' }, 51.75);
         say('#tx7', 53.2, 66.6);
         /* ... und die Webseite wächst genau dort heraus, wo die Anzeige stand */
         tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 51.75);
-        tl.fromTo('#st-browser', { x: 189, y: 26, scale: 0.42 },
+        tl.fromTo('#st-browser', { x: 189, y: 26, scale: 0.36 },
             { x: 0, y: 0, scale: 1, duration: 1.15, ease: 'power3.out', immediateRender: false }, 51.75);
         /* Lead-Karte dockt rechts an */
         tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 53.4);
