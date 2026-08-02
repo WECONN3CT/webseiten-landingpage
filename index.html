@@ -305,20 +305,20 @@
                         <div id="st-tapdot"></div>
                         <div id="st-again"><svg viewBox="0 0 24 24"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/></svg>Immer wieder sichtbar</div>
                         <div id="st-final">
-                            <!-- Design: die Visitenkarte aus Kapitel 1, dazu die drei Markenfarben -->
+                            <!-- Design: die Visitenkarte aus Kapitel 1 mit den Markenfarben -->
                             <div class="fin-card" id="fc0">
-                                <div class="fin-art">
-                                    <div class="fa-vk"><i class="edge"></i><i class="mark">A</i><i class="l1"></i><i class="l2"></i><i class="sep"></i></div>
-                                    <i class="fa-dot d1"></i><i class="fa-dot d2"></i><i class="fa-dot d3"></i>
-                                </div><span class="lb">Design</span>
+                                <div class="fin-art"><div class="fin-obj vk">
+                                    <i class="edge"></i><i class="mark">A</i>
+                                    <i class="l1"></i><i class="l2"></i><i class="sep"></i>
+                                    <div class="pal"><i></i><i></i><i></i></div>
+                                </div></div><span class="lb">Design</span>
                             </div>
-                            <!-- Foto & Video: der Bilderstapel aus Kapitel 3 -->
+                            <!-- Foto & Video: Aufnahme mit Play, darunter weitere Motive -->
                             <div class="fin-card" id="fc1">
-                                <div class="fin-art">
-                                    <div class="fa-ph p1"><i class="sun"></i><i class="hill"></i></div>
-                                    <div class="fa-ph p2"><i class="hill"></i></div>
-                                    <span class="fa-play"><i></i></span>
-                                </div><span class="lb">Foto &amp; Video</span>
+                                <div class="fin-art"><div class="fin-obj med">
+                                    <div class="im"><i class="sun"></i><i class="hill"></i><span class="play"><i></i></span></div>
+                                    <div class="th"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+                                </div></div><span class="lb">Foto &amp; Video</span>
                             </div>
                             <!-- Webseite: Laptop mit derselben Mini-Seite wie in den Geräte-Szenen -->
                             <div class="fin-card" id="fc2">
@@ -332,56 +332,50 @@
                                     <i class="fa-foot"></i>
                                 </div><span class="lb">Webseite</span>
                             </div>
-                            <!-- SEO: der Google-Treffer auf Platz 1 aus Kapitel 6 -->
+                            <!-- SEO: der eigene Google-Treffer auf Platz 1 -->
                             <div class="fin-card" id="fc3">
-                                <div class="fin-art">
-                                    <div class="fa-serp">
-                                        <div class="g-srch"><svg viewBox="0 0 24 24">
-                                            <path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.58v3h3.87c2.26-2.09 3.56-5.17 3.56-8.82z"/>
-                                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.94-2.91l-3.87-3a7.2 7.2 0 0 1-10.72-3.78H1.34v3.09A12 12 0 0 0 12 24z"/>
-                                            <path fill="#FBBC05" d="M5.35 14.31a7.12 7.12 0 0 1 0-4.6V6.62H1.34a12 12 0 0 0 0 10.78l4.01-3.09z"/>
-                                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.43-3.43C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.34 6.62l4.01 3.09A7.15 7.15 0 0 1 12 4.75z"/>
-                                        </svg><i class="q"></i></div>
-                                        <div class="g-row own"><i class="fav own">A</i><b>Ihr Unternehmen</b><span class="p1">1</span></div>
-                                        <div class="g-row"><i class="fav"></i><i class="bar" style="width:52%"></i></div>
-                                    </div>
-                                </div><span class="lb">SEO</span>
+                                <div class="fin-art"><div class="fin-obj serp">
+                                    <div class="g-srch"><svg viewBox="0 0 24 24">
+                                        <path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.58v3h3.87c2.26-2.09 3.56-5.17 3.56-8.82z"/>
+                                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.94-2.91l-3.87-3a7.2 7.2 0 0 1-10.72-3.78H1.34v3.09A12 12 0 0 0 12 24z"/>
+                                        <path fill="#FBBC05" d="M5.35 14.31a7.12 7.12 0 0 1 0-4.6V6.62H1.34a12 12 0 0 0 0 10.78l4.01-3.09z"/>
+                                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.43-3.43C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.34 6.62l4.01 3.09A7.15 7.15 0 0 1 12 4.75z"/>
+                                    </svg><i class="q"></i></div>
+                                    <div class="g-row own"><i class="fav own">A</i><b>Ihr Unternehmen</b><span class="p1">1</span></div>
+                                    <div class="g-row"><i class="fav"></i><i class="bar"></i></div>
+                                </div></div><span class="lb">SEO</span>
                             </div>
-                            <!-- Werbeanzeigen: die gesponserte Anzeige aus Kapitel 8 -->
+                            <!-- Werbeanzeigen: die gesponserte Anzeige aus dem Feed -->
                             <div class="fin-card" id="fc4">
-                                <div class="fin-art">
-                                    <div class="fa-ad">
-                                        <div class="a-top"><i class="av">A</i><i class="nm"></i><span class="tag">Gesponsert</span></div>
-                                        <div class="a-im"><i class="sun"></i><i class="hill"></i></div>
-                                        <div class="a-cta">Jetzt anfragen</div>
-                                    </div>
-                                </div><span class="lb">Werbeanzeigen</span>
+                                <div class="fin-art"><div class="fin-obj ad">
+                                    <div class="a-top"><i class="av">A</i><i class="nm"></i><span class="tag">Gesponsert</span></div>
+                                    <div class="a-im"><i class="sun"></i><i class="hill"></i></div>
+                                    <div class="a-cta">Jetzt anfragen</div>
+                                </div></div><span class="lb">Werbeanzeigen</span>
                             </div>
                             <!-- Software: ein Auswertungsfenster, wie es Kunden von uns bekommen -->
                             <div class="fin-card" id="fc5">
-                                <div class="fin-art">
-                                    <div class="fa-dash">
-                                        <div class="d-top"><i></i><i></i><i></i><span class="pill"></span></div>
-                                        <div class="d-in">
-                                            <div class="d-chart"><i style="height:38%"></i><i style="height:62%"></i><i style="height:48%"></i><i class="hi" style="height:88%"></i></div>
-                                            <div class="d-side"><i class="dl dark"></i><i class="dl"></i><i class="dl s"></i></div>
-                                        </div>
+                                <div class="fin-art"><div class="fin-obj dash">
+                                    <div class="d-top"><i></i><i></i><i></i><span class="pill"></span></div>
+                                    <div class="d-in">
+                                        <div class="d-chart"><i style="height:40%"></i><i style="height:64%"></i><i style="height:50%"></i><i class="hi" style="height:88%"></i></div>
+                                        <div class="d-side"><i class="dl dark"></i><i class="dl"></i><i class="dl s"></i></div>
                                     </div>
-                                </div><span class="lb">Software</span>
+                                </div></div><span class="lb">Software</span>
                             </div>
                             <!-- KI: ein Assistent, der die Anfragen beantwortet -->
                             <div class="fin-card" id="fc6">
-                                <div class="fin-art">
-                                    <div class="fa-chat">
-                                        <div class="bub in"><i style="width:32px"></i><i style="width:20px"></i></div>
-                                        <div class="bub out"><i style="width:40px"></i><i style="width:26px"></i></div>
-                                        <div class="bub type"><b></b><b></b><b></b></div>
+                                <div class="fin-art"><div class="fin-obj chat">
+                                    <div class="row">
+                                        <i class="ai"><svg viewBox="0 0 24 24"><path d="M12 3c.4 3.6 2.4 5.6 6 6c-3.6 .4 -5.6 2.4 -6 6c-.4 -3.6 -2.4 -5.6 -6 -6c3.6 -.4 5.6 -2.4 6 -6"/></svg></i>
+                                        <div class="bub in"><i style="width:30px"></i><i style="width:19px"></i></div>
                                     </div>
-                                    <span class="fa-spark"><svg viewBox="0 0 24 24"><path d="M12 3c.4 3.6 2.4 5.6 6 6c-3.6 .4 -5.6 2.4 -6 6c-.4 -3.6 -2.4 -5.6 -6 -6c3.6 -.4 5.6 -2.4 6 -6"/></svg></span>
-                                </div><span class="lb">KI</span>
+                                    <div class="bub out"><i style="width:38px"></i><i style="width:24px"></i></div>
+                                    <div class="bub type"><b></b><b></b><b></b></div>
+                                </div></div><span class="lb">KI</span>
                             </div>
                             <div id="fin-burst"></div>
-                            <i class="fin-sp" id="fs1"></i><i class="fin-sp" id="fs2"></i><i class="fin-sp" id="fs3"></i><i class="fin-sp" id="fs4"></i><i class="fin-sp" id="fs5"></i><i class="fin-sp" id="fs6"></i>
+                            <div id="fin-glow"></div>
                             <img id="fin-logo" src="assets/logo.png" alt="WECONN3CT">
                         </div>
                         <div class="st-rip" id="st-rip1"></div><div class="st-rip" id="st-rip2"></div><div class="st-rip" id="st-rip3"></div>

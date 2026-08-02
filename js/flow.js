@@ -85,7 +85,7 @@
             gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-tab, #st-phone, #st-fit', { autoAlpha: 0 });
             gsap.set('#st-ads, #st-tapdot, #st-again', { autoAlpha: 0 });
-            gsap.set('.fin-card, #fin-logo, #fin-burst, .fin-sp', { autoAlpha: 0 });
+            gsap.set('.fin-card, #fin-logo, #fin-burst, #fin-glow', { autoAlpha: 0 });
             gsap.set('.fin-card', { x: 0, y: 0, scale: 1 });
             gsap.set('#ig-feed', { y: 0 });
             gsap.set('#st-scene', { x: 0, scale: 1, transformOrigin: '50% 50%' });
@@ -462,14 +462,12 @@
         tl.to('.fin-card', { scale: 0.22, duration: 1.1, ease: IN }, 70.8);
         tl.set('.fin-card', { autoAlpha: 0 }, 71.9);
         /* Lichtblitz, Funken — und die Marke steht */
-        tl.fromTo('#fin-burst', { autoAlpha: 1, scale: 0.3 },
-            { scale: 3.4, autoAlpha: 0, duration: 0.85, ease: SOFT, immediateRender: false }, 71.85);
-        tl.fromTo('#fs1', { autoAlpha: 1, x: 0, y: 0 }, { x: -128, y: -84, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
-        tl.fromTo('#fs2', { autoAlpha: 1, x: 0, y: 0 }, { x: 134, y: -70, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
-        tl.fromTo('#fs3', { autoAlpha: 1, x: 0, y: 0 }, { x: -96, y: 96, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
-        tl.fromTo('#fs4', { autoAlpha: 1, x: 0, y: 0 }, { x: 108, y: 92, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
-        tl.fromTo('#fs5', { autoAlpha: 1, x: 0, y: 0 }, { x: -18, y: -132, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
-        tl.fromTo('#fs6', { autoAlpha: 1, x: 0, y: 0 }, { x: 24, y: 128, autoAlpha: 0, duration: 0.8, ease: SOFT, immediateRender: false }, 71.88);
+        tl.fromTo('#fin-burst', { autoAlpha: 1, scale: 0.22 },
+            { scale: 2.9, autoAlpha: 0, duration: 1.0, ease: SOFT, immediateRender: false }, 71.8);
+        /* Das Licht bleibt kurz stehen und traegt das Logo */
+        tl.fromTo('#fin-glow', { autoAlpha: 0, scale: 0.45 },
+            { autoAlpha: 1, scale: 1, duration: 0.8, ease: SOFT, immediateRender: false }, 71.95);
+        tl.to('#fin-glow', { autoAlpha: 0, scale: 1.12, duration: 0.9, ease: IN }, 75.6);
         tl.to('#fin-logo', { autoAlpha: 1, duration: 0.01 }, 72.0);
         tl.from('#fin-logo', { scale: 0.35, autoAlpha: 0, duration: 1.1,
             ease: 'elastic.out(1, 0.72)', transformOrigin: '50% 50%', immediateRender: false }, 72.01);
