@@ -62,6 +62,8 @@
             gsap.set('#st-r1', { top: 0 }); gsap.set('#st-r2', { top: 58 }); gsap.set('#st-r3', { top: 116 });
             gsap.set('.st-txt', { autoAlpha: 0 });
             gsap.set('#st-tab, #st-phone, #st-fit', { autoAlpha: 0 });
+            gsap.set('#st-ads, #st-tapdot, #st-again', { autoAlpha: 0 });
+            gsap.set('#ig-feed', { y: 0 });
             gsap.set('#st-scene', { x: 0, scale: 1, transformOrigin: '50% 50%' });
             gsap.set('#st-q', { textContent: '' });
             document.getElementById('st-cnt').textContent = '0';
@@ -283,20 +285,51 @@
         tl.to('#st-own', { scale: 0.975, duration: 0.1, ease: IN, transformOrigin: '50% 50%' }, 44.15);
         tl.to('#st-own', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 44.25);
 
-        /* ========== Kapitel 6: Besucher werden zu Leads (44.5 – 58) ========== */
+        /* ========== Kapitel 6: Anzeigen bei Instagram (44.5 – 53.5) ========== */
         tl.call(setDot(5), null, 44.5);
-        tl.to('#st-scene', { x: 0, scale: 0.74, duration: 0.9, ease: MOVE }, 44.8);
-        say('#tx7', 45.4, 57.6);
-        tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 44.8);
-        tl.to('#st-cursor', { autoAlpha: 0, y: 190, duration: 0.4, ease: IN }, 44.8);
-        tl.to('#st-browser', { scale: 1, x: 0, y: 0, autoAlpha: 1, duration: 0.7, ease: MOVE }, 45.1);
+        tl.to('#st-scene', { x: 0, duration: 0.9, ease: MOVE }, 44.5);
+        /* Suchergebnis und Webseite treten ab, das Handy übernimmt die Bühne */
+        tl.to('#st-serp', { y: -60, autoAlpha: 0, duration: 0.55, ease: IN }, 44.5);
+        tl.to('#st-cursor', { autoAlpha: 0, duration: 0.35, ease: IN }, 44.5);
+        tl.to('#st-browser', { scale: 0.5, autoAlpha: 0, duration: 0.7, ease: IN }, 44.6);
+        tl.to('#st-ads', { autoAlpha: 1, duration: 0.01 }, 45.1);
+        tl.from('#st-ads', { y: 90, scale: 0.85, duration: 0.9, ease: POP, immediateRender: false }, 45.11);
+        say('#tx8', 45.6, 52.6);
+        /* Der Feed scrollt: die Anzeige zieht vorbei ... */
+        tl.fromTo('#ig-feed', { y: 0 }, { y: -196, duration: 1.5, ease: 'power1.inOut', immediateRender: false }, 46.2);
+        tl.to('#st-ads .ad .im', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 46.9);
+        /* ... und taucht später wieder auf: so bleibt die Marke im Kopf */
+        tl.to('#ig-feed', { y: -560, duration: 1.6, ease: 'power1.inOut' }, 48.1);
+        tl.to('#st-again', { autoAlpha: 1, duration: 0.01 }, 49.2);
+        tl.from('#st-again', { scale: 0.5, y: -12, duration: 0.55, ease: 'back.out(2)', immediateRender: false }, 49.21);
+        tl.to('#ig-ad2 .im', { scale: 1.05, duration: 0.45, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 49.3);
+        /* Finger tippt auf den Button der Anzeige */
+        tl.to('#st-tapdot', { autoAlpha: 1, duration: 0.01 }, 50.0);
+        tl.fromTo('#st-tapdot', { x: 700, y: 430, scale: 1.2 }, { x: 628, y: 336, scale: 1, duration: 0.75, ease: MOVE, immediateRender: false }, 50.0);
+        tl.to('#st-tapdot', { scale: 0.72, duration: 0.12, ease: IN }, 50.85);
+        tl.to('#st-tapdot', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 50.97);
+        tl.to('#ig-ad2 .cta', { scale: 0.93, duration: 0.12, ease: IN, transformOrigin: '50% 50%' }, 50.85);
+        tl.to('#ig-ad2 .cta', { scale: 1, duration: 0.3, ease: 'back.out(2.1)' }, 50.97);
+        tl.fromTo('#st-rip1', { x: 620, y: 328, autoAlpha: 0.8, scale: 0.4 },
+            { scale: 2.6, autoAlpha: 0, duration: 0.6, ease: SOFT, immediateRender: false }, 50.9);
+        tl.to('#st-tapdot', { autoAlpha: 0, duration: 0.3, ease: IN }, 51.5);
+        /* Der Klick führt weiter: Handy tritt ab, die Webseite kommt zurück */
+        tl.to('#st-again', { autoAlpha: 0, y: -10, duration: 0.4, ease: IN }, 52.3);
+        tl.to('#st-ads', { y: 70, scale: 0.9, autoAlpha: 0, duration: 0.7, ease: IN }, 52.5);
+
+        /* ========== Kapitel 6: Besucher werden zu Leads (44.5 – 58) ========== */
+        tl.call(setDot(6), null, 53.5);
+        tl.to('#st-scene', { x: 0, scale: 0.74, duration: 0.9, ease: MOVE }, 53.8);
+        say('#tx7', 54.4, 66.6);
+        tl.to('#st-browser', { autoAlpha: 1, duration: 0.01 }, 53.6);
+        tl.fromTo('#st-browser', { scale: 0.72, y: 30 }, { scale: 1, x: 0, y: 0, duration: 0.85, ease: POP, immediateRender: false }, 53.6);
         /* Lead-Karte dockt rechts an */
-        tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 45.6);
-        tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP, immediateRender: false }, 45.6);
+        tl.to('#st-counter', { autoAlpha: 1, duration: 0.01 }, 54.6);
+        tl.from('#st-counter', { x: 60, scale: 0.85, duration: 0.55, ease: POP, immediateRender: false }, 54.6);
         /* Besucher erscheinen links untereinander */
         ['#pp1', '#pp2', '#pp3'].forEach(function (p, k) {
-            tl.to(p, { autoAlpha: 1, duration: 0.01 }, 45.95 + k * 0.15);
-            tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 45.96 + k * 0.15);
+            tl.to(p, { autoAlpha: 1, duration: 0.01 }, 54.95 + k * 0.15);
+            tl.from(p, { scale: 0, y: 16, duration: 0.5, ease: 'back.out(1.9)', immediateRender: false }, 54.96 + k * 0.15);
         });
         /* Jeder Besucher: klickt den Button (→ Neue Anfrage), wandert nach rechts, wird zum Lead */
         var NAMES = ['Max M. · gerade eben', 'Sarah K. · gerade eben', 'Tobias R. · gerade eben'];
@@ -309,9 +342,9 @@
         (function () {
             /* Gleichmäßiger Takt: 10,6 s Abstand — die Push hat Zeit zu wirken, bevor der Nächste startet */
             var runs = [
-                { p: '#pp1', rip: '#st-rip1', t: 46.4, dyBtn: 194, dyLead: 49 },
-                { p: '#pp2', rip: '#st-rip2', t: 49, dyBtn: 116, dyLead: -29 },
-                { p: '#pp3', rip: '#st-rip3', t: 51.6, dyBtn: 38, dyLead: -107 }
+                { p: '#pp1', rip: '#st-rip1', t: 55.4, dyBtn: 194, dyLead: 49 },
+                { p: '#pp2', rip: '#st-rip2', t: 58, dyBtn: 116, dyLead: -29 },
+                { p: '#pp3', rip: '#st-rip3', t: 60.6, dyBtn: 38, dyLead: -107 }
             ];
             runs.forEach(function (r, k) {
                 /* Zum Button: ruhig hinlaufen, leicht vorgelehnt, weich ankommen */
@@ -343,22 +376,22 @@
             var c = { n: 3 };
             tl.to(c, { n: 28, duration: 2.6, ease: 'power2.out', onUpdate: function () {
                 document.getElementById('st-cnt').textContent = '+' + Math.round(c.n);
-            } }, 54.6);
+            } }, 63.6);
         })();
-        tl.to('#st-counter', { scale: 1.06, duration: 0.35, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 54.9);
-        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 55);
+        tl.to('#st-counter', { scale: 1.06, duration: 0.35, ease: IDLE, yoyo: true, repeat: 3, transformOrigin: '50% 50%' }, 63.9);
+        tl.to('#st-notif', { scale: 1.03, duration: 0.35, ease: IDLE, yoyo: true, repeat: 1 }, 64);
 
         /* ========== Ausklang & Reset (58 – 60) ========== */
-        tl.to('#st-scene', { scale: 1, duration: 0.5, ease: MOVE }, 58.0);
-        tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 58.6);
+        tl.to('#st-scene', { scale: 1, duration: 0.5, ease: MOVE }, 67);
+        tl.to('#stage', { autoAlpha: 0, duration: 0.45, ease: IN }, 67.6);
         tl.call(function () {
             gsap.set('#stage *', { clearProps: 'all' });
             setInitial();
-        }, null, 59.1);
-        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 59.25);
-        tl.set({}, {}, 59.9);
+        }, null, 68.1);
+        tl.to('#stage', { autoAlpha: 1, duration: 0.35, ease: SOFT }, 68.25);
+        tl.set({}, {}, 68.9);
 
-        var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5];
+        var CHAPTER_TIMES = [0, 9, 17, 24.5, 32, 44.5, 53.5];
         dots.forEach(function (d) {
             d.addEventListener('click', function () {
                 var i = parseInt(d.getAttribute('data-ch'), 10);

@@ -459,7 +459,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .st-txt p { font-size: 15px; line-height: 1.58; color: var(--ink-60); }
 .st-txt b { color: var(--ink); font-weight: 700; }
-#tx2, #tx5, #tx6 { left: 22px; top: 146px; width: 268px; }
+#tx2, #tx5, #tx6, #tx8 { left: 22px; top: 146px; width: 268px; }
 #tx1 { left: 24px; top: 342px; width: 430px; }
 #tx3 { left: 610px; top: 146px; width: 268px; }
 #tx4 { left: 24px; top: 380px; width: 624px; }
@@ -495,6 +495,54 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .mini.small .mh { height: 32%; }
 .mini.small .ml { margin: 8px 9px 0; }
 .mini.small .mb { height: 18px; margin: 10px 9px 0; font-size: 7.5px; }
+/* Ads-Handy mit Social-Feed */
+#st-ads { position: absolute; z-index: 5; left: 520px; top: 26px; width: 252px; height: 450px;
+    background: #0D1238; border-radius: 34px; padding: 11px; box-sizing: border-box;
+    box-shadow: 0 34px 74px rgba(13,18,56,0.36); overflow: hidden; }
+#st-ads::before { content: ''; position: absolute; top: 20px; left: 50%; margin-left: -34px;
+    width: 68px; height: 20px; border-radius: 11px; background: #0D1238; z-index: 4; }
+#st-ads .ig-top { position: absolute; left: 11px; right: 11px; top: 11px; height: 46px;
+    background: #fff; border-radius: 24px 24px 0 0; z-index: 3;
+    display: flex; align-items: flex-end; gap: 8px; padding: 0 14px 8px; }
+#st-ads .ig-top .lg { width: 16px; height: 16px; border-radius: 5px;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#st-ads .ig-top .l1 { width: 44px; height: 5px; border-radius: 3px; background: rgba(13,18,56,0.16); }
+#st-ads .ig-top .l2 { width: 16px; height: 5px; border-radius: 3px; background: rgba(13,18,56,0.12); margin-left: auto; }
+#st-ads .ig-feed { position: absolute; left: 11px; right: 11px; top: 57px; padding: 0 10px;
+    background: #fff; }
+#st-ads .ig-post { margin-bottom: 12px; }
+#st-ads .prow { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+#st-ads .prow .av { width: 22px; height: 22px; border-radius: 50%; background: rgba(13,18,56,0.14); flex: none; }
+#st-ads .prow .av.brand { display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 11px; font-weight: 900; font-style: normal;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+#st-ads .prow .nm { width: 56px; height: 5px; border-radius: 3px; background: rgba(13,18,56,0.16); }
+#st-ads .prow .tag { margin-left: auto; font-size: 8px; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(13,18,56,0.42); }
+#st-ads .im { height: 116px; border-radius: 10px; background: rgba(13,18,56,0.08); position: relative; overflow: hidden; }
+#st-ads .im.brand { background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082); }
+#st-ads .im .sun { position: absolute; top: 10px; right: 12px; width: 13px; height: 13px;
+    border-radius: 50%; background: rgba(255,255,255,0.88); }
+#st-ads .im .hill { position: absolute; bottom: -14px; left: -10px; width: 110px; height: 42px;
+    border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.28); }
+#st-ads .im .hl { position: absolute; left: 12px; top: 16px; width: 96px; height: 7px;
+    border-radius: 4px; background: rgba(255,255,255,0.92); }
+#st-ads .im .hl2 { position: absolute; left: 12px; top: 29px; width: 62px; height: 6px;
+    border-radius: 3px; background: rgba(255,255,255,0.6); }
+#st-ads .acts { display: flex; gap: 8px; margin-top: 7px; }
+#st-ads .acts i { width: 13px; height: 13px; border-radius: 3px; background: rgba(13,18,56,0.13); }
+#st-ads .cta { margin-top: 8px; height: 26px; border-radius: 999px; display: flex;
+    align-items: center; justify-content: center; color: #fff; font-size: 10px; font-weight: 800;
+    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 6px 14px rgba(157,78,221,0.35); }
+#st-tapdot { position: absolute; z-index: 9; width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(13,18,56,0.16); border: 2px solid rgba(13,18,56,0.4); }
+#st-again { position: absolute; z-index: 7; left: 528px; top: 6px; display: flex; align-items: center;
+    gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px;
+    padding: 9px 18px; font-size: 13px; font-weight: 800;
+    box-shadow: 0 12px 30px rgba(27,36,112,0.16); }
+#st-again svg { width: 17px; height: 17px; stroke: #9D4EDD; stroke-width: 2; fill: none;
+    stroke-linecap: round; stroke-linejoin: round; }
 #st-fit { position: absolute; left: 686px; top: 376px; z-index: 7; display: flex; align-items: center;
     gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px;
     padding: 9px 18px; font-size: 14px; font-weight: 800;
