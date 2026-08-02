@@ -301,7 +301,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #st-fly .fl-l2 { width: 60%; height: 8px; border-radius: 4px; background: rgba(13,18,56,0.18); }
 #st-fly .fl-cta { width: 76px; height: 24px; border-radius: 999px; margin-top: 12px;
     background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
-#st-browser { position: absolute; left: 170px; top: 45px; width: 560px; height: 380px;
+#st-browser { position: absolute; z-index: 3; left: 170px; top: 45px; width: 560px; height: 380px;
     background: #fff; border: 1px solid var(--line); border-radius: 18px;
     box-shadow: 0 26px 64px rgba(27,36,112,0.16); overflow: hidden; }
 .st-bar { height: 34px; background: #EEF0FA; border-bottom: 1px solid var(--line);
@@ -456,7 +456,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 #tx7 { left: 26px; top: 384px; width: 620px; }
 
 /* Tablet und Handy für die mobile Optimierung */
-#st-tab, #st-phone { position: absolute; background: #0D1238; box-sizing: border-box;
+#st-tab, #st-phone { position: absolute; z-index: 2; background: #0D1238; box-sizing: border-box;
     box-shadow: 0 26px 60px rgba(13,18,56,0.32); }
 #st-tab { left: 18px; top: 112px; width: 190px; height: 250px; border-radius: 20px; padding: 10px; }
 #st-phone { left: 712px; top: 152px; width: 112px; height: 202px; border-radius: 18px; padding: 7px; }
@@ -464,13 +464,27 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     overflow: hidden; }
 #st-phone .scr { border-radius: 11px; }
 .mini { display: flex; flex-direction: column; }
-.mini .mh { height: 42%; position: relative; flex: none;
+.mini .mnav { display: flex; align-items: center; gap: 6px; padding: 8px 10px 7px; flex: none; }
+.mini .mnav .mdot { width: 12px; height: 12px; border-radius: 4px; flex: none;
+    background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+.mini .mnav .mline { height: 5px; width: 34px; border-radius: 3px; background: rgba(13,18,56,0.16); }
+.mini .mh { height: 34%; position: relative; flex: none; overflow: hidden;
     background: linear-gradient(135deg, #6A7CFF, #9D4EDD 55%, #FF5082); }
-.mini .mh .sun { position: absolute; top: 7px; right: 8px; width: 11px; height: 11px;
-    border-radius: 50%; background: rgba(255,255,255,0.85); }
-.mini .ml { height: 6px; border-radius: 3px; background: rgba(13,18,56,0.16); margin: 9px 10px 0; }
-.mini .mb { height: 15px; width: 62%; border-radius: 999px; margin: 11px 10px 0;
-    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082); }
+.mini .mh .sun { position: absolute; top: 7px; right: 9px; width: 12px; height: 12px;
+    border-radius: 50%; background: rgba(255,255,255,0.88); }
+.mini .mh .hill { position: absolute; bottom: -12px; left: -8px; width: 96px; height: 36px;
+    border-radius: 50% 50% 0 0; background: rgba(255,255,255,0.3); }
+.mini .ml { height: 6px; border-radius: 3px; background: rgba(13,18,56,0.16); margin: 10px 11px 0; }
+.mini .ml.dark { background: rgba(13,18,56,0.68); height: 7px; }
+.mini .mb { height: 22px; border-radius: 999px; margin: 13px 11px 0; display: flex;
+    align-items: center; justify-content: center; color: #fff; font-size: 9px; font-weight: 800;
+    letter-spacing: 0.01em; white-space: nowrap;
+    background: linear-gradient(100deg, #2E3EE8, #9D4EDD 60%, #FF5082);
+    box-shadow: 0 5px 12px rgba(157,78,221,0.35); }
+.mini.small .mnav { padding: 6px 8px 5px; }
+.mini.small .mh { height: 32%; }
+.mini.small .ml { margin: 8px 9px 0; }
+.mini.small .mb { height: 18px; margin: 10px 9px 0; font-size: 7.5px; }
 #st-fit { position: absolute; left: 686px; top: 376px; z-index: 7; display: flex; align-items: center;
     gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px;
     padding: 9px 18px; font-size: 14px; font-weight: 800;
