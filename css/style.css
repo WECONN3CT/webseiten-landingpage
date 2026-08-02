@@ -904,57 +904,100 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
 .bt-band:hover .badge2:last-child { transform: translateX(-5px); transition-delay: 0.06s; }
 .bt-reach:hover .ch { transform: translateY(-4px); }
 
-/* ---------- Bento: gestaffelter Auftritt und leise Bewegung in den Grafiken ----------
-   Alles laeuft ueber transform und opacity, damit es auf der Grafikkarte bleibt.
-   Wer weniger Bewegung eingestellt hat, bekommt am Ende der Datei nichts davon. */
-.bento > .bt:nth-child(2) { transition-delay: 0.07s; }
-.bento > .bt:nth-child(3) { transition-delay: 0.14s; }
-.bento > .bt:nth-child(4) { transition-delay: 0.21s; }
-.bento > .bt:nth-child(5) { transition-delay: 0.28s; }
-.bento > .bt:nth-child(6) { transition-delay: 0.35s; }
-.bento > .bt:nth-child(7) { transition-delay: 0.42s; }
+/* ---------- Bento: Auftritt und Bewegung in den Grafiken ----------
+   Jede Kachel zeigt einen sichtbaren Vorgang, nicht nur ein Atmen.
+   Unterschiedliche Laufzeiten, damit nichts im Gleichschritt zuckt.
+   Bei reduzierter Bewegung steht am Ende der Datei alles still. */
+.bento > .bt:nth-child(2) { transition-delay: 0.1s; }
+.bento > .bt:nth-child(3) { transition-delay: 0.2s; }
+.bento > .bt:nth-child(4) { transition-delay: 0.3s; }
+.bento > .bt:nth-child(5) { transition-delay: 0.4s; }
+.bento > .bt:nth-child(6) { transition-delay: 0.5s; }
+.bento > .bt:nth-child(7) { transition-delay: 0.6s; }
 
-/* Der Anfragen-Knopf in der Webseiten-Vorschau atmet */
-@keyframes bt-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
-.sh-cta { animation: bt-breathe 3.4s ease-in-out infinite; transform-origin: left center; }
+/* Webdesign: ein Lichtstreifen wandert über die Vorschau */
+.bt-shot { position: relative; }
+.bt-shot::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+    background: linear-gradient(105deg, rgba(255,255,255,0) 38%, rgba(255,255,255,0.62) 50%,
+        rgba(255,255,255,0) 62%);
+    transform: translateX(-120%); animation: bt-sweep 5.5s ease-in-out infinite; }
+@keyframes bt-sweep { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
 
-/* Die drei Wege leuchten nacheinander auf, der Punkt pulst dazu */
-@keyframes bt-lift { 0%, 62%, 100% { transform: translateY(0); } 26% { transform: translateY(-5px); } }
-@keyframes bt-live { 0%, 100% { box-shadow: 0 0 0 0 rgba(23, 163, 74, 0.5); }
-    70% { box-shadow: 0 0 0 7px rgba(23, 163, 74, 0); } }
-.bt-chan .ch { animation: bt-lift 4.2s ease-in-out infinite; }
-.bt-chan .ch:nth-child(2) { animation-delay: 0.35s; }
-.bt-chan .ch:nth-child(3) { animation-delay: 0.7s; }
-.bt-chan .live { animation: bt-live 2.6s ease-out infinite; }
-.bt-reach:hover .ch { animation-play-state: paused; }
+/* Geräte: die Seite im Handy wird gescrollt */
+.dv-roll { animation: bt-roll 7s ease-in-out infinite; }
+@keyframes bt-roll { 0%, 18% { transform: translateY(0); }
+    45%, 68% { transform: translateY(-86px); } 95%, 100% { transform: translateY(0); } }
+.dv-hero.sm.two { margin-top: 14px; background: linear-gradient(135deg, #8F9DFF, #6A7CFF); }
 
-/* Im Programmfenster wandert die Bearbeitung von Zeile zu Zeile */
-@keyframes bt-done { 0%, 20% { background: rgba(13, 18, 56, 0.1); }
-    36%, 88% { background: rgba(23, 163, 74, 0.18); }
-    100% { background: rgba(13, 18, 56, 0.1); } }
-.ap-row .pill { animation: bt-done 6s ease-in-out infinite; }
-.ap-row:nth-child(2) .pill { animation-delay: 1.2s; }
-.ap-row:nth-child(3) .pill { animation-delay: 2.4s; }
-.ap-row:nth-child(4) .pill { animation-delay: 3.6s; }
-.ap-row:nth-child(5) .pill { animation-delay: 4.8s; }
-.ag-live { animation: bt-live 2.6s ease-out infinite; }
+/* Erreichbarkeit: die drei Wege leuchten nacheinander auf */
+@keyframes bt-glow {
+    0%, 8% { transform: translateY(0) scale(1); background: #fff; }
+    16%, 26% { transform: translateY(-9px) scale(1.12);
+        background: linear-gradient(130deg, rgba(46,62,232,0.14), rgba(157,78,221,0.12)); }
+    38%, 100% { transform: translateY(0) scale(1); background: #fff; }
+}
+.bt-chan .ch { animation: bt-glow 4.5s ease-in-out infinite; }
+.bt-chan .ch:nth-child(2) { animation-delay: 0.5s; }
+.bt-chan .ch:nth-child(3) { animation-delay: 1s; }
+.bt-chan .ch.on { animation: none; }
+@keyframes bt-live { 0% { box-shadow: 0 0 0 0 rgba(23,163,74,0.55); }
+    70%, 100% { box-shadow: 0 0 0 10px rgba(23,163,74,0); } }
+.bt-chan .live, .ag-live { animation: bt-live 2.2s ease-out infinite; }
 
-/* Der eigene Google-Treffer hebt sich alle paar Sekunden kurz an */
-@keyframes bt-rank { 0%, 70%, 100% { transform: translateY(0) scale(1); }
-    82% { transform: translateY(-3px) scale(1.02); } }
-@keyframes bt-badge { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.14); } }
-.sp-hit { animation: bt-rank 5.5s ease-in-out infinite; }
-.sp-hit .rank { animation: bt-badge 5.5s ease-in-out infinite; }
+/* Software: die Bearbeitung wandert Zeile für Zeile durch die Liste */
+@keyframes bt-work {
+    0%, 6% { background: #F6F7FD; transform: translateX(0); }
+    14%, 26% { background: rgba(46,62,232,0.09); transform: translateX(6px); }
+    36%, 100% { background: #F6F7FD; transform: translateX(0); }
+}
+@keyframes bt-done {
+    0%, 20% { background: rgba(13,18,56,0.1); transform: scale(1); }
+    26% { transform: scale(1.35); }
+    30%, 92% { background: rgba(23,163,74,0.28); transform: scale(1); }
+    100% { background: rgba(13,18,56,0.1); transform: scale(1); }
+}
+.ap-row { animation: bt-work 7s ease-in-out infinite; }
+.ap-row .pill { animation: bt-done 7s ease-in-out infinite; }
+.ap-row:nth-child(2), .ap-row:nth-child(2) .pill { animation-delay: 1.2s; }
+.ap-row:nth-child(3), .ap-row:nth-child(3) .pill { animation-delay: 2.4s; }
+.ap-row:nth-child(4), .ap-row:nth-child(4) .pill { animation-delay: 3.6s; }
+.ap-row:nth-child(5), .ap-row:nth-child(5) .pill { animation-delay: 4.8s; }
 
-/* Der Play-Knopf pulst leise */
-@keyframes bt-play { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }
-.bt-shots .play { animation: bt-play 3s ease-in-out infinite; }
+/* Google: der eigene Treffer steigt von unten auf Platz 1 */
+@keyframes bt-rise {
+    0% { transform: translateY(56px); opacity: 0; }
+    9% { transform: translateY(56px); opacity: 1; }
+    34%, 88% { transform: translateY(0); opacity: 1; }
+    96%, 100% { transform: translateY(0); opacity: 0; }
+}
+@keyframes bt-sink {
+    0%, 9% { transform: translateY(-28px); }
+    34%, 100% { transform: translateY(0); }
+}
+@keyframes bt-pop { 0%, 30% { transform: scale(0.4); } 42% { transform: scale(1.25); }
+    52%, 100% { transform: scale(1); } }
+.sp-hit { animation: bt-rise 7.5s ease-in-out infinite; }
+.sp-row { animation: bt-sink 7.5s ease-in-out infinite; }
+.sp-hit .rank { animation: bt-pop 7.5s ease-in-out infinite; }
 
-/* Zwei App-Symbole leuchten abwechselnd auf */
-@keyframes bt-tile { 0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.09); opacity: 0.86; } }
-.st-grid i:nth-child(1) { animation: bt-tile 3.6s ease-in-out infinite; }
-.st-grid i:nth-child(5) { animation: bt-tile 3.6s ease-in-out infinite 1.8s; }
+/* Foto und Video: ein Ring läuft aus dem Play-Knopf */
+.bt-shots .play::before { content: ''; position: absolute; inset: -2px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.85); animation: bt-ring 2.6s ease-out infinite; }
+@keyframes bt-ring { 0% { transform: scale(1); opacity: 0.9; }
+    70%, 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes bt-play { 0%, 70%, 100% { transform: scale(1); } 82% { transform: scale(1.16); } }
+.bt-shots .play { animation: bt-play 2.6s ease-in-out infinite; }
+
+/* App: die Symbole erscheinen nacheinander, wie beim Einrichten */
+@keyframes bt-icon { 0%, 4% { transform: scale(0.3); opacity: 0; }
+    16%, 84% { transform: scale(1); opacity: 1; }
+    96%, 100% { transform: scale(0.3); opacity: 0; } }
+.st-grid i { animation: bt-icon 5.5s ease-in-out infinite; }
+.st-grid i:nth-child(2) { animation-delay: 0.12s; }
+.st-grid i:nth-child(3) { animation-delay: 0.24s; }
+.st-grid i:nth-child(4) { animation-delay: 0.36s; }
+.st-grid i:nth-child(5) { animation-delay: 0.48s; }
+.st-grid i:nth-child(6) { animation-delay: 0.6s; }
 .bt-reach:hover .ch:nth-child(2) { transition-delay: 0.05s; }
 .bt-reach:hover .ch:nth-child(3) { transition-delay: 0.1s; }
 .bt-seo:hover .sp-card { transform: translateY(-6px); }
@@ -1175,8 +1218,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     .hero-showcase { overflow-x: auto; }
     html { scroll-behavior: auto; }
     .site-header, .header-inner, .logo { transition: none; }
-    .sh-cta, .bt-chan .ch, .bt-chan .live, .ap-row .pill, .ag-live,
-    .sp-hit, .sp-hit .rank, .bt-shots .play, .st-grid i { animation: none; }
+    .bt-shot::after, .dv-roll, .bt-chan .ch, .bt-chan .live, .ag-live,
+    .ap-row, .ap-row .pill, .sp-hit, .sp-row, .sp-hit .rank,
+    .bt-shots .play, .bt-shots .play::before, .st-grid i { animation: none; }
     .bento > .bt { transition-delay: 0s !important; }
 }
 
