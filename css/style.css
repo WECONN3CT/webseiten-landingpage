@@ -862,6 +862,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: linear-gradient(130deg, #2E3EE8, #9D4EDD 60%, #FF5082);
     box-shadow: 0 12px 26px rgba(46, 62, 232, 0.32); }
 .bt-chan .ch.on svg { stroke: #fff; }
+/* WhatsApp in seiner eigenen Farbe: als Marke nur so wiedererkennbar */
+.bt-chan .ch.wa svg { fill: #25D366; stroke: none; width: 22px; height: 22px; }
 .bt-chan .live { position: absolute; right: -4px; top: -4px; width: 14px; height: 14px;
     border-radius: 50%; background: #17A34A; border: 2.5px solid #fff; }
 .bt-reach:hover .ch { transform: translateY(-4px); }
