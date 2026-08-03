@@ -76,7 +76,8 @@
 
     mm.add({
         reduce: '(prefers-reduced-motion: reduce)',
-        ok: '(prefers-reduced-motion: no-preference)'
+        ok: '(prefers-reduced-motion: no-preference)',
+        schmal: '(max-width: 699px)'
     }, function (ctx) {
         if (ctx.conditions.reduce) {
             gsap.set('#st-browser, #st-stars', { autoAlpha: 1 });
@@ -85,6 +86,17 @@
             gsap.set('#tx2', { autoAlpha: 1 });
             return;
         }
+
+        /* Seitlicher Kameraschwenk — auf schmalen Geraeten abgeschaltet.
+           Die Buehne ist dort genau so breit wie der Schirm, es gibt also
+           keinen Rand, in den geschwenkt werden koennte: ein Schwenk um 158
+           Buehneneinheiten schiebt bei Massstab 0,43 rund 68 px aus dem Bild,
+           und `overflow-x: hidden` des Dokuments schneidet sie ab. Auf dem
+           Desktop steht die 1124 px breite Buehne mittig im Fenster und hat
+           links wie rechts Luft — dort bleibt der Schwenk.
+           Kostet auf dem Handy nichts: die ganze Szene ist ohnehin im Bild,
+           der Blick bleibt nur mittig stehen, statt mitzuwandern. */
+        var PANX = ctx.conditions.schmal ? 0 : 1;
 
         /* ---------- Anfangszustände ---------- */
         function setInitial() {
@@ -179,7 +191,7 @@
         tl.to('#st-design .d-chips i', { scale: 1.18, duration: 0.3, ease: IDLE, yoyo: true, repeat: 1, stagger: 0.14, transformOrigin: '50% 50%' }, 7.0);
 
         /* ========== Kapitel 2: Branding verschmilzt zur Webseite (9 – 17) ========== */
-        tl.to('#st-scene', { x: 158, y: 0, duration: 1.15, ease: PAN }, 8.95);
+        tl.to('#st-scene', { x: 158 * PANX, y: 0, duration: 1.15, ease: PAN }, 8.95);
         say('#tx2', 10.9, 16.5);
         /* Visitenkarte, Flyer und Design fliegen zusammen und stapeln sich */
         tl.to('#st-vk', { x: 240, y: -10, rotation: 0, scale: 0.5, duration: 0.65, ease: MOVE }, 9.65);
@@ -209,7 +221,7 @@
         tl.to('#st-btn', { scale: 1.04, duration: 0.4, ease: IDLE, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 16.0);
 
         /* ========== Kapitel 3: Fotos & Videos füllen die Seite (17 – 24.4) ========== */
-        tl.to('#st-scene', { x: -168, y: 0, duration: 1.35, ease: PAN }, 16.85);
+        tl.to('#st-scene', { x: -168 * PANX, y: 0, duration: 1.35, ease: PAN }, 16.85);
         say('#tx3', 17.9, 23.7);
         /* Erst wenn die Kamera steht, entsteht das erste Foto: weicher Lichtblitz, kein Vollbild-Blinken */
         tl.fromTo('#st-flash', { opacity: 0, scale: 0.86 },
@@ -280,7 +292,7 @@
         tl.to('#st-browser', { scale: 1, x: 0, y: 0, duration: 0.9, ease: MOVE }, 31.6);
 
         /* ========== Kapitel 5: SEO-Optimierung, dann Aufstieg auf Platz 1 (32 – 44.5) ========== */
-        tl.to('#st-scene', { x: -158, y: 0, duration: 1.2, ease: PAN }, 31.9);
+        tl.to('#st-scene', { x: -158 * PANX, y: 0, duration: 1.2, ease: PAN }, 31.9);
         say('#tx5', 32.7, 36.1);
         say('#tx6', 38.2, 44.1);
         /* SEO-Scan fährt über die fertige Seite */
