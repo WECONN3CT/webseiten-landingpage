@@ -35,6 +35,11 @@ export async function onRequestPost(context) {
     const email = (form.get('email') || '').toString().trim().slice(0, 200);
     const phone = (form.get('phone') || '').toString().trim().slice(0, 50);
     const status = (form.get('website_status') || '').toString().trim().slice(0, 50);
+    const websiteRaw = (form.get('website_url') || '').toString().trim().slice(0, 300);
+    // Ohne Schema geschrieben ("www.firma.de") laesst sich der Link sonst nicht anklicken
+    const website = websiteRaw && !/^https?:\/\//i.test(websiteRaw)
+        ? `https://${websiteRaw}`
+        : websiteRaw;
     const consent = form.get('consent') === '1';
     const honeypot = (form.get('company') || '').toString().trim();
 
@@ -67,6 +72,7 @@ export async function onRequestPost(context) {
             `✉️ ${email}`,
             phone ? `📞 ${phone}` : null,
             `🌐 Status: ${statusLabels[status] || status || 'k.A.'}`,
+            website ? `🔍 Zu analysieren: ${website}` : null,
         ].filter(Boolean).join('\n');
 
         tasks.push(fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {

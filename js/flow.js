@@ -17,7 +17,10 @@
         /* Desktop: ganze Bühne (Textspalte + Szene). Mobil: auf die Szene gezoomt,
            der Text sitzt dann unter der Szene — beides innerhalb derselben Bühne. */
         var base = 900;
-        var h = mobile ? 830 : 546;
+        /* 920 statt 830 auf schmalen Geraeten: die Schrift in .st-txt musste
+           groesser werden, um lesbar zu bleiben (siehe css/style.css), und der
+           laengste Textblock braucht dafuer 905 px Hoehe in Buehnen-Einheiten. */
+        var h = mobile ? 920 : 546;
         var s = Math.min(vw, 1124) / base;
         stage.style.transform = 'scale(' + s + ')';
         stage.style.marginLeft = (mobile ? 0 : (vw - 900 * s) / 2) + 'px';

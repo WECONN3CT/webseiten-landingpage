@@ -54,6 +54,25 @@
     syncConsentField();
 
     /* ---------- Formular-UX ---------- */
+    /* Wer noch keine Webseite hat, kann keine analysieren lassen:
+       Adressfeld verschwindet, der Knopf verspricht dann ein Angebot statt einer Analyse */
+    var statusSel = document.getElementById('f-status');
+    var urlField = document.getElementById('url-field');
+    var submitLabel = document.getElementById('submitlabel');
+    if (statusSel && urlField) {
+        var syncOfferState = function () {
+            var ohneSeite = statusSel.value === 'nein';
+            urlField.hidden = ohneSeite;
+            if (submitLabel) {
+                submitLabel.textContent = ohneSeite
+                    ? 'Kostenloses Angebot anfordern'
+                    : 'Kostenlose Analyse anfordern';
+            }
+        };
+        statusSel.addEventListener('change', syncOfferState);
+        syncOfferState();
+    }
+
     var form = document.getElementById('leadform');
     if (form) {
         form.addEventListener('submit', function () {
@@ -61,7 +80,8 @@
             var btn = document.getElementById('submitbtn');
             if (btn) {
                 btn.disabled = true;
-                btn.textContent = 'Wird gesendet…';
+                if (submitLabel) submitLabel.textContent = 'Wird gesendet…';
+                else btn.textContent = 'Wird gesendet…';
             }
             /* Browser-seitiges Lead-Event feuert auf der Dankeseite (mit eventID zur Deduplizierung) */
         });
@@ -117,4 +137,29 @@
     window.addEventListener('resize', requestCheck, { passive: true });
     document.addEventListener('visibilitychange', requestCheck);
     checkReveals();
+
+    /* ---------- Sticky-Knopf weicht dem Formular ----------
+       Auf dem Handy steht das Formular gleich unter der Hero. Der feste Knopf
+       am unteren Rand liegt dann genau ueber dem Absende-Knopf und fuehrt
+       dorthin, wo man ohnehin schon ist. Also: sobald das Formular im Bild
+       ist, faehrt er weg. Gleiche Drossel wie oben, kein zweiter Listener. */
+    var cta = document.getElementById('mobilecta');
+    var anfrage = document.getElementById('anfrage');
+    if (cta && anfrage) {
+        var syncCta = function () {
+            var r = anfrage.getBoundingClientRect();
+            /* sichtbar, sobald irgendein Teil des Formulars im Fenster steht */
+            var sichtbar = r.bottom > 0 && r.top < window.innerHeight;
+            cta.classList.toggle('away', sichtbar);
+        };
+        var ctaTicking = false;
+        var requestCta = function () {
+            if (ctaTicking) return;
+            ctaTicking = true;
+            window.setTimeout(function () { ctaTicking = false; syncCta(); }, 80);
+        };
+        window.addEventListener('scroll', requestCta, { passive: true });
+        window.addEventListener('resize', requestCta, { passive: true });
+        syncCta();
+    }
 })();

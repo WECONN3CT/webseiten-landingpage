@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webseite erstellen lassen zum Festpreis | WECONN3CT</title>
-    <meta name="description" content="Webseite erstellen lassen vom Team aus Bad Honnef: individuell, schnell, zum Festpreis. Kostenloses Angebot innerhalb von 24 Stunden. Jetzt unverbindlich anfragen.">
+    <title>Webseite erstellen lassen | Webdesign aus Bad Honnef</title>
+    <meta name="description" content="Webseite erstellen lassen vom Team aus Bad Honnef, individuell und mit klarem Preis. Jetzt kostenlose Analyse Ihrer Webseite anfordern, Antwort in 24 Stunden.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://webseite.weconn3ct.de/">
     <link rel="icon" type="image/png" href="assets/logo.png">
@@ -13,8 +13,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://webseite.weconn3ct.de/">
-    <meta property="og:title" content="Webseite erstellen lassen zum Festpreis | WECONN3CT">
-    <meta property="og:description" content="Modern, schnell, persönlich betreut. Kostenloses Angebot in 24 h.">
+    <meta property="og:title" content="Webseite erstellen lassen | Webdesign aus Bad Honnef">
+    <meta property="og:description" content="Modern, schnell, persönlich betreut. Kostenlose Analyse Ihrer Webseite, Antwort in 24 h.">
     <meta property="og:image" content="https://webseite.weconn3ct.de/assets/logo.png">
     <meta property="og:locale" content="de_DE">
 
@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <link rel="stylesheet" href="css/style.css?v=20">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -46,7 +46,15 @@
         }
       },
       "areaServed": "DE",
-      "description": "Professionelle Webseiten zum Festpreis: Design, Umsetzung und Betreuung aus einer Hand."
+      "description": "Professionelle Webseiten für Ihren Betrieb: Design, Umsetzung und Betreuung aus einer Hand. Vorab analysieren wir Ihre bestehende Webseite kostenlos und nennen konkrete Verbesserungen.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Kostenlose Webseiten-Analyse",
+        "description": "Wir prüfen Ihre bestehende Webseite und nennen Ihnen konkrete Maßnahmen, um mehr Anfragen zu erhalten.",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
     }
     </script>
 
@@ -96,25 +104,30 @@
                         </svg>
                     </span>.</span>
                 </h1>
-                <p class="hero-sub">Wir entwerfen alles individuell für Ihren Betrieb, ohne Baukasten und ohne Massenware. Sie kümmern sich um Ihr Geschäft, wir uns um den Rest.</p>
+                <p class="hero-sub">Wir bauen Webseiten, die bei Google gefunden werden und Anfragen bringen. Jede Seite entsteht von Grund auf für Ihren Betrieb.</p>
                 <ul class="hero-checks">
-                    <li>Kostenloses Festpreis-Angebot, <strong>völlig unverbindlich</strong></li>
-                    <li>Antwort <strong>innerhalb von 24 Stunden</strong></li>
+                    <li><strong>Kostenlose Analyse Ihrer Webseite:</strong> Sie sehen schwarz auf weiß, was fehlt</li>
+                    <li>Antwort <strong>innerhalb von 24 Stunden</strong>, unverbindlich und ohne Haken</li>
                     <li><strong>Alles aus einer Hand:</strong> Design, Texte, Technik &amp; DSGVO</li>
                 </ul>
                 <div class="hero-proof">
                     <div class="proof-item"><strong>12+</strong><span>Projekte<br>umgesetzt</span></div>
                     <div class="proof-item"><strong>15</strong><span>Köpfe<br>im Team</span></div>
-                    <div class="proof-item"><strong>100%</strong><span>Festpreis-<br>Garantie</span></div>
+                    <div class="proof-item"><strong>100%</strong><span>Preis-<br>Garantie</span></div>
                 </div>
             </div>
 
             <!-- FORMULAR -->
             <div class="form-wrap reveal" id="anfrage">
                 <div class="form-card">
-                    <span class="float-chip" aria-hidden="true">Antwort in 24 h</span>
-                    <h2>Was kostet Ihre neue Webseite?</h2>
-                    <p class="form-sub">Finden Sie es kostenlos heraus. Unverbindlich, ohne Newsletter, ohne Spam.</p>
+                    <span class="float-chip" aria-hidden="true">100 % kostenlos</span>
+                    <h2>Wir analysieren Ihre Webseite kostenlos</h2>
+                    <p class="form-sub">Wir sehen uns Ihren Auftritt genau an und sagen Ihnen, was gut läuft und was Sie Anfragen kostet.</p>
+                    <ul class="form-gets">
+                        <li>Was Besucher auf Ihrer Seite abspringen lässt</li>
+                        <li>Konkrete Maßnahmen, nach Wirkung sortiert</li>
+                        <li>Auf Wunsch ein Angebot für die Umsetzung, mit klarem Preis</li>
+                    </ul>
                     <form action="/api/lead" method="POST" id="leadform">
                         <label for="f-name">Ihr Name *</label>
                         <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Max Mustermann">
@@ -134,6 +147,12 @@
                             <option value="sonstiges">Etwas anderes</option>
                         </select>
 
+                        <!-- Adresse der Seite, die wir analysieren sollen. Bei "noch keine" per JS ausgeblendet -->
+                        <div id="url-field">
+                            <label for="f-url">Adresse Ihrer Webseite <span class="opt">(damit wir sie ansehen können)</span></label>
+                            <input type="text" id="f-url" name="website_url" inputmode="url" autocomplete="url" placeholder="www.ihre-firma.de">
+                        </div>
+
                         <!-- Honeypot gegen Spam -->
                         <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <input type="hidden" name="consent" id="f-consent" value="0">
@@ -144,11 +163,11 @@
                         </label>
 
                         <button type="submit" class="btn-primary" id="submitbtn">
-                            Jetzt Festpreis-Angebot anfordern
+                            <span id="submitlabel">Kostenlose Analyse anfordern</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
                         <div class="or-line"><span>oder</span></div>
-                        <a href="https://wa.me/4922241874592?text=Hallo%20WECONN3CT%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Webseite." class="btn-wa" target="_blank" rel="noopener">
+                        <a href="https://wa.me/4922241874592?text=Hallo%20WECONN3CT%2C%20ich%20h%C3%A4tte%20gern%20die%20kostenlose%20Analyse%20meiner%20Webseite." class="btn-wa" target="_blank" rel="noopener">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
                             Schreiben Sie uns auf WhatsApp
                         </a>
@@ -558,13 +577,338 @@
     </section>
 
 
+    <!-- KUNDENSTIMMEN -->
+    <section class="section voices" aria-labelledby="voices-title">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="kicker">Kundenstimmen</p>
+                <h2 id="voices-title">Was unsere <span class="script-blue">Kunden</span> danach <span class="script-purple">sagen</span>.</h2>
+            </div>
+        </div>
+
+        <!-- Schraege Wand aus Stimmen: jede Reihe laeuft in die andere
+             Richtung, je Reihe zwei identische Saetze (-50 % = nahtlos).
+             Liegt ausserhalb des Containers, damit sie ueber die volle
+             Bildschirmbreite laeuft. Nur das erste Set ist fuer Screenreader
+             sichtbar, der Rest ist Wiederholung. -->
+        <div class="voice-wall">
+                <div class="wall-rot">
+                <div class="wall-row">
+                    <div class="wall-track" style="animation-duration:96s">
+                    <figure class="voice">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <!-- Kopie fuer die nahtlose Schleife -->
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    </div>
+                </div>
+                <div class="wall-row">
+                    <div class="wall-track rtl" style="animation-duration:84s">
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <!-- Kopie fuer die nahtlose Schleife -->
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    </div>
+                </div>
+                <div class="wall-row">
+                    <div class="wall-track" style="animation-duration:108s">
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <!-- Kopie fuer die nahtlose Schleife -->
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Seit der SEO-Arbeit kommen deutlich mehr Anfragen über die Seite herein. Wir werden für die Suchbegriffe gefunden, die für uns zählen.</blockquote>
+                        <figcaption><span class="voice-av">HG</span><span class="voice-who"><b>Hausser Garmiani</b><small>SchadenCheck24</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Unser Laden hat endlich einen Auftritt, der zu uns passt. Neue Kunden erzählen, dass sie uns online entdeckt haben.</blockquote>
+                        <figcaption><span class="voice-av">SK</span><span class="voice-who"><b>Seyid Kaya</b><small>Kaya Feinkost</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Früher saß ich mittags über dem Papierkram. Das macht heute die Software. Dazu eine Webseite und Visitenkarten, die endlich zusammenpassen.</blockquote>
+                        <figcaption><span class="voice-av">MM</span><span class="voice-who"><b>Michael Mertes</b><small>Schornsteinfeger Mertes</small></span></figcaption>
+                    </figure>
+                    <figure class="voice" aria-hidden="true">
+                        <blockquote>Wir haben ein neues Logo bekommen und eine Seite, die dazu passt. Seitdem melden sich mehr Kunden bei uns.</blockquote>
+                        <figcaption><span class="voice-av">AE</span><span class="voice-who"><b>Ahmed El Biaj</b><small>AE Raumwerk</small></span></figcaption>
+                    </figure>
+                    </div>
+                </div>
+                </div>
+                <div class="wall-fade wall-fade-top" aria-hidden="true"></div>
+                <div class="wall-fade wall-fade-bottom" aria-hidden="true"></div>
+        </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section class="section final-cta">
         <div class="container">
             <div class="cta-card reveal">
                 <h2>Bereit für eine <span class="script-blue">Webseite</span>, die für Sie <span class="script-purple">arbeitet</span>?</h2>
-                <p>Fordern Sie jetzt Ihr kostenloses Festpreis-Angebot an und entscheiden Sie danach in Ruhe.</p>
-                <a href="#anfrage" class="btn-primary btn-lg">Jetzt Festpreis-Angebot anfordern</a>
+                <p>Wir sehen uns Ihren Auftritt an und sagen Ihnen, was ihn zurückhält. Kostenlos, unverbindlich, in 24 Stunden bei Ihnen.</p>
+                <a href="#anfrage" class="btn-primary btn-lg">Kostenlose Analyse anfordern</a>
                 <p class="cta-alt">Oder rufen Sie direkt an: <a href="tel:+4922241874592"><strong>02224 187 45 92</strong></a></p>
             </div>
         </div>
@@ -579,7 +923,7 @@
 </footer>
 
 <!-- Sticky Mobile CTA -->
-<a href="#anfrage" class="mobile-cta" id="mobilecta">Kostenloses Angebot →</a>
+<a href="#anfrage" class="mobile-cta" id="mobilecta">Kostenlose Analyse →</a>
 
 <!-- Consent Banner -->
 <div class="consent" id="consentbanner" hidden>
@@ -590,10 +934,10 @@
     </div>
 </div>
 
-<script src="js/main.js?v=8" defer></script>
+<script src="js/main.js?v=20" defer></script>
 <!-- GSAP für die System-Grafik (Choreografie in js/flow.js) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="js/flow.js?v=8" defer></script>
+<script src="js/flow.js?v=20" defer></script>
 </body>
 </html>
