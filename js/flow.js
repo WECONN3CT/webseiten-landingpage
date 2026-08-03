@@ -8,14 +8,24 @@
     if (!window.gsap || !document.getElementById('stage')) return;
     gsap.registerPlugin(ScrollTrigger);
 
+    /* Mobile Browser blenden beim Scrollen ihre Adressleiste ein und aus. Das
+       aendert die Fensterhoehe und loest `resize` aus — mehrfach pro Wischer.
+       ScrollTrigger wuerde daraufhin Start und Ende neu berechnen, und weil
+       `start: 'top 85%'` an der Fensterhoehe haengt, verschieben sie sich unter
+       dem laufenden Finger. Der Abschnitt gilt dann kurz als verlassen, `rewind`
+       setzt die Geschichte zurueck, und sie beginnt mitten im Ansehen von vorn. */
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
     var stage = document.getElementById('stage');
     var scaleBox = document.getElementById('stage-scale');
+    var lastWidth = 0;
 
     function fit() {
         var vw = scaleBox.clientWidth;
         var mobile = vw < 700;
-        /* Desktop: ganze Bühne (Textspalte + Szene). Mobil: auf die Szene gezoomt,
-           der Text sitzt dann unter der Szene — beides innerhalb derselben Bühne. */
+        /* Auf schmalen Geraeten steht der Text unter der Szene statt daneben,
+           deshalb dort die hoehere Buehne. Der Massstab ist in beiden Faellen
+           derselbe: die Buehne wird auf die verfuegbare Breite gerechnet. */
         var base = 900;
         /* 920 statt 830 auf schmalen Geraeten: die Schrift in .st-txt musste
            groesser werden, um lesbar zu bleiben (siehe css/style.css), und der
@@ -26,9 +36,19 @@
         stage.style.marginLeft = (mobile ? 0 : (vw - 900 * s) / 2) + 'px';
         stage.style.height = h + 'px';
         scaleBox.style.height = (h * s) + 'px';
+        lastWidth = vw;
     }
     fit();
-    window.addEventListener('resize', fit, { passive: true });
+
+    /* Nur bei echter Breitenaenderung neu rechnen — eine reine Hoehenaenderung
+       (Adressleiste, Bildschirmtastatur) laesst den Massstab unveraendert.
+       Aendert sich die Breite wirklich, waechst oder schrumpft die Buehne und
+       damit die Seitenhoehe; dann muss ScrollTrigger seine Punkte neu messen. */
+    window.addEventListener('resize', function () {
+        if (scaleBox.clientWidth === lastWidth) return;
+        fit();
+        ScrollTrigger.refresh();
+    }, { passive: true });
 
     /* Jedes Wort bekommt eine eigene Hülle, damit der Text lesegerecht einläuft */
     (function splitWords() {
