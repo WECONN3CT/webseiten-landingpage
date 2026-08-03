@@ -510,14 +510,33 @@
             setInitial();
         }
 
+        /* Anhalten statt zuruecksetzen, sobald die Buehne aus dem Bild geht.
+           Die Geschichte dauert 78 Sekunden, ihr aktives Fenster ist auf dem
+           Handy aber nur rund 1000 px hoch — also gut anderthalb Bildschirme.
+           Wer waehrend des Zuschauens auch nur einen Wischer weit scrollt,
+           verlor damit bisher den gesamten Fortschritt: `rewind` setzte auf
+           Null, und beim Zurueckscrollen begann alles von vorn. Das sah aus
+           wie ein Abbruch mitten in der Geschichte.
+           Jetzt haelt sie an der Stelle an und laeuft dort weiter. */
         var st = ScrollTrigger.create({
             trigger: '.stage-wrap',
             start: 'top 85%',
             end: 'bottom top',
             onEnter: function () { tl.play(); },
             onEnterBack: function () { tl.play(); },
-            /* Außer Sicht zurückspulen: wer wiederkommt, sieht die ganze
-               Geschichte noch einmal — und wieder das Logo am Ende. */
+            onLeave: function () { tl.pause(); },
+            onLeaveBack: function () { tl.pause(); }
+        });
+
+        /* Zurueckgesetzt wird erst deutlich ausserhalb — 800 px ueber und unter
+           dem Abschnitt. So bleibt die urspruengliche Absicht erhalten: wer
+           spaeter wiederkommt, sieht die ganze Geschichte noch einmal von vorn
+           samt Logo am Ende. Ein kurzes Verrutschen beim Zuschauen loest das
+           dagegen nicht mehr aus. */
+        ScrollTrigger.create({
+            trigger: '.stage-wrap',
+            start: 'top bottom+=800',
+            end: 'bottom top-=800',
             onLeave: rewind,
             onLeaveBack: rewind
         });
