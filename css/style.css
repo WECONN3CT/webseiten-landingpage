@@ -108,8 +108,7 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 999; pointer-eve
 .badge { display: inline-flex; align-items: center; gap: 9px;
     font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
     color: var(--blue-deep); background: #fff; border: 1px solid var(--line);
-    padding: 8px 16px; border-radius: 999px; box-shadow: var(--shadow-soft); margin-bottom: 28px;
-    transform: rotate(-1deg); }
+    padding: 8px 16px; border-radius: 999px; box-shadow: var(--shadow-soft); margin-bottom: 28px; }
 .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grad);
     animation: pulse-dot 2.4s ease-in-out infinite; }
 @keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.6; } }
@@ -156,13 +155,23 @@ h2 .script-accent, h2 .script-blue, h2 .script-purple { font-size: 1.04em; }
     width: 22px; height: 22px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232E3EE8'/%3E%3Cstop offset='0.6' stop-color='%239D4EDD'/%3E%3Cstop offset='1' stop-color='%23FF5082'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='12' cy='12' r='11' fill='url(%23g)'/%3E%3Cpath d='M7.5 12.5l3 3L16.5 9' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; }
 
-.hero-proof { display: flex; gap: 40px; }
-.proof-item { position: relative; line-height: 1.3; }
-.proof-item strong { display: block; font-size: 2.1rem; font-weight: 900; letter-spacing: -0.04em;
-    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.proof-item span { font-size: 0.8rem; color: var(--ink-60); font-weight: 600; }
-.proof-item:not(:first-child)::before { content: ''; position: absolute; left: -20px; top: 8px;
-    width: 1px; height: 70%; background: var(--line); }
+/* Kundenstimme in der Hero — echte Stimme statt Kennzahlen */
+.hero-quote { position: relative; max-width: 46ch;
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 20px 22px 18px; box-shadow: var(--shadow-soft); }
+/* Farbige Kante links greift den Verlauf der Marke auf */
+.hero-quote::before { content: ''; position: absolute; left: 0; top: 16px; bottom: 16px;
+    width: 3px; border-radius: 3px; background: var(--grad); }
+.hero-quote blockquote { font-size: 0.99rem; line-height: 1.6; color: var(--ink); }
+.hero-quote blockquote::before { content: '„'; }
+.hero-quote blockquote::after { content: '“'; }
+.hero-quote figcaption { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.hq-av { flex: none; display: grid; place-items: center; width: 38px; height: 38px;
+    border-radius: 50%; background: var(--grad); color: #fff;
+    font-size: 0.8rem; font-weight: 800; letter-spacing: 0.02em; }
+.hq-who { display: flex; flex-direction: column; line-height: 1.35; }
+.hq-who b { font-size: 0.9rem; font-weight: 700; letter-spacing: -0.01em; }
+.hq-who small { font-size: 0.82rem; color: var(--ink-60); }
 
 /* ---------- Form Card ---------- */
 .form-wrap { position: relative; }
@@ -1410,8 +1419,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     .h1-line { white-space: normal; }
     .showcase-track .browser-frame { width: 320px; }
     .showcase-track .browser-frame img { height: 260px; }
-    .hero-proof { gap: 28px; }
-    .proof-item strong { font-size: 1.7rem; }
+    .hero-quote { padding: 18px 18px 16px; }
+    .hero-quote blockquote { font-size: 0.94rem; }
     .form-card { padding: 28px 22px; }
     .header-phone span { display: none; }
     .header-actions { gap: 8px; }
