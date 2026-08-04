@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /danke
 
-Sitemap: https://webseite.weconn3ct.de/sitemap.xml
+Sitemap: https://landing.weconn3ct.de/sitemap.xml

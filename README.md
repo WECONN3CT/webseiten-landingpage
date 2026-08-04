@@ -38,10 +38,10 @@ Pixel lädt **nur nach Consent** (Banner). CAPI wird ebenfalls nur bei Consent g
 DNS-Verwaltung → neuer Eintrag:
 
 ```
-webseite.weconn3ct.de  →  CNAME  →  <projekt>.pages.dev
+landing.weconn3ct.de  →  CNAME  →  <projekt>.pages.dev
 ```
 
-Danach in Cloudflare Pages → **Custom domains → Add** → `webseite.weconn3ct.de`.
+Danach in Cloudflare Pages → **Custom domains → Add** → `landing.weconn3ct.de`.
 ⚠️ Keine bestehenden Einträge anfassen (MX/SPF = Microsoft-Mail, www = GitHub Pages).
 
 ### 3. Meta Pixel + Conversions API
