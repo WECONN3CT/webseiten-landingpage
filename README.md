@@ -70,6 +70,7 @@ Cloudflare Env-Vars:
 
 ## Offene Punkte vor Launch
 
-- [ ] `DEINE_PIXEL_ID` in `index.html` + `danke.html` ersetzen
-- [ ] Datenschutzerklärung auf weconn3ct.de um Meta-Pixel/CAPI-Passus ergänzen
-- [ ] Zahlen prüfen: „12+ Projekte", „15 im Team", „2–4 Wochen", „Antwort in 24 h"
+- [x] Pixel-ID `793190807188093` in `index.html` + `danke.html` eingetragen
+- [x] Datenschutzerklärung auf weconn3ct.de um Meta-Pixel/CAPI-Passus ergänzt
+- [ ] `META_PIXEL_ID` + `META_ACCESS_TOKEN` als Env-Vars in Cloudflare Pages setzen
+- [ ] Zahlen prüfen: „2–4 Wochen"
