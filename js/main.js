@@ -53,14 +53,23 @@
             decide(marketingToggle && marketingToggle.checked ? 'yes' : 'no');
         });
 
+        /* Zweite Ebene mit den Schaltern ein-/ausklappen */
+        var details = document.getElementById('consent-details');
+        var toggleDetails = document.getElementById('consent-toggle-details');
+        if (toggleDetails && details) toggleDetails.addEventListener('click', function () {
+            details.hidden = !details.hidden;
+        });
+
         /* "Cookie-Einstellungen" im Footer: Banner mit gespeicherter Auswahl
-           wieder oeffnen — Widerruf muss so einfach sein wie die Einwilligung */
+           und offener zweiter Ebene wieder oeffnen — Widerruf muss so einfach
+           sein wie die Einwilligung */
         var settings = document.getElementById('cookie-settings');
         if (settings) settings.addEventListener('click', function (e) {
             e.preventDefault();
             if (marketingToggle) {
                 marketingToggle.checked = localStorage.getItem(CONSENT_KEY) === 'yes';
             }
+            if (details) details.hidden = false;
             banner.hidden = false;
         });
     }

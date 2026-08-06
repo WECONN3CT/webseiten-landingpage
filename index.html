@@ -973,24 +973,29 @@
      Wiederaufruf ueber "Cookie-Einstellungen" im Footer -->
 <div class="consent" id="consentbanner" hidden role="dialog" aria-modal="true" aria-labelledby="consent-title">
     <h2 id="consent-title">Wir verwenden Cookies</h2>
-    <p class="consent-intro">Einige sind für den Betrieb der Seite notwendig, mit anderen messen wir,
-        ob unsere Werbung funktioniert. Ihre Auswahl können Sie jederzeit unten über
-        „Cookie&#8209;Einstellungen" ändern.</p>
-    <div class="consent-cats">
-        <div class="consent-cat">
-            <div class="cat-txt"><b>Notwendig</b><small>Grundfunktionen wie das Kontaktformular und das Speichern Ihrer Cookie-Auswahl.</small></div>
-            <span class="cat-always">Immer aktiv</span>
+    <p class="consent-intro">Wir verwenden Cookies, um unsere Website bestmöglich zu gestalten
+        und ihre Nutzung zu messen. Näheres dazu in unserer
+        <a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+    <!-- Zweite Ebene: Kategorien einzeln schaltbar, Schalter nicht
+         vorangekreuzt (EuGH "Planet49" — voraktiviert waere unwirksam) -->
+    <div id="consent-details" hidden>
+        <div class="consent-cats">
+            <div class="consent-cat">
+                <div class="cat-txt"><b>Notwendige Cookies</b><small>Grundfunktionen wie das Kontaktformular und das Speichern Ihrer Auswahl.</small></div>
+                <span class="cat-always">Immer aktiv</span>
+            </div>
+            <div class="consent-cat">
+                <div class="cat-txt"><b>Alle Cookies</b><small>Helfen uns zu verstehen, wie Besucher auf unsere Seite finden und sie nutzen.</small></div>
+                <label class="switch" aria-label="Alle Cookies erlauben"><input type="checkbox" id="consent-marketing"><i></i></label>
+            </div>
         </div>
-        <div class="consent-cat">
-            <div class="cat-txt"><b>Marketing</b><small>Meta&nbsp;Pixel: misst, ob Besucher über unsere Werbeanzeigen kommen und anfragen.</small></div>
-            <label class="switch" aria-label="Marketing-Cookies erlauben"><input type="checkbox" id="consent-marketing"><i></i></label>
-        </div>
+        <button id="consent-save" class="consent-savelink">Auswahl speichern</button>
     </div>
     <div class="consent-btns">
         <button id="consent-no" class="consent-btn decline">Nur notwendige</button>
         <button id="consent-yes" class="consent-btn accept">Alle akzeptieren</button>
     </div>
-    <button id="consent-save" class="consent-savelink">Auswahl speichern</button>
+    <button id="consent-toggle-details" class="consent-savelink">Einstellungen</button>
     <p class="consent-links"><a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> · <a href="https://www.weconn3ct.de/impressum/" target="_blank" rel="noopener">Impressum</a></p>
 </div>
 
