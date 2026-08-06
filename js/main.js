@@ -33,16 +33,35 @@
     if (banner) {
         var yes = document.getElementById('consent-yes');
         var no = document.getElementById('consent-no');
-        if (yes) yes.addEventListener('click', function () {
-            localStorage.setItem(CONSENT_KEY, 'yes');
+        var save = document.getElementById('consent-save');
+        var marketingToggle = document.getElementById('consent-marketing');
+
+        var decide = function (value) {
+            var before = localStorage.getItem(CONSENT_KEY);
+            localStorage.setItem(CONSENT_KEY, value);
             banner.hidden = true;
-            loadPixel();
             syncConsentField();
+            if (value === 'yes') loadPixel();
+            /* Widerruf: das Pixel ist dann schon geladen — erst ein Reload
+               entfernt es wirklich von der Seite */
+            if (before === 'yes' && value === 'no') location.reload();
+        };
+
+        if (yes) yes.addEventListener('click', function () { decide('yes'); });
+        if (no) no.addEventListener('click', function () { decide('no'); });
+        if (save) save.addEventListener('click', function () {
+            decide(marketingToggle && marketingToggle.checked ? 'yes' : 'no');
         });
-        if (no) no.addEventListener('click', function () {
-            localStorage.setItem(CONSENT_KEY, 'no');
-            banner.hidden = true;
-            syncConsentField();
+
+        /* "Cookie-Einstellungen" im Footer: Banner mit gespeicherter Auswahl
+           wieder oeffnen — Widerruf muss so einfach sein wie die Einwilligung */
+        var settings = document.getElementById('cookie-settings');
+        if (settings) settings.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (marketingToggle) {
+                marketingToggle.checked = localStorage.getItem(CONSENT_KEY) === 'yes';
+            }
+            banner.hidden = false;
         });
     }
 

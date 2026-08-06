@@ -961,20 +961,37 @@
 <footer class="site-footer">
     <div class="container footer-inner">
         <p><strong>WECONN3CT GmbH</strong> · Frankenweg 109 · 53604 Bad Honnef · <a href="mailto:info@weconn3ct.de">info@weconn3ct.de</a></p>
-        <p><a href="https://www.weconn3ct.de/impressum/" target="_blank" rel="noopener">Impressum</a> · <a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a></p>
+        <p><a href="https://www.weconn3ct.de/impressum/" target="_blank" rel="noopener">Impressum</a> · <a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> · <a href="#" id="cookie-settings">Cookie-Einstellungen</a></p>
     </div>
 </footer>
 
 <!-- Sticky Mobile CTA -->
 <a href="#anfrage" class="mobile-cta" id="mobilecta">Kostenlose Analyse →</a>
 
-<!-- Consent Banner -->
-<div class="consent" id="consentbanner" hidden>
-    <p>Wir nutzen Cookies für Marketing-Messung (Meta Pixel). Details: <a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a></p>
-    <div class="consent-btns">
-        <button id="consent-no" class="btn-ghost">Ablehnen</button>
-        <button id="consent-yes" class="btn-primary btn-sm">Akzeptieren</button>
+<!-- Consent-Banner: erste Ebene mit gleichwertigem Akzeptieren/Ablehnen
+     (Vorgabe der Aufsichtsbehoerden), Marketing einzeln schaltbar,
+     Wiederaufruf ueber "Cookie-Einstellungen" im Footer -->
+<div class="consent" id="consentbanner" hidden role="dialog" aria-modal="true" aria-labelledby="consent-title">
+    <h2 id="consent-title">Wir verwenden Cookies</h2>
+    <p class="consent-intro">Einige sind für den Betrieb der Seite notwendig, mit anderen messen wir,
+        ob unsere Werbung funktioniert. Ihre Auswahl können Sie jederzeit unten über
+        „Cookie&#8209;Einstellungen" ändern.</p>
+    <div class="consent-cats">
+        <div class="consent-cat">
+            <div class="cat-txt"><b>Notwendig</b><small>Grundfunktionen wie das Kontaktformular und das Speichern Ihrer Cookie-Auswahl.</small></div>
+            <span class="cat-always">Immer aktiv</span>
+        </div>
+        <div class="consent-cat">
+            <div class="cat-txt"><b>Marketing</b><small>Meta&nbsp;Pixel: misst, ob Besucher über unsere Werbeanzeigen kommen und anfragen.</small></div>
+            <label class="switch" aria-label="Marketing-Cookies erlauben"><input type="checkbox" id="consent-marketing"><i></i></label>
+        </div>
     </div>
+    <div class="consent-btns">
+        <button id="consent-no" class="consent-btn decline">Nur notwendige</button>
+        <button id="consent-yes" class="consent-btn accept">Alle akzeptieren</button>
+    </div>
+    <button id="consent-save" class="consent-savelink">Auswahl speichern</button>
+    <p class="consent-links"><a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> · <a href="https://www.weconn3ct.de/impressum/" target="_blank" rel="noopener">Impressum</a></p>
 </div>
 
 <script src="js/main.js?v=20" defer></script>
