@@ -33,6 +33,10 @@ Stand: 05.08.2026 (aktualisiert) · Landingpage `landing.weconn3ct.de`
   `TG_CHAT_ID` in Cloudflare Production gesetzt, Deployment neu gezogen,
   Testanfrage kam in Telegram an. Der erste Bot-Token wurde nach einem
   versehentlichen Screenshot im Chat per `/revoke` rotiert.
+- **Kampagne live** (06.08.2026): „WEBSEITE & SEO 06.08" im neuen Werbekonto
+  des Business-Portfolios (act 2515688668931117). Ziel Leads, Conversion-Event
+  **Lead** auf Datensatz 793190807188093, Ziel-URL landing.weconn3ct.de,
+  UTM-Parameter gesetzt, 25 €/Tag, Bad Honnef +30 km, ohne Enddatum.
 - **Klick-ID (fbc) im CAPI-Event** (06.08.2026): `?fbclid=` wird per Hidden-Field
   (`main.js` → sessionStorage) mitgeschickt; `lead.js` baut daraus
   `fb.1.<ts>.<fbclid>`, falls kein `_fbc`-Cookie da ist (Cookie hat Vorrang).
@@ -47,11 +51,6 @@ Stand: 05.08.2026 (aktualisiert) · Landingpage `landing.weconn3ct.de`
   entfällt damit.
 
 ## Offen
-
-### 3. Kampagne auf das richtige Ziel stellen
-
-Beim Anlegen der Anzeige: Conversion-Ereignis **Lead**, Datensatz
-**793190807188093**.
 
 ### 4. Deduplizierungsrate kontrollieren — in ein paar Tagen
 
