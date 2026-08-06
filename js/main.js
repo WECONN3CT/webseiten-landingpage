@@ -53,6 +53,16 @@
     }
     syncConsentField();
 
+    /* Klick-ID (?fbclid=...) aus der Anzeigen-URL ins Formular spiegeln —
+       der Server baut daraus das fbc fürs CAPI-Matching. sessionStorage
+       hält sie fest, falls die URL ohne Parameter neu geladen wird. */
+    try {
+        var fbclid = new URLSearchParams(location.search).get('fbclid');
+        if (fbclid) sessionStorage.setItem('wc_fbclid', fbclid);
+        var fbclidField = document.getElementById('f-fbclid');
+        if (fbclidField) fbclidField.value = sessionStorage.getItem('wc_fbclid') || '';
+    } catch (e) { /* Privacy-Modi ohne sessionStorage: dann eben ohne */ }
+
     /* ---------- Formular-UX ---------- */
     /* Wer noch keine Webseite hat, kann keine analysieren lassen:
        Adressfeld verschwindet, der Knopf verspricht dann ein Angebot statt einer Analyse */

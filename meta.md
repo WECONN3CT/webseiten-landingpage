@@ -33,6 +33,10 @@ Stand: 05.08.2026 (aktualisiert) · Landingpage `landing.weconn3ct.de`
   `TG_CHAT_ID` in Cloudflare Production gesetzt, Deployment neu gezogen,
   Testanfrage kam in Telegram an. Der erste Bot-Token wurde nach einem
   versehentlichen Screenshot im Chat per `/revoke` rotiert.
+- **Klick-ID (fbc) im CAPI-Event** (06.08.2026): `?fbclid=` wird per Hidden-Field
+  (`main.js` → sessionStorage) mitgeschickt; `lead.js` baut daraus
+  `fb.1.<ts>.<fbclid>`, falls kein `_fbc`-Cookie da ist (Cookie hat Vorrang).
+  War Metas Top-Empfehlung beim Qualitätswert (7,5/10, „+0,7 möglich").
 
 ## Erledigt / hinfällig
 

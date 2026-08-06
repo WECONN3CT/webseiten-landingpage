@@ -142,7 +142,17 @@ export async function onRequestPost(context) {
         const fbp = cookies.match(/_fbp=([^;]+)/)?.[1];
         const fbc = cookies.match(/_fbc=([^;]+)/)?.[1];
         if (fbp) userData.fbp = fbp;
-        if (fbc) userData.fbc = fbc;
+        if (fbc) {
+            userData.fbc = fbc;
+        } else {
+            // Ohne _fbc-Cookie (z. B. Pixel erst nach Consent geladen): fbc
+            // aus der Klick-ID bauen, die das Formular als Hidden-Field
+            // mitschickt. Format lt. Meta: fb.1.<Zeitstempel ms>.<fbclid>
+            const fbclid = (form.get('fbclid') || '').toString().trim().slice(0, 500);
+            if (/^[A-Za-z0-9_-]+$/.test(fbclid)) {
+                userData.fbc = `fb.1.${Date.now()}.${fbclid}`;
+            }
+        }
 
         const payload = {
             data: [{
