@@ -165,6 +165,14 @@ export async function onRequestPost(context) {
             }],
         };
 
+        // Server-Events erscheinen im "Events testen"-Tab nur mit
+        // test_event_code. Der kommt beim Testen als URL-Parameter auf die
+        // Landingpage und von dort als Hidden-Field mit — sonst leer.
+        const testCode = (form.get('test_event_code') || '').toString().trim();
+        if (/^[A-Za-z0-9]{1,20}$/.test(testCode)) {
+            payload.test_event_code = testCode;
+        }
+
         tasks.push(fetch(
             `https://graph.facebook.com/v21.0/${env.META_PIXEL_ID}/events?access_token=${env.META_ACCESS_TOKEN}`,
             {

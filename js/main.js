@@ -63,6 +63,15 @@
         if (fbclidField) fbclidField.value = sessionStorage.getItem('wc_fbclid') || '';
     } catch (e) { /* Privacy-Modi ohne sessionStorage: dann eben ohne */ }
 
+    /* Nur zum Testen: ?test_event_code=TEST123 an die Landingpage-URL haengen,
+       dann taucht das CAPI-Event im "Events testen"-Tab des Events Managers
+       auf. Im Normalbetrieb bleibt das Feld leer. */
+    try {
+        var testCode = new URLSearchParams(location.search).get('test_event_code');
+        var testField = document.getElementById('f-testcode');
+        if (testField && testCode) testField.value = testCode;
+    } catch (e) {}
+
     /* ---------- Formular-UX ---------- */
     /* Wer noch keine Webseite hat, kann keine analysieren lassen:
        Adressfeld verschwindet, der Knopf verspricht dann ein Angebot statt einer Analyse */
