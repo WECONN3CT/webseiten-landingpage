@@ -4,6 +4,17 @@
 
     var CONSENT_KEY = 'wc_consent';
 
+    /* Anzeigen-Besucher sollen oben starten: die In-App-Browser von
+       Facebook/Instagram stellen sonst gern die letzte Scroll-Position
+       wieder her und landen mitten auf der Seite (z. B. am Formular).
+       Nur ohne Anker in der URL eingreifen, damit #anfrage-Links
+       weiterhin funktionieren. */
+    if (!location.hash) {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+        window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+    }
+
     /* ---------- Meta Pixel (nur nach Consent) ---------- */
     function loadPixel() {
         if (!window.WC_PIXEL_ID || window.WC_PIXEL_ID === 'DEINE_PIXEL_ID' || window.fbq) return;
