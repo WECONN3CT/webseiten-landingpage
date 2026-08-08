@@ -21,9 +21,12 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Fonts asynchron: blockiert das Rendern nicht mehr — der Text
+         erscheint sofort im metrik-angepassten Fallback (style.css) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet"></noscript>
 
-    <link rel="stylesheet" href="css/style.css?v=20">
+    <link rel="stylesheet" href="css/style.css?v=21">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -227,17 +230,17 @@
     <!-- REFERENZ-KARUSSELL direkt unter der Hero (läuft langsam endlos durch) -->
     <section class="hero-showcase" id="projekte" aria-label="Ausgewählte Projekte">
         <div class="showcase-track">
-            <div class="browser-frame"><img src="assets/mertes-tall.webp" alt="Webseite für Schornsteinfeger Mertes" width="1280" height="1040"></div>
-            <div class="browser-frame"><img src="assets/kaya-tall.webp" alt="Webseite für Kaya Feinkost" width="1280" height="1040"></div>
-            <div class="browser-frame"><img src="assets/persopro-tall.webp" alt="Webseite für Perso Pro" width="1280" height="1040"></div>
-            <div class="browser-frame"><img src="assets/aeraumwerk-tall.webp" alt="Webseite für AE Raumwerk" width="1280" height="1040"></div>
-            <div class="browser-frame"><img src="assets/schadencheck-tall.webp" alt="Webseite für SchadenCheck" width="1280" height="1040"></div>
+            <div class="browser-frame"><img src="assets/mertes-tall.webp" alt="Webseite für Schornsteinfeger Mertes" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame"><img src="assets/kaya-tall.webp" alt="Webseite für Kaya Feinkost" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame"><img src="assets/persopro-tall.webp" alt="Webseite für Perso Pro" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame"><img src="assets/aeraumwerk-tall.webp" alt="Webseite für AE Raumwerk" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame"><img src="assets/schadencheck-tall.webp" alt="Webseite für SchadenCheck" width="1280" height="1040" loading="lazy" decoding="async"></div>
             <!-- Kopie für die nahtlose Endlosschleife -->
-            <div class="browser-frame" aria-hidden="true"><img src="assets/mertes-tall.webp" alt="" width="1280" height="1040"></div>
-            <div class="browser-frame" aria-hidden="true"><img src="assets/kaya-tall.webp" alt="" width="1280" height="1040"></div>
-            <div class="browser-frame" aria-hidden="true"><img src="assets/persopro-tall.webp" alt="" width="1280" height="1040"></div>
-            <div class="browser-frame" aria-hidden="true"><img src="assets/aeraumwerk-tall.webp" alt="" width="1280" height="1040"></div>
-            <div class="browser-frame" aria-hidden="true"><img src="assets/schadencheck-tall.webp" alt="" width="1280" height="1040"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/mertes-tall.webp" alt="" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/kaya-tall.webp" alt="" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/persopro-tall.webp" alt="" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/aeraumwerk-tall.webp" alt="" width="1280" height="1040" loading="lazy" decoding="async"></div>
+            <div class="browser-frame" aria-hidden="true"><img src="assets/schadencheck-tall.webp" alt="" width="1280" height="1040" loading="lazy" decoding="async"></div>
         </div>
     </section>
 
@@ -999,7 +1002,7 @@
     <p class="consent-links"><a href="https://www.weconn3ct.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> · <a href="https://www.weconn3ct.de/impressum/" target="_blank" rel="noopener">Impressum</a></p>
 </div>
 
-<script src="js/main.js?v=21" defer></script>
+<script src="js/main.js?v=22" defer></script>
 <!-- GSAP für die System-Grafik (Choreografie in js/flow.js) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>

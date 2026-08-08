@@ -27,8 +27,20 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px;
     /* iOS blaeht sonst beim Drehen ins Querformat einzelne Textbloecke auf */
     -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
+/* Metrik-angepasste Fallbacks: Text erscheint sofort im Systemfont und
+   springt beim Nachladen der Webfonts kaum noch (CLS). Werte fuer Inter
+   nach gaengigen Capsize-Metriken, Pacifico angenaehert. */
+@font-face { font-family: 'Inter Fallback';
+    src: local('Helvetica Neue'), local('Arial');
+    size-adjust: 107.4%; ascent-override: 90.2%; descent-override: 22.5%;
+    line-gap-override: 0%; }
+@font-face { font-family: 'Pacifico Fallback';
+    src: local('Georgia'), local('Times New Roman');
+    size-adjust: 102%; ascent-override: 110%; descent-override: 34%;
+    line-gap-override: 0%; }
+
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.6;
@@ -121,18 +133,18 @@ h1 { font-size: clamp(2.1rem, 4.3vw, 3.4rem); font-weight: 900;
 
 /* Pacifico wirkt bei gleicher Schriftgröße kleiner als fettes Inter,
    deshalb 1.14em, damit die Akzent-Wörter optisch gleichauf sind (wie auf weconn3ct.de) */
-.script-accent { font-family: 'Pacifico', cursive; font-weight: 400;
+.script-accent { font-family: 'Pacifico', 'Pacifico Fallback', cursive; font-weight: 400;
     font-size: 1.14em; line-height: 1; margin-left: 0.12em;
     background: var(--grad); -webkit-background-clip: text; background-clip: text;
     color: transparent; padding-right: 0.08em; }
 
 /* Zwei-Wort-Akzent wie auf weconn3ct.de: erstes Wort blau, zweites lila */
-.script-blue { font-family: 'Pacifico', cursive; font-weight: 400;
+.script-blue { font-family: 'Pacifico', 'Pacifico Fallback', cursive; font-weight: 400;
     font-size: 1.14em; line-height: 1; margin-left: 0.12em;
     background: linear-gradient(100deg, #60A5FA 0%, #2E3EE8 50%, #2563EB 100%);
     -webkit-background-clip: text; background-clip: text;
     color: transparent; padding-right: 0.08em; }
-.script-purple { font-family: 'Pacifico', cursive; font-weight: 400;
+.script-purple { font-family: 'Pacifico', 'Pacifico Fallback', cursive; font-weight: 400;
     font-size: 1.14em; line-height: 1; margin-left: 0.12em;
     background: linear-gradient(100deg, #C084FC 0%, #A855F7 50%, #D946EF 100%);
     -webkit-background-clip: text; background-clip: text;
@@ -1341,23 +1353,24 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     transition: transform 0.32s var(--ease), opacity 0.32s var(--ease); }
 .mobile-cta.away { transform: translateY(150%); opacity: 0; pointer-events: none; }
 
-/* Consent-Modal im CMP-Stil: Kategorien mit Schaltern, erste Ebene mit
+/* Consent im CMP-Stil als kompakte Karte unten links: verdeckt weder
+   Headline noch Angebot (wichtig fuer Anzeigen-Besucher). Erste Ebene mit
    gleich grossen, gleich sichtbaren Buttons fuer Akzeptieren und Ablehnen
-   (Vorgabe der Aufsichtsbehoerden, keine Dark Patterns). Die Abdunkelung
-   ist ein 100vmax-Schatten — ein fixed-Pseudo-Element wuerde durch das
-   transform der Karte am Viewport vorbei positionieren. */
-.consent { position: fixed; z-index: 70; left: 50%; top: 50%;
-    transform: translate(-50%, -50%); width: min(520px, calc(100vw - 32px));
+   (Vorgabe der Aufsichtsbehoerden, keine Dark Patterns), Kategorien-
+   Schalter in der zweiten Ebene. */
+.consent { position: fixed; z-index: 70; left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    width: min(400px, calc(100vw - 32px));
     max-height: calc(100vh - 32px); overflow-y: auto;
-    background: #fff; border: 1px solid var(--line); border-radius: 24px;
-    padding: 26px 26px 16px;
-    box-shadow: 0 0 0 100vmax rgba(13, 18, 56, 0.45), 0 30px 80px rgba(13, 18, 56, 0.35);
-    animation: consent-in 0.35s var(--ease); }
-@keyframes consent-in { from { opacity: 0; } }
-.consent h2 { font-size: 1.16rem; font-weight: 800; letter-spacing: -0.015em;
-    margin-bottom: 8px; }
-.consent-intro { font-size: 0.87rem; line-height: 1.55; color: var(--ink-60);
-    margin-bottom: 18px; }
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 20px 20px 12px;
+    box-shadow: 0 24px 60px rgba(13, 18, 56, 0.28);
+    animation: consent-in 0.4s var(--ease); }
+@keyframes consent-in { from { opacity: 0; transform: translateY(16px); } }
+.consent h2 { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.015em;
+    margin-bottom: 6px; }
+.consent-intro { font-size: 0.84rem; line-height: 1.5; color: var(--ink-60);
+    margin-bottom: 14px; }
 .consent a { color: var(--blue); }
 .consent-cats { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 .consent-cat { display: flex; align-items: center; gap: 14px; padding: 12px 14px;

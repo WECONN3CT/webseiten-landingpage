@@ -6,13 +6,24 @@
 
     /* Anzeigen-Besucher sollen oben starten: die In-App-Browser von
        Facebook/Instagram stellen sonst gern die letzte Scroll-Position
-       wieder her und landen mitten auf der Seite (z. B. am Formular).
-       Nur ohne Anker in der URL eingreifen, damit #anfrage-Links
-       weiterhin funktionieren. */
+       wieder her und landen mitten auf der Seite (z. B. am Formular) —
+       teils erst NACH dem Load-Event, deshalb wird mehrfach nachgezogen.
+       Sobald der Besucher selbst scrollt/tippt, greifen wir nicht mehr ein.
+       Nur ohne Anker in der URL, damit #anfrage-Links funktionieren. */
     if (!location.hash) {
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-        window.scrollTo(0, 0);
-        window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+        var interacted = false;
+        ['touchstart', 'wheel', 'keydown'].forEach(function (ev) {
+            window.addEventListener(ev, function () { interacted = true; },
+                { passive: true, once: true });
+        });
+        var toTop = function () { if (!interacted) window.scrollTo(0, 0); };
+        toTop();
+        window.addEventListener('pageshow', toTop);
+        window.addEventListener('load', function () {
+            toTop();
+            setTimeout(toTop, 150);
+        });
     }
 
     /* ---------- Meta Pixel (nur nach Consent) ---------- */
