@@ -31,7 +31,7 @@ Vollständige Analyse: `~/Downloads/WECONN3CT-Kampagnen-Auswertung-08.08.2026.pd
 - [x] **IG Feed entwarnt:** 12 LP-Aufrufe bei 37 € Gesamt — beste Platzierung, bleibt drin.
 - [ ] **Lead-Bilanz:** 0 Leads bei 108,07 € (Stand 11.08. abends). Bilanz-Entscheid auf ~150 € (~Fr 15.08.) verschoben, weil 9:16-Creative und CLS-Fix noch ausstehen. Bis dahin Lernphase nicht stören.
 - [ ] **9:16-Version des Alena-Motivs** — weiterhin offen und weiterhin größter Hebel: Reels+Stories = ~51 € (47 % der Ausgaben) mit Balken-Optik.
-- [ ] **CLS-Bug fixen:** CLS unverändert 0,335 (Font-Fixes haben es nicht behoben). Lighthouse: „Verursacher von Layout Shifts" rot + 421 KiB Bild-Einsparpotenzial. Reine Seiten-Änderung, Kampagne unberührt.
+- [x] **CLS-Bug gefixt (11.08. abends, Commits `de02e88` + `1c4eec6`):** Verursacher waren NICHT primär die Fonts, sondern (a) der bottom-verankerte Hintergrund-Blob `blob-2`, der erst nach dem First Paint ins Bild sprang (jetzt top-verankert via `100vh - 300px`), und (b) der Consent-Banner, dessen Einblendung per `hidden` + translateY als Shift zählte (jetzt immer im Layout, Ein-/Ausblenden per `visibility`/`opacity` + Klasse `is-open`, nur noch Fade). Zusätzlich Fonts auf `display=optional` + Preload der zwei Latin-woff2 (Font-Swap-Restshift 0,003 → 0). **Ergebnis live verifiziert (5/5 Lighthouse-Läufe): CLS 0, Performance-Score 92, LCP 2,7 s, TBT 20 ms.** Offen bleibt nur das Bild-Einsparpotenzial (421 KiB, Hero-Foto) — netter Bonus, kein Blocker mehr.
 
 ### Kampagnen-Zwischenstand 11.08. (Tag 6, 19:45 Uhr)
 
