@@ -46,10 +46,13 @@
     var banner = document.getElementById('consentbanner');
     var consent = localStorage.getItem(CONSENT_KEY);
 
+    /* Ein-/Ausblenden ueber die Klasse is-open (visibility/opacity in der
+       CSS) statt ueber hidden: ein per display:none nachtraeglich
+       eingeblendeter Banner zaehlt in Chrome als Layout Shift (~0,52 CLS) */
     if (consent === 'yes') {
         loadPixel();
     } else if (consent !== 'no' && banner) {
-        banner.hidden = false;
+        banner.classList.add('is-open');
     }
 
     if (banner) {
@@ -61,7 +64,7 @@
         var decide = function (value) {
             var before = localStorage.getItem(CONSENT_KEY);
             localStorage.setItem(CONSENT_KEY, value);
-            banner.hidden = true;
+            banner.classList.remove('is-open');
             syncConsentField();
             if (value === 'yes') loadPixel();
             /* Widerruf: das Pixel ist dann schon geladen — erst ein Reload
@@ -92,7 +95,7 @@
                 marketingToggle.checked = localStorage.getItem(CONSENT_KEY) === 'yes';
             }
             if (details) details.hidden = false;
-            banner.hidden = false;
+            banner.classList.add('is-open');
         });
     }
 

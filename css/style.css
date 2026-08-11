@@ -1370,8 +1370,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible, .check input:focus
     background: #fff; border: 1px solid var(--line); border-radius: 20px;
     padding: 20px 20px 12px;
     box-shadow: 0 24px 60px rgba(13, 18, 56, 0.28);
+    /* Sichtbarkeit ueber visibility/opacity statt hidden (display:none):
+       So hat der Banner von Anfang an seine Box an der Endposition — ein
+       per hidden nachtraeglich eingeblendeter Banner zaehlte in Chrome als
+       Layout Shift von ~0,52, ebenso das translateY der Einblendung.
+       Steuerung per .is-open in main.js, Einblendung nur noch als Fade. */
+    visibility: hidden; opacity: 0; }
+.consent.is-open { visibility: visible; opacity: 1;
     animation: consent-in 0.4s var(--ease); }
-@keyframes consent-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes consent-in { from { opacity: 0; } }
 .consent h2 { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.015em;
     margin-bottom: 6px; }
 .consent-intro { font-size: 0.84rem; line-height: 1.5; color: var(--ink-60);
