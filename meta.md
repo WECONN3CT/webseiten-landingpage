@@ -1,6 +1,6 @@
 # Meta-Kampagne & Tracking — Stand und offene Punkte
 
-Stand: 09.08.2026 · Landingpage `landing.weconn3ct.de` · **Kampagne LIVE seit 06.08.**
+Stand: 11.08.2026 · Landingpage `landing.weconn3ct.de` · **Kampagne LIVE seit 06.08.**
 
 ## Eckdaten
 
@@ -24,14 +24,21 @@ Vollständige Analyse: `~/Downloads/WECONN3CT-Kampagnen-Auswertung-08.08.2026.pd
 - **Platzierungen:** IG Reels 510 Impr./12 Klicks, IG Feed 426/11 (nur 1 LP-Aufruf — beobachten!), FB Feed 229/7 (beste Ankunftsquote), IG Stories 143/1.
 - **0 echte Leads** — bei <25 € Ausgaben statistisch bedeutungslos; Urteil erst ab ~120 € Gesamtausgaben fair.
 
-### Checkpoints (Anfang KW 33)
+### Checkpoints (geprüft 11.08., Auswertungsbogen als Claude-Artifact)
 
-- [ ] Ankunftsquote Klick→Landingpage nach den Fixes prüfen (Erwartung: von 29 % Richtung 50 %+)
-- [ ] Deduplizierungsrate im Events Manager prüfen (Lead-Event → Details; darf nicht 0 sein)
-- [ ] Lead-Bilanz ab ~120 € Gesamtausgaben ziehen (erwarteter CPL 15–40 €)
-- [ ] **9:16-Version des Alena-Motivs** für Reels/Stories nachliefern (größter Hebel — Reels ist die größte Platzierung, 4:5 wird dort mit Balken gezeigt); resettet die Lernphase nicht
-- [ ] Falls IG Feed weitere ~20 € ohne LP-Aufrufe frisst: Platzierung ausschließen (erst nach Ankunftsquoten-Check)
-- **Lernphase nicht stören:** Budget/Targeting/Creative-Grundgerüst bis zur Lead-Bilanz nicht anfassen.
+- [x] **Ankunftsquote:** gemessen ~30 % nach den Fixes (25–41 %, Ausreißer Sa 09.08. mit 0/10) — nicht die erhofften 50 %+, aber Messung ist consent-gated (schlanker Banner wird vermutlich öfter ignoriert als das alte Modal → Messquote sinkt, ohne dass real weniger ankommen). Echte Quote unbekannt → consent-blinde Zweitmessung via Cloudflare aufsetzen.
+- [x] **Deduplizierung:** nicht bewertbar — seit den Test-Leads vom 06.08. kein Lead-Event mehr, Events Manager sagt „Daten werden noch analysiert". Kein Fehler sichtbar; nach dem ersten echten Lead erneut prüfen.
+- [x] **IG Feed entwarnt:** 12 LP-Aufrufe bei 37 € Gesamt — beste Platzierung, bleibt drin.
+- [ ] **Lead-Bilanz:** 0 Leads bei 108,07 € (Stand 11.08. abends). Bilanz-Entscheid auf ~150 € (~Fr 15.08.) verschoben, weil 9:16-Creative und CLS-Fix noch ausstehen. Bis dahin Lernphase nicht stören.
+- [ ] **9:16-Version des Alena-Motivs** — weiterhin offen und weiterhin größter Hebel: Reels+Stories = ~51 € (47 % der Ausgaben) mit Balken-Optik.
+- [ ] **CLS-Bug fixen:** CLS unverändert 0,335 (Font-Fixes haben es nicht behoben). Lighthouse: „Verursacher von Layout Shifts" rot + 421 KiB Bild-Einsparpotenzial. Reine Seiten-Änderung, Kampagne unberührt.
+
+### Kampagnen-Zwischenstand 11.08. (Tag 6, 19:45 Uhr)
+
+- Gesamt: 108,07 € · 6.319 Impr. · 105 Link-Klicks · CTR 1,66 % · CPC 1,03 € · CPM 17,10 € · 31 LP-Aufrufe (3,49 €) · **0 Leads**.
+- PageSpeed mobil nachgemessen: **60 → 73**, LCP 4,9 → 3,1 s, TBT 0 ms — aber CLS weiter 0,335.
+- Budget-Underdelivery: ~18 €/Tag statt 25 € (kleiner Radius) — kein Eingriff nötig, verschiebt aber die Bilanzschwelle.
+- Tageswerte (Ausgaben / Link-Klicks / LP-Aufrufe): 06.: 6,71/11/2 · 07.: 17,13/20/7 · 08.: 30,77/32/13 · 09.: 18,07/10/0 · 10.: 17,90/20/5 · 11.: 17,52/12/4.
 
 ## Landingpage-Fixes vom 08.08. (alle live)
 
