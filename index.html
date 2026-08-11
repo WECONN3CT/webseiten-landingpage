@@ -22,11 +22,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fonts asynchron: blockiert das Rendern nicht mehr — der Text
-         erscheint sofort im metrik-angepassten Fallback (style.css) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet"></noscript>
+         erscheint sofort im metrik-angepassten Fallback (style.css).
+         display=optional statt swap: kommen die Fonts erst nach dem ersten
+         Paint an, bleibt der Aufruf im Fallback statt umzubrechen — der
+         Font-Swap war der einzige CLS-Verursacher (0,335). Die Preloads
+         sorgen dafür, dass die Fonts das Rennen trotzdem meist gewinnen. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=optional" rel="stylesheet"></noscript>
 
-    <link rel="stylesheet" href="css/style.css?v=21">
+    <link rel="stylesheet" href="css/style.css?v=22">
 
     <!-- Structured Data -->
     <script type="application/ld+json">

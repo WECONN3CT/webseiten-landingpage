@@ -58,7 +58,12 @@ body {
 .blob-1 { width: 620px; height: 560px; top: -200px; right: -140px;
     border-radius: 62% 38% 55% 45% / 55% 48% 52% 45%;
     background: radial-gradient(circle at 40% 40%, rgba(106,124,255,0.38), rgba(157,78,221,0.16) 60%, transparent 78%); }
-.blob-2 { width: 520px; height: 480px; bottom: -180px; left: -160px;
+/* Von oben statt von unten verankert (100vh - 300px = alte Position
+   bottom:-180px): Bottom-Verankerung machte den Blob in einem fruehen
+   Frame unsichtbar, sein "Reinspringen" zaehlte als Layout Shift und
+   war der komplette CLS von 0,335. Der top-verankerte blob-1 hatte das
+   Problem nie. */
+.blob-2 { width: 520px; height: 480px; top: calc(100vh - 300px); left: -160px;
     border-radius: 45% 55% 40% 60% / 60% 42% 58% 40%;
     background: radial-gradient(circle at 60% 60%, rgba(255,80,130,0.15), rgba(46,62,232,0.12) 55%, transparent 78%); }
 body::before { content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
